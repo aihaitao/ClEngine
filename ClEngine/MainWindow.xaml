@@ -1,0 +1,92 @@
+﻿<Window x:Class="ClEngine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClEngine"
+        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Command}"
+        Title="CLEngine" Height="450" Width="800" Style="{StaticResource {x:Type Window}}" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="文件">
+                <MenuItem Header="新建工程" Click="MenuItem_OnClick"></MenuItem>
+                <MenuItem Header="打开工程" Click="OpenProject_OnClick"></MenuItem>
+                <MenuItem Header="保存工程"></MenuItem>
+                <MenuItem Header="导出工程模板"></MenuItem>
+                <MenuItem Header="打开工程目录"></MenuItem>
+                <Separator />
+                <MenuItem Header="绑定工程ID"></MenuItem>
+                <Separator />
+                <MenuItem Header="重新关联名称"></MenuItem>
+                <Separator />
+            </MenuItem>
+            <MenuItem Header="编辑">
+                <MenuItem Header="场景快照"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="显示">
+                <CheckBox IsChecked="True">
+                    <TextBlock Text="显示网格"></TextBlock>
+                </CheckBox>
+            </MenuItem>
+            <MenuItem Header="项目">
+                <MenuItem Header="变量编辑器"></MenuItem>
+                <MenuItem Header="插件库配置"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="工具">
+                <MenuItem Header="系统配置"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1" Margin="0 2 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="SaveBtn">
+                <TextBlock>保存脚本</TextBlock>
+            </Button>
+            <Button Grid.Column="1" 
+                    Click="ClearLog" 
+                    Margin="2 0 0 0">
+                <TextBlock>清空日志</TextBlock>
+            </Button>
+            <Button Grid.Column="2" 
+                    Click="RunGame" 
+                    Margin="2 0 0 0">
+                <TextBlock>运行游戏</TextBlock>
+            </Button>
+        </Grid>
+        <TabControl Grid.Row="2" Margin="0 2 0 0" Name="TabControl">
+            <TabItem Header="地图">
+                <local:MapEditor DataContext="{Binding}"></local:MapEditor>
+            </TabItem>
+            <TabItem Header="界面">
+                <local:UiEditor DataContext="{Binding}"></local:UiEditor>
+            </TabItem>
+            <TabItem Header="脚本">
+                <local:ScriptWindow DataContext="{Binding}"></local:ScriptWindow>
+            </TabItem>
+            <TabItem Header="帮助文档">
+                <local:HelpDocument DataContext="{Binding}"></local:HelpDocument>
+            </TabItem>
+        </TabControl>
+        <TabControl Grid.Row="3" MaxHeight="120">
+            <TabItem Header="日志系统">
+                <ScrollViewer>
+                    <TextBlock TextWrapping="Wrap" Name="LogBlock" 
+                               ScrollViewer.CanContentScroll="True"
+                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                               ScrollViewer.VerticalScrollBarVisibility="Auto"></TextBlock>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="ClEngine.MapEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:clEngine="clr-namespace:ClEngine"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Column="0" MinWidth="245">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TabControl>
+                <TabItem Header="地图事件">
+                    <DataGrid Name="MapEventDataGrid" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="事件ID" Binding="{Binding EventId}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="标记" Binding="{Binding Sign}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="属性" Binding="{Binding Property}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="阵营" Binding="{Binding Camp}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="X格子" Binding="{Binding GridX}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Y格子" Binding="{Binding GridY}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="事件模版">
+                    <TreeView>
+                        <TreeViewItem Header="传奇世界" IsExpanded="True">
+                            <TreeViewItem Header="[Lv.2]传世兔.stpl"></TreeViewItem>
+                            <TreeViewItem Header="[Lv.3]传世猪.stpl"></TreeViewItem>
+                            <TreeViewItem Header="[Lv.4]传世鹿.stpl"></TreeViewItem>
+                            <TreeViewItem Header="[Lv.6]传世稻草人.stpl"></TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+                </TabItem>
+            </TabControl>
+            <TreeView Grid.Row="1">
+                <TreeViewItem Header="我的游戏" IsExpanded="True">
+                    <TreeViewItem Header="地图1"></TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+        </Grid>
+        <Grid Column="1">
+            <ScrollViewer>
+                <clEngine:MapCanvas></clEngine:MapCanvas>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

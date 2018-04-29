@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="ClEngine.DocumentList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <TreeView>
+        <TreeViewItem Header="CL Engine" IsExpanded="True">
+            <TreeViewItem Header="即时战斗类项目[A.RPG]" IsExpanded="True">
+                <TreeViewItem Header="接口文档" IsExpanded="True">
+                    <TreeViewItem Header="system"></TreeViewItem>
+                    <TreeViewItem Header="mainrole"></TreeViewItem>
+                    <TreeViewItem Header="event"></TreeViewItem>
+                    <TreeViewItem Header="clock"></TreeViewItem>
+                    <TreeViewItem Header="sound"></TreeViewItem>
+                    <TreeViewItem Header="music"></TreeViewItem>
+                    <TreeViewItem Header="animation"></TreeViewItem>
+                    <TreeViewItem Header="particle"></TreeViewItem>
+                    <TreeViewItem Header="motion"></TreeViewItem>
+                    <TreeViewItem Header="扩展服务">
+                        <TreeViewItem Header="channel"></TreeViewItem>
+                        <TreeViewItem Header="server"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="功能插件"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="窗口控件" IsExpanded="True">
+                    <TreeViewItem Header="window"></TreeViewItem>
+                    <TreeViewItem Header="button"></TreeViewItem>
+                    <TreeViewItem Header="label"></TreeViewItem>
+                    <TreeViewItem Header="slider"></TreeViewItem>
+                    <TreeViewItem Header="progress"></TreeViewItem>
+                    <TreeViewItem Header="inputbox"></TreeViewItem>
+                    <TreeViewItem Header="image"></TreeViewItem>
+                    <TreeViewItem Header="textbox"></TreeViewItem>
+                    <TreeViewItem Header="animationbox"></TreeViewItem>
+                    <TreeViewItem Header="listbox"></TreeViewItem>
+                    <TreeViewItem Header="treeview"></TreeViewItem>
+                    <TreeViewItem Header="checkbox"></TreeViewItem>
+                    <TreeViewItem Header="itembox"></TreeViewItem>
+                    <TreeViewItem Header="skillbox"></TreeViewItem>
+                    <TreeViewItem Header="shopbox"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="全局事件" IsExpanded="True">
+                    <TreeViewItem Header="游戏开始"></TreeViewItem>
+                    <TreeViewItem Header="按键事件"></TreeViewItem>
+                    <TreeViewItem Header="窗口关闭"></TreeViewItem>
+                    <TreeViewItem Header="地图切换"></TreeViewItem>
+                    <TreeViewItem Header="技能格子"></TreeViewItem>
+                    <TreeViewItem Header="物品掉落"></TreeViewItem>
+                    <TreeViewItem Header="游戏任务"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="数据库设定" IsExpanded="True">
+                    <TreeViewItem Header="技能"></TreeViewItem>
+                    <TreeViewItem Header="道具显示托管"></TreeViewItem>
+                    <TreeViewItem Header="技能显示托管"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="其他事件">
+                    <TreeViewItem Header="主角">
+                        <TreeViewItem Header="回调事件"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="事件">
+                        <TreeViewItem Header="回调事件"></TreeViewItem>
+                    </TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="全局公开函数"></TreeViewItem>
+                <TreeViewItem Header="常量表"></TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Lua 核心库">
+                <TreeViewItem Header="table"></TreeViewItem>
+            </TreeViewItem>
+        </TreeViewItem>
+    </TreeView>
+</UserControl>

@@ -1,0 +1,69 @@
+﻿<Window x:Class="ClEngine.CreateProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Style="{StaticResource {x:Type Window}}"
+        Title="新建工程" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0">
+            <TabItem Header="系统模版">
+                <Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TreeView Grid.Column="0">
+                            <TreeViewItem Header="即时战斗类型" IsExpanded="True" Selected="TreeViewItem_OnSelected">
+                                <TabItem Header="开始模板  [1]"></TabItem>
+                                <TabItem Header="接口使用  [0]"></TabItem>
+                                <TabItem Header="UI相关    [0]"></TabItem>
+                                <TabItem Header="智能AI    [0]"></TabItem>
+                                <TabItem Header="技能相关  [0]"></TabItem>
+                                <TabItem Header="插件例程序[0]"></TabItem>
+                            </TreeViewItem>
+                        </TreeView>
+                        <GridSplitter Grid.Column="1"/>
+                        <ListBox Grid.Column="2" Name="ListBox">
+                        </ListBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="其他模版"></TabItem>
+        </TabControl>
+        <GridSplitter Grid.Row="1"/>
+        <Grid Grid.Row="2" Margin="2 0 2 2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="工程名称:" 
+                       Grid.Column="0" 
+                       VerticalAlignment="Center"></TextBlock>
+            <TextBox Grid.Column="1" Margin="2 0 0 0" Name="ProjectName"></TextBox>
+            <TextBlock Text="工程位置:" 
+                       Grid.Column="2" 
+                       VerticalAlignment="Center"
+                       Margin="2 0 0 0"></TextBlock>
+            <TextBox Grid.Column="3" Margin="2 0 0 0" Name="ProjectPosition"></TextBox>
+            <Button Grid.Column="4" Margin="2 0 0 0" Click="Browser_OnClick">
+                <TextBlock Text="..."></TextBlock>
+            </Button>
+            <Button Grid.Column="5" Margin="2 0 0 0" Click="CreateProject_OnClick">
+                <TextBlock Text="确定"></TextBlock>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,47 @@
+﻿<SyntaxDefinition name="XML" extensions=".xml;.xsl;.xslt;.xsd;.syn;.lang;.manifest;.config;.addin;.xshd;.wxs;.wxi;.wxl;.proj;.csproj;.vbproj;.resx;.user;.ilproj;.booproj;.build;.xfrm;.targets;.xaml;.xpt;.xft;.map;.wsdl;.disco" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+  <RuleSet ignoreCase="false">
+    <Span foreground="#969896" fontWeight="normal" fontStyle="normal" multiline="true">
+      <Begin>&lt;!--</Begin>
+      <End>--&gt;</End>
+    </Span>
+    <Span foreground="#B5BD68" fontWeight="normal" fontStyle="normal" multiline="true">
+      <Begin>&lt;!\[CDATA\[</Begin>
+      <End>]]&gt;</End>
+    </Span>
+    <Span foreground="#B5BD68" fontWeight="normal" fontStyle="normal" multiline="true">
+      <Begin>&lt;!DOCTYPE</Begin>
+      <End>&gt;</End>
+    </Span>
+    <Span foreground="#969896" fontWeight="normal" fontStyle="normal" multiline="true">
+      <Begin>&lt;\?</Begin>
+      <End>\?&gt;</End>
+    </Span>
+    <Span foreground="#8ABEB7" fontWeight="normal" fontStyle="normal" ruleSet="XmlTagSet" multiline="true">
+      <Begin>&lt;</Begin>
+      <End>&gt;</End>
+    </Span>
+    <Span foreground="#81A2BE" fontWeight="normal" fontStyle="normal">
+      <Begin>&amp;</Begin>
+      <End>;</End>
+    </Span>
+    <Rule foreground="#81A2BE" fontWeight="normal" fontStyle="normal">\b0[xX][0-9a-fA-F]+|(\b\d+(\.[0-9]+)?|\.[0-9]+)([eE][+-]?[0-9]+)?</Rule>
+  </RuleSet>
+  <RuleSet name="XmlTagSet" ignoreCase="false">
+    <Keywords foreground="#8ABEB7" fontWeight="normal" fontStyle="normal">
+      <Word>/</Word>
+    </Keywords>
+    <Keywords foreground="#81A2BE" fontWeight="normal" fontStyle="normal">
+      <Word>=</Word>
+    </Keywords>
+    <Span foreground="#B5BD68" fontWeight="normal" fontStyle="normal">
+      <Begin>"</Begin>
+      <End>"</End>
+    </Span>
+    <Span foreground="#B5BD68" fontWeight="normal" fontStyle="normal">
+      <Begin>'</Begin>
+      <End>'</End>
+    </Span>
+    <Rule foreground="#81A2BE" fontWeight="normal">[\d\w_]+(?=(\s*=))</Rule>
+    <Rule foreground="#85BD68" fontWeight="normal" fontStyle="normal">\b0[xX][0-9a-fA-F]+|(\b\d+(\.[0-9]+)?|\.[0-9]+)([eE][+-]?[0-9]+)?</Rule>
+  </RuleSet>
+</SyntaxDefinition>
