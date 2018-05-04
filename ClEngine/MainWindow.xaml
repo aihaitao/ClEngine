@@ -42,6 +42,9 @@
             </MenuItem>
             <MenuItem Header="工具">
                 <MenuItem Header="系统配置"></MenuItem>
+                <MenuItem Header="更多工具">
+                    <MenuItem Header="粒子编辑器" Click="ParticleEditor_OnClick"></MenuItem>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <Grid Grid.Row="1" Margin="0 2 0 0">

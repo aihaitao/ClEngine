@@ -6,6 +6,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using ClEngine.Model;
+using ClEngine.View.Map;
 using ClEngine.ViewModel;
 using GalaSoft.MvvmLight.Messaging;
 using Newtonsoft.Json;
@@ -224,6 +225,21 @@ namespace ClEngine
             var size = new Size(1920, 1080);
             Messenger.Default.Send(size, "LoadMap");
             Messenger.Default.Send("", "LoadUiConfig");
+			MapDraw.Instance.SetContentRoot();
         }
+
+	    private const string ParticleName = "ProjectMercury.EffectEditor.exe";
+
+		private void ParticleEditor_OnClick(object sender, RoutedEventArgs e)
+		{
+			var runtimeParticle = Path.Combine(Environment.CurrentDirectory, "runtime", "particle");
+			var runtimeParticleExecute = Path.Combine(runtimeParticle, ParticleName);
+		    if (File.Exists(runtimeParticleExecute))
+		    {
+			    var processInfo = new ProcessStartInfo(runtimeParticleExecute) {WorkingDirectory = runtimeParticle};
+
+			    Process.Start(processInfo);
+		    }
+	    }
     }
 }

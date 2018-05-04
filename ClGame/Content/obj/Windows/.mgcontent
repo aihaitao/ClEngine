@@ -4,6 +4,34 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>E:/ClEngine/ClGame/Content/adventure-gui.png</File>
+    <File>E:/ClEngine/ClGame/Content/adventure-gui-atlas.json</File>
     <File>E:/ClEngine/ClGame/Content/defaultFont.spritefont</File>
+    <File>E:/ClEngine/ClGame/Content/msyh9.spritefont</File>
+    <File>E:/ClEngine/ClGame/Content/small-font.fnt</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_00.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_01.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_02.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_03.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_04.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_05.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_06.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_07.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_08.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_09.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_10.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_11.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_12.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_13.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_14.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_15.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_16.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_17.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_18.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_19.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_20.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_21.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_22.png</File>
+    <File>E:/ClEngine/ClGame/Content/small-font_23.png</File>
   </SourceFiles>
 </SourceFileCollection>

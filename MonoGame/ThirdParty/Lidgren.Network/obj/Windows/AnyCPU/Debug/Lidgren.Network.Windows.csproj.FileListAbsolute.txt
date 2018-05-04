@@ -1,0 +1,7 @@
+E:\MonoGame\ThirdParty\Lidgren.Network\bin\Windows\AnyCPU\Debug\Lidgren.Network.xml
+E:\MonoGame\ThirdParty\Lidgren.Network\bin\Windows\AnyCPU\Debug\Lidgren.Network.dll
+E:\MonoGame\ThirdParty\Lidgren.Network\bin\Windows\AnyCPU\Debug\Lidgren.Network.pdb
+E:\MonoGame\ThirdParty\Lidgren.Network\obj\Windows\AnyCPU\Debug\Lidgren.Network.Windows.csprojResolveAssemblyReference.cache
+E:\MonoGame\ThirdParty\Lidgren.Network\obj\Windows\AnyCPU\Debug\Lidgren.Network.Windows.csproj.CoreCompileInputs.cache
+E:\MonoGame\ThirdParty\Lidgren.Network\obj\Windows\AnyCPU\Debug\Lidgren.Network.dll
+E:\MonoGame\ThirdParty\Lidgren.Network\obj\Windows\AnyCPU\Debug\Lidgren.Network.pdb

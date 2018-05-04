@@ -2,7 +2,7 @@
 
 namespace ClEngine
 {
-	public class Core
+	public static class Core
 	{
 		/// <summary>
 		/// 使用.的接口

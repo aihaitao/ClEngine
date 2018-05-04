@@ -35,5 +35,4 @@ E:\ClEngine\ClGame\obj\x86\Debug\ClGame.csproj.CoreCompileInputs.cache
 E:\ClEngine\ClGame\obj\x86\Debug\ClGame.csproj.CopyComplete
 E:\ClEngine\ClGame\obj\x86\Debug\ClGame.exe
 E:\ClEngine\ClGame\obj\x86\Debug\ClGame.pdb
-E:\ClEngine\ClGame\obj\x86\Debug\ClGame.csprojResolveAssemblyReference.cache
 E:\ClEngine\ClEngine\bin\Debug\runtime\game\ClGame.exe.config

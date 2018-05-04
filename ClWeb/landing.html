@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CLEngine 跨平台2D/3D游戏引擎</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body id="page-top" class="landing-page">
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="index.html">后台页面</a>-->
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="page-scroll" href="landing.html#page-top">首页</a></li>
+                    <li><a class="page-scroll" href="landing.html#features">详细</a></li>
+                    <li><a class="page-scroll" href="landing.html#team">关于团队</a></li>
+                    <li><a class="page-scroll" href="landing.html#testimonials">评价</a></li>
+                    <li><a class="page-scroll" href="landing.html#pricing">价格</a></li>
+                    <li><a class="page-scroll" href="landing.html#contact">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>基于MonoGame</h1><br/>
+                        跨平台<br/>
+                        多模板<br/>
+                        引擎/编辑器<br/>
+                        <p>可视化编辑器.</p>
+                        <!--<p>
+                            <a class="btn btn-lg btn-primary" href="landing.html#" role="button">阅读更多</a>
+                            <a class="caption-link" href="landing.html#" role="button"></a>
+                        </p>-->
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <img src="img/landing/laptop.png" alt="laptop"/>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one"></div>
+
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    <h1>我们允许用户发布至大部分平台 <br/> 所有主流平台我们都将会支持.</h1>
+                    <p>如果发现不支持的平台，请放弃我们.</p>
+                    <!--<p><a class="btn btn-lg btn-primary" href="landing.html#" role="button">关于更多</a></p>-->
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two"></div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="landing.html#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">上一页</span>
+    </a>
+    <a class="right carousel-control" href="landing.html#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">下一页</span>
+    </a>
+</div>
+
+
+<section id="features" class="container services">
+    <div class="row">
+        <div class="col-sm-3">
+            <h2>可视化编辑器</h2>
+            <p>UI可视化编辑器，支持xaml、json、xml等多种转化。 2D地图编辑器，快速绘制障碍及透明区域，快速摆放事件，适应多种场景需求。</p>
+            <!--<p><a class="navy-link" href="landing.html#" role="button">详细 &raquo;</a></p>-->
+        </div>
+        <div class="col-sm-3">
+            <h2>LUA 脚本语言</h2>
+            <p>小巧，轻便，快速上手，学习成本低。</p>
+            <!--<p><a class="navy-link" href="landing.html#" role="button">详细 &raquo;</a></p>-->
+        </div>
+        <div class="col-sm-3">
+            <h2>多种主流格式支持</h2>
+            <p>支持多种主流格式文件.</p>
+            <!--<p><a class="navy-link" href="landing.html#" role="button">详细 &raquo;</a></p>-->
+        </div>
+        <div class="col-sm-3">
+            <h2>高性能跨平台支持</h2>
+            <p>支持iOS，Android，MacOS，Linux，所有Windows平台，PS4，PSVita，Xbox One和Switch，以及更多平台。</p>
+            <!--<p><a class="navy-link" href="landing.html#" role="button">详细 &raquo;</a></p>-->
+        </div>
+    </div>
+</section>
+
+<section class="container features">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>超过15+的游戏级控件<br/> <span class="navy"> 10+独特的引擎特有控件</span></h1>
+            <p>控件拥有超高即时性，提供大数据级游戏控件，支持xaml编写控制. </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-center wow fadeInLeft">
+            <div>
+                <i class="fa fa-mobile features-icon"></i>
+                <h2>高响应</h2>
+                <p>毫秒级控件响应.</p>
+            </div>
+            <div class="m-t-lg">
+                <i class="fa fa-bar-chart features-icon"></i>
+                <h2>丰富控件</h2>
+                <p>超过15+的控件供你选择.</p>
+            </div>
+        </div>
+        <div class="col-md-6 text-center  wow zoomIn">
+            <img src="img/landing/perspective.png" alt="dashboard" class="img-responsive">
+        </div>
+        <div class="col-md-3 text-center wow fadeInRight">
+            <div>
+                <i class="fa fa-envelope features-icon"></i>
+                <h2>后台实时监控</h2>
+                <p>网页后台实时监控游戏</p>
+            </div>
+            <div class="m-t-lg">
+                <i class="fa fa-google features-icon"></i>
+                <h2>版本控制</h2>
+                <p>允许用户对自己的游戏进行版本控制.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1>高性能UI编辑器</h1>
+            <p>可拖拉，旋转，缩放，移动. </p>
+        </div>
+    </div>
+    <div class="row features-block">
+        <div class="col-lg-6 features-text wow fadeInLeft">
+            <small>设计器</small>
+            <h2>最好的设计体验</h2>
+            <p>设计器提供网格对齐，控件对齐，控件拖拉，控件缩放，控件移动，多控件移动，控件属性监视.</p>
+            <!--<a href="landing.html" class="btn btn-primary">学习更多</a>-->
+        </div>
+        <div class="col-lg-6 text-right wow fadeInRight">
+            <img src="img/landing/dashboard.png" alt="dashboard" class="img-responsive pull-right">
+        </div>
+    </div>
+</section>
+
+<section id="team" class="gray-section team">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>关于我们团队</h1>
+                <p>目前团队为独立团队，我们招募各类游戏爱好者加入我们.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 wow fadeInLeft">
+                <!--<div class="team-member">
+                    <img src="img/landing/avatar3.jpg" class="img-responsive img-circle img-small" alt="">
+                    <h4><span class="navy">Amelia</span> Smith</h4>
+                    <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus. </p>
+                    <ul class="list-inline social-icon">
+                        <li><a href="landing.html#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="landing.html#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="landing.html#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>-->
+            </div>
+            <div class="col-sm-4">
+                <div class="team-member wow zoomIn">
+                    <img src="img/landing/avatar1.jpg" class="img-responsive img-circle" alt="">
+                    <h4><span class="navy">Yhh</span> 引擎开发者</h4>
+                    <p></p>
+                    <!--<ul class="list-inline social-icon">
+                        <li><a href="landing.html#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="landing.html#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="landing.html#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>-->
+                </div>
+            </div>
+            <div class="col-sm-4 wow fadeInRight">
+                <!--<div class="team-member">
+                    <img src="img/landing/avatar2.jpg" class="img-responsive img-circle img-small" alt="">
+                    <h4><span class="navy">Peter</span> Johnson</h4>
+                    <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
+                    <ul class="list-inline social-icon">
+                        <li><a href="landing.html#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="landing.html#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="landing.html#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p>我们基于MonoGame开发历时2年多了，在期间解决了众多问题，并参与了MonoGame的开发制作</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>我们的脚本语言</h1>
+                <p>我们使用lua进行开发，使用了NLUA作为脚本引擎. </p>
+            </div>
+        </div>
+        <div class="row features-block">
+            <div class="col-lg-3 features-text wow fadeInLeft">
+                <small>小巧快速</small>
+                <h2>高性能传输</h2>
+                <p>lua与C#的交互，它从曾经的LuaInterface发展为nlua，我们选择了它来帮助开发者更快的上手入门.</p>
+                <!--<a href="landing.html" class="btn btn-primary">查看更多</a>-->
+            </div>
+            <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
+                <img src="img/landing/iphone.jpg" class="img-responsive" alt="dashboard">
+            </div>
+            <!--<div class="col-lg-3 features-text text-right wow fadeInRight">
+                <small>INSPINIA</small>
+                <h2>Perfectly designed </h2>
+                <p>INSPINIA Admin Theme is a premium admin dashboard template with flat design concept. It is fully responsive admin dashboard template built with Bootstrap 3+ Framework, HTML5 and CSS3, Media query. It has a huge collection of reusable UI components and integrated with latest jQuery plugins.</p>
+                <a href="landing.html" class="btn btn-primary">Learn more</a>
+            </div>-->
+        </div>
+    </div>
+
+</section>
+
+<section class="timeline gray-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>我们的工作流程</h1>
+                <p>自2015年创建项目.这里只记录近期的更新日志 </p>
+            </div>
+        </div>
+        <div class="row features-block">
+
+            <div class="col-lg-12">
+                <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>新增ui编辑器</h2>
+                            <p>新增ui控件的事件绑定.
+                            </p>
+                            <!--<a href="landing.html#" class="btn btn-xs btn-primary"> 更多信息</a>-->
+                            <span class="vertical-date"> 2018 <br/> <small>4.28</small> </span>
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>新增地图编辑器</h2>
+                            <p>允许新增地图与对地图的缩放及移动</p>
+                            <!--<a href="landing.html#" class="btn btn-xs btn-primary"> More info</a>-->
+                            <span class="vertical-date"> 2018 <br/> <small>3.26</small> </span>
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>新增代码编辑器</h2>
+                            <p>允许基本的代码编写，API高亮</p>
+                            <!--<a href="landing.html#" class="btn btn-xs btn-primary"> More info</a>-->
+                            <span class="vertical-date"> 2018 <br/> <small>2.12</small> </span>
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>优化游戏引擎</h2>
+                            <p>更名为CLEngine</p>
+                            <!--<a href="landing.html#" class="btn btn-xs btn-primary"> More info</a>-->
+                            <span class="vertical-date"> 2018 <br/> <small>2.8</small> </span>
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>新增游戏引擎</h2>
+                            <p>更名为ESEngine</p>
+                            <!--<a href="landing.html#" class="btn btn-xs btn-primary"> More info</a>-->
+                            <span class="vertical-date"> 2017 <br/> <small>3.1</small> </span>
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>创建工程</h2>
+                            <p>代码托管至github、gitlab</p>
+                            <!--<a href="landing.html#" class="btn btn-xs btn-primary"> More info</a>-->
+                            <span class="vertical-date"> 2016 <br/> <small>2.2</small> </span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center wow zoomIn">
+                <i class="fa fa-comment big-icon"></i>
+                <h1>
+                    用户反馈
+                </h1>
+                <div class="testimonials-text">
+                    <i>我曾使用过unity和其它主流的编辑器，但是大都没有CL引擎来的好用，不仅仅是因为它的快速开发，更多的是因为它更注重用户体验与极低的门槛，还有更为丰富的中文文档及详细的例子让我更快的接受它，还有代码与ui视图的实时显示让我避免了很多的麻烦，它适用于许多游戏类型，对于大多数的素材我完全可以不需要进过另外的处理就可以使用，这真的非常棒！</i>
+                </div>
+                <small>
+                    <strong>2018.2.12 - 匿名</strong>
+                </small>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="comments gray-section" style="margin-top: 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>我的合作伙伴</h1>
+                <p>我有1个合作伙伴，非常感谢他的支持. </p>
+            </div>
+        </div>
+        <div class="row features-block">
+            <div class="col-lg-4">
+                <div class="bubble">
+                    "我暂时还没想好说什么"
+                </div>
+                <div class="comments-avatar">
+                    <a href="landing.html" class="pull-left">
+                        <img alt="image" src="img/landing/avatar2.jpg">
+                    </a>
+                    <div class="media-body">
+                        <div class="commens-name">
+                            YTX
+                        </div>
+                        <small class="text-muted">引擎赞助者</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="bubble">
+                    "我在一直改进它，改进到你们所说的一键式开发，只要按下一个按钮，你们的世界就会呈现！"
+                </div>
+                <div class="comments-avatar">
+                    <a href="landing.html" class="pull-left">
+                        <img alt="image" src="img/landing/avatar1.jpg">
+                    </a>
+                    <div class="media-body">
+                        <div class="commens-name">
+                            YHH
+                        </div>
+                        <small class="text-muted"> 引擎开发者</small>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="col-lg-4">
+                <div class="bubble">
+                    "Uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+                </div>
+                <div class="comments-avatar">
+                    <a href="landing.html" class="pull-left">
+                        <img alt="image" src="img/landing/avatar2.jpg">
+                    </a>
+                    <div class="media-body">
+                        <div class="commens-name">
+                            Andrew Williams
+                        </div>
+                        <small class="text-muted">Company X from California</small>
+                    </div>
+                </div>
+            </div>-->
+
+
+        </div>
+    </div>
+
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>额外的功能</h1>
+                <p>超过一般引擎所支持的功能. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 features-text">
+                <small>LCEngine</small>
+                <h2>高性能设计器</h2>
+                <i class="fa fa-bar-chart big-icon pull-right"></i>
+                <p>我已经提过这个了，我们的设计器绝对保证高性能，每一个动作指令都保证丝滑顺畅.</p>
+            </div>
+            <div class="col-lg-5 features-text">
+                <small>LCEngine</small>
+                <h2>快速开发</h2>
+                <i class="fa fa-bolt big-icon pull-right"></i>
+                <p>我的初衷就是让开发者以最短的周期开发出你所想要的游戏，所以我的设计理念就是积木式开发，节省你的开发成本.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 features-text">
+                <small>LCEngine</small>
+                <h2>24*7技术支持</h2>
+                <i class="fa fa-clock-o big-icon pull-right"></i>
+                <p>我几乎24*7小时提供全方位的技术支持，如果你的游戏出现因为游戏引擎所导致的任何问题，我都会为你第一时间解答，但是我有权拒绝回答关于LC游戏引擎以外的问题.</p>
+            </div>
+            <div class="col-lg-5 features-text">
+                <small>LCEngine</small>
+                <h2>多人协作开发</h2>
+                <i class="fa fa-users big-icon pull-right"></i>
+                <p>LC游戏引擎提供了多人协作开发模式，所有的代码都可以被控制，这也是为了加快你的开发速度，引擎保证绝对的自由.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section id="pricing" class="pricing">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>引擎定价</h1>
+                <p>这是所有人都会每天问我的问题，这么牛逼的引擎需要的价格.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 wow zoomIn">
+                <ul class="pricing-plan list-unstyled">
+                    <li class="pricing-title">
+                        基础版本
+                    </li>
+                    <li class="pricing-desc">
+                        大多数人都会选择的版本，我没有理由让它收费，如果不让用户使用，你怎么知道我的引擎是否适合你
+                    </li>
+                    <li class="pricing-price">
+                        <span>永久免费</span> / 月
+                    </li>
+                    <li>
+                        提供后台监控
+                    </li>
+                    <li>
+                        提供工程模板
+                    </li>
+                    <li>
+                        提供技术服务
+                    </li>
+                    <li>
+                        提供代码调试
+                    </li>
+                    <li>
+                        提供所有工具支持
+                    </li>
+                    <!--<li>
+                        <a class="btn btn-primary btn-xs" href="landing.html#">免费的 不用点击</a>
+                    </li>-->
+                </ul>
+            </div>
+
+            <div class="col-lg-4 wow zoomIn">
+                <ul class="pricing-plan list-unstyled selected">
+                    <li class="pricing-title">
+                        专业版
+                    </li>
+                    <li class="pricing-desc">
+                        我暂时没有考虑对其他功能删减，所以也不收费
+                    </li>
+                    <li class="pricing-price">
+                        <span>免费</span> / 月
+                    </li>
+                    <li>
+                        提供后台监控
+                    </li>
+                    <li>
+                        提供工程模板
+                    </li>
+                    <li>
+                        提供技术服务
+                    </li>
+                    <li>
+                        提供代码调试
+                    </li>
+                    <li>
+                        提供所有工具支持
+                    </li>
+                    <li>
+                        <strong>发布至其他平台 所有的许可证由开发者自己出钱</strong>
+                    </li>
+                    <!--<li>
+                        <a class="btn btn-primary btn-xs" href="landing.html#">免费的 不用点击</a>
+                    </li>-->
+                </ul>
+            </div>
+
+            <div class="col-lg-4 wow zoomIn">
+                <ul class="pricing-plan list-unstyled">
+                    <li class="pricing-title">
+                        学习版本
+                    </li>
+                    <li class="pricing-desc">
+                        我们都开源了，完全可以去gitlab里面看我们的工程，我有权拒绝回答为什么不能编译等问题
+                    </li>
+                    <li class="pricing-price">
+                        <span>免费</span> / 月
+                    </li>
+                    <li>
+                        提供后台监控
+                    </li>
+                    <li>
+                        提供工程模板
+                    </li>
+                    <li>
+                        提供技术服务
+                    </li>
+                    <li>
+                        提供代码调试
+                    </li>
+                    <li>
+                        提供所有工具支持
+                    </li>
+                    <!--<li>
+                        <a class="btn btn-primary btn-xs" href="landing.html#">免费的 不用点击</a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="row m-t-lg">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
+                <p>
+                    许多游戏和软件都在使用LCEngine来作为开发工具，搜索MonoGame便可以发现很多这类游戏，我们任然处于初期阶段，各种版本多年一直在演变，我们由最初的ESEngine转为LCEngine付出了许多的努力，请勿盗取源码来作为其它商业用途，一经发现，将追究其责任，我们是受到许可证保护，请勿挑衅法律.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="contact" class="gray-section contact">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>联系我们</h1>
+                <p>我觉得不用联系我本人，因为直接私下问我我没有办法和你闲聊，我每天要对引擎进行数次修改，所以有问题可以在群里询问.</p>
+            </div>
+        </div>
+        <div class="row m-b-lg">
+            <div class="col-lg-3 col-lg-offset-3">
+                <address>
+                    <strong><span class="navy">QQ群 .</span></strong><br/>
+                    ESEngine 我们一直用着以前引擎的名字<br/>
+                    552438279<br/>
+                </address>
+            </div>
+            <div class="col-lg-4">
+                <p class="text-color">
+                    请勿在群内发广告。可以聊天，可以问技术上的问题。
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <!--<a href="mailto:test@email.com" class="btn btn-primary">给我发送邮件</a>-->
+                <p class="m-t-sm">
+                    关注我们的官网
+                </p>
+                <!--<ul class="list-inline social-icon">
+                    <li><a href="landing.html#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="landing.html#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="landing.html#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p><strong>&copy; 2015 江西辉源科技有限公司</strong><br/> 我是一个公司，我不是一个人在战斗，我们所有的东西都是最专业的.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+<script src="js/plugins/wow/wow.min.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('body').scrollspy({
+            target: '.navbar-fixed-top',
+            offset: 80
+        });
+
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function (event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+            $("#navbar").collapse('hide');
+        });
+    });
+
+    var cbpAnimatedHeader = (function () {
+        var docElem = document.documentElement,
+            header = document.querySelector('.navbar-default'),
+            didScroll = false,
+            changeHeaderOn = 200;
+
+        function init() {
+            window.addEventListener('scroll', function (event) {
+                if (!didScroll) {
+                    didScroll = true;
+                    setTimeout(scrollPage, 250);
+                }
+            }, false);
+        }
+
+        function scrollPage() {
+            var sy = scrollY();
+            if (sy >= changeHeaderOn) {
+                $(header).addClass('navbar-scroll')
+            }
+            else {
+                $(header).removeClass('navbar-scroll')
+            }
+            didScroll = false;
+        }
+
+        function scrollY() {
+            return window.pageYOffset || docElem.scrollTop;
+        }
+
+        init();
+
+    })();
+
+    // Activate WOW.js plugin for animation on scrol
+    new WOW().init();
+
+</script>
+
+</body>
+</html>

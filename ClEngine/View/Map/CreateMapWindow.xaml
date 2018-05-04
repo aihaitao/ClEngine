@@ -1,0 +1,179 @@
+﻿<Window x:Class="ClEngine.View.Map.CreateMapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClEngine.View.Map"
+        mc:Ignorable="d"
+        Style="{StaticResource {x:Type Window}}"
+        Title="新建地图" Height="255" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"> 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="2"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TabControl>
+            <TabItem Header="自绘创建">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Margin="5 5 10 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="地图逻辑列数" VerticalAlignment="Center"></TextBlock>
+                            <TextBox Grid.Column="1" Text="100" Margin="5 0 0 0"></TextBox>
+                            <TextBlock Grid.Column="2" Text="地图逻辑行数" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
+                            <TextBox Grid.Column="3" Text="100" Margin="5 0 0 0"></TextBox>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="0 5 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="地图美术规格:"></TextBlock>
+                            <ComboBox Grid.Column="1" Margin="5 0 0 0">
+                                <ComboBoxItem>
+                                    <TextBlock Text="传奇世界"></TextBlock>
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                    <TextBlock Text="自定义"></TextBlock>
+                                </ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 5 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="逻辑格子宽度:" VerticalAlignment="Center"></TextBlock>
+                            <TextBox Grid.Column="1" Text="64" IsEnabled="False" Margin="5 0 0 0"></TextBox>
+                            <TextBlock Grid.Column="2" Text="逻辑格子高度:" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
+                            <TextBox Grid.Column="3" Text="32" IsEnabled="False" Margin="5 0 0 0"></TextBox>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 5 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="地表格子宽度:" VerticalAlignment="Center"></TextBlock>
+                            <TextBox Grid.Column="1" Text="256" IsEnabled="False" Margin="5 0 0 0"></TextBox>
+                            <TextBlock Grid.Column="2" Text="地表格子高度:" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
+                            <TextBox Grid.Column="3" Text="256" IsEnabled="False" Margin="5 0 0 0"></TextBox>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 5 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="地图宽高: 6400 * 3200" VerticalAlignment="Center"></TextBlock>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="图片创建">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="选择图片:" VerticalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Column="1" Margin="5 0 0 0" Name="ImagePath"></TextBox>
+                        <Button Grid.Column="2" Width="30" Margin="5 0 0 0" Click="BrowserMap_OnClick">
+                            <TextBlock Text="..."></TextBlock>
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="0 5 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="逻辑格子宽度:" VerticalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Column="1" Margin="5 0 0 0" Text="64" Name="LogicGridWidth"></TextBox>
+                        <TextBlock Grid.Column="2" Margin="15 0 0 0" Text="逻辑格子高度" VerticalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Column="3" Margin="5 0 0 0" Text="32" Name="LogicGridHeight"></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0 5 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="地表格子宽度:" VerticalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Column="1" Margin="5 0 0 0" Text="256" Name="SurfaceGridWidth"></TextBox>
+                        <TextBlock Grid.Column="2" Margin="15 0 0 0" Text="地表格子高度" VerticalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Column="3" Margin="5 0 0 0" Text="256" Name="SurfaceGridHeight"></TextBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="从模板创建">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="选择模板:" VerticalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Column="1" Margin="5 0 0 0"></TextBox>
+                        <Button Grid.Column="2" Width="30" Margin="5 0 0 0">
+                            <TextBlock Text="..."></TextBlock>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <GridSplitter Grid.Row="1"></GridSplitter>
+        <Grid Grid.Row="2" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="地图名称:" VerticalAlignment="Center"></TextBlock>
+            <TextBox Grid.Column="1" Margin="5 0 0 0" Name="MapName"></TextBox>
+        </Grid>
+        <GridSplitter Grid.Row="3"></GridSplitter>
+        <Grid Grid.Row="4" Margin="5">
+            <WrapPanel HorizontalAlignment="Right">
+                <Button Width="75" Height="20" Click="CreateMap_OnClick">
+                    <TextBlock Text="确定"></TextBlock>
+                </Button>
+                <Button Width="75" Height="20" Margin="5 0 0 0">
+                    <TextBlock Text="取消"></TextBlock>
+                </Button>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</Window>

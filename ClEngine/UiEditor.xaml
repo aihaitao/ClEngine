@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:sd="http://sharpdevelop.net"
              xmlns:model="clr-namespace:ClEngine.Model"
              xmlns:wpfDesign="clr-namespace:ICSharpCode.WpfDesign;assembly=ICSharpCode.WpfDesign"
@@ -274,8 +273,8 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="文本颜色" VerticalAlignment="Center"></TextBlock>
-                                <xctk:ColorPicker Grid.Column="1" HorizontalAlignment="Left" Margin="10 0 0 0" DisplayColorAndName="True" SelectedColor="White">
-                                </xctk:ColorPicker>
+                                <sd:ColorPicker Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 0" Height="25">
+                                </sd:ColorPicker>
                             </Grid>
                             <Grid Row="4" Margin="0 5 0 0">
                                 <Grid.ColumnDefinitions>
@@ -311,8 +310,8 @@
                                 <TextBlock Text="文字描边" VerticalAlignment="Center"></TextBlock>
                                 <CheckBox Grid.Column="1" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"></CheckBox>
                                 <TextBlock Text="文字描边" VerticalAlignment="Center" Grid.Column="2" Margin="10 0 0 0"></TextBlock>
-                                <xctk:ColorPicker Grid.Column="3" HorizontalAlignment="Left" Margin="10 0 0 0" DisplayColorAndName="True" SelectedColor="Black">
-                                </xctk:ColorPicker>
+                                <sd:ColorPicker Grid.Column="3" HorizontalAlignment="Left" Margin="5 0 0 0" Height="25">
+                                </sd:ColorPicker>
                             </Grid>
                             <Grid Row="7" Margin="0 5 0 0">
                                 <Grid.ColumnDefinitions>
