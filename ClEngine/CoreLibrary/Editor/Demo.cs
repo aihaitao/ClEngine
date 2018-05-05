@@ -1,12 +1,12 @@
 ﻿using System;
-using ClEngine.View.Map;
+using ClEngine.CoreLibrary.Map;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
 
-namespace ClEngine
+namespace ClEngine.CoreLibrary.Editor
 {
 	public abstract class Demo : IComparable<Demo>
 	{

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ClEngine
+namespace ClEngine.CoreLibrary
 {
 	public static class Core
 	{

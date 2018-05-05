@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ClEngine.CoreLibrary.Editor;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Framework.WpfInterop;
 using MonoGame.Framework.WpfInterop.Input;
 
-namespace ClEngine.View.Map
+namespace ClEngine.CoreLibrary.Map
 {
 	public class MapDraw : WpfGame
 	{

@@ -41,3 +41,4 @@ E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framew
 E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.Windows.csproj.CopyComplete
 E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.dll
 E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.pdb
+E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.Windows.csprojResolveAssemblyReference.cache

@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <TabControl>
-            <TabItem Header="自绘创建">
+            <TabItem Header="自绘创建" IsEnabled="False">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -90,7 +90,7 @@
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="图片创建">
+            <TabItem Header="地图创建" IsSelected="True">
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -103,7 +103,7 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="选择图片:" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="选择地图:" VerticalAlignment="Center"></TextBlock>
                         <TextBox Grid.Column="1" Margin="5 0 0 0" Name="ImagePath"></TextBox>
                         <Button Grid.Column="2" Width="30" Margin="5 0 0 0" Click="BrowserMap_OnClick">
                             <TextBlock Text="..."></TextBlock>
@@ -117,9 +117,9 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="逻辑格子宽度:" VerticalAlignment="Center"></TextBlock>
-                        <TextBox Grid.Column="1" Margin="5 0 0 0" Text="64" Name="LogicGridWidth"></TextBox>
+                        <TextBox Grid.Column="1" Margin="5 0 0 0" Text="64" Name="LogicGridWidth" IsEnabled="False"></TextBox>
                         <TextBlock Grid.Column="2" Margin="15 0 0 0" Text="逻辑格子高度" VerticalAlignment="Center"></TextBlock>
-                        <TextBox Grid.Column="3" Margin="5 0 0 0" Text="32" Name="LogicGridHeight"></TextBox>
+                        <TextBox Grid.Column="3" Margin="5 0 0 0" Text="32" Name="LogicGridHeight" IsEnabled="False"></TextBox>
                     </Grid>
                     <Grid Grid.Row="2" Margin="0 5 0 0">
                         <Grid.ColumnDefinitions>
@@ -129,13 +129,13 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="地表格子宽度:" VerticalAlignment="Center"></TextBlock>
-                        <TextBox Grid.Column="1" Margin="5 0 0 0" Text="256" Name="SurfaceGridWidth"></TextBox>
+                        <TextBox Grid.Column="1" Margin="5 0 0 0" Text="256" Name="SurfaceGridWidth" IsEnabled="False"></TextBox>
                         <TextBlock Grid.Column="2" Margin="15 0 0 0" Text="地表格子高度" VerticalAlignment="Center"></TextBlock>
-                        <TextBox Grid.Column="3" Margin="5 0 0 0" Text="256" Name="SurfaceGridHeight"></TextBox>
+                        <TextBox Grid.Column="3" Margin="5 0 0 0" Text="256" Name="SurfaceGridHeight" IsEnabled="False"></TextBox>
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="从模板创建">
+            <TabItem Header="从模板创建" IsEnabled="False">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>

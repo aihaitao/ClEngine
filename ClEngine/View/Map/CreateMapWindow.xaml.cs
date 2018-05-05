@@ -1,7 +1,6 @@
 ﻿using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
+using ClEngine.CoreLibrary.Asset;
 using ClEngine.Model;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
@@ -93,20 +92,15 @@ namespace ClEngine.View.Map
 				CheckFileExists = true,
 				CheckPathExists = true,
 				Multiselect = false,
-				Filter = "图像文件(*.jpg,*.png)|*.jpg;*.png"
+				Filter = "地图文件(*.tmx, *.xml, *.json)|*.tmx;*.xml;*.json"
 			};
 			var dialogResult = loadMap.ShowDialog();
 			if (dialogResult == true)
 			{
-				var fileInfo = new FileInfo(loadMap.FileName);
-				var mapDir = Path.Combine(MainWindow.ProjectPosition, "Content", "Map");
-				var destPosition = Path.Combine(mapDir, fileInfo.Name);
-				if (!Directory.Exists(mapDir))
-					Directory.CreateDirectory(mapDir);
+				var mapDir = Path.Combine(AssetCompilerExtended.SourceContent, "Map");
+				var assetName = mapDir.InitAsset(loadMap.FileName);
 
-				File.Copy(loadMap.FileName, destPosition, true);
-
-				ImagePath.Text = destPosition;
+				ImagePath.Text = assetName;
 			}
 		}
 	}

@@ -70,6 +70,9 @@
     <Reference Include="MonoGame.Extended.Graphics, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Extended.Graphics.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.Graphics.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Extended.Particles, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MonoGame.Extended.Particles.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.Particles.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Extended.SceneGraphs, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Extended.SceneGraphs.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.SceneGraphs.dll</HintPath>
     </Reference>
@@ -111,22 +114,31 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="View\Main\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AssetCompilerExtended.cs" />
-    <Compile Include="Core.cs" />
-    <Compile Include="CreateProject.xaml.cs">
+    <Compile Include="CoreLibrary\Asset\AssetCompilerExtended.cs" />
+    <Compile Include="CoreLibrary\Asset\AssetIntermediate.cs" />
+    <Compile Include="CoreLibrary\Asset\ResourceInfo.cs" />
+    <Compile Include="CoreLibrary\Asset\ResourceType.cs" />
+    <Compile Include="CoreLibrary\Core.cs" />
+    <Compile Include="CoreLibrary\Map\ResourceDraw.cs" />
+    <Compile Include="Model\ResourceModel.cs" />
+    <Compile Include="ViewModel\ResourceViewModel.cs" />
+    <Compile Include="View\Asset\ResourceView.xaml.cs">
+      <DependentUpon>ResourceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Project\CreateProject.xaml.cs">
       <DependentUpon>CreateProject.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Demo.cs" />
-    <Compile Include="DocumentList.xaml.cs">
+    <Compile Include="CoreLibrary\Editor\Demo.cs" />
+    <Compile Include="View\Help\DocumentList.xaml.cs">
       <DependentUpon>DocumentList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\MapModel.cs" />
-    <Compile Include="MyCompletionData.cs" />
-    <Compile Include="TiledMaps.cs" />
+    <Compile Include="CoreLibrary\Editor\MyCompletionData.cs" />
+    <Compile Include="CoreLibrary\Editor\TiledMaps.cs" />
     <Compile Include="View\Code\ScriptEditor.xaml.cs">
       <DependentUpon>ScriptEditor.xaml</DependentUpon>
     </Compile>
@@ -136,36 +148,36 @@
     <Compile Include="View\Help\DocumentSystem.xaml.cs">
       <DependentUpon>DocumentSystem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FloatScriptEditor.xaml.cs">
+    <Compile Include="View\ScriptEditor\FloatScriptEditor.xaml.cs">
       <DependentUpon>FloatScriptEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Help\HelpDocument.xaml.cs">
       <DependentUpon>HelpDocument.xaml</DependentUpon>
     </Compile>
-    <Compile Include="JsonHelper.cs" />
-    <Compile Include="LinkedListExtensions.cs" />
-    <Compile Include="LogLevel.cs" />
+    <Compile Include="CoreLibrary\Helper\JsonHelper.cs" />
+    <Compile Include="CoreLibrary\Helper\LinkedListExtensions.cs" />
+    <Compile Include="CoreLibrary\Log\LogLevel.cs" />
     <Compile Include="View\Map\CreateMapWindow.xaml.cs">
       <DependentUpon>CreateMapWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Map\MapDraw.cs" />
+    <Compile Include="CoreLibrary\Map\MapDraw.cs" />
     <Compile Include="View\Map\MapEditor.xaml.cs">
       <DependentUpon>MapEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MathExtensions.cs" />
+    <Compile Include="CoreLibrary\Helper\MathExtensions.cs" />
     <Compile Include="Model\LogModel.cs" />
     <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\MapEditorModel.cs" />
     <Compile Include="Model\ProjectModel.cs" />
     <Compile Include="Model\ScriptModel.cs" />
     <Compile Include="Model\WindowModel.cs" />
-    <Compile Include="PriorityQuadTree.cs" />
-    <Compile Include="PriorityQueue.cs" />
-    <Compile Include="ProjectInfo.cs" />
-    <Compile Include="RectExtensions.cs" />
+    <Compile Include="CoreLibrary\Priority\PriorityQuadTree.cs" />
+    <Compile Include="CoreLibrary\Priority\PriorityQueue.cs" />
+    <Compile Include="CoreLibrary\Editor\ProjectInfo.cs" />
+    <Compile Include="CoreLibrary\Helper\RectExtensions.cs" />
     <Compile Include="Themes\LeftMarginMultiplierConverter.cs" />
     <Compile Include="Themes\TreeViewItemExtensions.cs" />
-    <Compile Include="UiEditor.xaml.cs">
+    <Compile Include="View\UiEditor\UiEditor.xaml.cs">
       <DependentUpon>UiEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -176,13 +188,17 @@
     <Compile Include="View\Help\HelpLinkDocument.xaml.cs">
       <DependentUpon>HelpLinkDocument.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VirtualPanel.cs" />
-    <Compile Include="ZoomableCanvas.cs" />
-    <Page Include="CreateProject.xaml">
+    <Compile Include="CoreLibrary\Layout\VirtualPanel.cs" />
+    <Compile Include="CoreLibrary\Layout\ZoomableCanvas.cs" />
+    <Page Include="View\Asset\ResourceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DocumentList.xaml">
+    <Page Include="View\Project\CreateProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Help\DocumentList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,7 +214,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FloatScriptEditor.xaml">
+    <Page Include="View\ScriptEditor\FloatScriptEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,15 +222,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="View\Main\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -230,7 +246,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UiEditor.xaml">
+    <Page Include="View\UiEditor\UiEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -366,5 +382,11 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="MonoGame.Extended.Content.Pipeline.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

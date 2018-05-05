@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:clEngine="clr-namespace:ClEngine"
-             xmlns:map="clr-namespace:ClEngine.View.Map"
+             xmlns:map1="clr-namespace:ClEngine.CoreLibrary.Map"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -19,7 +18,9 @@
             </Grid.RowDefinitions>
             <TabControl>
                 <TabItem Header="地图事件">
-                    <DataGrid Name="MapEventDataGrid" AutoGenerateColumns="False">
+                    <DataGrid Name="MapEventDataGrid" 
+                              AutoGenerateColumns="False" 
+                              CanUserAddRows="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="事件ID" Binding="{Binding EventId}"></DataGridTextColumn>
                             <DataGridTextColumn Header="标记" Binding="{Binding Sign}"></DataGridTextColumn>
@@ -48,7 +49,7 @@
             </TreeView>
         </Grid>
         <Grid Column="1">
-            <map:MapDraw></map:MapDraw>
+            <map1:MapDraw></map1:MapDraw>
         </Grid>
     </Grid>
 </UserControl>

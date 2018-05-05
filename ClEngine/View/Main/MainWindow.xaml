@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClEngine"
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:asset="clr-namespace:ClEngine.View.Asset"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Command}"
         Title="CLEngine" Height="450" Width="800" Style="{StaticResource {x:Type Window}}" WindowState="Maximized">
@@ -76,6 +77,9 @@
             </TabItem>
             <TabItem Header="脚本">
                 <local:ScriptWindow DataContext="{Binding}"></local:ScriptWindow>
+            </TabItem>
+            <TabItem Header="资源">
+                <asset:ResourceView DataContext="{Binding}"></asset:ResourceView>
             </TabItem>
             <TabItem Header="帮助文档">
                 <local:HelpDocument DataContext="{Binding}"></local:HelpDocument>

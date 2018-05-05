@@ -6,7 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Themes/Styles.xaml">
+                <ResourceDictionary Source="../../Themes/Styles.xaml">
                 </ResourceDictionary>
                 <ResourceDictionary>
                     <viewModel:ViewModelLocator x:Key="Locator"></viewModel:ViewModelLocator>

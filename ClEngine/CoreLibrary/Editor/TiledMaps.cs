@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ClEngine.View.Map;
+using ClEngine.CoreLibrary.Map;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
@@ -9,7 +9,7 @@ using MonoGame.Extended.Tiled.Graphics;
 using MonoGame.Extended.Tiled.Graphics.Effects;
 using MonoGame.Extended.ViewportAdapters;
 
-namespace ClEngine
+namespace ClEngine.CoreLibrary.Editor
 {
 	public class TiledMaps : Demo
 	{
