@@ -1,6 +1,5 @@
 ﻿using ClEngine.Model;
 using GalaSoft.MvvmLight;
-using ICSharpCode.AvalonEdit;
 
 namespace ClEngine.ViewModel
 {

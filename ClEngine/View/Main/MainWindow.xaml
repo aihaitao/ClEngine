@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClEngine"
-        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         xmlns:asset="clr-namespace:ClEngine.View.Asset"
+        xmlns:particle="clr-namespace:ClEngine.View.Particle"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Command}"
         Title="CLEngine" Height="450" Width="800" Style="{StaticResource {x:Type Window}}" WindowState="Maximized">
@@ -81,6 +81,9 @@
             <TabItem Header="资源">
                 <asset:ResourceView DataContext="{Binding}"></asset:ResourceView>
             </TabItem>
+            <TabItem Header="粒子">
+                <particle:ParticleEditor DataContext="{Binding}"></particle:ParticleEditor>
+            </TabItem>
             <TabItem Header="帮助文档">
                 <local:HelpDocument DataContext="{Binding}"></local:HelpDocument>
             </TabItem>
@@ -97,3 +100,4 @@
         </TabControl>
     </Grid>
 </Window>
+

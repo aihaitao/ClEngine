@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using ClEngine.CoreLibrary.Map;
+using ClEngine.CoreLibrary.Particle;
 using ClEngine.Model;
 using ClEngine.ViewModel;
 using GalaSoft.MvvmLight.Messaging;
@@ -23,7 +25,11 @@ namespace ClEngine
         private ProjectInfo ProjectInfo { get; set; }
         private Queue<string> Messages { get; set; }
 
-        public MainWindow()
+	    private Renderer ParticleEffectRenderer { get; set; }
+		[Import(typeof(IInterfaceProvider))]
+	    private IInterfaceProvider Interface { get; set; }
+
+	    public MainWindow()
         {
             InitializeComponent();
             Messenger.Default.Register<LogModel>(this, "Log", Log);
@@ -38,9 +44,29 @@ namespace ClEngine
             backgroundworker.RunWorkerAsync();
 
             SaveBtn.Click += (sender, args) => Messenger.Default.Send("", "SaveScript");
+
+			Interface.Ready += InterfaceOnReady;
         }
 
-        private void BeginOutputLog()
+	    private void InterfaceOnReady(object sender, EventArgs e)
+	    {
+		    ParticleEffectRenderer = InstantiateRenderer();
+
+	    }
+
+	    private Renderer InstantiateRenderer()
+	    {
+		    var renderer = new SpriteBatchRenderer
+		    {
+				GraphicsDeviceService = GraphicsDeviceService.Instance
+		    };
+
+			renderer.LoadContent(null);
+
+		    return renderer;
+	    }
+
+	    private void BeginOutputLog()
         {
             while (true)
             {

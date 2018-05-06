@@ -1,9 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
-using MonoGame.Extended.Particles;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Framework.WpfInterop;
 using MonoGame.Framework.WpfInterop.Input;
@@ -19,7 +17,6 @@ namespace ClEngine.CoreLibrary.Map
 		private SpriteFont _smallFont;
 		private Texture2D _texture2D;
 		private Camera2D _camera;
-		private ParticleEffect _particleEffect;
 
 		protected override void Initialize()
 		{
@@ -41,19 +38,18 @@ namespace ClEngine.CoreLibrary.Map
 			base.LoadContent();
 		}
 
+		protected override void UnloadContent()
+		{
+			_texture2D?.Dispose();
+			_spriteBatch?.Dispose();
+		}
+
 		protected override void Update(GameTime gameTime)
 		{
 			var mouseState = _mouse.GetState();
 			var keyboardState = _keyboard.GetState();
 			var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			var p = _camera.ScreenToWorld(mouseState.X, mouseState.Y);
-			
-			_particleEffect?.Update(deltaTime);
-
-			if (mouseState.LeftButton == ButtonState.Released)
-				_particleEffect?.Trigger(new Vector2(p.X, p.Y));
-
-			_particleEffect?.Trigger(new Vector2(GraphicsDevice.Viewport.Width / 2,GraphicsDevice.Viewport.Height / 2));
 
 			base.Update(gameTime);
 		}
@@ -63,10 +59,6 @@ namespace ClEngine.CoreLibrary.Map
 			GraphicsDevice.Clear(Color.Black);
 			
 			_spriteBatch.Begin(blendState: BlendState.AlphaBlend, transformMatrix: _camera.GetViewMatrix());
-			if (_particleEffect != null)
-			{
-				_spriteBatch.Draw(_particleEffect);
-			}
 
 			if (_texture2D != null)
 			{
@@ -82,7 +74,6 @@ namespace ClEngine.CoreLibrary.Map
 		public void LoadResource(string name, ResourceType type)
 		{
 			_texture2D = null;
-			_particleEffect = null;
 
 			switch (type)
 			{

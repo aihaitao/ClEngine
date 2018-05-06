@@ -130,7 +130,9 @@ namespace ClEngine.CoreLibrary.Asset
 			arguments += string.Concat(" /intermediateDir:", Intermediate);								// 中间文件输出目录
 			arguments += string.Concat(" /compress:", "true");											// 资源将压缩
 			arguments += string.Concat(" /reference:",						
-				Path.Combine(Environment.CurrentDirectory, "MonoGame.Extended.Content.Pipeline.dll"));	// 引用第三方库
+				Path.Combine(Environment.CurrentDirectory, "MonoGame.Extended.Content.Pipeline.dll"));  // 引用第三方库
+			arguments += string.Concat(" /reference:",
+				Path.Combine(Environment.CurrentDirectory, "ProjectMercury.ContentPipeline.dll"));		// 引用第三方库
 			return arguments;
 		}
 

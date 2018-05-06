@@ -29,11 +29,11 @@ E:\ClEngine\ClEngine\bin\Debug\runtime\game\scripts\skillgrid.lua
 E:\ClEngine\ClEngine\bin\Debug\runtime\game\scripts\start.lua
 E:\ClEngine\ClEngine\bin\Debug\runtime\game\scripts\task.lua
 E:\ClEngine\ClEngine\bin\Debug\runtime\game\scripts\windowclose.lua
+E:\ClEngine\ClEngine\bin\Debug\runtime\game\ClGame.exe.config
 E:\ClEngine\ClEngine\bin\Debug\runtime\game\ClGame.exe
 E:\ClEngine\ClEngine\bin\Debug\runtime\game\ClGame.pdb
+E:\ClEngine\ClGame\obj\x86\Debug\ClGame.csprojResolveAssemblyReference.cache
 E:\ClEngine\ClGame\obj\x86\Debug\ClGame.csproj.CoreCompileInputs.cache
 E:\ClEngine\ClGame\obj\x86\Debug\ClGame.csproj.CopyComplete
 E:\ClEngine\ClGame\obj\x86\Debug\ClGame.exe
 E:\ClEngine\ClGame\obj\x86\Debug\ClGame.pdb
-E:\ClEngine\ClEngine\bin\Debug\runtime\game\ClGame.exe.config
-E:\ClEngine\ClGame\obj\x86\Debug\ClGame.csprojResolveAssemblyReference.cache

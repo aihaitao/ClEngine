@@ -37,8 +37,8 @@ E:\ClEngine\MonoGame\MonoGame.Framework\bin\Windows\AnyCPU\Debug\SharpDX.DXGI.xm
 E:\ClEngine\MonoGame\MonoGame.Framework\bin\Windows\AnyCPU\Debug\SharpDX.MediaFoundation.xml
 E:\ClEngine\MonoGame\MonoGame.Framework\bin\Windows\AnyCPU\Debug\SharpDX.XAudio2.xml
 E:\ClEngine\MonoGame\MonoGame.Framework\bin\Windows\AnyCPU\Debug\SharpDX.XInput.xml
+E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.Windows.csprojResolveAssemblyReference.cache
 E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.Windows.csproj.CoreCompileInputs.cache
 E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.Windows.csproj.CopyComplete
 E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.dll
 E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.pdb
-E:\ClEngine\MonoGame\MonoGame.Framework\obj\Windows\AnyCPU\Debug\MonoGame.Framework.Windows.csprojResolveAssemblyReference.cache
