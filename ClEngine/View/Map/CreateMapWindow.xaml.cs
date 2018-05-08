@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using ClEngine.CoreLibrary.Asset;
+using ClEngine.CoreLibrary.Map;
 using ClEngine.Model;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
@@ -73,14 +74,21 @@ namespace ClEngine.View.Map
 				return;
 			}
 
-			MapModel.SurfaceGridHeight = surfaceGridHeight;
-			MapModel.SurfaceGridWidth = surfaceGridWidth;
-			MapModel.LogicGridWidth = logicGridWidth;
-			MapModel.LogicGridHeight = logicGridHeight;
-			MapModel.Name = MapName.Text;
-			MapModel.ImageName = Path.GetFileNameWithoutExtension(ImagePath.Text);
-			
-			ImagePath.Text.Compiler();
+			if (Equals(MapTabControl.SelectedItem, SelfTabItem))
+			{
+				
+			}
+			else if (Equals(MapTabControl.SelectedItem, MapTabItem))
+			{
+				MapModel.SurfaceGridHeight = surfaceGridHeight;
+				MapModel.SurfaceGridWidth = surfaceGridWidth;
+				MapModel.LogicGridWidth = logicGridWidth;
+				MapModel.LogicGridHeight = logicGridHeight;
+				MapModel.Name = MapName.Text;
+				MapModel.ImageName = Path.GetFileNameWithoutExtension(ImagePath.Text);
+
+				ImagePath.Text.Compiler(ResourceType.Map);
+			}
 			
 			DialogResult = true;
 		}
@@ -97,10 +105,7 @@ namespace ClEngine.View.Map
 			var dialogResult = loadMap.ShowDialog();
 			if (dialogResult == true)
 			{
-				var mapDir = Path.Combine(AssetCompilerExtended.SourceContent, "Map");
-				var assetName = mapDir.InitAsset(loadMap.FileName);
-
-				ImagePath.Text = assetName;
+				ImagePath.Text = loadMap.FileName;
 			}
 		}
 	}

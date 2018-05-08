@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.Windows"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Build.Tasks.Windows", "..\MonoGame\Tools\MonoGame.Build.Tasks\MonoGame.Build.Tasks.Windows.csproj", "{E2D9E2AE-B875-D3D6-92B1-ECDC6C642E54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLEngine.PluginInterfaces", "..\CLEngine.PluginInterfaces\CLEngine.PluginInterfaces.csproj", "{86575F93-27D1-4542-B65C-5D9CD377E434}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClEngine.Particle", "ClEngine.Particle.Wpf\ClEngine.Particle.csproj", "{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,18 +98,18 @@ Global
 		{E2D9E2AE-B875-D3D6-92B1-ECDC6C642E54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2D9E2AE-B875-D3D6-92B1-ECDC6C642E54}.Release|x86.ActiveCfg = Release|Any CPU
 		{E2D9E2AE-B875-D3D6-92B1-ECDC6C642E54}.Release|x86.Build.0 = Release|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Debug|x86.Build.0 = Debug|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Reference|Any CPU.ActiveCfg = Release|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Reference|Any CPU.Build.0 = Release|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Reference|x86.ActiveCfg = Release|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Reference|x86.Build.0 = Release|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Release|Any CPU.Build.0 = Release|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Release|x86.ActiveCfg = Release|Any CPU
-		{86575F93-27D1-4542-B65C-5D9CD377E434}.Release|x86.Build.0 = Release|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Debug|x86.Build.0 = Debug|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Reference|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Reference|Any CPU.Build.0 = Release|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Reference|x86.ActiveCfg = Release|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Reference|x86.Build.0 = Release|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Release|x86.ActiveCfg = Release|Any CPU
+		{1AC4AAEE-9E0A-46FD-8A94-483A25D8EF30}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

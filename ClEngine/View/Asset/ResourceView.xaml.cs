@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using ClEngine.CoreLibrary.Asset;
 using ClEngine.Model;
 using ClEngine.ViewModel;
@@ -18,11 +17,6 @@ namespace ClEngine.View.Asset
 	public partial class ResourceView : UserControl
 	{
 		private ResourceViewModel ResourceViewModel { get; set; }
-		private const string ImageSign = "Image";
-		private const string AnimationSign = "Animation";
-		private const string SoundSign = "Sound";
-		private const string ParticleSign = "Particle";
-		private const string FontSign = "Font";
 
 		public ResourceView()
 		{
@@ -67,26 +61,7 @@ namespace ClEngine.View.Asset
 			if (e.NewValue is ResourceModel resourceModel)
 			{
 				var mgContent = AssetCompilerExtended.GetMgContent();
-				var resourceName = string.Empty;
-				switch (resourceModel.Type)
-				{
-					case ResourceType.Image:
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, ImageSign);
-						break;
-					case ResourceType.Animation:
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, AnimationSign);
-						break;
-					case ResourceType.Sound:
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, SoundSign);
-						break;
-					case ResourceType.Particle:
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, ParticleSign);
-						break;
-					case ResourceType.Font:
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, FontSign);
-						break;
-				}
-				var resourceInfo = GetSignResult(mgContent.SourceFiles, resourceName);
+				var resourceInfo = GetSignResult(mgContent.SourceFiles, resourceModel.Type);
 				SetResourceModel(resourceInfo);
 			}
 		}
@@ -101,11 +76,10 @@ namespace ClEngine.View.Asset
 			};
 
 			var fileExtension = string.Empty;
-			var resourceName = string.Empty;
 
 			if (ResourceTreeView.SelectedItem == null)
 			{
-				var logModel = new LogModel()
+				var logModel = new LogModel
 				{
 					LogLevel = LogLevel.Error,
 					Message = "清先选择要加入的资源类型"
@@ -121,46 +95,38 @@ namespace ClEngine.View.Asset
 				{
 					case ResourceType.Image:
 						fileExtension = "图片资源 (*.bmp, *.png, *.jpg)|*.bmp;*.png;*.jpg";
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, ImageSign);
 						break;
 					case ResourceType.Animation:
 						fileExtension = "动画资源 (*.ani, *.png)|*.ani;*.png";
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, AnimationSign);
 						break;
 					case ResourceType.Sound:
 						fileExtension = "声音资源 (*.wav, *.mp3)|*.wav;*.mp3";
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, SoundSign);
 						break;
 					case ResourceType.Particle:
 						fileExtension = "粒子资源 (*.em, *.xml)|*.em;*.xml";
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, ParticleSign);
 						break;
 					case ResourceType.Font:
 						fileExtension = "字体资源 (*.spritefont, *.fnt, *.png)|*.spritefont;*.fnt;*.png";
-						resourceName = Path.Combine(AssetCompilerExtended.SourceContent, FontSign);
 						break;
 					default:
 						fileExtension = "所有资源 (*.*)|*.*";
-						resourceName = AssetCompilerExtended.SourceContent;
 						break;
 				}
-			}
 
+				openFileDialog.Filter = fileExtension;
+				if (openFileDialog.ShowDialog() == true)
+				{
+					openFileDialog.FileName.Compiler(resource.Type);
 
-			openFileDialog.Filter = fileExtension;
-			if (openFileDialog.ShowDialog() == true)
-			{
-				var assetName = resourceName.InitAsset(openFileDialog.FileName);
-				assetName.Compiler(((ResourceModel) ResourceTreeView.SelectedItem).Type);
-
-				InitTreeViewResourceModel(resourceName);
+					InitTreeViewResourceModel(resource.Type);
+				}
 			}
 		}
 
-		private void InitTreeViewResourceModel(string resourceName)
+		private void InitTreeViewResourceModel(ResourceType type)
 		{
 			var sourceFileCollection = AssetCompilerExtended.GetMgContent();
-			var resourceInfo = GetSignResult(sourceFileCollection.SourceFiles, resourceName);
+			var resourceInfo = GetSignResult(sourceFileCollection.SourceFiles, type);
 			SetResourceModel(resourceInfo);
 		}
 
@@ -189,12 +155,12 @@ namespace ClEngine.View.Asset
 			}
 		}
 
-		private List<ResourceInfo> GetSignResult(IEnumerable<string> sourceFiles, string resourceName)
+		private List<ResourceInfo> GetSignResult(IEnumerable<string> sourceFiles, ResourceType type)
 		{
 			var files = new List<ResourceInfo>();
 			foreach (var sourceFile in sourceFiles)
 			{
-				if (sourceFile.Replace(@"/", "\\").Contains(resourceName.Replace(@"/", "\\")))
+				if (sourceFile.Replace(@"/", "\\").Contains(type.ToString().Replace(@"/", "\\")))
 				{
 					var resourceInfo = new ResourceInfo
 					{

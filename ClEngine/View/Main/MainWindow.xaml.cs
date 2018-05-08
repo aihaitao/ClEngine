@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using ClEngine.CoreLibrary.Map;
-using ClEngine.CoreLibrary.Particle;
 using ClEngine.Model;
 using ClEngine.ViewModel;
+using Exceptionless;
 using GalaSoft.MvvmLight.Messaging;
 using Newtonsoft.Json;
 
@@ -24,10 +23,6 @@ namespace ClEngine
         public static string ProjectPosition { get; set; }
         private ProjectInfo ProjectInfo { get; set; }
         private Queue<string> Messages { get; set; }
-
-	    private Renderer ParticleEffectRenderer { get; set; }
-		[Import(typeof(IInterfaceProvider))]
-	    private IInterfaceProvider Interface { get; set; }
 
 	    public MainWindow()
         {
@@ -44,27 +39,7 @@ namespace ClEngine
             backgroundworker.RunWorkerAsync();
 
             SaveBtn.Click += (sender, args) => Messenger.Default.Send("", "SaveScript");
-
-			Interface.Ready += InterfaceOnReady;
         }
-
-	    private void InterfaceOnReady(object sender, EventArgs e)
-	    {
-		    ParticleEffectRenderer = InstantiateRenderer();
-
-	    }
-
-	    private Renderer InstantiateRenderer()
-	    {
-		    var renderer = new SpriteBatchRenderer
-		    {
-				GraphicsDeviceService = GraphicsDeviceService.Instance
-		    };
-
-			renderer.LoadContent(null);
-
-		    return renderer;
-	    }
 
 	    private void BeginOutputLog()
         {
@@ -166,18 +141,21 @@ namespace ClEngine
             {
                 case LogLevel.Log:
                     preview = "[记录]: ";
-                    break;
+	                ExceptionlessClient.Default.SubmitLog(model.Message, Exceptionless.Logging.LogLevel.Info);
+					break;
                 case LogLevel.Warn:
                     preview = "[警告]: ";
-                    break;
+	                ExceptionlessClient.Default.SubmitLog(model.Message, Exceptionless.Logging.LogLevel.Warn);
+					break;
                 case LogLevel.Error:
                     preview = "[错误]: ";
-                    break;
+	                ExceptionlessClient.Default.SubmitLog(model.Message, Exceptionless.Logging.LogLevel.Error);
+					break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-			
-            Messages.Enqueue(preview + model.Message + Environment.NewLine);
+
+	        Messages.Enqueue(preview + model.Message + Environment.NewLine);
         }
 
         /// <summary>
@@ -253,19 +231,5 @@ namespace ClEngine
             Messenger.Default.Send("", "LoadUiConfig");
 			MapDraw.Instance.SetContentRoot();
         }
-
-	    private const string ParticleName = "ProjectMercury.EffectEditor.exe";
-
-		private void ParticleEditor_OnClick(object sender, RoutedEventArgs e)
-		{
-			var runtimeParticle = Path.Combine(Environment.CurrentDirectory, "runtime", "particle");
-			var runtimeParticleExecute = Path.Combine(runtimeParticle, ParticleName);
-		    if (File.Exists(runtimeParticleExecute))
-		    {
-			    var processInfo = new ProcessStartInfo(runtimeParticleExecute) {WorkingDirectory = runtimeParticle};
-
-			    Process.Start(processInfo);
-		    }
-	    }
     }
 }

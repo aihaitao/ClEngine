@@ -43,9 +43,6 @@
                 </TabItem>
             </TabControl>
             <TreeView Grid.Row="1" Name="MapListView">
-                <TreeViewItem Header="我的游戏" IsExpanded="True">
-                    <TreeViewItem Header="地图1"></TreeViewItem>
-                </TreeViewItem>
             </TreeView>
         </Grid>
         <Grid Column="1">

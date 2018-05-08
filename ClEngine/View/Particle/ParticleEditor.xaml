@@ -4,48 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:particle="clr-namespace:ClEngine.CoreLibrary.Particle"
-             xmlns:themes="http://schemas.denisvuyka.wordpress.com/wpfpropertygrid"
+             xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="ParticleEditor_OnLoaded">
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="2"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="2"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid MinWidth="195" MaxWidth="200">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="2"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <TreeView x:Name="EffectTree"
-                      SelectedItemChanged="EffectTree_OnSelectedItemChanged"
-                      KeyUp="EffectTree_OnKeyUp"></TreeView>
-            <GridSplitter Grid.Row="1"></GridSplitter>
-            <ListView Grid.Row="2"></ListView>
-        </Grid>
+        <particle:ParticleDraw x:Name="ParticleDraw"></particle:ParticleDraw>
         <GridSplitter Grid.Column="1"></GridSplitter>
-        <particle:ParticleDraw Grid.Column="2" x:Name="ParticleDraw"
-                               MouseDown="ParticleDraw_OnMouseDown"
-                               MouseUp="ParticleDraw_OnMouseUp"
-                               MouseMove="ParticleDraw_OnMouseMove"></particle:ParticleDraw>
-        <GridSplitter Grid.Column="3"></GridSplitter>
-        <themes:PropertyGrid Grid.Column="4" MinWidth="220"
-                             MaxWidth="250"
-                             PropertyDisplayMode="All"
-                             ShowAttachedProperties="True"
-                             ShowReadOnlyProperties="True"
-                             x:Name="ParticlePropertyGrid">
-            <themes:PropertyGrid.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <themes:KaxamlTheme></themes:KaxamlTheme>
-                    </ResourceDictionary.MergedDictionaries>
-                </ResourceDictionary>
-            </themes:PropertyGrid.Resources>
-        </themes:PropertyGrid>
+        <WindowsFormsHost Grid.Column="2" MinWidth="220"
+                          MaxWidth="250">
+            <forms:PropertyGrid x:Name="ParticlePropertyGrid">
+            </forms:PropertyGrid>
+        </WindowsFormsHost>
+        
     </Grid>
 </UserControl>
+

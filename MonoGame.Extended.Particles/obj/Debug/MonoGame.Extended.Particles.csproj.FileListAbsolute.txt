@@ -1,0 +1,17 @@
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\MonoGame.Extended.Particles.XML
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\MonoGame.Extended.Particles.dll
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\MonoGame.Extended.Particles.pdb
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\MonoGame.Extended.dll
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\MonoGame.Framework.dll
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\Newtonsoft.Json.dll
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\MonoGame.Extended.pdb
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\MonoGame.Extended.xml
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\MonoGame.Framework.xml
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\bin\Debug\Newtonsoft.Json.xml
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\obj\Debug\MonoGame.Extended.Particles.csprojResolveAssemblyReference.cache
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\obj\Debug\MonoGame.Extended.Particles.csproj.CoreCompileInputs.cache
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\obj\Debug\MonoGame.Extended.Particles.csproj.CopyComplete
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\obj\Debug\MonoGame.Extended.Particles.dll
+E:\master\MonoGame.Extended\Source\MonoGame.Extended.Particles\obj\Debug\MonoGame.Extended.Particles.pdb
+E:\ClEngine\MonoGame.Extended.Particles\obj\Debug\MonoGame.Extended.Particles.dll
+E:\ClEngine\MonoGame.Extended.Particles\obj\Debug\MonoGame.Extended.Particles.pdb

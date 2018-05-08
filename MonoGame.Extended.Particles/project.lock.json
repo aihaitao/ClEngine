@@ -1,0 +1,64 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETPlatform,Version=v5.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "": [],
+    ".NETPlatform,Version=v5.0": []
+  },
+  "packageFolders": {
+    "C:\\Users\\suu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\ClEngine\\MonoGame.Extended.Particles\\MonoGame.Extended.Particles.csproj",
+      "projectName": "MonoGame.Extended.Particles",
+      "projectPath": "E:\\ClEngine\\MonoGame.Extended.Particles\\MonoGame.Extended.Particles.csproj",
+      "projectJsonPath": "E:\\ClEngine\\MonoGame.Extended.Particles\\project.json",
+      "packagesPath": "C:\\Users\\suu\\.nuget\\packages\\",
+      "outputPath": "E:\\ClEngine\\MonoGame.Extended.Particles\\obj\\",
+      "projectStyle": "ProjectJson",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\suu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      }
+    },
+    "frameworks": {
+      "dotnet5.0": {
+        "imports": [
+          "portable-net452"
+        ]
+      }
+    },
+    "supports": {
+      "dnxcore50.app": {},
+      "net46.app": {}
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1502",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "未知的兼容性配置文件: net46.app"
+    },
+    {
+      "code": "NU1502",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "未知的兼容性配置文件: dnxcore50.app"
+    }
+  ]
+}

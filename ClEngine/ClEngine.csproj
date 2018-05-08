@@ -43,6 +43,15 @@
     <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>packages\CommonServiceLocator.2.0.3\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Exceptionless, Version=4.2.1989.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Exceptionless.4.2.1989\lib\net45\Exceptionless.dll</HintPath>
+    </Reference>
+    <Reference Include="Exceptionless.Wpf, Version=4.2.1989.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Exceptionless.Wpf.4.2.1989\lib\net45\Exceptionless.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
@@ -64,14 +73,12 @@
     <Reference Include="ICSharpCode.WpfDesign.XamlDom, Version=5.1.92.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ICSharpCode.WpfDesigner.5.1.92\lib\net40\ICSharpCode.WpfDesign.XamlDom.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MonoGame.Extended, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Extended.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended.Graphics, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Extended.Graphics.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.Graphics.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoGame.Extended.Particles, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MonoGame.Extended.Particles.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.Particles.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Extended.SceneGraphs, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Extended.SceneGraphs.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.SceneGraphs.dll</HintPath>
@@ -91,10 +98,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Controls.WpfPropertyGrid, Version=2010.11.10.0, Culture=neutral, PublicKeyToken=be4b71144cd8a3e5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -116,6 +127,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="TiledSharp, Version=0.15.5889.20321, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\TiledSharp.0.15\lib\TiledSharp.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -131,35 +145,29 @@
     <Compile Include="CoreLibrary\Asset\ResourceInfo.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceType.cs" />
     <Compile Include="CoreLibrary\Core.cs" />
+    <Compile Include="CoreLibrary\Map\ClMap.cs" />
+    <Compile Include="CoreLibrary\Map\Effect\CustomEffect.cs" />
+    <Compile Include="CoreLibrary\Map\mapGroup.cs" />
+    <Compile Include="CoreLibrary\Map\mapGroupImagelayer.cs" />
+    <Compile Include="CoreLibrary\Map\mapGroupImagelayerImage.cs" />
+    <Compile Include="CoreLibrary\Map\mapGroupLayer.cs" />
+    <Compile Include="CoreLibrary\Map\mapGroupLayerData.cs" />
+    <Compile Include="CoreLibrary\Map\mapGroupObjectgroup.cs" />
+    <Compile Include="CoreLibrary\Map\mapGroupObjectgroupObject.cs" />
+    <Compile Include="CoreLibrary\Map\mapGroupObjectgroupObjectPolyline.cs" />
+    <Compile Include="CoreLibrary\Map\mapLayer.cs" />
+    <Compile Include="CoreLibrary\Map\mapProperties.cs" />
+    <Compile Include="CoreLibrary\Map\mapProperty.cs" />
+    <Compile Include="CoreLibrary\Map\mapPropertyType.cs" />
+    <Compile Include="CoreLibrary\Map\mapTileSet.cs" />
+    <Compile Include="CoreLibrary\Map\RenderOrder.cs" />
     <Compile Include="CoreLibrary\Map\ResourceDraw.cs" />
-    <Compile Include="CoreLibrary\Particle\Calculator.cs" />
-    <Compile Include="CoreLibrary\Particle\CloneEmitterEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\CloneModifierEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\CoreOperationEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\CoreOperationResult.cs" />
-    <Compile Include="CoreLibrary\Particle\EmitterEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\EmitterReinitialisedEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\EmitterTreeNode.cs" />
     <Compile Include="CoreLibrary\Particle\GraphicsDeviceService.cs" />
     <Compile Include="CoreLibrary\Particle\Guard.cs" />
-    <Compile Include="CoreLibrary\Particle\HourglassCursor.cs" />
-    <Compile Include="CoreLibrary\Particle\IInterfaceProvider.cs" />
-    <Compile Include="CoreLibrary\Particle\ModifierEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\ModifierTreeNode.cs" />
-    <Compile Include="CoreLibrary\Particle\NewEmitterEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\NewModifierEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\NewTextureReferenceEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\Particle.cs" />
     <Compile Include="CoreLibrary\Particle\ParticleDraw.cs" />
-    <Compile Include="CoreLibrary\Particle\ParticleEffectTreeNode.cs" />
-    <Compile Include="CoreLibrary\Particle\Range.cs" />
-    <Compile Include="CoreLibrary\Particle\Renderer.cs" />
-    <Compile Include="CoreLibrary\Particle\SerializeEventArgs.cs" />
-    <Compile Include="CoreLibrary\Particle\SpriteBatchRenderer.cs" />
-    <Compile Include="CoreLibrary\Particle\TextureReference.cs" />
-    <Compile Include="CoreLibrary\Particle\TextureReferenceChangedEventArgs.cs" />
     <Compile Include="Model\ResourceModel.cs" />
-    <Compile Include="ViewModel\ParticleViewModel.cs" />
+    <Compile Include="Themes\LeftMarginMultiplierConverter.cs" />
+    <Compile Include="Themes\TreeViewItemExtensions.cs" />
     <Compile Include="ViewModel\ResourceViewModel.cs" />
     <Compile Include="View\Asset\ResourceView.xaml.cs">
       <DependentUpon>ResourceView.xaml</DependentUpon>
@@ -170,13 +178,11 @@
     <Compile Include="View\Project\CreateProject.xaml.cs">
       <DependentUpon>CreateProject.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CoreLibrary\Editor\Demo.cs" />
     <Compile Include="View\Help\DocumentList.xaml.cs">
       <DependentUpon>DocumentList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\MapModel.cs" />
     <Compile Include="CoreLibrary\Editor\MyCompletionData.cs" />
-    <Compile Include="CoreLibrary\Editor\TiledMaps.cs" />
     <Compile Include="View\Code\ScriptEditor.xaml.cs">
       <DependentUpon>ScriptEditor.xaml</DependentUpon>
     </Compile>
@@ -213,8 +219,6 @@
     <Compile Include="CoreLibrary\Priority\PriorityQueue.cs" />
     <Compile Include="CoreLibrary\Editor\ProjectInfo.cs" />
     <Compile Include="CoreLibrary\Helper\RectExtensions.cs" />
-    <Compile Include="Themes\LeftMarginMultiplierConverter.cs" />
-    <Compile Include="Themes\TreeViewItemExtensions.cs" />
     <Compile Include="View\UiEditor\UiEditor.xaml.cs">
       <DependentUpon>UiEditor.xaml</DependentUpon>
     </Compile>
@@ -228,6 +232,10 @@
     </Compile>
     <Compile Include="CoreLibrary\Layout\VirtualPanel.cs" />
     <Compile Include="CoreLibrary\Layout\ZoomableCanvas.cs" />
+    <Page Include="Themes\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Asset\ResourceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -283,10 +291,6 @@
     <Page Include="View\Map\MapEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Styles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\UiEditor\UiEditor.xaml">
       <SubType>Designer</SubType>
@@ -428,17 +432,11 @@
     <Content Include="MonoGame.Extended.Content.Pipeline.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="System.Windows.Controls.WpfPropertyGrid.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="System.Windows.Controls.WpfPropertyGrid.Themes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CLEngine.PluginInterfaces\CLEngine.PluginInterfaces.csproj">
-      <Project>{86575f93-27d1-4542-b65c-5d9cd377e434}</Project>
-      <Name>CLEngine.PluginInterfaces</Name>
+    <ProjectReference Include="ClEngine.Particle.Wpf\ClEngine.Particle.csproj">
+      <Project>{1ac4aaee-9e0a-46fd-8a94-483a25d8ef30}</Project>
+      <Name>ClEngine.Particle</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

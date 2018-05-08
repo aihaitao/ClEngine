@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClEngine.Particle;
+using ClEngine.Particle.Profiles;
 using ClEngine.View.Particle;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
-using MonoGame.Extended.Particles;
-using MonoGame.Extended.Particles.Profiles;
 using MonoGame.Extended.TextureAtlases;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Framework.WpfInterop;
@@ -22,8 +22,7 @@ namespace ClEngine.CoreLibrary.Particle
 		private Camera2D _camera;
 		private Texture2D _particleTexture;
 		private SpriteBatch _spriteBatch;
-
-		public Renderer Renderer { get; set; }
+		
 		public ParticleEffect ParticleEffect { get; set; }
 		protected override void Initialize()
 		{
@@ -64,7 +63,18 @@ namespace ClEngine.CoreLibrary.Particle
 			ParticleEffect.Update(deltaTime);
 
 			if (mouseState.LeftButton == ButtonState.Pressed)
+			{
 				ParticleEffect.Position = new Vector2(p.X, p.Y);
+				ParticleEditor.Instance.UpdateData();
+			}
+
+
+			if (mouseState.RightButton == ButtonState.Pressed)
+			{
+				ParticleEffect.Trigger(new Vector2(p.X, p.Y));
+				ParticleEditor.Instance.UpdateData();
+			}
+
 
 			base.Update(gameTime);
 		}
@@ -99,6 +109,8 @@ namespace ClEngine.CoreLibrary.Particle
 					},
 				}
 			};
+
+			ParticleEditor.Instance.SelectObject(ParticleEffect);
 		}
 	}
 }
