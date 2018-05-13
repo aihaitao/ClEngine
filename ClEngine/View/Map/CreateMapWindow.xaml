@@ -3,10 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ClEngine.View.Map"
+        xmlns:properties="clr-namespace:ClEngine.Properties"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:mapEnum="clr-namespace:ClEngine.Tiled.MapEnum;assembly=ClEngine.Tiled"
+        xmlns:converter="clr-namespace:ClEngine.Converter"
         mc:Ignorable="d"
         Style="{StaticResource {x:Type Window}}"
-        Title="新建地图" Height="255" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"> 
+        Title="新建地图" MinHeight="269" MinWidth="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -18,79 +21,142 @@
         <TabControl x:Name="MapTabControl">
             <TabItem Header="自绘创建" x:Name="SelfTabItem">
                 <Grid>
+                    <Grid.Resources>
+                        <ObjectDataProvider x:Key="MapDirection" MethodName="GetNames" ObjectType="{x:Type system:Enum}">
+                            <ObjectDataProvider.MethodParameters>
+                                <x:Type Type="mapEnum:MapOrientation"></x:Type>
+                            </ObjectDataProvider.MethodParameters>
+                        </ObjectDataProvider>
+                        <ObjectDataProvider x:Key="MapEncoding" MethodName="GetNames" ObjectType="{x:Type system:Enum}">
+                            <ObjectDataProvider.MethodParameters>
+                                <x:Type Type="mapEnum:MapEncoding"></x:Type>
+                            </ObjectDataProvider.MethodParameters>
+                        </ObjectDataProvider>
+                        <ObjectDataProvider x:Key="RenderOrder" MethodName="GetNames" ObjectType="{x:Type system:Enum}">
+                            <ObjectDataProvider.MethodParameters>
+                                <x:Type Type="mapEnum:RenderOrder"></x:Type>
+                            </ObjectDataProvider.MethodParameters>
+                        </ObjectDataProvider>
+
+                        <converter:FixedConverter x:Key="FixedConverter"></converter:FixedConverter>
+                        <converter:BlockConverter x:Key="BlockConverter"></converter:BlockConverter>
+                    </Grid.Resources>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="5"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Grid Margin="5 5 10 0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                        </Grid.RowDefinitions>
+                    <Expander Header="{x:Static properties:Resources.Map}" IsExpanded="True">
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="地图逻辑列数" VerticalAlignment="Center"></TextBlock>
-                            <TextBox Grid.Column="1" Text="100" Margin="5 0 0 0"></TextBox>
-                            <TextBlock Grid.Column="2" Text="地图逻辑行数" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
-                            <TextBox Grid.Column="3" Text="100" Margin="5 0 0 0"></TextBox>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{x:Static properties:Resources.MapDirection}" VerticalAlignment="Center"></TextBlock>
+                                <ComboBox Grid.Column="1" Margin="5 0 0 0" ItemsSource="{Binding Source={StaticResource MapDirection}}" x:Name="MapDirection"></ComboBox>
+                            </Grid>
+                            <Grid Row="1" Margin="0 5 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{x:Static properties:Resources.TileLayerFormat}" VerticalAlignment="Center"></TextBlock>
+                                <ComboBox Grid.Column="1" Margin="5 0 0 0" ItemsSource="{Binding Source={StaticResource MapEncoding}}" x:Name="MapEncoding"></ComboBox>
+                            </Grid>
+                            <Grid Row="2" Margin="0 5 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{x:Static properties:Resources.TileRenderingOrder}" VerticalAlignment="Center"></TextBlock>
+                                <ComboBox Grid.Column="1" Margin="5 0 0 0" ItemsSource="{Binding Source={StaticResource RenderOrder}}" x:Name="RenderOrder"></ComboBox>
+                            </Grid>
                         </Grid>
-                        <Grid Grid.Row="1" Margin="0 5 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="地图美术规格:"></TextBlock>
-                            <ComboBox Grid.Column="1" Margin="5 0 0 0">
-                                <ComboBoxItem>
-                                    <TextBlock Text="传奇世界"></TextBlock>
-                                </ComboBoxItem>
-                                <ComboBoxItem>
-                                    <TextBlock Text="自定义"></TextBlock>
-                                </ComboBoxItem>
-                            </ComboBox>
-                        </Grid>
-                        <Grid Grid.Row="2" Margin="0 5 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="逻辑格子宽度:" VerticalAlignment="Center"></TextBlock>
-                            <TextBox Grid.Column="1" Text="64" IsEnabled="False" Margin="5 0 0 0"></TextBox>
-                            <TextBlock Grid.Column="2" Text="逻辑格子高度:" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
-                            <TextBox Grid.Column="3" Text="32" IsEnabled="False" Margin="5 0 0 0"></TextBox>
-                        </Grid>
-                        <Grid Grid.Row="3" Margin="0 5 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="地表格子宽度:" VerticalAlignment="Center"></TextBlock>
-                            <TextBox Grid.Column="1" Text="256" IsEnabled="False" Margin="5 0 0 0"></TextBox>
-                            <TextBlock Grid.Column="2" Text="地表格子高度:" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
-                            <TextBox Grid.Column="3" Text="256" IsEnabled="False" Margin="5 0 0 0"></TextBox>
-                        </Grid>
-                        <Grid Grid.Row="4" Margin="0 5 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="地图宽高: 6400 * 3200" VerticalAlignment="Center"></TextBlock>
-                        </Grid>
+                    </Expander>
+                    <GridSplitter Grid.Row="1"></GridSplitter>
+                    <Grid Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="5"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Expander Header="{x:Static properties:Resources.MapSize}" IsExpanded="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <RadioButton>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="Fixed"></TextBlock>
+                                        <Grid Row="1" Margin="0 2 0 0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{x:Static properties:Resources.Width}" VerticalAlignment="Center"></TextBlock>
+                                            <TextBox x:Name="FixedX" Grid.Column="1" MinWidth="80" Margin="5 0 0 0" Text="{Binding FixedWidth, Converter={StaticResource FixedConverter}}"></TextBox>
+                                        </Grid>
+                                        <Grid Row="2" Margin="0 2 0 0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{x:Static properties:Resources.Height}" VerticalAlignment="Center"></TextBlock>
+                                            <TextBox x:Name="FixedY" Grid.Column="1" MinWidth="80" Margin="5 0 0 0" Text="{Binding FixedHeight, Converter={StaticResource FixedConverter}}"></TextBox>
+                                        </Grid>
+                                        <Grid Row="3" Margin="0 2 0 0">
+                                            <TextBlock x:Name="FixedResult"></TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </RadioButton>
+                                <RadioButton Grid.Row="1">
+                                    <TextBlock Text="Infinite"></TextBlock>
+                                </RadioButton>
+                            </Grid>
+                        </Expander>
+                        <GridSplitter Grid.Column="1"></GridSplitter>
+                        <Expander Grid.Column="2" Header="{x:Static properties:Resources.BlockSize}" IsExpanded="True">
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{x:Static properties:Resources.Width}" VerticalAlignment="Center"></TextBlock>
+                                    <TextBox x:Name="BlockWidth" Grid.Column="1" MinWidth="80" Margin="5 0 0 0" Text="{Binding BlockWidth, Converter={StaticResource BlockConverter}}"></TextBox>
+                                </Grid>
+                                <Grid Row="1" Margin="0 2 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{x:Static properties:Resources.Height}" VerticalAlignment="Center"></TextBlock>
+                                    <TextBox x:Name="BlockHeight" Grid.Column="1" MinWidth="80" Margin="5 0 0 0" Text="{Binding BlockHeight, Converter={StaticResource BlockConverter}}"></TextBox>
+                                </Grid>
+                            </Grid>
+                        </Expander>
+                        
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="地图创建" IsSelected="True" x:Name="MapTabItem">
+            <TabItem Header="地图创建" x:Name="MapTabItem">
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -161,8 +227,8 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="地图名称:" VerticalAlignment="Center"></TextBlock>
-            <TextBox Grid.Column="1" Margin="5 0 0 0" Name="MapName"></TextBox>
+            <TextBlock Text="地图名称:" VerticalAlignment="Center" IsEnabled="{Binding ElementName=SelfTabItem,Path=IsSelected}"></TextBlock>
+            <TextBox Grid.Column="1" Margin="5 0 0 0" Name="MapName" IsEnabled="{Binding ElementName=SelfTabItem,Path=IsSelected}"></TextBox>
         </Grid>
         <GridSplitter Grid.Row="3"></GridSplitter>
         <Grid Grid.Row="4" Margin="5">

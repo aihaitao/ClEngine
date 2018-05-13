@@ -4,14 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4939B274-8C88-441A-A449-662251DC955F}</ProjectGuid>
+    <ProjectGuid>{52B1DBF5-BB7B-4472-8B84-50179773504F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>ClEngine.Tiled</RootNamespace>
     <AssemblyName>ClEngine.Tiled</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -38,63 +36,78 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MapLayer.cs" />
-    <Compile Include="MapLayerData.cs" />
-    <Compile Include="MapLayerProperties.cs" />
-    <Compile Include="MapLayerPropertiesProperty.cs" />
-    <Compile Include="MapProperties.cs" />
-    <Compile Include="MapPropertiesProperty.cs" />
-    <Compile Include="MapTileset.cs" />
-    <Compile Include="MapTilesetImage.cs" />
-    <Compile Include="MapTilesetImageData.cs" />
-    <Compile Include="MapTilesetTile.cs" />
-    <Compile Include="MapTilesetTileImage.cs" />
-    <Compile Include="MapTilesetTileImageData.cs" />
-    <Compile Include="MapTilesetTileProperties.cs" />
-    <Compile Include="MapTilesetTilePropertiesProperty.cs" />
-    <Compile Include="TiledMap.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="ClMap.cs" />
+    <Compile Include="mapAnimation.cs" />
+    <Compile Include="mapChunk.cs" />
+    <Compile Include="mapData.cs" />
+    <Compile Include="mapEllipse.cs" />
+    <Compile Include="MapEnum\mapCompression.cs" />
+    <Compile Include="MapEnum\mapDrawOrder.cs" />
+    <Compile Include="MapEnum\mapEncoding.cs" />
+    <Compile Include="MapEnum\mapOrientation.cs" />
+    <Compile Include="MapEnum\mapPropertyType.cs" />
+    <Compile Include="MapEnum\mapTileFlipFlags.cs" />
+    <Compile Include="MapEnum\renderOrder.cs" />
+    <Compile Include="mapFrame.cs" />
+    <Compile Include="mapGrid.cs" />
+    <Compile Include="mapGroup.cs" />
+    <Compile Include="mapHelper.cs" />
+    <Compile Include="mapImage.cs" />
+    <Compile Include="mapImageLayer.cs" />
+    <Compile Include="mapLayer.cs" />
+    <Compile Include="mapLayerModel.cs" />
+    <Compile Include="mapObject.cs" />
+    <Compile Include="mapObjectGroup.cs" />
+    <Compile Include="mapPoint.cs" />
+    <Compile Include="mapPolygon.cs" />
+    <Compile Include="mapPolyline.cs" />
+    <Compile Include="mapProperties.cs" />
+    <Compile Include="MapProperty.cs" />
+    <Compile Include="mapTemplate.cs" />
+    <Compile Include="mapTerrain.cs" />
+    <Compile Include="mapTerraintypes.cs" />
+    <Compile Include="mapText.cs" />
+    <Compile Include="mapTile.cs" />
+    <Compile Include="mapTileOffset.cs" />
+    <Compile Include="mapTileSet.cs" />
+    <Compile Include="mapWangcornercolor.cs" />
+    <Compile Include="mapWangedgecolor.cs" />
+    <Compile Include="mapWangset.cs" />
+    <Compile Include="mapWangsets.cs" />
+    <Compile Include="mapWangtile.cs" />
+    <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Reference Include="MonoGame.Extended, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\ClEngine\packages\MonoGame.Extended.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Extended.Graphics, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\ClEngine\packages\MonoGame.Extended.Graphics.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\ClEngine\packages\MonoGame.Framework.Portable.3.6.0.1625\lib\portable-net45+win8+wpa81\MonoGame.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\ClEngine\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.zh-CN.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

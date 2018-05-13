@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Threading;
+using System.Windows;
 using Exceptionless;
 
 namespace ClEngine.View.Main
@@ -11,6 +13,8 @@ namespace ClEngine.View.Main
 	    public App()
 	    {
 		    ExceptionlessClient.Default.Register();
+			//Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+			Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureInfo.InstalledUICulture.Name);
 	    }
     }
 }

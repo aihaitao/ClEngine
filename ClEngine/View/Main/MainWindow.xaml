@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ClEngine"
         xmlns:asset="clr-namespace:ClEngine.View.Asset"
         xmlns:particle="clr-namespace:ClEngine.View.Particle"
+        xmlns:properties="clr-namespace:ClEngine.Properties"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Command}"
         Title="CLEngine" Height="450" Width="800" Style="{StaticResource {x:Type Window}}" WindowState="Maximized">
@@ -17,31 +18,31 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
-            <MenuItem Header="文件">
-                <MenuItem Header="新建工程" Click="MenuItem_OnClick"></MenuItem>
-                <MenuItem Header="打开工程" Click="OpenProject_OnClick"></MenuItem>
-                <MenuItem Header="保存工程"></MenuItem>
-                <MenuItem Header="导出工程模板"></MenuItem>
-                <MenuItem Header="打开工程目录"></MenuItem>
+            <MenuItem Header="{x:Static properties:Resources.File}">
+                <MenuItem Header="{x:Static properties:Resources.NewProject}" Click="MenuItem_OnClick"></MenuItem>
+                <MenuItem Header="{x:Static properties:Resources.OpenProject}" Click="OpenProject_OnClick"></MenuItem>
+                <MenuItem Header="{x:Static properties:Resources.SaveProject}"></MenuItem>
+                <MenuItem Header="{x:Static properties:Resources.ExportProjectTemplate}"></MenuItem>
+                <MenuItem Header="{x:Static properties:Resources.OpenProjectDirectory}"></MenuItem>
                 <Separator />
-                <MenuItem Header="绑定工程ID"></MenuItem>
+                <MenuItem Header="{x:Static properties:Resources.BindProjectID}"></MenuItem>
                 <Separator />
-                <MenuItem Header="重新关联名称"></MenuItem>
+                <MenuItem Header="{x:Static properties:Resources.ReNameProject}"></MenuItem>
                 <Separator />
             </MenuItem>
-            <MenuItem Header="编辑">
+            <MenuItem Header="{x:Static properties:Resources.Edit}">
                 <MenuItem Header="场景快照"></MenuItem>
             </MenuItem>
-            <MenuItem Header="显示">
+            <MenuItem Header="{x:Static properties:Resources.Display}">
                 <CheckBox IsChecked="True">
                     <TextBlock Text="显示网格"></TextBlock>
                 </CheckBox>
             </MenuItem>
-            <MenuItem Header="项目">
+            <MenuItem Header="{x:Static properties:Resources.Project}">
                 <MenuItem Header="变量编辑器"></MenuItem>
                 <MenuItem Header="插件库配置"></MenuItem>
             </MenuItem>
-            <MenuItem Header="工具">
+            <MenuItem Header="{x:Static properties:Resources.Tool}">
                 <MenuItem Header="系统配置"></MenuItem>
             </MenuItem>
         </Menu>
@@ -52,41 +53,41 @@
                 <ColumnDefinition Width="80"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Name="SaveBtn">
-                <TextBlock>保存脚本</TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.SaveScript}"></TextBlock>
             </Button>
             <Button Grid.Column="1" 
                     Click="ClearLog" 
                     Margin="2 0 0 0">
-                <TextBlock>清空日志</TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.ClearLog}"></TextBlock>
             </Button>
             <Button Grid.Column="2" 
                     Click="RunGame" 
                     Margin="2 0 0 0">
-                <TextBlock>运行游戏</TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.RunGame}"></TextBlock>
             </Button>
         </Grid>
         <TabControl Grid.Row="2" Margin="0 2 0 0" Name="TabControl">
-            <TabItem Header="地图">
+            <TabItem Header="{x:Static properties:Resources.Map}">
                 <local:MapEditor DataContext="{Binding}"></local:MapEditor>
             </TabItem>
-            <TabItem Header="界面">
+            <TabItem Header="{x:Static properties:Resources.Interface}">
                 <local:UiEditor DataContext="{Binding}"></local:UiEditor>
             </TabItem>
-            <TabItem Header="脚本">
+            <TabItem Header="{x:Static properties:Resources.Script}">
                 <local:ScriptWindow DataContext="{Binding}"></local:ScriptWindow>
             </TabItem>
-            <TabItem Header="资源">
+            <TabItem Header="{x:Static properties:Resources.Resource}">
                 <asset:ResourceView DataContext="{Binding}"></asset:ResourceView>
             </TabItem>
-            <TabItem Header="粒子">
+            <TabItem Header="{x:Static properties:Resources.Particle}">
                 <particle:ParticleEditor DataContext="{Binding}"></particle:ParticleEditor>
             </TabItem>
-            <TabItem Header="帮助文档">
+            <TabItem Header="{x:Static properties:Resources.HelpDocument}">
                 <local:HelpDocument DataContext="{Binding}"></local:HelpDocument>
             </TabItem>
         </TabControl>
         <TabControl Grid.Row="3" MaxHeight="120">
-            <TabItem Header="日志系统">
+            <TabItem Header="{x:Static properties:Resources.LogSystem}">
                 <ScrollViewer>
                     <TextBlock TextWrapping="Wrap" Name="LogBlock" 
                                ScrollViewer.CanContentScroll="True"

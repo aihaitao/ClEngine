@@ -1,17 +1,17 @@
-﻿namespace ClEngine.Tiled
+﻿using System.Xml.Serialization;
+
+namespace ClEngine.Tiled
 {
-	/// <remarks/>
-	[System.Serializable]
+	[System.Serializable, XmlRoot(ElementName = "properties")]
 	public class MapProperties
 	{
+		private MapProperty _mapProperty;
 
-		private MapPropertiesProperty _propertyField;
-
-		/// <remarks/>
-		public MapPropertiesProperty Property
+		[XmlElement(ElementName = "property")]
+		public MapProperty MapProperty
 		{
-			get => _propertyField;
-			set => _propertyField = value;
+			get => _mapProperty;
+			set => _mapProperty = value;
 		}
 	}
 }

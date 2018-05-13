@@ -114,4 +114,436 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="Tool" xml:space="preserve">
+    <value>Tool</value>
+  </data>
+  <data name="SaveScript" xml:space="preserve">
+    <value>SaveScript</value>
+  </data>
+  <data name="ClearLog" xml:space="preserve">
+    <value>ClearLog</value>
+  </data>
+  <data name="RunGame" xml:space="preserve">
+    <value>RunGame</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Script" xml:space="preserve">
+    <value>Script</value>
+  </data>
+  <data name="Resource" xml:space="preserve">
+    <value>Resource</value>
+  </data>
+  <data name="Particle" xml:space="preserve">
+    <value>Particle</value>
+  </data>
+  <data name="HelpDocument" xml:space="preserve">
+    <value>HelpDocument</value>
+  </data>
+  <data name="LogSystem" xml:space="preserve">
+    <value>LogSystem</value>
+  </data>
+  <data name="MapEvent" xml:space="preserve">
+    <value>MapEvent</value>
+  </data>
+  <data name="EventTemplate" xml:space="preserve">
+    <value>EventTemplate</value>
+  </data>
+  <data name="EventName" xml:space="preserve">
+    <value>EventName</value>
+  </data>
+  <data name="SignColor" xml:space="preserve">
+    <value>SignColor</value>
+  </data>
+  <data name="CoordinateX" xml:space="preserve">
+    <value>CoordinateX</value>
+  </data>
+  <data name="CoordinateY" xml:space="preserve">
+    <value>CoordinateY</value>
+  </data>
+  <data name="IsVisble" xml:space="preserve">
+    <value>IsVisible</value>
+  </data>
+  <data name="WindowInterface" xml:space="preserve">
+    <value>WindowInterface</value>
+  </data>
+  <data name="AddWindow" xml:space="preserve">
+    <value>AddWindow</value>
+  </data>
+  <data name="CopyWindow" xml:space="preserve">
+    <value>CopyWindow</value>
+  </data>
+  <data name="DeleteWindow" xml:space="preserve">
+    <value>DeleteWindow</value>
+  </data>
+  <data name="ImportWindow" xml:space="preserve">
+    <value>ImportWindow</value>
+  </data>
+  <data name="ExportWindow" xml:space="preserve">
+    <value>ExportWindow</value>
+  </data>
+  <data name="FormInfo" xml:space="preserve">
+    <value>FormInfo</value>
+  </data>
+  <data name="WindowName" xml:space="preserve">
+    <value>WindowName</value>
+  </data>
+  <data name="WindowImage" xml:space="preserve">
+    <value>WindowImage</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="DefaultX" xml:space="preserve">
+    <value>DefaultX</value>
+  </data>
+  <data name="DefaultY" xml:space="preserve">
+    <value>DefaultY</value>
+  </data>
+  <data name="DefaultVisible" xml:space="preserve">
+    <value>DefaultVisible</value>
+  </data>
+  <data name="AllowDrag" xml:space="preserve">
+    <value>AllowDrag</value>
+  </data>
+  <data name="TopVisible" xml:space="preserve">
+    <value>TopVisible</value>
+  </data>
+  <data name="MouseThrough" xml:space="preserve">
+    <value>MouseThrough</value>
+  </data>
+  <data name="NinePattern" xml:space="preserve">
+    <value>NinePattern</value>
+  </data>
+  <data name="WindowControl" xml:space="preserve">
+    <value>WindowControl</value>
+  </data>
+  <data name="Button" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="InputBox" xml:space="preserve">
+    <value>InputBox</value>
+  </data>
+  <data name="ListBox" xml:space="preserve">
+    <value>ListBox</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="CheckBox" xml:space="preserve">
+    <value>CheckBox</value>
+  </data>
+  <data name="ItemBox" xml:space="preserve">
+    <value>ItemBox</value>
+  </data>
+  <data name="SkillBox" xml:space="preserve">
+    <value>SkillBox</value>
+  </data>
+  <data name="ShopBox" xml:space="preserve">
+    <value>ShopBox</value>
+  </data>
+  <data name="Slider" xml:space="preserve">
+    <value>Slider</value>
+  </data>
+  <data name="AnimationBox" xml:space="preserve">
+    <value>AnimationBox</value>
+  </data>
+  <data name="EventBox" xml:space="preserve">
+    <value>EventBox</value>
+  </data>
+  <data name="BoundingBox" xml:space="preserve">
+    <value>BoundingBox</value>
+  </data>
+  <data name="TextBox" xml:space="preserve">
+    <value>TextBox</value>
+  </data>
+  <data name="TreeView" xml:space="preserve">
+    <value>TreeView</value>
+  </data>
+  <data name="ControlVisibleState" xml:space="preserve">
+    <value>ControlVisibleState</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Property</value>
+  </data>
+  <data name="ScriptInfo" xml:space="preserve">
+    <value>ScriptInfo</value>
+  </data>
+  <data name="InterfacePlugin" xml:space="preserve">
+    <value>InterfacePlugin</value>
+  </data>
+  <data name="Startup" xml:space="preserve">
+    <value>Startup</value>
+  </data>
+  <data name="GameStart" xml:space="preserve">
+    <value>GameStart</value>
+  </data>
+  <data name="MapSwitch" xml:space="preserve">
+    <value>MapSwitch</value>
+  </data>
+  <data name="GameTask" xml:space="preserve">
+    <value>GameTask</value>
+  </data>
+  <data name="KeyEvent" xml:space="preserve">
+    <value>KeyEvent</value>
+  </data>
+  <data name="ItemDrop" xml:space="preserve">
+    <value>ItemDrop</value>
+  </data>
+  <data name="SkillEvent" xml:space="preserve">
+    <value>SkillEvent</value>
+  </data>
+  <data name="WindowClose" xml:space="preserve">
+    <value>WindowClose</value>
+  </data>
+  <data name="OtherEvent" xml:space="preserve">
+    <value>OtherEvent</value>
+  </data>
+  <data name="ResourceName" xml:space="preserve">
+    <value>ResourceName</value>
+  </data>
+  <data name="ResourcePath" xml:space="preserve">
+    <value>ResourcePath</value>
+  </data>
+  <data name="NewProject" xml:space="preserve">
+    <value>NewProject</value>
+  </data>
+  <data name="OpenProject" xml:space="preserve">
+    <value>OpenProject</value>
+  </data>
+  <data name="SaveProject" xml:space="preserve">
+    <value>SaveProject</value>
+  </data>
+  <data name="ExportProjectTemplate" xml:space="preserve">
+    <value>ExportProjectTemplate</value>
+  </data>
+  <data name="OpenProjectDirectory" xml:space="preserve">
+    <value>OpenProjectDirectory</value>
+  </data>
+  <data name="BindProjectID" xml:space="preserve">
+    <value>BindProjectID</value>
+  </data>
+  <data name="ReNameProject" xml:space="preserve">
+    <value>ReNameProject</value>
+  </data>
+  <data name="SystemTemplate" xml:space="preserve">
+    <value>SystemTemplate</value>
+  </data>
+  <data name="OtherTemplate" xml:space="preserve">
+    <value>OtherTemplate</value>
+  </data>
+  <data name="InstantFightingType" xml:space="preserve">
+    <value>Instant Fighting Type</value>
+  </data>
+  <data name="StartTemplate" xml:space="preserve">
+    <value>StartTemplate</value>
+  </data>
+  <data name="InterfaceUsage" xml:space="preserve">
+    <value>InterfaceUsage</value>
+  </data>
+  <data name="Real_timeCombatItems" xml:space="preserve">
+    <value>Real-time Combat Items[A.RPG]</value>
+  </data>
+  <data name="InterfaceDocumentation" xml:space="preserve">
+    <value>Interface Documentation</value>
+  </data>
+  <data name="ExtendedServices" xml:space="preserve">
+    <value>Extended Services</value>
+  </data>
+  <data name="Function Plug-in" xml:space="preserve">
+    <value>Function Plug-in</value>
+  </data>
+  <data name="Attributes" xml:space="preserve">
+    <value>Attributes</value>
+  </data>
+  <data name="ScreenWidth" xml:space="preserve">
+    <value>Screen Width</value>
+  </data>
+  <data name="ScreenHeight" xml:space="preserve">
+    <value>Screen Height</value>
+  </data>
+  <data name="WindowTitle" xml:space="preserve">
+    <value>Window Title</value>
+  </data>
+  <data name="MapInfo" xml:space="preserve">
+    <value>Map Info</value>
+  </data>
+  <data name="MouseProps" xml:space="preserve">
+    <value>Mouse Props</value>
+  </data>
+  <data name="DropTheNameAll" xml:space="preserve">
+    <value>Drop the name all</value>
+  </data>
+  <data name="TranslucentShelter" xml:space="preserve">
+    <value>Translucent shelter</value>
+  </data>
+  <data name="ControlPause" xml:space="preserve">
+    <value>Control pause</value>
+  </data>
+  <data name="LensX" xml:space="preserve">
+    <value>Lens x</value>
+  </data>
+  <data name="LensY" xml:space="preserve">
+    <value>Lens y</value>
+  </data>
+  <data name="LensObject" xml:space="preserve">
+    <value>Lens Object</value>
+  </data>
+  <data name="LensZoom" xml:space="preserve">
+    <value>Lens Zoom</value>
+  </data>
+  <data name="LensMovesSmoothly" xml:space="preserve">
+    <value>Lens Moves Smoothly</value>
+  </data>
+  <data name="Environmental Color" xml:space="preserve">
+    <value>Environmental color</value>
+  </data>
+  <data name="DefaultMouseVisibility" xml:space="preserve">
+    <value>Default mouse visibility</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>Full Screen</value>
+  </data>
+  <data name="ArchiveInformation" xml:space="preserve">
+    <value>Archive information</value>
+  </data>
+  <data name="AccountInformation" xml:space="preserve">
+    <value>Account information</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="ScreenShake" xml:space="preserve">
+    <value>Screen Shake</value>
+  </data>
+  <data name="Prompt" xml:space="preserve">
+    <value>Prompt</value>
+  </data>
+  <data name="Ask" xml:space="preserve">
+    <value>Ask</value>
+  </data>
+  <data name="TransitionEffects" xml:space="preserve">
+    <value>Transition Effects</value>
+  </data>
+  <data name="StartGame" xml:space="preserve">
+    <value>Start Game</value>
+  </data>
+  <data name="EndGame" xml:space="preserve">
+    <value>End Game</value>
+  </data>
+  <data name="PauseGame" xml:space="preserve">
+    <value>Pause Game</value>
+  </data>
+  <data name="ContinueGame" xml:space="preserve">
+    <value>Continue Game</value>
+  </data>
+  <data name="RandomNumber" xml:space="preserve">
+    <value>Random Number</value>
+  </data>
+  <data name="TakeTheRunningTime" xml:space="preserve">
+    <value>Take the running time</value>
+  </data>
+  <data name="TakeParcels" xml:space="preserve">
+    <value>Take parcels</value>
+  </data>
+  <data name="TakeTheNumberOfItems" xml:space="preserve">
+    <value>Take The Number Of Items</value>
+  </data>
+  <data name="AddItems" xml:space="preserve">
+    <value>Add Items</value>
+  </data>
+  <data name="ReduceItems" xml:space="preserve">
+    <value>Reduce items</value>
+  </data>
+  <data name="UseItems" xml:space="preserve">
+    <value>Use items</value>
+  </data>
+  <data name="CoolingItems" xml:space="preserve">
+    <value>Cooling Items</value>
+  </data>
+  <data name="DropItems" xml:space="preserve">
+    <value>Drop Items</value>
+  </data>
+  <data name="OrganizeItems" xml:space="preserve">
+    <value>Organize items</value>
+  </data>
+  <data name="MouseBubble" xml:space="preserve">
+    <value>Mouse bubble</value>
+  </data>
+  <data name="PositioningBubbles" xml:space="preserve">
+    <value>Positioning bubbles</value>
+  </data>
+  <data name="DestroyTheEvent" xml:space="preserve">
+    <value>Destroy The Event</value>
+  </data>
+  <data name="CopyEvents" xml:space="preserve">
+    <value>Copy events</value>
+  </data>
+  <data name="RetrieveEvents" xml:space="preserve">
+    <value>Retrieve Events</value>
+  </data>
+  <data name="EventHook" xml:space="preserve">
+    <value>Event hook</value>
+  </data>
+  <data name="TakeTheListOfEvents" xml:space="preserve">
+    <value>Take the list of events</value>
+  </data>
+  <data name="TakeListOfEventsBetweenTwoPoints" xml:space="preserve">
+    <value>Take list of events between two points</value>
+  </data>
+  <data name="MasterAndServantBinding" xml:space="preserve">
+    <value>Master and servant binding</value>
+  </data>
+  <data name="TakeValidPosition" xml:space="preserve">
+    <value>Take Valid Position</value>
+  </data>
+  <data name="TakeTheMostRecentValidPosition" xml:space="preserve">
+    <value>Take the most recent valid position</value>
+  </data>
+  <data name="TakeTheKeyState" xml:space="preserve">
+    <value>Take the key state</value>
+  </data>
+  <data name="GlobalEvent" xml:space="preserve">
+    <value>GlobalEvent</value>
+  </data>
+  <data name="MapDirection" xml:space="preserve">
+    <value>Map direction</value>
+  </data>
+  <data name="TileLayerFormat" xml:space="preserve">
+    <value>Tile layer format</value>
+  </data>
+  <data name="TileRenderingOrder" xml:space="preserve">
+    <value>Tile Rendering Order</value>
+  </data>
+  <data name="BlockSize" xml:space="preserve">
+    <value>Block size</value>
+  </data>
+  <data name="MapSize" xml:space="preserve">
+    <value>Map size</value>
+  </data>
 </root>

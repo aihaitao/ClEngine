@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:clEngine="clr-namespace:ClEngine"
+             xmlns:properties="clr-namespace:ClEngine.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -19,10 +20,10 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <TabControl Grid.Row="0">
-                <TabItem Header="脚本信息">
+                <TabItem Header="{x:Static properties:Resources.ScriptInfo}">
                     <TreeView></TreeView>
                 </TabItem>
-                <TabItem Header="接口插件">
+                <TabItem Header="{x:Static properties:Resources.InterfacePlugin}">
                     <TreeView>
                         <TreeViewItem Header="没有使用到插件"></TreeViewItem>
                     </TreeView>
@@ -30,15 +31,15 @@
             </TabControl>
             <GridSplitter Grid.Row="1"></GridSplitter>
             <ListBox Grid.Row="2" MouseDoubleClick="CodeViewer_OnClick" Name="CodeListBox">
-                <TextBlock Text="启动"></TextBlock>
-                <TextBlock Text="游戏开始"></TextBlock>
-                <TextBlock Text="地图切换"></TextBlock>
-                <TextBlock Text="游戏任务"></TextBlock>
-                <TextBlock Text="按键事件"></TextBlock>
-                <TextBlock Text="物品掉落"></TextBlock>
-                <TextBlock Text="技能格子"></TextBlock>
-                <TextBlock Text="窗口关闭"></TextBlock>
-                <TextBlock Text="其他事件"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.Startup}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.GameStart}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.MapSwitch}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.GameTask}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.KeyEvent}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.ItemDrop}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.SkillBox}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.WindowClose}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.OtherEvent}"></TextBlock>
             </ListBox>
         </Grid>
         <GridSplitter Grid.Column="1"></GridSplitter>

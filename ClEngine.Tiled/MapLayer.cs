@@ -1,96 +1,98 @@
-﻿namespace ClEngine.Tiled
+﻿using System.Collections.Generic;
+using System.Xml.Serialization;
+
+namespace ClEngine.Tiled
 {
-	/// <remarks/>
-	[System.Serializable]
+	[System.Serializable, XmlRoot(ElementName = "layer")]
 	public class MapLayer
 	{
+		private string _name;
+		private int _x;
+		private int _y;
+		private int _width;
+		private int _height;
+		private float _opacity;
+		private bool _visible;
+		private string _offsetx;
+		private string _offsety;
+		private List<MapProperties> _mapProperties;
+		private MapData _mapData;
 
-		private MapLayerProperties _propertiesField;
-
-		private MapLayerData _dataField;
-
-		private string _widthField;
-
-		private string _heightField;
-
-		private string _xField;
-
-		private string _yField;
-
-		private string _nameField;
-
-		private string _opacityField;
-
-		private string _visibleField;
-
-		/// <remarks/>
-		public MapLayerProperties Properties
-		{
-			get => _propertiesField;
-			set => _propertiesField = value;
-		}
-
-		/// <remarks/>
-		public MapLayerData Data
-		{
-			get => _dataField;
-			set => _dataField = value;
-		}
-
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Width
-		{
-			get => _widthField;
-			set => _widthField = value;
-		}
-
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Height
-		{
-			get => _heightField;
-			set => _heightField = value;
-		}
-
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string X
-		{
-			get => _xField;
-			set => _xField = value;
-		}
-
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Y
-		{
-			get => _yField;
-			set => _yField = value;
-		}
-
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
+		[XmlAttribute("name")]
 		public string Name
 		{
-			get => _nameField;
-			set => _nameField = value;
+			get => _name;
+			set => _name = value;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Opacity
+		[XmlAttribute("x")]
+		public int X
 		{
-			get => _opacityField;
-			set => _opacityField = value;
+			get => _x;
+			set => _x = value;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Visible
+		[XmlAttribute("y")]
+		public int Y
 		{
-			get => _visibleField;
-			set => _visibleField = value;
+			get => _y;
+			set => _y = value;
+		}
+
+		[XmlAttribute("width")]
+		public int Width
+		{
+			get => _width;
+			set => _width = value;
+		}
+
+		[XmlAttribute("height")]
+		public int Height
+		{
+			get => _height;
+			set => _height = value;
+		}
+
+		[XmlAttribute("opacity")]
+		public float Opacity
+		{
+			get => _opacity;
+			set => _opacity = value;
+		}
+
+		[XmlAttribute("visible")]
+		public bool Visible
+		{
+			get => _visible;
+			set => _visible = value;
+		}
+
+		[XmlAttribute("offsetx")]
+		public string Offsetx
+		{
+			get => _offsetx;
+			set => _offsetx = value;
+		}
+
+		[XmlAttribute("offsety")]
+		public string Offsety
+		{
+			get => _offsety;
+			set => _offsety = value;
+		}
+
+		[XmlElement(ElementName = "properties")]
+		public List<MapProperties> Properties
+		{
+			get => _mapProperties;
+			set => _mapProperties = value;
+		}
+
+		[XmlElement(ElementName = "data")]
+		public MapData Data
+		{
+			get => _mapData;
+			set => _mapData = value;
 		}
 	}
 }

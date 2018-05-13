@@ -6,6 +6,7 @@
              xmlns:sd="http://sharpdevelop.net"
              xmlns:model="clr-namespace:ClEngine.Model"
              xmlns:wpfDesign="clr-namespace:ICSharpCode.WpfDesign;assembly=ICSharpCode.WpfDesign"
+             xmlns:properties="clr-namespace:ClEngine.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
@@ -20,7 +21,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <TabControl Grid.Row="0">
-                <TabItem Header="窗口界面" MinWidth="265">
+                <TabItem Header="{x:Static properties:Resources.WindowInterface}" MinWidth="265">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -35,19 +36,19 @@
                         </ListBox>
                         <StackPanel Grid.Column="1" Margin="5">
                             <Button Width="60" Height="25" Click="AddWindow_OnClick">
-                                <TextBlock Text="添加窗口"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.AddWindow}"></TextBlock>
                             </Button>
                             <Button Width="60" Height="25" Margin="0 5 0 0">
-                                <TextBlock Text="复制窗口"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.CopyWindow}"></TextBlock>
                             </Button>
                             <Button Width="60" Height="25" Margin="0 5 0 0" Click="DeleteWindow_OnClick">
-                                <TextBlock Text="删除窗口"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.DeleteWindow}"></TextBlock>
                             </Button>
                             <Button Width="60" Height="25" Margin="0 5 0 0">
-                                <TextBlock Text="导入窗口"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.ImportWindow}"></TextBlock>
                             </Button>
                             <Button Width="60" Height="25" Margin="0 5 0 0">
-                                <TextBlock Text="导出窗口"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.ExportWindow}"></TextBlock>
                             </Button>
                             <Button Width="60" Height="25" Margin="0 5 0 0">
                                 <TextBlock Text="↑"></TextBlock>
@@ -60,7 +61,7 @@
                 </TabItem>
             </TabControl>
             <TabControl Grid.Row="1" >
-                <TabItem Header="窗体信息">
+                <TabItem Header="{x:Static properties:Resources.FormInfo}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -78,7 +79,7 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="窗口名称" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.WindowName}" VerticalAlignment="Center"></TextBlock>
                                 <TextBox Grid.Column="1" BorderBrush="Gray" Margin="2 0 0 0" 
 								         Text="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.Title), Mode=TwoWay}"></TextBox>
                             </Grid>
@@ -91,14 +92,14 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="窗口底图" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.WindowImage}" VerticalAlignment="Center"></TextBlock>
                                 <Button Grid.Column="1" Width="20" Margin="2 0 0 0">
                                     <TextBlock Text="..."></TextBlock>
                                 </Button>
-                                <TextBlock Grid.Column="2" VerticalAlignment="Center" Margin="2 0 0 0">宽</TextBlock>
+                                <TextBlock Grid.Column="2" VerticalAlignment="Center" Margin="2 0 0 0" Text="{x:Static properties:Resources.Width}"></TextBlock>
                                 <TextBox Grid.Column="3" BorderBrush="Gray" Margin="2 0 0 0" HorizontalContentAlignment="Center"
                                          Text="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.Width), Mode=TwoWay}"></TextBox>
-                                <TextBlock Grid.Column="4" Text="高" VerticalAlignment="Center" Margin="2 0 0 0"></TextBlock>
+                                <TextBlock Grid.Column="4" Text="{x:Static properties:Resources.Height}" VerticalAlignment="Center" Margin="2 0 0 0"></TextBlock>
                                 <TextBox Grid.Column="5" BorderBrush="Gray" HorizontalContentAlignment="Center"
                                          Text="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.Height), Mode=TwoWay}"></TextBox>
                             </Grid>
@@ -109,36 +110,36 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="默认x" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.DefaultX}" VerticalAlignment="Center"></TextBlock>
                                 <TextBox Grid.Column="1" BorderBrush="Gray" Margin="2 0 0 0" HorizontalContentAlignment="Center"
                                          Text="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.X), Mode=TwoWay}"></TextBox>
-                                <TextBlock Text="默认y" Grid.Column="2" VerticalAlignment="Center" Margin="2 0 0 0"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.DefaultY}" Grid.Column="2" VerticalAlignment="Center" Margin="2 0 0 0"></TextBlock>
                                 <TextBox Grid.Column="3" BorderBrush="Gray" Margin="2 0 0 0" HorizontalContentAlignment="Center"
                                          Text="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.Y), Mode=TwoWay}"></TextBox>
                             </Grid>
                             <Button Grid.Row="3" Width="70" HorizontalAlignment="Right" Margin="0 2 0 0" Click="ScriptEditor_OnClick">
-                                <TextBlock Text="脚本"></TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.Script}"></TextBlock>
                             </Button>
                         </Grid>
                         <StackPanel Grid.Column="1" VerticalAlignment="Stretch">
                             <CheckBox IsChecked="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.Visible), Mode=TwoWay}">
-                                <TextBlock>默认可视</TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.DefaultVisible}"></TextBlock>
                             </CheckBox>
                             <CheckBox Margin="0 5 0 0"  
 							          IsChecked="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.DragDrop), Mode=TwoWay}">
-                                <TextBlock>可以拖动</TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.AllowDrag}"></TextBlock>
                             </CheckBox>
                             <CheckBox Margin="0 5 0 0"
                                       IsChecked="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.TopVisible), Mode=TwoWay}">
-                                <TextBlock>置顶显示</TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.TopVisible}"></TextBlock>
                             </CheckBox>
                             <CheckBox Margin="0 5 0 0"
                                       IsChecked="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.MouseThrough), Mode=TwoWay}">
-                                <TextBlock>鼠标穿透</TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.MouseThrough}"></TextBlock>
                             </CheckBox>
                             <CheckBox Margin="0 5 0 0"
                                       IsChecked="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.NinePattern), Mode=TwoWay}">
-                                <TextBlock>九宫模式</TextBlock>
+                                <TextBlock Text="{x:Static properties:Resources.NinePattern}"></TextBlock>
                             </CheckBox>
                         </StackPanel>
                     </Grid>
@@ -152,55 +153,55 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <TabControl>
-                <TabItem Header="窗口控件">
+                <TabItem Header="{x:Static properties:Resources.WindowControl}">
                     <WrapPanel ItemHeight="25">
                         <Button Height="20" Click="ButtonBase_OnClick">
-                            <TextBlock Text="按钮"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.Button}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20" Click=" LabelBase_OnClick">
-                            <TextBlock Text="标签"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.Label}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20" Click="ImageBase_OnClick">
-                            <TextBlock Text="图片"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.Image}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20" Click="InputBase_OnClick">
-                            <TextBlock Text="输入框"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.InputBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20" Click="ListBase_OnClick">
-                            <TextBlock Text="列表框"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.ListBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20" Click="ProgressBase_OnClick">
-                            <TextBlock Text="进度条"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.Progress}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20" Click="CheckBoxBase_OnClick">
-                            <TextBlock Text="选择框"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.CheckBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20">
-                            <TextBlock Text="物品格子"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.ItemBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20">
-                            <TextBlock Text="技能格子"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.SkillBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20">
-                            <TextBlock Text="商品格子"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.ShopBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20" Click="SliderBase_OnClick">
-                            <TextBlock Text="滑块条"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.Slider}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20">
-                            <TextBlock Text="动画框"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.AnimationBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20">
-                            <TextBlock Text="事件盒"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.EventBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20">
-                            <TextBlock Text="包围盒"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.BoundingBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20">
-                            <TextBlock Text="文本框"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.TextBox}"></TextBlock>
                         </Button>
                         <Button Margin="5 0 0 0" Height="20">
-                            <TextBlock Text="树形框"></TextBlock>
+                            <TextBlock Text="{x:Static properties:Resources.TreeView}"></TextBlock>
                         </Button>
                     </WrapPanel>
                 </TabItem>
@@ -216,7 +217,7 @@
                     </ComboBoxItem>
                 </ComboBox>
                 <TabControl Grid.Row="1">
-                    <TabItem Header="控件可见状态">
+                    <TabItem Header="{x:Static properties:Resources.ControlVisibleState}">
                         <ListBox ItemsSource="{Binding DesignContext.Services.Selection.SelectedItems, ElementName=DesignSurface}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate DataType="wpfDesign:DesignItem">
@@ -227,7 +228,7 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </TabItem>
-                    <TabItem Header="标签">
+                    <TabItem Header="{x:Static properties:Resources.Property}">
                         <Grid Margin="5">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>

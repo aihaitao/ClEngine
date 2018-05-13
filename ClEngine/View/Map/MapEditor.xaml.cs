@@ -1,4 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System.IO;
+using System.Windows.Controls;
+using ClEngine.CoreLibrary.Map;
+using ClEngine.Tiled;
 using ClEngine.View.Map;
 using ClEngine.ViewModel;
 
@@ -9,17 +12,30 @@ namespace ClEngine
     /// </summary>
     public partial class MapEditor : UserControl
     {
-        private MapEditorViewModel _mapEditorViewModel;
-        public MapEditor()
+        public static MapEditorViewModel MapEditorViewModel;
+		public MapEditor()
         {
-            InitializeComponent();
+			InitializeComponent();
 
-            _mapEditorViewModel = new MapEditorViewModel();
-            DataContext = _mapEditorViewModel;
-            MapEventDataGrid.ItemsSource = _mapEditorViewModel.Model;
+			MapEditorViewModel = new MapEditorViewModel(MapListView);
+            DataContext = MapEditorViewModel;
+
+			MapListView.SelectionChanged += MapListViewOnSelectionChanged;
 
 			CreateContextMenu();
         }
+
+	    private void MapListViewOnSelectionChanged(object sender, SelectionChangedEventArgs e)
+	    {
+		    if (MapListView.SelectedItem is MapInfo info)
+		    {
+			    var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(info.Source);
+			    var fileDir = Path.GetDirectoryName(info.Source);
+			    var result = Path.Combine(fileDir, fileNameWithoutExtension);
+			    MapEventDataGrid.ItemsSource = MapHelper.GetMap(info.Source).Group.Objectgroup;
+				MapDraw.Instance.SetCurrentMap(info.Source);
+		    }
+	    }
 
 	    private void CreateContextMenu()
 	    {

@@ -22,7 +22,9 @@ namespace ClEngine.CoreLibrary.Particle
 		private Camera2D _camera;
 		private Texture2D _particleTexture;
 		private SpriteBatch _spriteBatch;
-		
+		private SpriteFont _smallFont;
+		private readonly FramesPerSecondCounter _fpsCounter = new FramesPerSecondCounter();
+
 		public ParticleEffect ParticleEffect { get; set; }
 		protected override void Initialize()
 		{
@@ -39,6 +41,8 @@ namespace ClEngine.CoreLibrary.Particle
 		{
 			var viewportAdapter = new DefaultViewportAdapter(GraphicsDevice);
 			_camera = new Camera2D(viewportAdapter);
+
+			_smallFont = Content.Load<SpriteFont>("msyh9");
 
 			_particleTexture = new Texture2D(GraphicsDevice, 1, 1);
 			_particleTexture.SetData(new[] {Color.White});
@@ -61,6 +65,7 @@ namespace ClEngine.CoreLibrary.Particle
 			var p = _camera.ScreenToWorld(mouseState.X, mouseState.Y);
 
 			ParticleEffect.Update(deltaTime);
+			_fpsCounter.Update(gameTime);
 
 			if (mouseState.LeftButton == ButtonState.Pressed)
 			{
@@ -83,8 +88,11 @@ namespace ClEngine.CoreLibrary.Particle
 		{
 			GraphicsDevice.Clear(Color.Black);
 
+			_fpsCounter.Draw(gameTime);
+
 			_spriteBatch.Begin(blendState: BlendState.AlphaBlend, transformMatrix: _camera.GetViewMatrix());
 			_spriteBatch.Draw(ParticleEffect);
+			_spriteBatch.DrawString(_smallFont, $"当前fps： {_fpsCounter.FramesPerSecond}", Vector2.Zero, Color.White);
 			_spriteBatch.End();
 
 			base.Draw(gameTime);

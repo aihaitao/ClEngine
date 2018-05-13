@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="File" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>工程</value>
+  </data>
+  <data name="Tool" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="SaveScript" xml:space="preserve">
+    <value>保存脚本</value>
+  </data>
+  <data name="ClearLog" xml:space="preserve">
+    <value>清理日志</value>
+  </data>
+  <data name="RunGame" xml:space="preserve">
+    <value>运行游戏</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>地图</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>界面</value>
+  </data>
+  <data name="Script" xml:space="preserve">
+    <value>脚本</value>
+  </data>
+  <data name="Resource" xml:space="preserve">
+    <value>资源</value>
+  </data>
+  <data name="Particle" xml:space="preserve">
+    <value>粒子</value>
+  </data>
+  <data name="HelpDocument" xml:space="preserve">
+    <value>帮助文档</value>
+  </data>
+  <data name="LogSystem" xml:space="preserve">
+    <value>日志系统</value>
+  </data>
+  <data name="MapEvent" xml:space="preserve">
+    <value>地图事件</value>
+  </data>
+  <data name="EventTemplate" xml:space="preserve">
+    <value>事件模版</value>
+  </data>
+  <data name="EventName" xml:space="preserve">
+    <value>事件名称</value>
+  </data>
+  <data name="SignColor" xml:space="preserve">
+    <value>标记颜色</value>
+  </data>
+  <data name="CoordinateX" xml:space="preserve">
+    <value>坐标x</value>
+  </data>
+  <data name="CoordinateY" xml:space="preserve">
+    <value>坐标y</value>
+  </data>
+  <data name="IsVisble" xml:space="preserve">
+    <value>是否可见</value>
+  </data>
+  <data name="WindowInterface" xml:space="preserve">
+    <value>窗口界面</value>
+  </data>
+  <data name="AddWindow" xml:space="preserve">
+    <value>添加窗口</value>
+  </data>
+  <data name="CopyWindow" xml:space="preserve">
+    <value>复制窗口</value>
+  </data>
+  <data name="DeleteWindow" xml:space="preserve">
+    <value>删除窗口</value>
+  </data>
+  <data name="ImportWindow" xml:space="preserve">
+    <value>导入窗口</value>
+  </data>
+  <data name="ExportWindow" xml:space="preserve">
+    <value>导出窗口</value>
+  </data>
+  <data name="FormInfo" xml:space="preserve">
+    <value>窗体信息</value>
+  </data>
+  <data name="WindowName" xml:space="preserve">
+    <value>窗口名称</value>
+  </data>
+  <data name="WindowImage" xml:space="preserve">
+    <value>窗口底图</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>宽</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>高</value>
+  </data>
+  <data name="DefaultX" xml:space="preserve">
+    <value>默认x</value>
+  </data>
+  <data name="DefaultY" xml:space="preserve">
+    <value>默认y</value>
+  </data>
+  <data name="DefaultVisible" xml:space="preserve">
+    <value>默认可视</value>
+  </data>
+  <data name="AllowDrag" xml:space="preserve">
+    <value>允许拖动</value>
+  </data>
+  <data name="TopVisible" xml:space="preserve">
+    <value>置顶显示</value>
+  </data>
+  <data name="MouseThrough" xml:space="preserve">
+    <value>鼠标穿透</value>
+  </data>
+  <data name="NinePattern" xml:space="preserve">
+    <value>九宫模式</value>
+  </data>
+  <data name="WindowControl" xml:space="preserve">
+    <value>窗口控件</value>
+  </data>
+  <data name="Button" xml:space="preserve">
+    <value>按钮</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>图片</value>
+  </data>
+  <data name="InputBox" xml:space="preserve">
+    <value>输入框</value>
+  </data>
+  <data name="ListBox" xml:space="preserve">
+    <value>列表框</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>进度条</value>
+  </data>
+  <data name="CheckBox" xml:space="preserve">
+    <value>选择框</value>
+  </data>
+  <data name="ItemBox" xml:space="preserve">
+    <value>物品格子</value>
+  </data>
+  <data name="SkillBox" xml:space="preserve">
+    <value>技能格子</value>
+  </data>
+  <data name="ShopBox" xml:space="preserve">
+    <value>商品格子</value>
+  </data>
+  <data name="Slider" xml:space="preserve">
+    <value>滑块条</value>
+  </data>
+  <data name="AnimationBox" xml:space="preserve">
+    <value>动画框</value>
+  </data>
+  <data name="EventBox" xml:space="preserve">
+    <value>事件盒</value>
+  </data>
+  <data name="BoundingBox" xml:space="preserve">
+    <value>包围盒</value>
+  </data>
+  <data name="TextBox" xml:space="preserve">
+    <value>文本框</value>
+  </data>
+  <data name="TreeView" xml:space="preserve">
+    <value>树形框</value>
+  </data>
+  <data name="ControlVisibleState" xml:space="preserve">
+    <value>控件可见状态</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="ScriptInfo" xml:space="preserve">
+    <value>脚本信息</value>
+  </data>
+  <data name="InterfacePlugin" xml:space="preserve">
+    <value>接口插件</value>
+  </data>
+  <data name="Startup" xml:space="preserve">
+    <value>启动</value>
+  </data>
+  <data name="GameStart" xml:space="preserve">
+    <value>游戏开始</value>
+  </data>
+  <data name="MapSwitch" xml:space="preserve">
+    <value>地图切换</value>
+  </data>
+  <data name="GameTask" xml:space="preserve">
+    <value>游戏任务</value>
+  </data>
+  <data name="KeyEvent" xml:space="preserve">
+    <value>按键事件</value>
+  </data>
+  <data name="ItemDrop" xml:space="preserve">
+    <value>物品掉落</value>
+  </data>
+  <data name="SkillEvent" xml:space="preserve">
+    <value>技能事件</value>
+  </data>
+  <data name="WindowClose" xml:space="preserve">
+    <value>窗口关闭</value>
+  </data>
+  <data name="OtherEvent" xml:space="preserve">
+    <value>其它事件</value>
+  </data>
+  <data name="ResourceName" xml:space="preserve">
+    <value>资源名称</value>
+  </data>
+  <data name="ResourcePath" xml:space="preserve">
+    <value>资源路径</value>
+  </data>
+  <data name="NewProject" xml:space="preserve">
+    <value>新建工程</value>
+  </data>
+  <data name="OpenProject" xml:space="preserve">
+    <value>打开工程</value>
+  </data>
+  <data name="SaveProject" xml:space="preserve">
+    <value>保存工程</value>
+  </data>
+  <data name="ExportProjectTemplate" xml:space="preserve">
+    <value>导出工程模板</value>
+  </data>
+  <data name="OpenProjectDirectory" xml:space="preserve">
+    <value>打开工程目录</value>
+  </data>
+  <data name="BindProjectID" xml:space="preserve">
+    <value>绑定工程ID</value>
+  </data>
+  <data name="ReNameProject" xml:space="preserve">
+    <value>重新关联名称</value>
+  </data>
+  <data name="SystemTemplate" xml:space="preserve">
+    <value>系统模板</value>
+  </data>
+  <data name="OtherTemplate" xml:space="preserve">
+    <value>其他模板</value>
+  </data>
+  <data name="InstantFightingType" xml:space="preserve">
+    <value>即时战斗类型</value>
+  </data>
+  <data name="StartTemplate" xml:space="preserve">
+    <value>开始模板</value>
+  </data>
+  <data name="InterfaceUsage" xml:space="preserve">
+    <value>接口使用</value>
+  </data>
+  <data name="Real_timeCombatItems" xml:space="preserve">
+    <value>即时战斗类项目[A.RPG]</value>
+  </data>
+  <data name="InterfaceDocumentation" xml:space="preserve">
+    <value>接口文档</value>
+  </data>
+  <data name="ExtendedServices" xml:space="preserve">
+    <value>扩展服务</value>
+  </data>
+  <data name="Function Plug-in" xml:space="preserve">
+    <value>功能插件</value>
+  </data>
+  <data name="Attributes" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="ScreenWidth" xml:space="preserve">
+    <value>屏幕宽度</value>
+  </data>
+  <data name="ScreenHeight" xml:space="preserve">
+    <value>屏幕高度</value>
+  </data>
+  <data name="WindowTitle" xml:space="preserve">
+    <value>窗口标题</value>
+  </data>
+  <data name="MapInfo" xml:space="preserve">
+    <value>地图信息</value>
+  </data>
+  <data name="MouseProps" xml:space="preserve">
+    <value>鼠标道具</value>
+  </data>
+  <data name="DropTheNameAll" xml:space="preserve">
+    <value>掉落物名称全显</value>
+  </data>
+  <data name="TranslucentShelter" xml:space="preserve">
+    <value>半透明遮挡</value>
+  </data>
+  <data name="ControlPause" xml:space="preserve">
+    <value>控制暂停</value>
+  </data>
+  <data name="LensX" xml:space="preserve">
+    <value>镜头x</value>
+  </data>
+  <data name="LensY" xml:space="preserve">
+    <value>镜头y</value>
+  </data>
+  <data name="LensObject" xml:space="preserve">
+    <value>镜头对象</value>
+  </data>
+  <data name="LensZoom" xml:space="preserve">
+    <value>镜头缩放</value>
+  </data>
+  <data name="LensMovesSmoothly" xml:space="preserve">
+    <value>镜头平滑移动</value>
+  </data>
+  <data name="Environmental Color" xml:space="preserve">
+    <value>环境色</value>
+  </data>
+  <data name="DefaultMouseVisibility" xml:space="preserve">
+    <value>默认鼠标可视</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>全屏</value>
+  </data>
+  <data name="ArchiveInformation" xml:space="preserve">
+    <value>存档信息</value>
+  </data>
+  <data name="AccountInformation" xml:space="preserve">
+    <value>账号信息</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>方法</value>
+  </data>
+  <data name="ScreenShake" xml:space="preserve">
+    <value>屏幕震动</value>
+  </data>
+  <data name="Prompt" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="Ask" xml:space="preserve">
+    <value>询问</value>
+  </data>
+  <data name="TransitionEffects" xml:space="preserve">
+    <value>转场特效</value>
+  </data>
+  <data name="StartGame" xml:space="preserve">
+    <value>开始游戏</value>
+  </data>
+  <data name="EndGame" xml:space="preserve">
+    <value>结束游戏</value>
+  </data>
+  <data name="PauseGame" xml:space="preserve">
+    <value>暂停游戏</value>
+  </data>
+  <data name="ContinueGame" xml:space="preserve">
+    <value>继续游戏</value>
+  </data>
+  <data name="RandomNumber" xml:space="preserve">
+    <value>取随机数</value>
+  </data>
+  <data name="TakeTheRunningTime" xml:space="preserve">
+    <value>取运行时间</value>
+  </data>
+  <data name="TakeParcels" xml:space="preserve">
+    <value>取包裹空位</value>
+  </data>
+  <data name="TakeTheNumberOfItems" xml:space="preserve">
+    <value>取物品数量</value>
+  </data>
+  <data name="AddItems" xml:space="preserve">
+    <value>增加物品</value>
+  </data>
+  <data name="ReduceItems" xml:space="preserve">
+    <value>减少物品</value>
+  </data>
+  <data name="UseItems" xml:space="preserve">
+    <value>使用物品</value>
+  </data>
+  <data name="CoolingItems" xml:space="preserve">
+    <value>冷却物品</value>
+  </data>
+  <data name="DropItems" xml:space="preserve">
+    <value>掉落物品</value>
+  </data>
+  <data name="OrganizeItems" xml:space="preserve">
+    <value>整理物品</value>
+  </data>
+  <data name="MouseBubble" xml:space="preserve">
+    <value>鼠标气泡</value>
+  </data>
+  <data name="PositioningBubbles" xml:space="preserve">
+    <value>定位气泡</value>
+  </data>
+  <data name="DestroyTheEvent" xml:space="preserve">
+    <value>销毁事件</value>
+  </data>
+  <data name="CopyEvents" xml:space="preserve">
+    <value>复制事件</value>
+  </data>
+  <data name="RetrieveEvents" xml:space="preserve">
+    <value>取回事件</value>
+  </data>
+  <data name="EventHook" xml:space="preserve">
+    <value>事件钩子</value>
+  </data>
+  <data name="TakeTheListOfEvents" xml:space="preserve">
+    <value>取事件列表</value>
+  </data>
+  <data name="TakeListOfEventsBetweenTwoPoints" xml:space="preserve">
+    <value>取两点间事件列表</value>
+  </data>
+  <data name="MasterAndServantBinding" xml:space="preserve">
+    <value>主仆绑定</value>
+  </data>
+  <data name="TakeValidPosition" xml:space="preserve">
+    <value>取有效位置</value>
+  </data>
+  <data name="TakeTheMostRecentValidPosition" xml:space="preserve">
+    <value>取最近有效位置</value>
+  </data>
+  <data name="TakeTheKeyState" xml:space="preserve">
+    <value>取按键状态</value>
+  </data>
+  <data name="GlobalEvent" xml:space="preserve">
+    <value>全局事件</value>
+  </data>
+  <data name="MapDirection" xml:space="preserve">
+    <value>地图方向</value>
+  </data>
+  <data name="TileLayerFormat" xml:space="preserve">
+    <value>图块层格式</value>
+  </data>
+  <data name="TileRenderingOrder" xml:space="preserve">
+    <value>图块渲染顺序</value>
+  </data>
+  <data name="BlockSize" xml:space="preserve">
+    <value>块大小</value>
+  </data>
+  <data name="MapSize" xml:space="preserve">
+    <value>地图大小</value>
+  </data>
+</root>

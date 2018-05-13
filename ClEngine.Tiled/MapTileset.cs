@@ -1,96 +1,138 @@
-﻿namespace ClEngine.Tiled
+﻿using System.Xml.Serialization;
+using Microsoft.Xna.Framework;
+
+namespace ClEngine.Tiled
 {
-	/// <remarks/>
-	[System.Serializable]
-	public class MapTileset
+	[System.Serializable, XmlRoot(ElementName = "tileset")]
+	public class MapTileSet
 	{
+		private string _firstgid;
+		private string _source;
+		private string _name;
+		private int _tilewidth;
+		private int _tileheight;
+		private int _spacing;
+		private int _margin;
+		private string _tilecount;
+		private int _columns;
+		private MapTileOffset _tileOffset;
+		private MapGrid _grid;
+		private MapProperties _properties;
+		private MapImage _image;
+		private MapTerraintypes _terraintypes;
+		private MapTile _tile;
+		private MapWangsets _wangsets;
 
-		private MapTilesetImage _imageField;
-
-		private MapTilesetTile _tileField;
-
-		private string _tilewidthField;
-
-		private string _tileheightField;
-
-		private string _sourceField;
-
-		private string _nameField;
-
-		private string _marginField;
-
-		private string _spacingField;
-
-		private string _firstgidField;
-
-		/// <remarks/>
-		public MapTilesetImage Image
+		[XmlElement(ElementName = "tileoffset")]
+		public MapTileOffset Tileoffset
 		{
-			get => _imageField;
-			set => _imageField = value;
+			get => _tileOffset;
+			set => _tileOffset = value;
 		}
 
-		/// <remarks/>
-		public MapTilesetTile Tile
+		[XmlElement(ElementName = "grid")]
+		public MapGrid Grid
 		{
-			get => _tileField;
-			set => _tileField = value;
+			get => _grid;
+			set => _grid = value;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Tilewidth
+		[XmlElement(ElementName = "image")]
+		public MapImage Image
 		{
-			get => _tilewidthField;
-			set => _tilewidthField = value;
+			get => _image;
+			set => _image = value;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Tileheight
+		[XmlElement(ElementName = "wangsets")]
+		public MapWangsets Wangsets
 		{
-			get => _tileheightField;
-			set => _tileheightField = value;
+			get => _wangsets;
+			set => _wangsets = value;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Source
+		[XmlElement(ElementName = "tile")]
+		public MapTile Tile
 		{
-			get => _sourceField;
-			set => _sourceField = value;
+			get => _tile;
+			set => _tile = value;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Name
+		[XmlElement(ElementName = "properties")]
+		public MapProperties Properties
 		{
-			get => _nameField;
-			set => _nameField = value;
+			get => _properties;
+			set => _properties = value;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Margin
+		[XmlElement(ElementName = "terraintypes")]
+		public MapTerraintypes Terraintypes
 		{
-			get => _marginField;
-			set => _marginField = value;
+			get => _terraintypes;
+			set => _terraintypes = value;
 		}
 
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
-		public string Spacing
-		{
-			get => _spacingField;
-			set => _spacingField = value;
-		}
-
-		/// <remarks/>
-		[System.Xml.Serialization.XmlAttribute]
+		[XmlAttribute("firstgid")]
 		public string Firstgid
 		{
-			get => _firstgidField;
-			set => _firstgidField = value;
+			get => _firstgid;
+			set => _firstgid = value;
+		}
+
+		[XmlAttribute("source")]
+		public string Source
+		{
+			get => _source;
+			set => _source = value;
+		}
+
+		[XmlAttribute("name")]
+		public string Name
+		{
+			get => _name;
+			set => _name = value;
+		}
+
+		[XmlAttribute("tilewidth")]
+		public int Tilewidth
+		{
+			get => _tilewidth;
+			set => _tilewidth = value;
+		}
+
+		[XmlAttribute("tileheight")]
+		public int Tileheight
+		{
+			get => _tileheight;
+			set => _tileheight = value;
+		}
+
+		[XmlAttribute("spacing")]
+		public int Spacing
+		{
+			get => _spacing;
+			set => _spacing = value;
+		}
+
+		[XmlAttribute("margin")]
+		public int Margin
+		{
+			get => _margin;
+			set => _margin = value;
+		}
+
+		[XmlAttribute("tilecount")]
+		public string Tilecount
+		{
+			get => _tilecount;
+			set => _tilecount = value;
+		}
+
+		[XmlAttribute("columns")]
+		public int Columns
+		{
+			get => _columns;
+			set => _columns = value;
 		}
 	}
 }

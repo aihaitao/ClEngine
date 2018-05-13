@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:map1="clr-namespace:ClEngine.CoreLibrary.Map"
+             xmlns:tiled="clr-namespace:ClEngine.Tiled;assembly=ClEngine.Tiled"
+             xmlns:properties="clr-namespace:ClEngine.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -11,27 +13,56 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Column="0" MinWidth="245">
+        <Grid Column="0" MinWidth="245" MaxWidth="260">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <TabControl>
-                <TabItem Header="地图事件">
+                <TabItem Header="{x:Static properties:Resources.MapEvent}">
                     <DataGrid Name="MapEventDataGrid" 
                               AutoGenerateColumns="False" 
                               CanUserAddRows="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="事件ID" Binding="{Binding EventId}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="标记" Binding="{Binding Sign}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="属性" Binding="{Binding Property}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="阵营" Binding="{Binding Camp}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="X格子" Binding="{Binding GridX}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Y格子" Binding="{Binding GridY}"></DataGridTextColumn>
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.EventName}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                        <TextBlock Text="{Binding Name}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.SignColor}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                        <TextBlock Text="{Binding Color}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateX}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                        <TextBlock Text="{Binding X}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateY}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                        <TextBlock Text="{Binding Y}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.IsVisble}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                        <CheckBox IsChecked="{Binding Visible}"></CheckBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
-                <TabItem Header="事件模版">
+                <TabItem Header="{x:Static properties:Resources.EventTemplate}">
                     <TreeView>
                         <TreeViewItem Header="传奇世界" IsExpanded="True">
                             <TreeViewItem Header="[Lv.2]传世兔.stpl"></TreeViewItem>
@@ -42,11 +73,16 @@
                     </TreeView>
                 </TabItem>
             </TabControl>
-            <TreeView Grid.Row="1" Name="MapListView">
-            </TreeView>
+            <ListView Grid.Row="1" Name="MapListView">
+                <ListView.ItemTemplate>
+                    <HierarchicalDataTemplate DataType="map1:MapInfo">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </HierarchicalDataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
         <Grid Column="1">
-            <map1:MapDraw></map1:MapDraw>
+            <map1:MapDraw x:Name="MapDraw"></map1:MapDraw>
         </Grid>
     </Grid>
 </UserControl>

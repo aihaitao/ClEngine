@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:map="clr-namespace:ClEngine.CoreLibrary.Map"
              xmlns:model="clr-namespace:ClEngine.Model"
+             xmlns:properties="clr-namespace:ClEngine.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -35,10 +36,11 @@
                       ItemsSource="{Binding ElementName=ResourceTreeView,Path=SelectedItem.(model:ResourceModel.Resources), Mode=TwoWay}" 
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
+                      IsReadOnly="True"
                       x:Name="ResourceDataGrid">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="素材名称" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="素材地址" Binding="{Binding Path}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ResourceName}" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ResourcePath}" Binding="{Binding Path}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

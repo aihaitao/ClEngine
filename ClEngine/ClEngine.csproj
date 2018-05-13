@@ -46,11 +46,11 @@
     <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
     </Reference>
-    <Reference Include="Exceptionless, Version=4.2.1989.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Exceptionless.4.2.1989\lib\net45\Exceptionless.dll</HintPath>
+    <Reference Include="Exceptionless, Version=4.3.2004.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Exceptionless.4.3.2004\lib\net45\Exceptionless.dll</HintPath>
     </Reference>
-    <Reference Include="Exceptionless.Wpf, Version=4.2.1989.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Exceptionless.Wpf.4.2.1989\lib\net45\Exceptionless.Wpf.dll</HintPath>
+    <Reference Include="Exceptionless.Wpf, Version=4.3.2004.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Exceptionless.Wpf.4.3.2004\lib\net45\Exceptionless.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -83,9 +83,6 @@
     <Reference Include="MonoGame.Extended.SceneGraphs, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Extended.SceneGraphs.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.SceneGraphs.dll</HintPath>
     </Reference>
-    <Reference Include="MonoGame.Extended.Tiled, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MonoGame.Extended.Tiled.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.Tiled.dll</HintPath>
-    </Reference>
     <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Framework.WindowsDX.3.6.0.1625\lib\net40\MonoGame.Framework.dll</HintPath>
       <Private>True</Private>
@@ -98,6 +95,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -127,9 +125,6 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TiledSharp, Version=0.15.5889.20321, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\TiledSharp.0.15\lib\TiledSharp.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -140,32 +135,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\BlockConverter.cs" />
+    <Compile Include="Converter\FixedConverter.cs" />
     <Compile Include="CoreLibrary\Asset\AssetCompilerExtended.cs" />
     <Compile Include="CoreLibrary\Asset\AssetIntermediate.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceInfo.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceType.cs" />
     <Compile Include="CoreLibrary\Core.cs" />
-    <Compile Include="CoreLibrary\Map\ClMap.cs" />
-    <Compile Include="CoreLibrary\Map\Effect\CustomEffect.cs" />
-    <Compile Include="CoreLibrary\Map\mapGroup.cs" />
-    <Compile Include="CoreLibrary\Map\mapGroupImagelayer.cs" />
-    <Compile Include="CoreLibrary\Map\mapGroupImagelayerImage.cs" />
-    <Compile Include="CoreLibrary\Map\mapGroupLayer.cs" />
-    <Compile Include="CoreLibrary\Map\mapGroupLayerData.cs" />
-    <Compile Include="CoreLibrary\Map\mapGroupObjectgroup.cs" />
-    <Compile Include="CoreLibrary\Map\mapGroupObjectgroupObject.cs" />
-    <Compile Include="CoreLibrary\Map\mapGroupObjectgroupObjectPolyline.cs" />
-    <Compile Include="CoreLibrary\Map\mapLayer.cs" />
-    <Compile Include="CoreLibrary\Map\mapProperties.cs" />
-    <Compile Include="CoreLibrary\Map\mapProperty.cs" />
-    <Compile Include="CoreLibrary\Map\mapPropertyType.cs" />
-    <Compile Include="CoreLibrary\Map\mapTileSet.cs" />
-    <Compile Include="CoreLibrary\Map\RenderOrder.cs" />
+    <Compile Include="CoreLibrary\Map\mapInfo.cs" />
+    <Compile Include="CoreLibrary\Map\MapSerializable.cs" />
     <Compile Include="CoreLibrary\Map\ResourceDraw.cs" />
     <Compile Include="CoreLibrary\Particle\GraphicsDeviceService.cs" />
     <Compile Include="CoreLibrary\Particle\Guard.cs" />
     <Compile Include="CoreLibrary\Particle\ParticleDraw.cs" />
     <Compile Include="Model\ResourceModel.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Themes\LeftMarginMultiplierConverter.cs" />
     <Compile Include="Themes\TreeViewItemExtensions.cs" />
     <Compile Include="ViewModel\ResourceViewModel.cs" />
@@ -305,18 +293,13 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomHighlighting.xshd">
@@ -417,6 +400,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
     <EmbeddedResource Include="XML.xshd" />
   </ItemGroup>
   <ItemGroup>
@@ -434,6 +418,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClEngine.Tiled\ClEngine.Tiled.csproj">
+      <Project>{52b1dbf5-bb7b-4472-8b84-50179773504f}</Project>
+      <Name>ClEngine.Tiled</Name>
+    </ProjectReference>
     <ProjectReference Include="ClEngine.Particle.Wpf\ClEngine.Particle.csproj">
       <Project>{1ac4aaee-9e0a-46fd-8a94-483a25d8ef30}</Project>
       <Name>ClEngine.Particle</Name>

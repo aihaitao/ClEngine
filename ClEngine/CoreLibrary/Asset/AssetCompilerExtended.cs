@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Xml.Serialization;
+using ClEngine.CoreLibrary.Map;
 using ClEngine.Model;
 using GalaSoft.MvvmLight.Messaging;
-using TiledSharp;
 
 namespace ClEngine.CoreLibrary.Asset
 {
@@ -19,6 +18,8 @@ namespace ClEngine.CoreLibrary.Asset
 		/// 资源路径
 		/// </summary>
 		private static string AssetPath { get; set; }
+		private static ResourceType AssetType { get; set; }
+		private static string CompiledAssetPath { get; set; }
 
 		/// <summary>
 		/// 源文件目录
@@ -43,6 +44,9 @@ namespace ClEngine.CoreLibrary.Asset
 		/// 地图源目录
 		/// </summary>
 		public static readonly string MapSourceContent = Path.Combine(SourceContent, "Map");
+
+		public static readonly string MapSourceManage = "map.cl";
+		public static readonly string ImageSourceContent = Path.Combine(SourceContent, "Image");
 
 
 		/// <summary>
@@ -82,6 +86,7 @@ namespace ClEngine.CoreLibrary.Asset
 				return;
 
 			AssetPath = assetPath;
+			AssetType = type;
 
 			if (type == ResourceType.Map)
 				InitTileMapResource(assetPath);
@@ -136,68 +141,71 @@ namespace ClEngine.CoreLibrary.Asset
 			if (process != null)
 			{
 				process.EnableRaisingEvents = true;
-
+				process.Exited += ProcessOnExited;
 				process.ErrorDataReceived += ProcessOnErrorDataReceived;
 				process.OutputDataReceived += ProcessOnOutputDataReceived;
 				process.BeginErrorReadLine();
 				process.BeginOutputReadLine();
 			}
 		}
-		
+
+		private static void ProcessOnExited(object sender, EventArgs e)
+		{
+			if (AssetType == ResourceType.Map)
+			{
+				if (!string.IsNullOrEmpty(CompiledAssetPath))
+				{
+					var mapInfo = new MapInfo
+					{
+						Source = CompiledAssetPath,
+						Name = Path.GetFileNameWithoutExtension(CompiledAssetPath),
+					};
+
+					MapEditor.MapEditorViewModel.Serializable.MapList.Add(mapInfo);
+					var mapSourceManage = Path.Combine(MapSourceContent, MapSourceManage);
+
+					using (var fileStream = new FileStream(mapSourceManage, FileMode.OpenOrCreate))
+					{
+						var serializer = new XmlSerializer(typeof(MapSerializable));
+						serializer.Serialize(fileStream, MapEditor.MapEditorViewModel.Serializable);
+					}
+				}
+			}
+		}
+
 		private static void InitTileMapResource(string assetPath)
 		{
-			var map = new TmxMap(assetPath);
-			if (map.ImageLayers.Count > 0)
+			Tiled.Map map;
+			using (var fileStream = new FileStream(assetPath, FileMode.Open))
 			{
-				var images = GetImageLayer(map);
-				ReplaceImageSource(assetPath, images);
-			}
-		}
-
-		private static Dictionary<string, string> GetImageLayer(TmxMap map)
-		{
-			var imageList = new Dictionary<string, string>();
-			foreach (var mapImageLayer in map.ImageLayers)
-			{
-				var destImage = MoveImage(mapImageLayer.Image.Source);
-				imageList.Add(mapImageLayer.Image.Source, destImage);
-			}
-
-			return imageList;
-		}
-
-		private static void ReplaceImageSource(string assetPath, Dictionary<string,string> changeDictionary)
-		{
-			string content;
-			using (var streamReader = new StreamReader(assetPath))
-			{
-				content = streamReader.ReadToEnd();
-				foreach (var dictionary in changeDictionary)
+				var xmlSerilizer = new XmlSerializer(typeof(Tiled.Map));
+				map = (Tiled.Map)xmlSerilizer.Deserialize(fileStream);
+				foreach (var imageLayer in map.Group.Imagelayer)
 				{
-					// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
-					content.Replace(dictionary.Key, dictionary.Value);
+					var source = imageLayer.Image.Source;
+					if (!string.IsNullOrEmpty(source))
+					{
+						var sourceDir = Path.GetDirectoryName(assetPath);
+						var imageFullName = Path.Combine(sourceDir, source);
+						var destDir = Path.Combine(ImageSourceContent, Path.GetFileName(source));
+						File.Copy(imageFullName, destDir, true);
+					}
+
+					imageLayer.Image.Source = Path.Combine("..", ImageSign, Path.GetFileName(source));
 				}
 			}
 
-			if (string.IsNullOrEmpty(content) && !File.Exists(assetPath))
-				return;
-
-			using (var streamWriter = new StreamWriter(assetPath, false))
-			{
-				streamWriter.Write(content);
-			}
+			CompiledAssetPath =  Path.Combine(SourceContent, MapSign).InitAsset(assetPath);
+			SaveTileMapResource(CompiledAssetPath, map);
 		}
 
-		private static string MoveImage(string image)
+		private static void SaveTileMapResource(string assetPath, object type)
 		{
-			var fileInfo = new FileInfo(image);	// 源文件信息
-			var destFile = Path.Combine(MapSourceContent, fileInfo.Name);
-			if (File.Exists(destFile))
-				File.Delete(destFile);
-
-			File.Copy(image, destFile);
-
-			return destFile;
+			using (var fileStream = new FileStream(assetPath, FileMode.Open))
+			{
+				var xmlSerilizer = new XmlSerializer(typeof(Tiled.Map));
+				xmlSerilizer.Serialize(fileStream, type);
+			}
 		}
 
 		public static SourceFileCollection GetMgContent()
@@ -259,10 +267,15 @@ namespace ClEngine.CoreLibrary.Asset
 
 			if (type == ResourceType.Map)
 			{
-				var map = new TmxMap(assetPath);
-				foreach (var mapImageLayer in map.ImageLayers)
+				using (var fileStream = new FileStream(assetPath, FileMode.Open))
 				{
-					arguments += string.Concat(" /build:", mapImageLayer.Image.Source);
+					var serializer = new XmlSerializer(typeof(Tiled.Map));
+					var mapDeserialize = (Tiled.Map)serializer.Deserialize(fileStream);
+					foreach (var mapImageLayer in mapDeserialize.Group.Imagelayer)
+					{
+						if (!string.IsNullOrEmpty(mapImageLayer.Image.Source))
+							arguments += string.Concat(" /build:", Path.Combine(MapSourceContent, mapImageLayer.Image.Source));
+					}
 				}
 			}
 
@@ -304,8 +317,8 @@ namespace ClEngine.CoreLibrary.Asset
 			if (!Directory.Exists(destPath))
 				Directory.CreateDirectory(destPath);
 
-			if (!sourcePath.Equals(destPosition))
-				File.Copy(sourcePath, destPosition, true);
+			if (!sourcePath.Equals(destPosition) && !File.Exists(destPosition))
+				File.Copy(sourcePath, destPosition);
 
 			return destPosition;
 		}

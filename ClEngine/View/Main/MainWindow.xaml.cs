@@ -141,7 +141,6 @@ namespace ClEngine
             {
                 case LogLevel.Log:
                     preview = "[记录]: ";
-	                ExceptionlessClient.Default.SubmitLog(model.Message, Exceptionless.Logging.LogLevel.Info);
 					break;
                 case LogLevel.Warn:
                     preview = "[警告]: ";
@@ -230,6 +229,7 @@ namespace ClEngine
             Messenger.Default.Send(size, "LoadMap");
             Messenger.Default.Send("", "LoadUiConfig");
 			MapDraw.Instance.SetContentRoot();
+			MapEditor.MapEditorViewModel.LoadMapList();
         }
     }
 }

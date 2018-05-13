@@ -1,13 +1,11 @@
 ﻿using System;
 using System.IO;
-using System.Xml.Serialization;
-using ClEngine.CoreLibrary.Map.Effect;
+using ClEngine.Tiled;
+using ClEngine.Tiled.MapEnum;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
-using MonoGame.Extended.Tiled;
-using MonoGame.Extended.Tiled.Graphics;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Framework.WpfInterop;
 using MonoGame.Framework.WpfInterop.Input;
@@ -21,12 +19,11 @@ namespace ClEngine.CoreLibrary.Map
 		private WpfMouse _mouse;
 		private SpriteBatch _spriteBatch;
 		private SpriteFont _smallFont;
-		private Microsoft.Xna.Framework.Graphics.Effect _customEffect;
 		private Camera2D _camera;
 		private ViewportAdapter _viewportAdapter;
-		private TiledMapRenderer _mapRenderer;
 		private KeyboardState _previousKeyboardState;
-		private TiledMap _map;
+		private Tiled.Map _map;
+		private Color _color;
 
 		public ViewportAdapter ViewportAdapter { get; private set; }
 
@@ -35,21 +32,15 @@ namespace ClEngine.CoreLibrary.Map
 		public MapDraw()
 		{
 			Instance = this;
-			
-			using (var stream = new FileStream("F://Test//Content//Map//untitled.tmx", FileMode.Open, FileAccess.Read))
-			{
-				var serializer = new XmlSerializer(typeof(Map));
-				var result = serializer.Deserialize(stream);
-			}
 		}
 
 		protected override void Initialize()
 		{
 			_graphicsDeviceManagerWpf = new WpfGraphicsDeviceService(this);
 
+			_color = Color.CornflowerBlue;
 			_viewportAdapter = new DefaultViewportAdapter(GraphicsDevice);
 			_camera = new Camera2D(_viewportAdapter);
-			_mapRenderer = new TiledMapRenderer(GraphicsDevice);
 
 			_keyboard = new WpfKeyboard(this);
 			_mouse = new WpfMouse(this);
@@ -64,31 +55,21 @@ namespace ClEngine.CoreLibrary.Map
 			
 			_smallFont = Content.Load<SpriteFont>("msyh9");
 
-			_map = new TiledMap("默认地图", GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 64, 32,
-				TiledMapTileDrawOrder.LeftUp, TiledMapOrientation.Orthogonal);
-			_camera.LookAt(new Vector2(_map.WidthInPixels, _map.HeightInPixels) * 0.5f);
-
-			var effect = new CustomEffect(GraphicsDevice)
-			{
-				Alpha = 0.5f,
-				TextureEnabled = true,
-				VertexColorEnabled = false,
-			};
-
-			_customEffect = effect;
+			_map = new Tiled.Map();
+			_camera.LookAt(new Vector2(_map.Width, _map.Height) * 0.5f);
 		}
 
 		private void LookAtMapCenter()
 		{
 			switch (_map.Orientation)
 			{
-				case TiledMapOrientation.Orthogonal:
-					_camera.LookAt(new Vector2(_map.WidthInPixels, _map.HeightInPixels) * 0.5f);
+				case MapOrientation.Orthogonal:
+					_camera.LookAt(new Vector2(_map.Width, _map.Height) * 0.5f);
 					break;
-				case TiledMapOrientation.Isometric:
-					_camera.LookAt(new Vector2(0, _map.HeightInPixels + _map.TileHeight) * 0.5f);
+				case MapOrientation.Isometric:
+					_camera.LookAt(new Vector2(0, _map.Width + _map.Height) * 0.5f);
 					break;
-				case TiledMapOrientation.Staggered:
+				case MapOrientation.Staggered:
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
@@ -100,8 +81,6 @@ namespace ClEngine.CoreLibrary.Map
 			var deltaSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			var mouseState = _mouse.GetState();
 			var keyboardState = _keyboard.GetState();
-
-			_mapRenderer.Update(_map, gameTime);
 
 			const float cameraSpeed = 500f;
 			const float zoomSpeed = 0.3f;
@@ -151,7 +130,7 @@ namespace ClEngine.CoreLibrary.Map
 
 		protected override void Draw(GameTime gameTime)
 		{
-			GraphicsDevice.Clear(Color.CornflowerBlue);
+			GraphicsDevice.Clear(_color);
 
 			GraphicsDevice.BlendState = BlendState.AlphaBlend;
 			GraphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
@@ -161,21 +140,18 @@ namespace ClEngine.CoreLibrary.Map
 			var projectionMatrix =
 				Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0f, -1f);
 
-			_mapRenderer.Draw(_map, ref viewMatrix, ref projectionMatrix, _customEffect);
-
 			base.Draw(gameTime);
 		}
 
 		public void SetContentRoot()
 		{
 			Content.RootDirectory = Path.Combine(MainWindow.ProjectPosition, "Content");
-			//_map = Content.Load<TiledMap>(@"Map/untitled");
-			LookAtMapCenter();
 		}
 
 		public void SetCurrentMap(string mapName)
 		{
-			_map = Content.Load<TiledMap>(mapName);
+			_map = MapHelper.GetMap(mapName);
+			LookAtMapCenter();
 		}
 	}
 }

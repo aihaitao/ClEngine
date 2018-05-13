@@ -1,26 +1,48 @@
-﻿using System.Collections.Generic;
-using ClEngine.Model;
+﻿using System.IO;
+using System.Windows.Controls;
+using System.Xml.Serialization;
+using ClEngine.CoreLibrary.Asset;
+using ClEngine.CoreLibrary.Map;
 using GalaSoft.MvvmLight;
 
 namespace ClEngine.ViewModel
 {
     public class MapEditorViewModel : ViewModelBase
     {
-        public List<MapEditorModel> Model;
-        public MapEditorViewModel()
-        {
-            Model = new List<MapEditorModel>
-            {
-                new MapEditorModel
-                {
-                    EventId = "主角",
-                    Sign = "主角",
-                    Property = "主角",
-                    Camp = "友方",
-                    GridX = 13,
-                    GridY = 15
-                }
-            };
-        }
-    }
+	    private MapSerializable _serializable;
+		public MapSerializable Serializable
+		{
+			get => _serializable;
+			set
+			{
+				_serializable = value;
+				RaisePropertyChanged(() => Serializable);
+			}
+		}
+		private readonly ListView _listView;
+		public MapEditorViewModel(ListView listView)
+		{
+			_listView = listView;
+			Serializable = new MapSerializable();
+		}
+
+	    public void LoadMapList()
+	    {
+		    var mapSourceManage = Path.Combine(AssetCompilerExtended.MapSourceContent, AssetCompilerExtended.MapSourceManage);
+
+		    if (!File.Exists(mapSourceManage))
+			    return;
+
+		    using (var fileStream = new FileStream(mapSourceManage, FileMode.Open))
+		    {
+			    var serializer = new XmlSerializer(typeof(MapSerializable));
+			    Serializable = (MapSerializable)serializer.Deserialize(fileStream);
+
+			    if (_listView.ItemsSource != null)
+				    _listView.ItemsSource = null;
+
+			    _listView.ItemsSource = Serializable.MapList;
+		    }
+	    }
+	}
 }

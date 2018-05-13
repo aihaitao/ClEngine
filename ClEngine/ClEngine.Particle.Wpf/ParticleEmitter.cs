@@ -68,7 +68,7 @@ namespace ClEngine.Particle
 
 		internal ParticleBuffer Buffer;
 
-		[DisplayName("透明度"), Category("ParticleEmitter")]
+		[DisplayName("粒子最大上限"), Category("ParticleEmitter")]
 		public int Capacity
 		{
 			get => Buffer.Size;

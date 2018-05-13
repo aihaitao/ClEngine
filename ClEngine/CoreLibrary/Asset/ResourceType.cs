@@ -1,4 +1,4 @@
-﻿namespace ClEngine
+﻿namespace ClEngine.CoreLibrary.Asset
 {
 	public enum ResourceType
 	{
