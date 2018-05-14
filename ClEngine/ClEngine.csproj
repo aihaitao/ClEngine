@@ -139,6 +139,9 @@
     <Compile Include="Converter\FixedConverter.cs" />
     <Compile Include="CoreLibrary\Asset\AssetCompilerExtended.cs" />
     <Compile Include="CoreLibrary\Asset\AssetIntermediate.cs" />
+    <Compile Include="CoreLibrary\Asset\AssetManage.cs" />
+    <Compile Include="CoreLibrary\Asset\AssetResolver.cs" />
+    <Compile Include="CoreLibrary\Asset\AssetType.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceInfo.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceType.cs" />
     <Compile Include="CoreLibrary\Core.cs" />

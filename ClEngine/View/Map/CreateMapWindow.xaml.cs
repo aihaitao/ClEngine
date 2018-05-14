@@ -41,6 +41,8 @@ namespace ClEngine.View.Map
 				map.Tileheight = blockHeight;
 				map.Orientation = orientation;
 				map.Renderorder = renderOrder;
+
+
 				// TODO: Create Map
 			}
 			else if (Equals(MapTabControl.SelectedItem, MapTabItem))

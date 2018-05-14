@@ -120,7 +120,7 @@ namespace ClEngine.CoreLibrary.Asset
 
 			// 移动原始资源至工程目录下
 			var projectAsset = resourceName.InitAsset(assetPath);
-
+			
 			// 寻找资源编译器
 			var sourceFileCollection = GetMgContent();
 
