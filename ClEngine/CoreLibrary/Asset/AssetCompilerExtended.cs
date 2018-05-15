@@ -241,7 +241,7 @@ namespace ClEngine.CoreLibrary.Asset
 			arguments += string.Concat(" /outputDir:", Content);										// 编译文件输出目录
 			arguments += string.Concat(" /intermediateDir:", Intermediate);								// 中间文件输出目录
 			arguments += string.Concat(" /compress:", "true");											// 资源将压缩
-			arguments += string.Concat(" /reference:",						
+			arguments += string.Concat(" /reference:",
 				Path.Combine(Environment.CurrentDirectory, "MonoGame.Extended.Content.Pipeline.dll"));  // 引用第三方库
 			return arguments;
 		}

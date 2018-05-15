@@ -137,14 +137,19 @@
     </ApplicationDefinition>
     <Compile Include="Converter\BlockConverter.cs" />
     <Compile Include="Converter\FixedConverter.cs" />
+    <Compile Include="Converter\TranslateConverter.cs" />
     <Compile Include="CoreLibrary\Asset\AssetCompilerExtended.cs" />
+    <Compile Include="CoreLibrary\Asset\AssetHelper.cs" />
     <Compile Include="CoreLibrary\Asset\AssetIntermediate.cs" />
-    <Compile Include="CoreLibrary\Asset\AssetManage.cs" />
     <Compile Include="CoreLibrary\Asset\AssetResolver.cs" />
+    <Compile Include="CoreLibrary\Asset\AssetTranslator.cs" />
     <Compile Include="CoreLibrary\Asset\AssetType.cs" />
+    <Compile Include="CoreLibrary\Asset\ICompiler.cs" />
+    <Compile Include="CoreLibrary\Asset\ImageResolver.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceInfo.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceType.cs" />
     <Compile Include="CoreLibrary\Core.cs" />
+    <Compile Include="CoreLibrary\Editor\EditorRecord.cs" />
     <Compile Include="CoreLibrary\Map\mapInfo.cs" />
     <Compile Include="CoreLibrary\Map\MapSerializable.cs" />
     <Compile Include="CoreLibrary\Map\ResourceDraw.cs" />
@@ -160,6 +165,7 @@
     <Compile Include="Themes\LeftMarginMultiplierConverter.cs" />
     <Compile Include="Themes\TreeViewItemExtensions.cs" />
     <Compile Include="ViewModel\ResourceViewModel.cs" />
+    <Compile Include="View\Asset\ResourceView.Command.cs" />
     <Compile Include="View\Asset\ResourceView.xaml.cs">
       <DependentUpon>ResourceView.xaml</DependentUpon>
     </Compile>

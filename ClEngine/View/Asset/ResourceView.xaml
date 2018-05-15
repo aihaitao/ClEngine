@@ -6,8 +6,19 @@
              xmlns:map="clr-namespace:ClEngine.CoreLibrary.Map"
              xmlns:model="clr-namespace:ClEngine.Model"
              xmlns:properties="clr-namespace:ClEngine.Properties"
+             xmlns:asset="clr-namespace:ClEngine.CoreLibrary.Asset"
+             xmlns:converter="clr-namespace:ClEngine.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <converter:TranslateConverter x:Key="TranslateConverter"></converter:TranslateConverter>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -24,9 +35,9 @@
             </Grid.RowDefinitions>
             <TreeView x:Name="ResourceTreeView">
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="model:ResourceModel">
+                    <HierarchicalDataTemplate DataType="asset:AssetResolver">
                         <StackPanel>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" Margin="2 0 0 0"></TextBlock>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding Name, Converter={StaticResource TranslateConverter}}" Margin="2 0 0 0"></TextBlock>
                         </StackPanel>
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>

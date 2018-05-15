@@ -546,4 +546,16 @@
   <data name="MapSize" xml:space="preserve">
     <value>Map size</value>
   </data>
+  <data name="ReName" xml:space="preserve">
+    <value>ReName</value>
+  </data>
+  <data name="AddResource" xml:space="preserve">
+    <value>AddResource</value>
+  </data>
+  <data name="RemoveResource" xml:space="preserve">
+    <value>RemoveResource</value>
+  </data>
+  <data name="CopyName" xml:space="preserve">
+    <value>CopyName</value>
+  </data>
 </root>

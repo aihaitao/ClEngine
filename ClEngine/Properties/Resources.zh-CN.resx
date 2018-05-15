@@ -549,4 +549,16 @@
   <data name="MapSize" xml:space="preserve">
     <value>地图大小</value>
   </data>
+  <data name="ReName" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="AddResource" xml:space="preserve">
+    <value>加入资源</value>
+  </data>
+  <data name="RemoveResource" xml:space="preserve">
+    <value>删除资源</value>
+  </data>
+  <data name="CopyName" xml:space="preserve">
+    <value>复制名称</value>
+  </data>
 </root>

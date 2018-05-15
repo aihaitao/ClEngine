@@ -79,6 +79,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 AddResource 的本地化字符串。
+        /// </summary>
+        public static string AddResource {
+            get {
+                return ResourceManager.GetString("AddResource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 AddWindow 的本地化字符串。
         /// </summary>
         public static string AddWindow {
@@ -246,6 +255,15 @@ namespace ClEngine.Properties {
         public static string CopyEvents {
             get {
                 return ResourceManager.GetString("CopyEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 CopyName 的本地化字符串。
+        /// </summary>
+        public static string CopyName {
+            get {
+                return ResourceManager.GetString("CopyName", resourceCulture);
             }
         }
         
@@ -939,6 +957,24 @@ namespace ClEngine.Properties {
         public static string ReduceItems {
             get {
                 return ResourceManager.GetString("ReduceItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 RemoveResource 的本地化字符串。
+        /// </summary>
+        public static string RemoveResource {
+            get {
+                return ResourceManager.GetString("RemoveResource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ReName 的本地化字符串。
+        /// </summary>
+        public static string ReName {
+            get {
+                return ResourceManager.GetString("ReName", resourceCulture);
             }
         }
         
