@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,81 +112,81 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>名称</value>
   </data>
   <data name="ParticleName" xml:space="preserve">
-    <value>Particle Name</value>
+    <value>粒子名称</value>
   </data>
   <data name="TransmitterProperties" xml:space="preserve">
-    <value>Transmitter properties</value>
+    <value>发射器属性</value>
   </data>
   <data name="EmitterGroup" xml:space="preserve">
-    <value>Emitter group</value>
+    <value>发射器组</value>
   </data>
   <data name="ActivatedParticle" xml:space="preserve">
-    <value>Activated particle</value>
+    <value>已激活粒子</value>
   </data>
   <data name="Offset" xml:space="preserve">
-    <value>Offset</value>
+    <value>偏移</value>
   </data>
   <data name="ModifierGroup" xml:space="preserve">
-    <value>Modifier group</value>
+    <value>修改器组</value>
   </data>
   <data name="Profile" xml:space="preserve">
-    <value>Profile</value>
+    <value>辐射参数</value>
   </data>
   <data name="Parameters" xml:space="preserve">
-    <value>Parameters</value>
+    <value>粒子释放参数</value>
   </data>
   <data name="Capacity" xml:space="preserve">
-    <value>Capacity</value>
+    <value>粒子最大上限</value>
   </data>
   <data name="LifeSpan" xml:space="preserve">
-    <value>LifeSpan</value>
+    <value>生存周期</value>
   </data>
   <data name="AutoTrigger" xml:space="preserve">
-    <value>AutoTrigger</value>
+    <value>自动触发</value>
   </data>
   <data name="AutoTriggerFrequency" xml:space="preserve">
-    <value>AutoTriggerFrequency</value>
+    <value>自动触发频率</value>
   </data>
   <data name="LocalMatrix" xml:space="preserve">
-    <value>LocalMatrix</value>
+    <value>模型到当前空间</value>
   </data>
   <data name="WorldMatrix" xml:space="preserve">
-    <value>WorldMatrix</value>
+    <value>当前到世界的空间</value>
   </data>
   <data name="Parent" xml:space="preserve">
-    <value>Parent</value>
+    <value>父实例</value>
   </data>
   <data name="WorldPosition" xml:space="preserve">
-    <value>WorldPosition</value>
+    <value>世界的位置</value>
   </data>
   <data name="WorldScale" xml:space="preserve">
-    <value>WorldScale</value>
+    <value>世界的比例</value>
   </data>
   <data name="WorldRotation" xml:space="preserve">
-    <value>WorldRotation</value>
+    <value>以弧度表示的世界旋转角度</value>
   </data>
   <data name="Position" xml:space="preserve">
-    <value>Position</value>
+    <value>位置</value>
   </data>
   <data name="Rotation" xml:space="preserve">
-    <value>Rotation</value>
+    <value>以弧度表示的旋转角度</value>
   </data>
   <data name="Scale" xml:space="preserve">
-    <value>Scale</value>
+    <value>比例</value>
   </data>
   <data name="TextureRegion" xml:space="preserve">
-    <value>TextureRegion</value>
+    <value>粒子纹理</value>
   </data>
   <data name="ModifierExecutionStrategy" xml:space="preserve">
-    <value>ModifierExecutionStrategy</value>
+    <value>粒子修改器执行策略</value>
   </data>
 </root>

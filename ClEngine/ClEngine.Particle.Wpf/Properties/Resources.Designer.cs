@@ -59,5 +59,221 @@ namespace ClEngine.Particle.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找类似 Activated particle 的本地化字符串。
+        /// </summary>
+        internal static string ActivatedParticle {
+            get {
+                return ResourceManager.GetString("ActivatedParticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 AutoTrigger 的本地化字符串。
+        /// </summary>
+        internal static string AutoTrigger {
+            get {
+                return ResourceManager.GetString("AutoTrigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 AutoTriggerFrequency 的本地化字符串。
+        /// </summary>
+        internal static string AutoTriggerFrequency {
+            get {
+                return ResourceManager.GetString("AutoTriggerFrequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Capacity 的本地化字符串。
+        /// </summary>
+        internal static string Capacity {
+            get {
+                return ResourceManager.GetString("Capacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Emitter group 的本地化字符串。
+        /// </summary>
+        internal static string EmitterGroup {
+            get {
+                return ResourceManager.GetString("EmitterGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LifeSpan 的本地化字符串。
+        /// </summary>
+        internal static string LifeSpan {
+            get {
+                return ResourceManager.GetString("LifeSpan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LocalMatrix 的本地化字符串。
+        /// </summary>
+        internal static string LocalMatrix {
+            get {
+                return ResourceManager.GetString("LocalMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ModifierExecutionStrategy 的本地化字符串。
+        /// </summary>
+        internal static string ModifierExecutionStrategy {
+            get {
+                return ResourceManager.GetString("ModifierExecutionStrategy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Modifier group 的本地化字符串。
+        /// </summary>
+        internal static string ModifierGroup {
+            get {
+                return ResourceManager.GetString("ModifierGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Name 的本地化字符串。
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Offset 的本地化字符串。
+        /// </summary>
+        internal static string Offset {
+            get {
+                return ResourceManager.GetString("Offset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Parameters 的本地化字符串。
+        /// </summary>
+        internal static string Parameters {
+            get {
+                return ResourceManager.GetString("Parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Parent 的本地化字符串。
+        /// </summary>
+        internal static string Parent {
+            get {
+                return ResourceManager.GetString("Parent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Particle Name 的本地化字符串。
+        /// </summary>
+        internal static string ParticleName {
+            get {
+                return ResourceManager.GetString("ParticleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Position 的本地化字符串。
+        /// </summary>
+        internal static string Position {
+            get {
+                return ResourceManager.GetString("Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Profile 的本地化字符串。
+        /// </summary>
+        internal static string Profile {
+            get {
+                return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Rotation 的本地化字符串。
+        /// </summary>
+        internal static string Rotation {
+            get {
+                return ResourceManager.GetString("Rotation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Scale 的本地化字符串。
+        /// </summary>
+        internal static string Scale {
+            get {
+                return ResourceManager.GetString("Scale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 TextureRegion 的本地化字符串。
+        /// </summary>
+        internal static string TextureRegion {
+            get {
+                return ResourceManager.GetString("TextureRegion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Transmitter properties 的本地化字符串。
+        /// </summary>
+        internal static string TransmitterProperties {
+            get {
+                return ResourceManager.GetString("TransmitterProperties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 WorldMatrix 的本地化字符串。
+        /// </summary>
+        internal static string WorldMatrix {
+            get {
+                return ResourceManager.GetString("WorldMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 WorldPosition 的本地化字符串。
+        /// </summary>
+        internal static string WorldPosition {
+            get {
+                return ResourceManager.GetString("WorldPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 WorldRotation 的本地化字符串。
+        /// </summary>
+        internal static string WorldRotation {
+            get {
+                return ResourceManager.GetString("WorldRotation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 WorldScale 的本地化字符串。
+        /// </summary>
+        internal static string WorldScale {
+            get {
+                return ResourceManager.GetString("WorldScale", resourceCulture);
+            }
+        }
     }
 }

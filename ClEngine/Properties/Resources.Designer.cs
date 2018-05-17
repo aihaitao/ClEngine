@@ -106,6 +106,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Animation 的本地化字符串。
+        /// </summary>
+        public static string Animation {
+            get {
+                return ResourceManager.GetString("Animation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 AnimationBox 的本地化字符串。
         /// </summary>
         public static string AnimationBox {
@@ -453,6 +462,15 @@ namespace ClEngine.Properties {
         public static string File {
             get {
                 return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Font 的本地化字符串。
+        /// </summary>
+        public static string Font {
+            get {
+                return ResourceManager.GetString("Font", resourceCulture);
             }
         }
         
@@ -1137,6 +1155,15 @@ namespace ClEngine.Properties {
         public static string Slider {
             get {
                 return ResourceManager.GetString("Slider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Sound 的本地化字符串。
+        /// </summary>
+        public static string Sound {
+            get {
+                return ResourceManager.GetString("Sound", resourceCulture);
             }
         }
         

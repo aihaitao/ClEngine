@@ -78,6 +78,7 @@
     <Compile Include="ParticleEffect.cs" />
     <Compile Include="ParticleEmitter.cs" />
     <Compile Include="ParticleExtensions.cs" />
+    <Compile Include="ParticleHelper.cs" />
     <Compile Include="ParticleModifierExecutionStrategy.cs" />
     <Compile Include="ParticleReleaseParameters.cs" />
     <Compile Include="Profiles\BoxFillProfile.cs" />
@@ -118,10 +119,13 @@
       <DependentUpon>ModifierEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="TypeEditor\ModifierTypeEditor.cs" />
+    <Compile Include="TypeEditor\ParticleDescription.cs" />
+    <Compile Include="TypeEditor\ParticleDisplayName.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

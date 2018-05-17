@@ -16,19 +16,9 @@ namespace ClEngine.View.Particle
 			InitializeComponent();
 		}
 
-		private void EffectTree_OnSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-		{
-			ParticlePropertyGrid.SelectedObject = e.NewValue;
-		}
-
 		public void SelectObject(object obj)
 		{
 			ParticlePropertyGrid.SelectedObject = obj;
-		}
-
-		public void UpdateData()
-		{
-			ParticlePropertyGrid.Refresh();
 		}
 	}
 }

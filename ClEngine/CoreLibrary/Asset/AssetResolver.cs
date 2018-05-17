@@ -1,28 +1,53 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
 namespace ClEngine.CoreLibrary.Asset
 {
-	public abstract class AssetResolver : ICompiler
+	[Serializable]
+	public abstract class AssetResolver: ICompiler
 	{
 		public string Name { get; set; }
-		protected string StoragePath => Path.Combine(SourceAsset, Name);
-		private string Arguments { get; set; }
+		
+		public abstract string Extension { get; }
+		public abstract string WatcherExtension { get; }
 
+		public List<AssetResolver> Resolvers { get; private set; }
+
+		[NonSerialized]
+		protected readonly AssetTranslator Translator;
+		
+		public string StoragePath => Path.Combine(SourceAsset, Name);
+		
+		public string Arguments { get; private set; }
+		
 		private static string Intermediate => MainWindow.ProjectPosition != null
 			? Path.Combine(MainWindow.ProjectPosition, "Intermediate")
 			: "Intermediate";
 
 		private static string SourceAsset =>
 			MainWindow.ProjectPosition != null ? Path.Combine(MainWindow.ProjectPosition, Content) : Content;
-
+		
 		private static string Content => "Content";
+		[NonSerialized]
 		private string _originPath;
+
+		public string XnaAssetPath { get; private set; }
+
+		/// <summary>
+		/// 是否使用资源管理
+		/// 默认:<value>true</value>
+		/// </summary>
+		[NonSerialized] public bool UseBundle;
 
 		protected AssetResolver(string name)
 		{
 			Name = name;
+			UseBundle = true;
+
+			Translator = AssetTranslator.GetTranslator();
+			Resolvers = new List<AssetResolver>();
 		}
 
 		/// <summary>
@@ -35,12 +60,16 @@ namespace ClEngine.CoreLibrary.Asset
 				throw new ArgumentNullException($"编译资源路径不能为空:{nameof(path)}");
 
 			_originPath = path;
-			
+
 			MoveAsset(ref _originPath);
 			GetBuildArgument(_originPath, GetMgContent());
 			SetDefaultCompilerArguments();
 			SetOtherCompilerArugments();
 			CompileAsset();
+
+			Translator.Compiler(Arguments);
+
+			XnaAssetPath = _originPath;
 		}
 
 		/// <summary>

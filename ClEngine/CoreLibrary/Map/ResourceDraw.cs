@@ -1,5 +1,4 @@
-﻿using System;
-using ClEngine.CoreLibrary.Asset;
+﻿using ClEngine.CoreLibrary.Asset;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -120,25 +119,16 @@ namespace ClEngine.CoreLibrary.Map
 			base.Draw(gameTime);
 		}
 
-		public void LoadResource(string name, ResourceType type)
+		public void LoadResource(string name, object type)
 		{
 			_texture2D = null;
 
-			switch (type)
+			if (type is ImageResolver resolver)
 			{
-				case ResourceType.Image:
-					_texture2D = Content.Load<Texture2D>(name);
-					break;
-				case ResourceType.Animation:
-					break;
-				case ResourceType.Sound:
-					break;
-				case ResourceType.Particle:
-					break;
-				case ResourceType.Font:
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(type), type, null);
+				if (string.IsNullOrWhiteSpace(resolver.XnaAssetPath))
+					return;
+
+				_texture2D = Content.Load<Texture2D>(resolver.XnaAssetPath);
 			}
 		}
 	}

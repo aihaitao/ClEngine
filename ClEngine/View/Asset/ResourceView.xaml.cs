@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Controls;
 using ClEngine.CoreLibrary.Asset;
-using ClEngine.Model;
 using ClEngine.ViewModel;
 
 namespace ClEngine.View.Asset
@@ -23,6 +21,7 @@ namespace ClEngine.View.Asset
 			DataContext = ResourceViewModel;
 
 			ResourceTreeView.ItemsSource = ResourceViewModel.ResourceTypeList;
+			ResourceTreeView.SelectedItemChanged += ResourceTreeViewOnSelectedItemChanged;
 			ResourceDataGrid.SelectionChanged += ResourceDataGridOnSelectionChanged;
 
 			CreateContextMenu();
@@ -57,27 +56,8 @@ namespace ClEngine.View.Asset
 				var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(resourceInfo.Path);
 				var resourceReplaceExtension = Path.Combine(dirName ?? throw new InvalidOperationException(),
 					fileNameWithoutExtension ?? throw new InvalidOperationException());
-				ResourceDraw.LoadResource(resourceReplaceExtension, ((ResourceModel) ResourceTreeView.SelectedItem).Type);
+				ResourceDraw.LoadResource(resourceReplaceExtension, ResourceTreeView.SelectedItem);
 			}
-		}
-
-		private List<ResourceInfo> GetSignResult(IEnumerable<string> sourceFiles, ResourceType type)
-		{
-			var files = new List<ResourceInfo>();
-			foreach (var sourceFile in sourceFiles)
-			{
-				if (sourceFile.Replace(@"/", "\\").Contains(type.ToString().Replace(@"/", "\\")))
-				{
-					var resourceInfo = new ResourceInfo
-					{
-						Name = Path.GetFileNameWithoutExtension(sourceFile),
-						Path = sourceFile
-					};
-					files.Add(resourceInfo);
-				}
-			}
-
-			return files;
 		}
 	}
 }

@@ -48,27 +48,27 @@ namespace ClEngine.Particle
 			Dispose();
 		}
 
-		[DisplayName("粒子名称"), Category("ParticleEmitter")]
+		[ParticleDisplayName("ParticleName"), Category("ParticleEmitter")]
 		public string Name { get; set; }
-		[DisplayName("已激活粒子数量"), Category("ParticleEmitter")]
+		[ParticleDisplayName("ActivatedParticle"), Category("ParticleEmitter")]
 		public int ActiveParticles => Buffer.Count;
-		[DisplayName("偏移"), Category("ParticleEmitter")]
+		[ParticleDisplayName("Offset"), Category("ParticleEmitter")]
 		public Vector2 Offset { get; set; }
-		[DisplayName("修改器组"), Category("ParticleEmitter"), Editor(typeof(ModifierTypeEditor), typeof(UITypeEditor))]
+		[ParticleDisplayName("ModifierGroup"), Category("ParticleEmitter"), Editor(typeof(ModifierTypeEditor), typeof(UITypeEditor))]
 		public List<Modifier> Modifiers { get; }
-		[DisplayName("辐射参数"), Category("ParticleEmitter")]
+		[ParticleDisplayName("Profile"), Category("ParticleEmitter")]
 		public Profile Profile { get; set; }
-		[DisplayName("粒子释放参数"), Category("ParticleEmitter")]
+		[ParticleDisplayName("Parameters"), Category("ParticleEmitter")]
 		public ParticleReleaseParameters Parameters { get; set; }
-		[DisplayName("粒子纹理"), Category("ParticleEmitter")]
+		[ParticleDisplayName("TextureRegion"), Category("ParticleEmitter")]
 		public TextureRegion2D TextureRegion { get; set; }
 
-		[EditorBrowsable(EditorBrowsableState.Never), DisplayName("粒子修改器执行策略"), Category("ParticleEmitter")]
+		[EditorBrowsable(EditorBrowsableState.Never), ParticleDisplayName("ModifierExecutionStrategy"), Category("ParticleEmitter")]
 		public ParticleModifierExecutionStrategy ModifierExecutionStrategy { get; set; }
 
 		internal ParticleBuffer Buffer;
 
-		[DisplayName("粒子最大上限"), Category("ParticleEmitter")]
+		[ParticleDisplayName("Capacity"), Category("ParticleEmitter")]
 		public int Capacity
 		{
 			get => Buffer.Size;
@@ -81,7 +81,7 @@ namespace ClEngine.Particle
 		}
 
 		private float _lifeSpanSeconds;
-		[DisplayName("生存周期"), Category("ParticleEmitter")]
+		[ParticleDisplayName("LifeSpan"), Category("ParticleEmitter")]
 		public TimeSpan LifeSpan
 		{
 			get => TimeSpan.FromSeconds(_lifeSpanSeconds);
@@ -91,7 +91,7 @@ namespace ClEngine.Particle
 		private float _nextAutoTrigger;
 
 		private bool _autoTrigger = true;
-		[DisplayName("自动触发"), Category("ParticleEmitter")]
+		[ParticleDisplayName("AutoTrigger"), Category("ParticleEmitter")]
 		public bool AutoTrigger
 		{
 			get => _autoTrigger;
@@ -103,7 +103,7 @@ namespace ClEngine.Particle
 		}
 
 		private float _autoTriggerFrequency;
-		[DisplayName("自动触发频率"), Category("ParticleEmitter")]
+		[ParticleDisplayName("AutoTriggerFrequency"), Category("ParticleEmitter")]
 		public float AutoTriggerFrequency
 		{
 			get => _autoTriggerFrequency;

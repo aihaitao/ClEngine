@@ -70,14 +70,12 @@ namespace ClEngine.CoreLibrary.Particle
 			if (mouseState.LeftButton == ButtonState.Pressed)
 			{
 				ParticleEffect.Position = new Vector2(p.X, p.Y);
-				ParticleEditor.Instance.UpdateData();
 			}
 
 
 			if (mouseState.RightButton == ButtonState.Pressed)
 			{
 				ParticleEffect.Trigger(new Vector2(p.X, p.Y));
-				ParticleEditor.Instance.UpdateData();
 			}
 
 

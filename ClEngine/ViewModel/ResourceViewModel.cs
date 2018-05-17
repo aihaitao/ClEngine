@@ -23,7 +23,8 @@ namespace ClEngine.ViewModel
 				if (type.BaseType == typeof(AssetResolver) && type.IsAbstract == false)
 				{
 					var resolver = (AssetResolver) assembly.CreateInstance(type.FullName, true);
-					ResourceTypeList.Add(resolver);
+					if (resolver != null && resolver.UseBundle)
+						ResourceTypeList.Add(resolver);
 				}
 			}
 		}

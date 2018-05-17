@@ -561,4 +561,13 @@
   <data name="CopyName" xml:space="preserve">
     <value>复制名称</value>
   </data>
+  <data name="Animation" xml:space="preserve">
+    <value>动画</value>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>声音</value>
+  </data>
+  <data name="Font" xml:space="preserve">
+    <value>字体</value>
+  </data>
 </root>

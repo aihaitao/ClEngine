@@ -558,4 +558,13 @@
   <data name="CopyName" xml:space="preserve">
     <value>CopyName</value>
   </data>
+  <data name="Animation" xml:space="preserve">
+    <value>Animation</value>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
 </root>

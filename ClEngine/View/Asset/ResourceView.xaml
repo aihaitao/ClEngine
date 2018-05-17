@@ -44,14 +44,14 @@
             </TreeView>
             <GridSplitter Grid.Row="1"></GridSplitter>
             <DataGrid Grid.Row="2" 
-                      ItemsSource="{Binding ElementName=ResourceTreeView,Path=SelectedItem.(model:ResourceModel.Resources), Mode=TwoWay}" 
+                      ItemsSource="{Binding ElementName=ResourceTreeView,Path=SelectedItem.(asset:AssetResolver.Resolvers)}" 
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       IsReadOnly="True"
                       x:Name="ResourceDataGrid">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static properties:Resources.ResourceName}" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.ResourcePath}" Binding="{Binding Path}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ResourcePath}" Binding="{Binding XnaAssetPath}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
