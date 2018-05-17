@@ -28,8 +28,6 @@ SOFTWARE.
 */
 #endregion License
 
-using System;
-using System.Globalization;
 using System.Runtime.Serialization;
 
 namespace Microsoft.Xna.Framework.Graphics

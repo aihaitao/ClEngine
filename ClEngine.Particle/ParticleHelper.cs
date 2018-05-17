@@ -1,14 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Resources;
+﻿using System.Resources;
+using ClEngine.Particle.Properties;
 
 namespace ClEngine.Particle
 {
 	public static class ParticleHelper
 	{
-		private static readonly Assembly CurrentEntryAssembly =
-			Assembly.LoadFile(Path.Combine(Environment.CurrentDirectory, "ClEngine.Particle.dll"));
 		public static dynamic GetTranslateName(this object obj)
 		{
 			if (obj is string name)
@@ -24,7 +20,7 @@ namespace ClEngine.Particle
 			if (string.IsNullOrWhiteSpace(name))
 				return string.Empty;
 
-			var resourceManager = new ResourceManager("ClEngine.Particle.Properties.Resources", CurrentEntryAssembly);
+			var resourceManager = new ResourceManager("ClEngine.Particle.Properties.Resources", typeof(Resources).Assembly);
 			var translateName = resourceManager.GetObject(name);
 			return translateName != null ? translateName.ToString() : name;
 		}

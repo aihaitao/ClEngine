@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using Microsoft.Xna.Framework.Graphics;
-using System.Globalization;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace TwoMGFX
 {

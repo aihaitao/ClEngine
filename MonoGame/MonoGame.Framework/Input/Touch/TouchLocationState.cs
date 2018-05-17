@@ -1,7 +1,7 @@
 #region License
 // /*
 // Microsoft Public License (Ms-PL)
-// MonoGame - Copyright © 2009-2010 The MonoGame Team
+// MonoGame - Copyright ?2009-2010 The MonoGame Team
 // 
 // All rights reserved.
 // 
@@ -39,7 +39,7 @@
 #endregion License
 
 #region Using clause
-using System;
+
 #endregion Using clause
 
 namespace Microsoft.Xna.Framework.Input.Touch

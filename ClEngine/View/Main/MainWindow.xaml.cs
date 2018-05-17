@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using ClEngine.Core;
 using ClEngine.CoreLibrary.Logger;
 using ClEngine.CoreLibrary.Map;
 using ClEngine.Model;
@@ -23,7 +24,6 @@ namespace ClEngine
         private bool IsLoadProject { get; set; }
         public static string ProjectPosition { get; set; }
         private ProjectInfo ProjectInfo { get; set; }
-        private Queue<string> Messages { get; set; }
 
 	    public MainWindow()
         {
@@ -31,7 +31,6 @@ namespace ClEngine
             Messenger.Default.Register<LogModel>(this, "Log", Log);
             Messenger.Default.Register<ProjectModel>(this, "LoadProject", LoadProject);
             DataContext = new MainViewModel();
-            Messages = new Queue<string>();
 
             TabControl.Visibility = Visibility.Hidden;
             IsLoadProject = false;
@@ -46,10 +45,51 @@ namespace ClEngine
         {
             while (true)
             {
-                if (Messages.Count > 0)
+                if (MessageCache.Messages.Count > 0)
                 {
-                    LogBlock.Dispatcher.Invoke(new Action(() => LogBlock.Text += Messages.Dequeue()));
+                    LogBlock.Dispatcher.Invoke(() => ResolveMessage(MessageCache.Messages.Dequeue()));
                 }
+            }
+        }
+
+        private void ResolveMessage(object message)
+        {
+            AddTreeViewItem(message, LogBlock);
+        }
+
+        private void ResolveItem(object message, ItemsControl item)
+        {
+            var type = message.GetType();
+            var properties = ((System.Reflection.TypeInfo)type).DeclaredFields;
+            foreach (var property in properties)
+            {
+                var value = property.GetValue(message);
+                AddTreeViewItem(value, item);
+            }
+        }
+
+        private void AddTreeViewItem(object message, ItemsControl item)
+        {
+            switch (message)
+            {
+                case string _:
+                    LogBlock.Items.Add(message);
+                    break;
+                case int _:
+                    LogBlock.Items.Add(int.Parse(message.ToString()));
+                    break;
+                case double _:
+                    LogBlock.Items.Add(double.Parse(message.ToString()));
+                    break;
+                default:
+                    var treeViewItem = new TreeViewItem
+                    {
+                        Header = message.GetType()
+                    };
+                    item.Items.Add(treeViewItem);
+
+                    treeViewItem.Expanded += (sender, args) => ResolveItem(message, treeViewItem);
+                    break;
             }
         }
 
@@ -78,23 +118,35 @@ namespace ClEngine
                 Logger.Log("找不到所需运行库!");
                 return;
             }
+            
+            Environment.CurrentDirectory = ProjectPosition;
 
-            var processInfo = new ProcessStartInfo(fileName)
-            {
-                WorkingDirectory = ProjectPosition,
-                RedirectStandardInput = true,
-                RedirectStandardError = true,
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-            };
-            var process = Process.Start(processInfo);
-            if (process != null)
-            {
-                process.OutputDataReceived += (o, args) => Logger.Log(args.Data); ;
-                process.ErrorDataReceived += (o, args) => Logger.Log(args.Data); ;
-                process.BeginErrorReadLine();
-                process.BeginOutputReadLine();
-            }
+            ClGame.MainWindow mainWindow = new ClGame.MainWindow();
+            mainWindow.ShowDialog();
+
+            Environment.CurrentDirectory = EditorRecord.EditorEnvironment;
+
+            //var processInfo = new ProcessStartInfo(fileName)
+            //{
+            //    WorkingDirectory = ProjectPosition,
+            //    RedirectStandardInput = true,
+            //    RedirectStandardError = true,
+            //    RedirectStandardOutput = true,
+            //    UseShellExecute = false,
+            //};
+            //var process = Process.Start(processInfo);
+            //if (process != null)
+            //{
+            //    process.OutputDataReceived += ProcessOnOutputDataReceived;
+            //    process.ErrorDataReceived += (o, args) => Logger.Log(args.Data);
+            //    process.BeginErrorReadLine();
+            //    process.BeginOutputReadLine();
+            //}
+        }
+
+        private void ProcessOnOutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            Logger.Log(e.Data);
         }
 
         /// <summary>
@@ -102,29 +154,36 @@ namespace ClEngine
         /// </summary>
         public void Log(LogModel model)
         {
-	        if (string.IsNullOrWhiteSpace(model.Message))
-		        return;
-
-			string preview;
-
-            switch (model.LogLevel)
+            switch (model.Message)
             {
-                case LogLevel.Log:
-                    preview = "[记录]: ";
-					break;
-                case LogLevel.Warn:
-                    preview = "[警告]: ";
-	                ExceptionlessClient.Default.SubmitLog(model.Message, Exceptionless.Logging.LogLevel.Warn);
-					break;
-                case LogLevel.Error:
-                    preview = "[错误]: ";
-	                ExceptionlessClient.Default.SubmitLog(model.Message, Exceptionless.Logging.LogLevel.Error);
-					break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                case null:
+                    return;
+                case string s:
+                    string preview;
 
-	        Messages.Enqueue(preview + model.Message + Environment.NewLine);
+                    switch (model.LogLevel)
+                    {
+                        case LogLevel.Log:
+                            preview = $"[{Properties.Resources.Log}]: ";
+                            break;
+                        case LogLevel.Error:
+                            preview = $"[{Properties.Resources.Error}]: ";
+                            ExceptionlessClient.Default.SubmitLog(s, Exceptionless.Logging.LogLevel.Error);
+                            break;
+                        case LogLevel.Warn:
+                            preview = $"[{Properties.Resources.Warn}]: ";
+                            ExceptionlessClient.Default.SubmitLog(s, Exceptionless.Logging.LogLevel.Warn);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    MessageCache.Messages.Enqueue(preview + s + Environment.NewLine);
+                    break;
+                default:
+                    MessageCache.Messages.Enqueue(model.Message);
+                    break;
+            }
         }
 
         /// <summary>
@@ -132,7 +191,7 @@ namespace ClEngine
         /// </summary>
         private void ClearLog(object sender, RoutedEventArgs e)
         {
-            LogBlock.Text = string.Empty;
+            LogBlock.Items.Clear();
         }
 
         /// <summary>
@@ -146,7 +205,7 @@ namespace ClEngine
                 AutoUpgradeEnabled = true,
                 CheckFileExists = true,
                 CheckPathExists = true,
-                Filter = @"CL工程文件(*.cl)|*.cl",
+                Filter = @"ClProject(*.cl)|*.cl",
             };
             var result = openFileDialog.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)

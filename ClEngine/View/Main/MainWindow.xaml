@@ -17,6 +17,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
+
         <Menu Grid.Row="0">
             <MenuItem Header="{x:Static properties:Resources.File}">
                 <MenuItem Header="{x:Static properties:Resources.NewProject}" Click="MenuItem_OnClick"></MenuItem>
@@ -86,13 +87,14 @@
                 <local:HelpDocument DataContext="{Binding}"></local:HelpDocument>
             </TabItem>
         </TabControl>
+
         <TabControl Grid.Row="3" MaxHeight="120">
             <TabItem Header="{x:Static properties:Resources.LogSystem}">
                 <ScrollViewer>
-                    <TextBlock TextWrapping="Wrap" Name="LogBlock" 
-                               ScrollViewer.CanContentScroll="True"
-                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                               ScrollViewer.VerticalScrollBarVisibility="Auto"></TextBlock>
+                    <TreeView  Name="LogBlock" 
+                                  ScrollViewer.CanContentScroll="True"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Auto"></TreeView>
                 </ScrollViewer>
             </TabItem>
         </TabControl>

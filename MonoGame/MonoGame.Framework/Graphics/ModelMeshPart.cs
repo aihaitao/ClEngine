@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Microsoft.Xna.Framework.Graphics
+﻿namespace Microsoft.Xna.Framework.Graphics
 {
 	public sealed class ModelMeshPart
 	{

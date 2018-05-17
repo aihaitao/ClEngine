@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright © 2006 The Mono.Xna Team
+Copyright ?2006 The Mono.Xna Team
 
 All rights reserved.
 
@@ -28,8 +28,6 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
-
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Utilities;
 
 namespace Microsoft.Xna.Framework.Content

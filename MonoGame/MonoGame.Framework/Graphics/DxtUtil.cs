@@ -38,7 +38,7 @@
 // */
 // #endregion License
 // 
-using System;
+
 using System.IO;
 
 namespace Microsoft.Xna.Framework.Graphics

@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace ClEngine.View.Particle
+﻿namespace ClEngine.View.Particle
 {
 	/// <summary>
 	/// ParticleEditor.xaml 的交互逻辑

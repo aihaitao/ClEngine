@@ -38,7 +38,7 @@
 // */
 // #endregion License
 // 
-using System;
+
 namespace Microsoft.Xna.Framework.Content
 {
 	internal class Int32Reader : ContentTypeReader<int>

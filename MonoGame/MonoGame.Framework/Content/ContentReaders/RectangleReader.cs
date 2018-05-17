@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright © 2006 The Mono.Xna Team
+Copyright ?2006 The Mono.Xna Team
 
 All rights reserved.
 
@@ -25,13 +25,6 @@ SOFTWARE.
 */
 #endregion License
 
-
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace Microsoft.Xna.Framework.Content
 {

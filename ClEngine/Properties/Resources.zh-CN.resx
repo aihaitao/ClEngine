@@ -570,4 +570,19 @@
   <data name="Font" xml:space="preserve">
     <value>字体</value>
   </data>
+  <data name="CurrentFps" xml:space="preserve">
+    <value>当前fps</value>
+  </data>
+  <data name="BaseEmitter" xml:space="preserve">
+    <value>基础发射器</value>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>记录</value>
+  </data>
+  <data name="Warn" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
 </root>

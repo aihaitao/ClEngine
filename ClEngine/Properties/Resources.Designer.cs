@@ -151,6 +151,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 BaseEmitter 的本地化字符串。
+        /// </summary>
+        public static string BaseEmitter {
+            get {
+                return ResourceManager.GetString("BaseEmitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 BindProjectID 的本地化字符串。
         /// </summary>
         public static string BindProjectID {
@@ -286,6 +295,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 CurrentFps 的本地化字符串。
+        /// </summary>
+        public static string CurrentFps {
+            get {
+                return ResourceManager.GetString("CurrentFps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Default mouse visibility 的本地化字符串。
         /// </summary>
         public static string DefaultMouseVisibility {
@@ -390,6 +408,15 @@ namespace ClEngine.Properties {
         public static string Environmental_Color {
             get {
                 return ResourceManager.GetString("Environmental Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Error 的本地化字符串。
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -714,6 +741,15 @@ namespace ClEngine.Properties {
         public static string ListBox {
             get {
                 return ResourceManager.GetString("ListBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Log 的本地化字符串。
+        /// </summary>
+        public static string Log {
+            get {
+                return ResourceManager.GetString("Log", resourceCulture);
             }
         }
         
@@ -1353,6 +1389,15 @@ namespace ClEngine.Properties {
         public static string UseItems {
             get {
                 return ResourceManager.GetString("UseItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Warn 的本地化字符串。
+        /// </summary>
+        public static string Warn {
+            get {
+                return ResourceManager.GetString("Warn", resourceCulture);
             }
         }
         

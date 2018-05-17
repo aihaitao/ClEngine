@@ -1,5 +1,3 @@
-using System;
-
 namespace Microsoft.Xna.Framework.Graphics
 {
     // TODO: This class needs to be finished!

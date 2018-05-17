@@ -1,5 +1,3 @@
-using System;
-
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Microsoft.Xna.Framework.Content

@@ -38,8 +38,6 @@ purpose and non-infringement.
 */
 #endregion License
 
-using System;
-
 namespace Microsoft.Xna.Framework.Audio
 {
     /// <summary>Described the playback state of a SoundEffectInstance.</summary>

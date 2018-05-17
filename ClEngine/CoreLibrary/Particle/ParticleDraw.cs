@@ -90,7 +90,7 @@ namespace ClEngine.CoreLibrary.Particle
 
 			_spriteBatch.Begin(blendState: BlendState.AlphaBlend, transformMatrix: _camera.GetViewMatrix());
 			_spriteBatch.Draw(ParticleEffect);
-			_spriteBatch.DrawString(_smallFont, $"当前fps： {_fpsCounter.FramesPerSecond}", Vector2.Zero, Color.White);
+			_spriteBatch.DrawString(_smallFont, $"{Properties.Resources.CurrentFps}： {_fpsCounter.FramesPerSecond}", Vector2.Zero, Color.White);
 			_spriteBatch.End();
 
 			base.Draw(gameTime);
@@ -102,7 +102,7 @@ namespace ClEngine.CoreLibrary.Particle
 			{
 				Emitters = new List<ParticleEmitter>
 				{
-					new ParticleEmitter("基础发射器", textureRegion,5000,TimeSpan.FromSeconds(1),Profile.Point())
+					new ParticleEmitter(Properties.Resources.BaseEmitter, textureRegion,5000,TimeSpan.FromSeconds(1),Profile.Point())
 					{
 						Parameters =
 						{

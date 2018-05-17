@@ -1,5 +1,4 @@
 ﻿using System.Xml.Serialization;
-using Microsoft.Xna.Framework;
 
 namespace ClEngine.Tiled
 {

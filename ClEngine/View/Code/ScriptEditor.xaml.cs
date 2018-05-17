@@ -45,26 +45,11 @@ namespace ClEngine
             SearchPanel.Install(TextEditor);
 
 			TextEditor.TextArea.TextEntering += TextAreaOnTextEntering;
-			TextEditor.TextArea.TextEntered += TextAreaOnTextEntered;
 
             Messenger.Default.Register<string>(this, "SaveScript", SaveScript);
             Messenger.Default.Register<string>(this, "LoadDocument", LoadDocument);
             Messenger.Default.Register<string>(this, "LoadFloatDocument", LoadFloatDocument);
         }
-
-	    private void TextAreaOnTextEntered(object sender, TextCompositionEventArgs e)
-	    {
-			_completionWindow = new CompletionWindow(TextEditor.TextArea);
-		    IList<ICompletionData> data = _completionWindow.CompletionList.CompletionData;
-		    
-		    foreach (var list in Core.CompletionList)
-		    {
-			    data.Add(new MyCompletionData(list));
-		    }
-
-		    _completionWindow.Show();
-		    _completionWindow.Closed += delegate { _completionWindow = null; };
-		}
 
 	    private CompletionWindow _completionWindow;
 	    private void TextAreaOnTextEntering(object sender, TextCompositionEventArgs e)

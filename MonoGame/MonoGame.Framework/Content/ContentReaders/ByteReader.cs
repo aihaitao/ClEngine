@@ -39,8 +39,6 @@
 // #endregion License
 // 
 
-using System;
-
 namespace Microsoft.Xna.Framework.Content
 {
     internal class ByteReader : ContentTypeReader<byte>

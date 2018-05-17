@@ -432,6 +432,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClEngine.Core\ClEngine.Core.csproj">
+      <Project>{b1e937e2-fc62-43d9-b44e-32798af19552}</Project>
+      <Name>ClEngine.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClEngine.Particle\ClEngine.Particle.csproj">
       <Project>{7954C836-BB21-4E0F-8E70-0859B5B2117F}</Project>
       <Name>ClEngine.Particle</Name>
@@ -439,6 +443,10 @@
     <ProjectReference Include="..\ClEngine.Tiled\ClEngine.Tiled.csproj">
       <Project>{52b1dbf5-bb7b-4472-8b84-50179773504f}</Project>
       <Name>ClEngine.Tiled</Name>
+    </ProjectReference>
+    <ProjectReference Include="ClGame\ClGame.csproj">
+      <Project>{262362db-0fca-4537-97ae-bde37c4446dd}</Project>
+      <Name>ClGame</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

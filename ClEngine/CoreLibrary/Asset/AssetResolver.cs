@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
+using ClEngine.CoreLibrary.Editor;
 
 namespace ClEngine.CoreLibrary.Asset
 {

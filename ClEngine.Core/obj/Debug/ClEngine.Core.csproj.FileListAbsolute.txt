@@ -1,0 +1,6 @@
+E:\ClEngine\ClEngine.Core\bin\Debug\ClEngine.Core.dll
+E:\ClEngine\ClEngine.Core\bin\Debug\ClEngine.Core.pdb
+E:\ClEngine\ClEngine.Core\obj\Debug\ClEngine.Core.csproj.CoreCompileInputs.cache
+E:\ClEngine\ClEngine.Core\obj\Debug\ClEngine.Core.dll
+E:\ClEngine\ClEngine.Core\obj\Debug\ClEngine.Core.pdb
+E:\ClEngine\ClEngine.Core\obj\Debug\ClEngine.Core.csprojAssemblyReference.cache

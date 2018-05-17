@@ -12,17 +12,19 @@ namespace ClEngine.CoreLibrary.Logger
 
     public static class Logger
     {
-        public static void Log(string message)
+        public static void Log(object message)
         {
             var logModel = new LogModel
             {
                 Message = message,
                 LogLevel = LogLevel.Log
             };
+
             Messenger.Default.Send(logModel, "Log");
+            
         }
 
-        public static void Warn(string message)
+        public static void Warn(object message)
         {
             var logModel = new LogModel
             {
@@ -32,7 +34,7 @@ namespace ClEngine.CoreLibrary.Logger
             Messenger.Default.Send(logModel, "Log");
         }
 
-        public static void Error(string message)
+        public static void Error(object message)
         {
             var logModel = new LogModel
             {

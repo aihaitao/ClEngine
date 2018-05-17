@@ -38,7 +38,6 @@
 // */
 #endregion License
 
-using Microsoft.Xna.Framework;
 using System;
 
 namespace Microsoft.Xna.Framework.Input.Touch

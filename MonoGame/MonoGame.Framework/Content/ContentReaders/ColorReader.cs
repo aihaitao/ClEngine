@@ -40,10 +40,6 @@ purpose and non-infringement.
 //
 // Author: Kenneth James Pouncey
 //
-using System;
-
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework;
 
 namespace Microsoft.Xna.Framework.Content
 {

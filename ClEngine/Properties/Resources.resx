@@ -567,4 +567,19 @@
   <data name="Font" xml:space="preserve">
     <value>Font</value>
   </data>
+  <data name="CurrentFps" xml:space="preserve">
+    <value>CurrentFps</value>
+  </data>
+  <data name="BaseEmitter" xml:space="preserve">
+    <value>BaseEmitter</value>
+  </data>
+  <data name="Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="Warn" xml:space="preserve">
+    <value>Warn</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>

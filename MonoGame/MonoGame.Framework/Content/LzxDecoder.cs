@@ -44,7 +44,6 @@
 #endregion
 
 using System;
-using System.Diagnostics;
 
 namespace Microsoft.Xna.Framework.Content
 {

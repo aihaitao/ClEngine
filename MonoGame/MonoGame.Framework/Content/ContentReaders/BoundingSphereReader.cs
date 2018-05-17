@@ -1,7 +1,7 @@
 // #region License
 // /*
 // Microsoft Public License (Ms-PL)
-// MonoGame - Copyright © 2011 The MonoGame Team
+// MonoGame - Copyright ?2011 The MonoGame Team
 // 
 // All rights reserved.
 // 
@@ -38,9 +38,6 @@
 // */
 // #endregion License
 // 
-
-using System;
-using Microsoft.Xna.Framework;
 
 namespace Microsoft.Xna.Framework.Content
 {

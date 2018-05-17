@@ -6,7 +6,6 @@ using System;
 using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework.Utilities;
 
 namespace Microsoft.Xna.Framework.Audio
 {
