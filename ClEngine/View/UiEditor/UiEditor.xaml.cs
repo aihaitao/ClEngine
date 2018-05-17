@@ -3,9 +3,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
+using ClEngine.CoreLibrary.Logger;
 using ClEngine.Model;
 using ClEngine.ViewModel;
-using GalaSoft.MvvmLight.Messaging;
 using ICSharpCode.WpfDesign.Designer.Services;
 using ICSharpCode.WpfDesign.Designer.Xaml;
 using Button = System.Windows.Controls.Button;
@@ -77,12 +77,7 @@ end";
 			}
             catch (Exception e)
             {
-                var logModel = new LogModel
-                {
-                    Message = e.Message,
-                    LogLevel = LogLevel.Error
-                };
-                Messenger.Default.Send(logModel,"Log");
+                Logger.Error(e.Message);
             }
             
         }

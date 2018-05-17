@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
+using ClEngine.CoreLibrary.Logger;
 using ClEngine.CoreLibrary.Map;
 using ClEngine.Model;
 using ClEngine.ViewModel;
@@ -74,7 +75,7 @@ namespace ClEngine
             var fileName = Path.Combine(ProjectPosition, "ClGame.exe");
             if (!File.Exists(fileName))
             {
-                Log("找不到所需运行库!");
+                Logger.Log("找不到所需运行库!");
                 return;
             }
 
@@ -89,42 +90,11 @@ namespace ClEngine
             var process = Process.Start(processInfo);
             if (process != null)
             {
-                process.OutputDataReceived += ProcessOnOutputDataReceived;
-                process.ErrorDataReceived += ProcessOnErrorDataReceived;
+                process.OutputDataReceived += (o, args) => Logger.Log(args.Data); ;
+                process.ErrorDataReceived += (o, args) => Logger.Log(args.Data); ;
                 process.BeginErrorReadLine();
                 process.BeginOutputReadLine();
             }
-        }
-
-        private void ProcessOnErrorDataReceived(object sender, DataReceivedEventArgs dataReceivedEventArgs)
-        {
-            var model = new LogModel
-            {
-                LogLevel = LogLevel.Log,
-                Message = dataReceivedEventArgs.Data
-            };
-            Log(model);
-        }
-
-        private void ProcessOnOutputDataReceived(object sender, DataReceivedEventArgs dataReceivedEventArgs)
-        {
-            var model = new LogModel
-            {
-                LogLevel = LogLevel.Log,
-                Message = dataReceivedEventArgs.Data
-            };
-            Log(model);
-        }
-
-        public void Log(string content, LogLevel logLevel = LogLevel.Log)
-        {
-            var model = new LogModel
-            {
-                LogLevel = logLevel,
-                Message = content
-            };
-
-            Log(model);
         }
 
         /// <summary>
@@ -135,7 +105,7 @@ namespace ClEngine
 	        if (string.IsNullOrWhiteSpace(model.Message))
 		        return;
 
-			var preview = string.Empty;
+			string preview;
 
             switch (model.LogLevel)
             {

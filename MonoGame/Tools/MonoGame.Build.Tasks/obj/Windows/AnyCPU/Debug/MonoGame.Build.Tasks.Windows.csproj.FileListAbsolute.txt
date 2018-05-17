@@ -8,7 +8,7 @@ E:\MonoGame\Tools\MonoGame.Build.Tasks\obj\Windows\AnyCPU\Debug\MonoGame.Build.T
 E:\ClEngine\MonoGame\Tools\MonoGame.Build.Tasks\bin\Windows\AnyCPU\Debug\MonoGame.Build.Tasks.xml
 E:\ClEngine\MonoGame\Tools\MonoGame.Build.Tasks\bin\Windows\AnyCPU\Debug\MonoGame.Build.Tasks.dll
 E:\ClEngine\MonoGame\Tools\MonoGame.Build.Tasks\bin\Windows\AnyCPU\Debug\MonoGame.Build.Tasks.pdb
-E:\ClEngine\MonoGame\Tools\MonoGame.Build.Tasks\obj\Windows\AnyCPU\Debug\MonoGame.Build.Tasks.Windows.csprojResolveAssemblyReference.cache
 E:\ClEngine\MonoGame\Tools\MonoGame.Build.Tasks\obj\Windows\AnyCPU\Debug\MonoGame.Build.Tasks.Windows.csproj.CoreCompileInputs.cache
 E:\ClEngine\MonoGame\Tools\MonoGame.Build.Tasks\obj\Windows\AnyCPU\Debug\MonoGame.Build.Tasks.dll
 E:\ClEngine\MonoGame\Tools\MonoGame.Build.Tasks\obj\Windows\AnyCPU\Debug\MonoGame.Build.Tasks.pdb
+E:\ClEngine\MonoGame\Tools\MonoGame.Build.Tasks\obj\Windows\AnyCPU\Debug\MonoGame.Build.Tasks.Windows.csprojAssemblyReference.cache

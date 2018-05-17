@@ -3,8 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml.Serialization;
 using ClEngine.CoreLibrary.Map;
-using ClEngine.Model;
-using GalaSoft.MvvmLight.Messaging;
 
 namespace ClEngine.CoreLibrary.Asset
 {
@@ -142,8 +140,8 @@ namespace ClEngine.CoreLibrary.Asset
 			{
 				process.EnableRaisingEvents = true;
 				process.Exited += ProcessOnExited;
-				process.ErrorDataReceived += ProcessOnErrorDataReceived;
-				process.OutputDataReceived += ProcessOnOutputDataReceived;
+			    process.ErrorDataReceived += (sender, args) => Logger.Logger.Error(args.Data);
+			    process.OutputDataReceived += (sender, args) => Logger.Logger.Log(args.Data);
 				process.BeginErrorReadLine();
 				process.BeginOutputReadLine();
 			}
@@ -283,27 +281,7 @@ namespace ClEngine.CoreLibrary.Asset
 
 			return arguments;
 		}
-
-		private static void ProcessOnOutputDataReceived(object sender, DataReceivedEventArgs e)
-		{
-			var logModel = new LogModel
-			{
-				Message = e.Data,
-				LogLevel = LogLevel.Log
-			};
-			Messenger.Default.Send(logModel, "Log");
-		}
-
-		private static void ProcessOnErrorDataReceived(object sender, DataReceivedEventArgs e)
-		{
-			var logModel = new LogModel
-			{
-				Message = e.Data,
-				LogLevel = LogLevel.Error
-			};
-			Messenger.Default.Send(logModel, "Log");
-		}
-
+        
 		/// <summary>
 		/// 初始化资源
 		/// </summary>

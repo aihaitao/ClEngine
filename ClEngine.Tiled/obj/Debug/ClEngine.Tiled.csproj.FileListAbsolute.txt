@@ -18,4 +18,4 @@ E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csproj.GenerateResource.cach
 E:\ClEngine\ClEngine.Tiled\obj\Debug\zh-CN\ClEngine.Tiled.resources.dll
 E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.Resources.resources
 E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.Resources.zh-CN.resources
-E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csprojResolveAssemblyReference.cache
+E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csprojAssemblyReference.cache

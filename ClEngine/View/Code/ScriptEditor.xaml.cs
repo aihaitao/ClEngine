@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Xml;
 using ClEngine.CoreLibrary;
-using ClEngine.Model;
+using ClEngine.CoreLibrary.Logger;
 using GalaSoft.MvvmLight.Messaging;
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Highlighting;
@@ -124,21 +124,13 @@ namespace ClEngine
 
         public void SaveScript(string emptyArg)
         {
-            var model = new LogModel();
             if (TextEditor.IsModified && File.Exists(FileName))
             {
                 TextEditor.Save(FileName);
-                model.Message = "脚本已保存！";
-                model.LogLevel = LogLevel.Log;
+                Logger.Log("脚本已保存");
             }
             else
-            {
-                model.Message = "未发现有更改，忽略该请求";
-                model.LogLevel = LogLevel.Warn;
-            }
-
-
-            Messenger.Default.Send(model, "Log");
+                Logger.Warn("未发现有更改，忽略该请求");
         }
 
 

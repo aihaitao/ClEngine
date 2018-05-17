@@ -2,10 +2,9 @@
 using System.IO;
 using System.Windows;
 using ClEngine.CoreLibrary.Asset;
-using ClEngine.CoreLibrary.Map;
+using ClEngine.CoreLibrary.Logger;
 using ClEngine.Model;
 using ClEngine.Tiled.MapEnum;
-using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
 
 namespace ClEngine.View.Map
@@ -70,52 +69,42 @@ namespace ClEngine.View.Map
 		private bool CheckMapTabItem(ref int logicGridHeight, ref int logicGridWidth, ref int surfaceGridHeight,
 			ref int surfaceGridWidth)
 		{
-			var logModel = new LogModel {LogLevel = LogLevel.Error};
-
 			if (string.IsNullOrEmpty(MapName.Text))
 			{
-				logModel.Message = "地图名称不能为空";
-				Messenger.Default.Send(logModel, "Log");
-
+                Logger.Error("地图名称不能为空");
 				return false;
 			}
 
 			if (!int.TryParse(LogicGridHeight.Text, out logicGridHeight))
 			{
-				logModel.Message = "逻辑格子高度必须为数值";
-				Messenger.Default.Send(logModel, "Log");
-
-				return false;
+			    Logger.Error("逻辑格子高度必须为数值");
+                return false;
 			}
 
 			if (!int.TryParse(LogicGridWidth.Text, out logicGridWidth))
 			{
-				logModel.Message = "逻辑格子宽度必须为数值";
-				Messenger.Default.Send(logModel, "Log");
+			    Logger.Error("逻辑格子宽度必须为数值");
 
 				return false;
 			}
 
 			if (!int.TryParse(SurfaceGridHeight.Text, out surfaceGridHeight))
 			{
-				logModel.Message = "地表格子高度必须为数值";
-				Messenger.Default.Send(logModel, "Log");
+			    Logger.Error("地表格子高度必须为数值");
 
 				return false;
 			}
 
 			if (!int.TryParse(SurfaceGridWidth.Text, out surfaceGridWidth))
 			{
-				logModel.Message = "地表格子宽度必须为数值";
-				Messenger.Default.Send(logModel, "Log");
+			    Logger.Error("地表格子宽度必须为数值");
 
 				return false;
 			}
 
 			if (string.IsNullOrEmpty(ImagePath.Text))
 			{
-				logModel.Message = "必须选择图片作为地图";
-				Messenger.Default.Send(logModel, "Log");
+			    Logger.Error("必须选择图片作为地图");
 
 				return false;
 			}

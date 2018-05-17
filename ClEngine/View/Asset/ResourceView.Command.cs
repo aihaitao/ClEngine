@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using ClEngine.CoreLibrary.Asset;
+using ClEngine.CoreLibrary.Logger;
 using Microsoft.Win32;
 
 namespace ClEngine.View.Asset
@@ -17,7 +18,7 @@ namespace ClEngine.View.Asset
 
 			if (ResourceTreeView.SelectedItem == null)
 			{
-				Log.Error("清先选择要加入的资源类型");
+				Logger.Error("清先选择要加入的资源类型");
 
 				return;
 			}

@@ -155,7 +155,7 @@
     <Compile Include="CoreLibrary\Asset\SoundResolver.cs" />
     <Compile Include="CoreLibrary\Core.cs" />
     <Compile Include="CoreLibrary\Editor\EditorRecord.cs" />
-    <Compile Include="CoreLibrary\Log\Log.cs" />
+    <Compile Include="CoreLibrary\Logger\Logger.cs" />
     <Compile Include="CoreLibrary\Map\mapInfo.cs" />
     <Compile Include="CoreLibrary\Map\MapSerializable.cs" />
     <Compile Include="CoreLibrary\Map\ResourceDraw.cs" />
@@ -203,7 +203,6 @@
     </Compile>
     <Compile Include="CoreLibrary\Helper\JsonHelper.cs" />
     <Compile Include="CoreLibrary\Helper\LinkedListExtensions.cs" />
-    <Compile Include="CoreLibrary\Log\LogLevel.cs" />
     <Compile Include="View\Map\CreateMapWindow.xaml.cs">
       <DependentUpon>CreateMapWindow.xaml</DependentUpon>
     </Compile>
@@ -433,13 +432,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClEngine.Particle\ClEngine.Particle.csproj">
+      <Project>{7954C836-BB21-4E0F-8E70-0859B5B2117F}</Project>
+      <Name>ClEngine.Particle</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClEngine.Tiled\ClEngine.Tiled.csproj">
       <Project>{52b1dbf5-bb7b-4472-8b84-50179773504f}</Project>
       <Name>ClEngine.Tiled</Name>
-    </ProjectReference>
-    <ProjectReference Include="ClEngine.Particle.Wpf\ClEngine.Particle.csproj">
-      <Project>{1ac4aaee-9e0a-46fd-8a94-483a25d8ef30}</Project>
-      <Name>ClEngine.Particle</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

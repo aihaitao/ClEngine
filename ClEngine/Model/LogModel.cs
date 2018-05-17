@@ -1,4 +1,6 @@
-﻿namespace ClEngine.Model
+﻿using ClEngine.CoreLibrary.Logger;
+
+namespace ClEngine.Model
 {
     public class LogModel
     {

@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using ClEngine.CoreLibrary.Logger;
 using ClEngine.Model;
 using GalaSoft.MvvmLight.Messaging;
 using SelectionMode = System.Windows.Controls.SelectionMode;
@@ -63,12 +64,7 @@ namespace ClEngine
             if (ListBox.SelectedItem == null || string.IsNullOrEmpty(ProjectName.Text) ||
                 string.IsNullOrEmpty(ProjectPosition.Text))
             {
-                var model = new LogModel
-                {
-                    Message = "请检查是否未选择模板或工程名为空或工程路径为空!",
-                    LogLevel = LogLevel.Error
-                };
-                Messenger.Default.Send(model, "Log");
+                Logger.Error("请检查是否未选择模板或工程名为空或工程路径为空!");
                 return;
             }
 

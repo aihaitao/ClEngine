@@ -3,8 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using System.Xml;
-using ClEngine.Model;
-using GalaSoft.MvvmLight.Messaging;
+using ClEngine.CoreLibrary.Logger;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 using ICSharpCode.AvalonEdit.Search;
@@ -69,21 +68,14 @@ namespace ClEngine
 
         private void Save_OnClick(object sender, RoutedEventArgs e)
         {
-            var model = new LogModel();
             if (TextEditor.IsModified && File.Exists(FileName))
             {
                 TextEditor.Save(FileName);
-                model.Message = "脚本已保存！";
-                model.LogLevel = LogLevel.Log;
+                Logger.Log("脚本已保存!");
             }
             else
-            {
-                model.Message = "未发现有更改，忽略该请求";
-                model.LogLevel = LogLevel.Warn;
-            }
-
-
-            Messenger.Default.Send(model, "Log");
+                Logger.Warn("未发现有更改，忽略该请求");
+            
             Close();
         }
     }

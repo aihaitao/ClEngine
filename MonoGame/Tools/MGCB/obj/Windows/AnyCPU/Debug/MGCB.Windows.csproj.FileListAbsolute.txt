@@ -63,8 +63,8 @@ E:\ClEngine\ClEngine\bin\Debug\runtime\assetcompiler\MGCB.exe.config
 E:\ClEngine\ClEngine\bin\Debug\runtime\assetcompiler\MGCB.exe
 E:\ClEngine\ClEngine\bin\Debug\runtime\assetcompiler\MGCB.pdb
 E:\ClEngine\ClEngine\bin\Debug\runtime\assetcompiler\MGCB.xml
-E:\ClEngine\MonoGame\Tools\MGCB\obj\Windows\AnyCPU\Debug\MGCB.Windows.csprojResolveAssemblyReference.cache
 E:\ClEngine\MonoGame\Tools\MGCB\obj\Windows\AnyCPU\Debug\MGCB.Windows.csproj.CoreCompileInputs.cache
 E:\ClEngine\MonoGame\Tools\MGCB\obj\Windows\AnyCPU\Debug\MGCB.Windows.csproj.CopyComplete
 E:\ClEngine\MonoGame\Tools\MGCB\obj\Windows\AnyCPU\Debug\MGCB.exe
 E:\ClEngine\MonoGame\Tools\MGCB\obj\Windows\AnyCPU\Debug\MGCB.pdb
+E:\ClEngine\MonoGame\Tools\MGCB\obj\Windows\AnyCPU\Debug\MGCB.Windows.csprojAssemblyReference.cache
