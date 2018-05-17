@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using ClEngine.Particle.Annotations;
+using ClEngine.Particle.TypeEditor;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 
@@ -51,7 +50,7 @@ namespace ClEngine.Particle.Core
 		/// <value>
 		///     The model-to-local space <see cref="Matrix2D" />.
 		/// </value>
-		[DisplayName("模型到当前空间"), Description("获取模型到当前空间"), Category("Transform")]
+		[ParticleDisplayName("LocalMatrix"), Category("Transform")]
 		public TMatrix LocalMatrix
 		{
 			get
@@ -67,7 +66,7 @@ namespace ClEngine.Particle.Core
 		/// <value>
 		///     The local-to-world space <see cref="Matrix2D" />.
 		/// </value>
-		[DisplayName("当前到世界的空间"), Description("获取当前到世界的空间"), Category("Transform")]
+		[ParticleDisplayName("WorldMatrix"), Category("Transform")]
 		public TMatrix WorldMatrix
 		{
 			get
@@ -90,7 +89,7 @@ namespace ClEngine.Particle.Core
 		///         <code>null</code> disables the inheritance altogether for this instance.
 		///     </para>
 		/// </remarks>
-		[EditorBrowsable(EditorBrowsableState.Never), DisplayName("父实例"), Description("获取或设置父实例"), Category("Transform")]
+		[EditorBrowsable(EditorBrowsableState.Never), ParticleDisplayName("Parent"), Category("Transform")]
 		public BaseTransform<TMatrix> Parent
 		{
 			get { return _parent; }
@@ -201,7 +200,7 @@ namespace ClEngine.Particle.Core
 		/// <value>
 		///     The world position.
 		/// </value>
-		[DisplayName("世界的位置"), Description("获得世界的位置"), Category("Transform")]
+		[ParticleDisplayName("WorldPosition"), Category("Transform")]
 		public Vector2 WorldPosition => WorldMatrix.Translation;
 
 		/// <summary>
@@ -210,7 +209,7 @@ namespace ClEngine.Particle.Core
 		/// <value>
 		///     The world scale.
 		/// </value>
-		[DisplayName("世界的比例"), Description("获得世界的比例"), Category("Transform")]
+		[ParticleDisplayName("WorldScale"), Category("Transform")]
 		public Vector2 WorldScale => WorldMatrix.Scale;
 
 		/// <summary>
@@ -219,7 +218,7 @@ namespace ClEngine.Particle.Core
 		/// <value>
 		///     The world rotation angle in radians.
 		/// </value>
-		[DisplayName("以弧度表示的世界旋转角度"), Description("以弧度获取世界旋转角度"), Category("Transform")]
+		[ParticleDisplayName("WorldRotation"), Category("Transform")]
 		public float WorldRotation => WorldMatrix.Rotation;
 
 		/// <summary>
@@ -228,7 +227,7 @@ namespace ClEngine.Particle.Core
 		/// <value>
 		///     The local position.
 		/// </value>
-		[DisplayName("位置"),Description("获取或设置位置"),Category("Transform")]
+		[ParticleDisplayName("Position"),Category("Transform")]
 		public Vector2 Position
 		{
 			get { return _position; }
@@ -246,7 +245,7 @@ namespace ClEngine.Particle.Core
 		/// <value>
 		///     The local rotation angle in radians.
 		/// </value>
-		[DisplayName("以弧度表示的旋转角度"), Description("获取或设置以弧度表示的旋转角度"), Category("Transform")]
+		[ParticleDisplayName("Rotation"), Category("Transform")]
 		public float Rotation
 		{
 			get { return _rotation; }
@@ -264,7 +263,7 @@ namespace ClEngine.Particle.Core
 		/// <value>
 		///     The local scale.
 		/// </value>
-		[DisplayName("比例"), Description("获取或设置比例"), Category("Transform")]
+		[ParticleDisplayName("Scale"), Category("Transform")]
 		public Vector2 Scale
 		{
 			get { return _scale; }

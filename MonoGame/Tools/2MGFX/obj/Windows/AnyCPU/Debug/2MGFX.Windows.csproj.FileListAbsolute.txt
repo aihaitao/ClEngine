@@ -20,4 +20,3 @@ E:\ClEngine\MonoGame\Tools\2MGFX\obj\Windows\AnyCPU\Debug\2MGFX.Windows.csproj.C
 E:\ClEngine\MonoGame\Tools\2MGFX\obj\Windows\AnyCPU\Debug\2MGFX.Windows.csproj.CopyComplete
 E:\ClEngine\MonoGame\Tools\2MGFX\obj\Windows\AnyCPU\Debug\2MGFX.exe
 E:\ClEngine\MonoGame\Tools\2MGFX\obj\Windows\AnyCPU\Debug\2MGFX.pdb
-E:\ClEngine\MonoGame\Tools\2MGFX\obj\Windows\AnyCPU\Debug\2MGFX.Windows.csprojAssemblyReference.cache

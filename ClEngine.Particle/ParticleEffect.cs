@@ -20,12 +20,12 @@ namespace ClEngine.Particle
 			Emitters = new List<ParticleEmitter>();
 		}
 
-		[DisplayName("名称"), Description("粒子的名称"), Category("ParticleEffect")]
+		[ParticleDisplayName("Name"), ParticleDescription("ParticleName"), Category("ParticleEffect")]
 		public string Name { get; set; }
 		
-		[Description("发射器属性"),DisplayName("发射器组"),Editor(typeof(EmitterTypeEditor), typeof(UITypeEditor)),Category("ParticleEffect")]
+		[ParticleDescription("TransmitterProperties"), ParticleDisplayName("EmitterGroup"),Editor(typeof(EmitterTypeEditor), typeof(UITypeEditor)),Category("ParticleEffect")]
 		public List<ParticleEmitter> Emitters { get; set; }
-		[DisplayName("已激活粒子"), Category("ParticleEffect")]
+		[ParticleDisplayName("ActivatedParticle"), Category("ParticleEffect")]
 		public int ActiveParticles => Emitters.Sum(t => t.ActiveParticles);
 
 		public void FastForward(Vector2 position, float seconds, float triggerPeriod)

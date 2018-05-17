@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing.Design;
 using ClEngine.Particle.Modifiers;
 using ClEngine.Particle.Profiles;
+using ClEngine.Particle.TypeEditor;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using MonoGame.Extended.TextureAtlases;
@@ -46,19 +48,27 @@ namespace ClEngine.Particle
 			Dispose();
 		}
 
+		[ParticleDisplayName("ParticleName"), Category("ParticleEmitter")]
 		public string Name { get; set; }
+		[ParticleDisplayName("ActivatedParticle"), Category("ParticleEmitter")]
 		public int ActiveParticles => Buffer.Count;
+		[ParticleDisplayName("Offset"), Category("ParticleEmitter")]
 		public Vector2 Offset { get; set; }
+		[ParticleDisplayName("ModifierGroup"), Category("ParticleEmitter"), Editor(typeof(ModifierTypeEditor), typeof(UITypeEditor))]
 		public List<Modifier> Modifiers { get; }
+		[ParticleDisplayName("Profile"), Category("ParticleEmitter")]
 		public Profile Profile { get; set; }
+		[ParticleDisplayName("Parameters"), Category("ParticleEmitter")]
 		public ParticleReleaseParameters Parameters { get; set; }
+		[ParticleDisplayName("TextureRegion"), Category("ParticleEmitter")]
 		public TextureRegion2D TextureRegion { get; set; }
 
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		[EditorBrowsable(EditorBrowsableState.Never), ParticleDisplayName("ModifierExecutionStrategy"), Category("ParticleEmitter")]
 		public ParticleModifierExecutionStrategy ModifierExecutionStrategy { get; set; }
 
 		internal ParticleBuffer Buffer;
 
+		[ParticleDisplayName("Capacity"), Category("ParticleEmitter")]
 		public int Capacity
 		{
 			get => Buffer.Size;
@@ -71,6 +81,7 @@ namespace ClEngine.Particle
 		}
 
 		private float _lifeSpanSeconds;
+		[ParticleDisplayName("LifeSpan"), Category("ParticleEmitter")]
 		public TimeSpan LifeSpan
 		{
 			get => TimeSpan.FromSeconds(_lifeSpanSeconds);
@@ -80,6 +91,7 @@ namespace ClEngine.Particle
 		private float _nextAutoTrigger;
 
 		private bool _autoTrigger = true;
+		[ParticleDisplayName("AutoTrigger"), Category("ParticleEmitter")]
 		public bool AutoTrigger
 		{
 			get => _autoTrigger;
@@ -91,6 +103,7 @@ namespace ClEngine.Particle
 		}
 
 		private float _autoTriggerFrequency;
+		[ParticleDisplayName("AutoTriggerFrequency"), Category("ParticleEmitter")]
 		public float AutoTriggerFrequency
 		{
 			get => _autoTriggerFrequency;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Drawing.Design;
 
@@ -13,8 +14,8 @@ namespace ClEngine.Particle.TypeEditor
 
 		public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
 		{
-			var emitterHostEditor = new EmitterHostEditor();
-			emitterHostEditor.ShowDialog();
+			var emitterEditor = new EmitterEditor((IEnumerable) value);
+			emitterEditor.ShowDialog();
 
 			return value;
 		}
