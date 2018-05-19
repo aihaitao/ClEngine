@@ -6,7 +6,7 @@
              xmlns:properties="clr-namespace:ClEngine.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <TreeView>
+    <TreeView x:Name="TreeView">
         <TreeViewItem Header="CL Engine" IsExpanded="True">
             <TreeViewItem Header="{x:Static properties:Resources.Real_timeCombatItems}" IsExpanded="True">
                 <TreeViewItem Header="{x:Static properties:Resources.InterfaceDocumentation}" IsExpanded="True">

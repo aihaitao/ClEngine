@@ -21,7 +21,6 @@ namespace ClEngine.CoreLibrary.Logger
             };
 
             Messenger.Default.Send(logModel, "Log");
-            
         }
 
         public static void Warn(object message)

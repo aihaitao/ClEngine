@@ -1,9 +1,18 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using ClEngine.ViewModel;
+using System.Windows.Forms;
+using System.Windows.Input;
+using System.Xml;
+using ClEngine.CoreLibrary.Logger;
 using GalaSoft.MvvmLight.Messaging;
+using ICSharpCode.AvalonEdit.CodeCompletion;
+using ICSharpCode.AvalonEdit.Highlighting;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using ICSharpCode.AvalonEdit.Search;
 
+// ReSharper disable once CheckNamespace
 namespace ClEngine
 {
     /// <summary>
@@ -11,13 +20,31 @@ namespace ClEngine
     /// </summary>
     public partial class ScriptWindow
     {
-        private ScriptViewModel _scriptModel;
         public ScriptWindow()
         {
+            IHighlightingDefinition customHighlightingDefinition;
+
+            using (var s = typeof(MainWindow).Assembly.GetManifestResourceStream("ClEngine.CustomHighlighting.xshd"))
+            {
+                if (s == null)
+                    throw new InvalidOperationException("没有找到对应资源");
+                using (var reader = new XmlTextReader(s))
+                {
+                    customHighlightingDefinition =
+                        HighlightingLoader.Load(reader,
+                            HighlightingManager.Instance);
+                }
+            }
+
+            HighlightingManager.Instance.RegisterHighlighting("Lua", new[] { ".lua" }, customHighlightingDefinition);
+
             InitializeComponent();
 
-            _scriptModel = new ScriptViewModel();
-            DataContext = _scriptModel;
+            SearchPanel.Install(TextEditor);
+
+            TextEditor.TextArea.TextEntering += TextAreaOnTextEntering;
+
+            Messenger.Default.Register<string>(this, "SaveScript", SaveScript);
         }
         
         private void CodeViewer_OnClick(object sender, RoutedEventArgs e)
@@ -25,36 +52,105 @@ namespace ClEngine
             if (CodeListBox.SelectedItem != null && CodeListBox.SelectedItem is TextBlock textBlock)
             {
                 var scriptPath = Path.Combine(MainWindow.ProjectPosition, "scripts");
-                switch (textBlock.Text)
+                if (Equals(textBlock.Text, Properties.Resources.Startup))
                 {
-                    case "启动":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "init.lua"),"LoadDocument");
-                        break;
-                    case "游戏开始":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "start.lua"), "LoadDocument");
-                        break;
-                    case "地图切换":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "map.lua"), "LoadDocument");
-                        break;
-                    case "游戏任务":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "task.lua"), "LoadDocument");
-                        break;
-                    case "按键事件":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "input.lua"), "LoadDocument");
-                        break;
-                    case "物品掉落":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "itemdrop.lua"), "LoadDocument");
-                        break;
-                    case "技能格子":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "skillgrid.lua"), "LoadDocument");
-                        break;
-                    case "窗口关闭":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "windowclose.lua"), "LoadDocument");
-                        break;
-                    case "其他事件":
-                        Messenger.Default.Send(Path.Combine(scriptPath, "otherevent.lua"), "LoadDocument");
-                        break;
+                    LoadDocument(Path.Combine(scriptPath, "init.lua"));
                 }
+                else if (Equals(textBlock.Text, Properties.Resources.GameStart))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "start.lua"));
+                }
+                else if (Equals(textBlock.Text, Properties.Resources.MapSwitch))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "map.lua"));
+                }
+                else if (Equals(textBlock.Text, Properties.Resources.GameTask))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "task.lua"));
+                }
+                else if (Equals(textBlock.Text, Properties.Resources.KeyEvent))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "input.lua"));
+                }
+                else if (Equals(textBlock.Text, Properties.Resources.ItemDrop))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "itemdrop.lua"));
+                }
+                else if (Equals(textBlock.Text, Properties.Resources.SkillEvent))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "skillgrid.lua"));
+                }
+                else if (Equals(textBlock.Text, Properties.Resources.WindowClose))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "windowclose.lua"));
+                }
+                else if (Equals(textBlock.Text, Properties.Resources.OtherEvent))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "otherevent.lua"));
+                }
+            }
+        }
+
+        public CompletionWindow CompletionWindow;
+        private void TextAreaOnTextEntering(object sender, TextCompositionEventArgs e)
+        {
+            if (e.Text.Length > 0 && CompletionWindow != null)
+            {
+                if (!char.IsLetterOrDigit(e.Text[0]))
+                {
+                    CompletionWindow.CompletionList.RequestInsertion(e);
+                }
+            }
+        }
+
+        private string FileName { get; set; }
+
+        private void LoadDocument(string filenamme)
+        {
+            if (TextEditor.IsModified)
+            {
+                var result = System.Windows.Forms.MessageBox.Show(@"监测到文本发生更改,是否保存？", @"脚本未保存",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    TextEditor.Save(FileName);
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+
+            TextEditor.Load(filenamme);
+            FileName = filenamme;
+        }
+
+        public void SaveScript(string emptyArg)
+        {
+            if (TextEditor.IsModified && File.Exists(FileName))
+            {
+                TextEditor.Save(FileName);
+                Logger.Log("脚本已保存");
+            }
+            else
+                Logger.Warn("未发现有更改，忽略该请求");
+        }
+
+
+        // ReSharper disable once UnusedMember.Local
+        private void SwitchOldXshdFile(string oldFile, string newFile)
+        {
+            XshdSyntaxDefinition xshd;
+            using (var reader = new XmlTextReader(oldFile))
+            {
+                xshd = HighlightingLoader.LoadXshd(reader);
+            }
+
+            using (var writer = new XmlTextWriter(newFile, System.Text.Encoding.UTF8))
+            {
+                writer.Formatting = Formatting.Indented;
+                new SaveXshdVisitor(writer).WriteDefinition(xshd);
             }
         }
     }

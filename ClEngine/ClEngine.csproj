@@ -137,7 +137,10 @@
     </ApplicationDefinition>
     <Compile Include="Converter\BlockConverter.cs" />
     <Compile Include="Converter\FixedConverter.cs" />
+    <Compile Include="Converter\NameConverter.cs" />
     <Compile Include="Converter\TranslateConverter.cs" />
+    <Compile Include="Converter\TypeConverter.cs" />
+    <Compile Include="Converter\ValueConvert.cs" />
     <Compile Include="CoreLibrary\Asset\AnimationResolver.cs" />
     <Compile Include="CoreLibrary\Asset\AssetCompilerExtended.cs" />
     <Compile Include="CoreLibrary\Asset\AssetHelper.cs" />
@@ -153,7 +156,7 @@
     <Compile Include="CoreLibrary\Asset\ResourceInfo.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceType.cs" />
     <Compile Include="CoreLibrary\Asset\SoundResolver.cs" />
-    <Compile Include="CoreLibrary\Core.cs" />
+    <Compile Include="CoreLibrary\Editor\EditorDescription.cs" />
     <Compile Include="CoreLibrary\Editor\EditorRecord.cs" />
     <Compile Include="CoreLibrary\Logger\Logger.cs" />
     <Compile Include="CoreLibrary\Map\mapInfo.cs" />
@@ -162,6 +165,8 @@
     <Compile Include="CoreLibrary\Particle\GraphicsDeviceService.cs" />
     <Compile Include="CoreLibrary\Particle\Guard.cs" />
     <Compile Include="CoreLibrary\Particle\ParticleDraw.cs" />
+    <Compile Include="Model\DocumentModel.cs" />
+    <Compile Include="Model\DocumentTreeModel.cs" />
     <Compile Include="Model\ResourceModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -170,10 +175,17 @@
     </Compile>
     <Compile Include="Themes\LeftMarginMultiplierConverter.cs" />
     <Compile Include="Themes\TreeViewItemExtensions.cs" />
+    <Compile Include="ViewModel\DocumentViewModel.cs" />
     <Compile Include="ViewModel\ResourceViewModel.cs" />
     <Compile Include="View\Asset\ResourceView.Command.cs" />
     <Compile Include="View\Asset\ResourceView.xaml.cs">
       <DependentUpon>ResourceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Help\DocDetailView.xaml.cs">
+      <DependentUpon>DocDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Messages\MessageProperty.xaml.cs">
+      <DependentUpon>MessageProperty.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Particle\ParticleEditor.xaml.cs">
       <DependentUpon>ParticleEditor.xaml</DependentUpon>
@@ -186,9 +198,6 @@
     </Compile>
     <Compile Include="Model\MapModel.cs" />
     <Compile Include="CoreLibrary\Editor\MyCompletionData.cs" />
-    <Compile Include="View\Code\ScriptEditor.xaml.cs">
-      <DependentUpon>ScriptEditor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Code\ScriptWindow.xaml.cs">
       <DependentUpon>ScriptWindow.xaml</DependentUpon>
     </Compile>
@@ -242,6 +251,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Help\DocDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Messages\MessageProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Particle\ParticleEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -253,10 +270,6 @@
     <Page Include="View\Help\DocumentList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Code\ScriptEditor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Code\ScriptWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

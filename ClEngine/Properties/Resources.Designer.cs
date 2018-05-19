@@ -142,6 +142,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Attribute 的本地化字符串。
+        /// </summary>
+        public static string Attribute {
+            get {
+                return ResourceManager.GetString("Attribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Attributes 的本地化字符串。
         /// </summary>
         public static string Attributes {
@@ -826,6 +835,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 MessageProperty 的本地化字符串。
+        /// </summary>
+        public static string MessageProperty {
+            get {
+                return ResourceManager.GetString("MessageProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Method 的本地化字符串。
         /// </summary>
         public static string Method {
@@ -858,6 +876,15 @@ namespace ClEngine.Properties {
         public static string MouseThrough {
             get {
                 return ResourceManager.GetString("MouseThrough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Name 的本地化字符串。
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
             }
         }
         
@@ -1384,11 +1411,29 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Type 的本地化字符串。
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Use items 的本地化字符串。
         /// </summary>
         public static string UseItems {
             get {
                 return ResourceManager.GetString("UseItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Value 的本地化字符串。
+        /// </summary>
+        public static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
             }
         }
         

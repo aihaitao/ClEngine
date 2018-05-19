@@ -16,5 +16,6 @@ namespace ClEngine.View.Main
 			Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureInfo.InstalledUICulture.Name);
 			//Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
 		}
+        
     }
 }

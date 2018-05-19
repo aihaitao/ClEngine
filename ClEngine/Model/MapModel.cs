@@ -4,7 +4,7 @@ using GalaSoft.MvvmLight;
 
 namespace ClEngine.Model
 {
-	public class MapModel : ViewModelBase
+	public class MapModel : ObservableObject
 	{
 		[XmlElement("地图名称")]
 		public string Name { get; set; }

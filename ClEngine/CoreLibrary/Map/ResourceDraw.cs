@@ -51,7 +51,9 @@ namespace ClEngine.CoreLibrary.Map
 		{
 			_texture2D?.Dispose();
 			_spriteBatch?.Dispose();
-		}
+
+		    base.UnloadContent();
+        }
 
 		protected override void Update(GameTime gameTime)
 		{

@@ -17,11 +17,11 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace ClEngine.ViewModel
 {
-	/// <summary>
-	/// This class contains static references to all the view models in the
-	/// application and provides an entry point for the bindings.
-	/// </summary>
-	public class ViewModelLocator
+    /// <summary>
+    /// This class contains static references to all the view models in the
+    /// application and provides an entry point for the bindings.
+    /// </summary>
+    public class ViewModelLocator
     {
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -43,19 +43,26 @@ namespace ClEngine.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ScriptViewModel>();
+            SimpleIoc.Default.Register<DocumentViewModel>();
         }
 
         public MainViewModel Main
         {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
+            get { return ServiceLocator.Current.GetInstance<MainViewModel>(); }
         }
-        
+
+        public DocumentViewModel Document
+        {
+            get { return ServiceLocator.Current.GetInstance<DocumentViewModel>(); }
+        }
+
+        public ScriptViewModel Script
+        {
+            get { return ServiceLocator.Current.GetInstance<ScriptViewModel>(); }
+        }
+
         public static void Cleanup()
         {
-            // TODO Clear the ViewModels
         }
     }
 }

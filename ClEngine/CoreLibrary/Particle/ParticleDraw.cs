@@ -55,6 +55,9 @@ namespace ClEngine.CoreLibrary.Particle
 		protected override void UnloadContent()
 		{
 			_particleTexture?.Dispose();
+		    _spriteBatch?.Dispose();
+
+            base.UnloadContent();
 		}
 
 		protected override void Update(GameTime gameTime)

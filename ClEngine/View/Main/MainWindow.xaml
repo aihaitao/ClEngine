@@ -7,9 +7,22 @@
         xmlns:asset="clr-namespace:ClEngine.View.Asset"
         xmlns:particle="clr-namespace:ClEngine.View.Particle"
         xmlns:properties="clr-namespace:ClEngine.Properties"
+        xmlns:converter="clr-namespace:ClEngine.Converter"
+        xmlns:core="clr-namespace:ClEngine.Core;assembly=ClEngine.Core"
         mc:Ignorable="d"
-        DataContext="{Binding Source={StaticResource Locator}, Path=Command}"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="CLEngine" Height="450" Width="800" Style="{StaticResource {x:Type Window}}" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <converter:NameConverter x:Key="NameConverter"></converter:NameConverter>
+                    <converter:ValueConvert x:Key="ValueConvert"></converter:ValueConvert>
+                    <converter:TypeConverter x:Key="TypeConverter"></converter:TypeConverter>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -75,7 +88,7 @@
                 <local:UiEditor DataContext="{Binding}"></local:UiEditor>
             </TabItem>
             <TabItem Header="{x:Static properties:Resources.Script}">
-                <local:ScriptWindow DataContext="{Binding}"></local:ScriptWindow>
+                <local:ScriptWindow></local:ScriptWindow>
             </TabItem>
             <TabItem Header="{x:Static properties:Resources.Resource}">
                 <asset:ResourceView DataContext="{Binding}"></asset:ResourceView>
@@ -84,17 +97,43 @@
                 <particle:ParticleEditor DataContext="{Binding}"></particle:ParticleEditor>
             </TabItem>
             <TabItem Header="{x:Static properties:Resources.HelpDocument}">
-                <local:HelpDocument DataContext="{Binding}"></local:HelpDocument>
+                <local:HelpDocument></local:HelpDocument>
             </TabItem>
         </TabControl>
 
         <TabControl Grid.Row="3" MaxHeight="120">
             <TabItem Header="{x:Static properties:Resources.LogSystem}">
                 <ScrollViewer>
-                    <TreeView  Name="LogBlock" 
-                                  ScrollViewer.CanContentScroll="True"
-                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                  ScrollViewer.VerticalScrollBarVisibility="Auto"></TreeView>
+                    <DataGrid  Name="LogBlock" 
+                               AutoGenerateColumns="False"
+                               CanUserAddRows="False"
+                               ScrollViewer.CanContentScroll="True"
+                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                               ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.Name}" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="core:MessageModel">
+                                        <TextBlock Text="{Binding Message, Converter={StaticResource NameConverter}}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.Value}" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="core:MessageModel">
+                                        <TextBlock Text="{Binding Message, Converter={StaticResource ValueConvert}}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.Type}" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="core:MessageModel">
+                                        <TextBlock Text="{Binding Message, Converter={StaticResource TypeConverter}}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </ScrollViewer>
             </TabItem>
         </TabControl>

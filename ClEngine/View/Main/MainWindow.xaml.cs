@@ -1,18 +1,18 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Input;
 using ClEngine.Core;
 using ClEngine.CoreLibrary.Logger;
 using ClEngine.CoreLibrary.Map;
 using ClEngine.Model;
-using ClEngine.ViewModel;
+using ClEngine.View.Messages;
 using Exceptionless;
 using GalaSoft.MvvmLight.Messaging;
 using Newtonsoft.Json;
+using Application = System.Windows.Application;
 
 namespace ClEngine
 {
@@ -24,75 +24,40 @@ namespace ClEngine
         private bool IsLoadProject { get; set; }
         public static string ProjectPosition { get; set; }
         private ProjectInfo ProjectInfo { get; set; }
+        private readonly MessageProperty _property = new MessageProperty();
 
 	    public MainWindow()
-        {
+	    {
             InitializeComponent();
             Messenger.Default.Register<LogModel>(this, "Log", Log);
             Messenger.Default.Register<ProjectModel>(this, "LoadProject", LoadProject);
-            DataContext = new MainViewModel();
+
+            LogBlock.ItemsSource = MessageCache.Messages;
 
             TabControl.Visibility = Visibility.Hidden;
             IsLoadProject = false;
-            var backgroundworker = new BackgroundWorker();
-            backgroundworker.DoWork += (sender, args) => BeginOutputLog();
-            backgroundworker.RunWorkerAsync();
 
+	        Closed += (sender, args) => Application.Current.Shutdown();
             SaveBtn.Click += (sender, args) => Messenger.Default.Send("", "SaveScript");
+            LogBlock.MouseDoubleClick += LogBlockOnMouseDoubleClick;
         }
 
-	    private void BeginOutputLog()
+        private void LogBlockOnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            while (true)
+            if (_property.MessagePropertyIsShow == false)
             {
-                if (MessageCache.Messages.Count > 0)
-                {
-                    LogBlock.Dispatcher.Invoke(() => ResolveMessage(MessageCache.Messages.Dequeue()));
-                }
+                _property.Show();
+                _property.MessagePropertyIsShow = true;
             }
-        }
-
-        private void ResolveMessage(object message)
-        {
-            AddTreeViewItem(message, LogBlock);
-        }
-
-        private void ResolveItem(object message, ItemsControl item)
-        {
-            var type = message.GetType();
-            var properties = ((System.Reflection.TypeInfo)type).DeclaredFields;
-            foreach (var property in properties)
+            else
             {
-                var value = property.GetValue(message);
-                AddTreeViewItem(value, item);
+                _property.Activate();
             }
+            
+            _property.PropertyGrid.SelectedObject = LogBlock.SelectedItem;
+            _property.PropertyGrid.ExpandAllGridItems();
         }
-
-        private void AddTreeViewItem(object message, ItemsControl item)
-        {
-            switch (message)
-            {
-                case string _:
-                    LogBlock.Items.Add(message);
-                    break;
-                case int _:
-                    LogBlock.Items.Add(int.Parse(message.ToString()));
-                    break;
-                case double _:
-                    LogBlock.Items.Add(double.Parse(message.ToString()));
-                    break;
-                default:
-                    var treeViewItem = new TreeViewItem
-                    {
-                        Header = message.GetType()
-                    };
-                    item.Items.Add(treeViewItem);
-
-                    treeViewItem.Expanded += (sender, args) => ResolveItem(message, treeViewItem);
-                    break;
-            }
-        }
-
+        
         /// <summary>
         /// 创建工程
         /// </summary>
@@ -159,29 +124,20 @@ namespace ClEngine
                 case null:
                     return;
                 case string s:
-                    string preview;
-
                     switch (model.LogLevel)
                     {
                         case LogLevel.Log:
-                            preview = $"[{Properties.Resources.Log}]: ";
                             break;
                         case LogLevel.Error:
-                            preview = $"[{Properties.Resources.Error}]: ";
                             ExceptionlessClient.Default.SubmitLog(s, Exceptionless.Logging.LogLevel.Error);
                             break;
                         case LogLevel.Warn:
-                            preview = $"[{Properties.Resources.Warn}]: ";
                             ExceptionlessClient.Default.SubmitLog(s, Exceptionless.Logging.LogLevel.Warn);
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
-
-                    MessageCache.Messages.Enqueue(preview + s + Environment.NewLine);
-                    break;
-                default:
-                    MessageCache.Messages.Enqueue(model.Message);
+                    
                     break;
             }
         }
@@ -191,7 +147,7 @@ namespace ClEngine
         /// </summary>
         private void ClearLog(object sender, RoutedEventArgs e)
         {
-            LogBlock.Items.Clear();
+            MessageCache.Messages.Clear();
         }
 
         /// <summary>

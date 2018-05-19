@@ -39,29 +39,5 @@ namespace ClEngine.Model
                 RaisePropertyChanged(() => ProjectInfo);
             }
         }
-
-        private Queue<string> _messages;
-
-        public Queue<string> Messages
-        {
-            get => _messages;
-            set
-            {
-                _messages = value;
-                RaisePropertyChanged(() => Messages);
-            }
-        }
-
-        private bool _showGrid;
-
-        public bool ShowGrid
-        {
-            get => _showGrid;
-            set
-            {
-                _showGrid = value;
-                RaisePropertyChanged(() => ShowGrid);
-            }
-        }
     }
 }

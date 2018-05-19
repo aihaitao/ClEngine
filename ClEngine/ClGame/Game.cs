@@ -39,7 +39,7 @@ namespace ClGame
 
         private void Print(object message)
         {
-            MessageCache.Messages.Enqueue(message);
+            MessageCache.Messages.Add(new MessageModel {Message = message});
             Console.WriteLine(MessageCache.Messages.Count);
         }
 

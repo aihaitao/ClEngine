@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 namespace ClEngine.Core
 {
-    public static class MessageCache
+    public class MessageCache
     {
-        public static Queue<object> Messages = new Queue<object>();
+        public static ObservableCollection<MessageModel> Messages = new ObservableCollection<MessageModel>();
     }
 }

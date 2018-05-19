@@ -24,35 +24,35 @@
                               AutoGenerateColumns="False" 
                               CanUserAddRows="False">
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.EventName}">
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.EventName}" Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate DataType="tiled:MapObjectGroup">
                                         <TextBlock Text="{Binding Name}"></TextBlock>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.SignColor}">
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.SignColor}" Width="Auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate DataType="tiled:MapObjectGroup">
                                         <TextBlock Text="{Binding Color}"></TextBlock>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateX}">
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateX}" Width="Auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate DataType="tiled:MapObjectGroup">
                                         <TextBlock Text="{Binding X}"></TextBlock>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateY}">
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateY}" Width="Auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate DataType="tiled:MapObjectGroup">
                                         <TextBlock Text="{Binding Y}"></TextBlock>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.IsVisble}">
+                            <DataGridTemplateColumn Header="{x:Static properties:Resources.IsVisble}" Width="Auto">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate DataType="tiled:MapObjectGroup">
                                         <CheckBox IsChecked="{Binding Visible}"></CheckBox>
