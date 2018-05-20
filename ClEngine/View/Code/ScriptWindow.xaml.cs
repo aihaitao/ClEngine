@@ -5,8 +5,9 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Xml;
-using ClEngine.CoreLibrary.Logger;
+using ClEngine.CoreLibrary.Editor;
 using GalaSoft.MvvmLight.Messaging;
+using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
@@ -20,6 +21,8 @@ namespace ClEngine
     /// </summary>
     public partial class ScriptWindow
     {
+        public TextEditor ScriptEditor => TextEditor;
+
         public ScriptWindow()
         {
             IHighlightingDefinition customHighlightingDefinition;
@@ -44,14 +47,14 @@ namespace ClEngine
 
             TextEditor.TextArea.TextEntering += TextAreaOnTextEntering;
 
-            Messenger.Default.Register<string>(this, "SaveScript", SaveScript);
+            Messenger.Default.Register<string>(this, "SaveScript", SaveScript, true);
         }
         
         private void CodeViewer_OnClick(object sender, RoutedEventArgs e)
         {
             if (CodeListBox.SelectedItem != null && CodeListBox.SelectedItem is TextBlock textBlock)
             {
-                var scriptPath = Path.Combine(MainWindow.ProjectPosition, "scripts");
+                var scriptPath = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "scripts");
                 if (Equals(textBlock.Text, Properties.Resources.Startup))
                 {
                     LoadDocument(Path.Combine(scriptPath, "init.lua"));
@@ -131,10 +134,7 @@ namespace ClEngine
             if (TextEditor.IsModified && File.Exists(FileName))
             {
                 TextEditor.Save(FileName);
-                Logger.Log("脚本已保存");
             }
-            else
-                Logger.Warn("未发现有更改，忽略该请求");
         }
 
 

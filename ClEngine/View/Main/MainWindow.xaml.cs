@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
@@ -9,11 +9,14 @@ using ClEngine.CoreLibrary.Logger;
 using ClEngine.CoreLibrary.Map;
 using ClEngine.Model;
 using ClEngine.View.Messages;
+using ClEngine.ViewModel;
 using Exceptionless;
 using GalaSoft.MvvmLight.Messaging;
 using Newtonsoft.Json;
 using Application = System.Windows.Application;
+using Size = System.Windows.Size;
 
+// ReSharper disable once CheckNamespace
 namespace ClEngine
 {
     /// <summary>
@@ -21,26 +24,28 @@ namespace ClEngine
     /// </summary>
     public partial class MainWindow
     {
-        private bool IsLoadProject { get; set; }
-        public static string ProjectPosition { get; set; }
         private ProjectInfo ProjectInfo { get; set; }
         private readonly MessageProperty _property = new MessageProperty();
 
-	    public MainWindow()
+
+        public MainWindow()
 	    {
             InitializeComponent();
-            Messenger.Default.Register<LogModel>(this, "Log", Log);
-            Messenger.Default.Register<ProjectModel>(this, "LoadProject", LoadProject);
+            Messenger.Default.Register<LogModel>(this, "Log", Log, true);
+            Messenger.Default.Register<ProjectModel>(this, "LoadProject", LoadProject, true);
 
             LogBlock.ItemsSource = MessageCache.Messages;
 
             TabControl.Visibility = Visibility.Hidden;
-            IsLoadProject = false;
 
-	        Closed += (sender, args) => Application.Current.Shutdown();
-            SaveBtn.Click += (sender, args) => Messenger.Default.Send("", "SaveScript");
+	        Closed += (sender, args) =>
+            {
+                Messenger.Default.Unregister(this);
+                ViewModelLocator.Cleanup();
+	            Application.Current.Shutdown();
+	        };
             LogBlock.MouseDoubleClick += LogBlockOnMouseDoubleClick;
-        }
+	    }
 
         private void LogBlockOnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -65,53 +70,6 @@ namespace ClEngine
         {
             var createProject = new CreateProject();
             createProject.ShowDialog();
-        }
-
-        /// <summary>
-        /// 运行游戏
-        /// </summary>
-        private void RunGame(object sender, RoutedEventArgs e)
-        {
-            if (!IsLoadProject)
-            {
-                return;
-            }
-
-            var fileName = Path.Combine(ProjectPosition, "ClGame.exe");
-            if (!File.Exists(fileName))
-            {
-                Logger.Log("找不到所需运行库!");
-                return;
-            }
-            
-            Environment.CurrentDirectory = ProjectPosition;
-
-            ClGame.MainWindow mainWindow = new ClGame.MainWindow();
-            mainWindow.ShowDialog();
-
-            Environment.CurrentDirectory = EditorRecord.EditorEnvironment;
-
-            //var processInfo = new ProcessStartInfo(fileName)
-            //{
-            //    WorkingDirectory = ProjectPosition,
-            //    RedirectStandardInput = true,
-            //    RedirectStandardError = true,
-            //    RedirectStandardOutput = true,
-            //    UseShellExecute = false,
-            //};
-            //var process = Process.Start(processInfo);
-            //if (process != null)
-            //{
-            //    process.OutputDataReceived += ProcessOnOutputDataReceived;
-            //    process.ErrorDataReceived += (o, args) => Logger.Log(args.Data);
-            //    process.BeginErrorReadLine();
-            //    process.BeginOutputReadLine();
-            //}
-        }
-
-        private void ProcessOnOutputDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            Logger.Log(e.Data);
         }
 
         /// <summary>
@@ -140,14 +98,6 @@ namespace ClEngine
                     
                     break;
             }
-        }
-
-        /// <summary>
-        /// 清除日志
-        /// </summary>
-        private void ClearLog(object sender, RoutedEventArgs e)
-        {
-            MessageCache.Messages.Clear();
         }
 
         /// <summary>
@@ -183,7 +133,7 @@ namespace ClEngine
             if (!string.IsNullOrEmpty(model.Name))
             {
                 ProjectInfo = new ProjectInfo {ProjectName = model.Name};
-                ProjectPosition = model.Position;
+                ((MainViewModel)DataContext).ProjectPosition = model.Position;
 
                 using (var streamWriter = new StreamWriter(Path.Combine(model.Position, string.Concat(model.Name, ".cl"))))
                 {
@@ -196,7 +146,7 @@ namespace ClEngine
             }
             else
             {
-                ProjectPosition = Path.GetDirectoryName(model.Position);
+                ((MainViewModel)DataContext).ProjectPosition = Path.GetDirectoryName(model.Position);
                 using (var streamReader = new StreamReader(model.Position))
                 {
                     using (var reader = new JsonTextReader(streamReader))
@@ -208,7 +158,7 @@ namespace ClEngine
             }
 
             TabControl.Visibility = Visibility.Visible;
-            IsLoadProject = true;
+            ((MainViewModel) DataContext).IsLoadProject = true;
 
             var size = new Size(1920, 1080);
             Messenger.Default.Send(size, "LoadMap");

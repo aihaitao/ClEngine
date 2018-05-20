@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Windows.Controls;
+using ClEngine.CoreLibrary.Editor;
 using ClEngine.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
@@ -17,7 +18,7 @@ namespace ClEngine.ViewModel
 	    private string WindowConfig { get; set; }
 
 
-		public UiViewModel()
+        public UiViewModel()
 		{
 		    WindowModels = new ObservableCollection<WindowModel>();
 
@@ -34,7 +35,7 @@ namespace ClEngine.ViewModel
 
 	    private void LoadConfig(string e)
 	    {
-	        WindowConfig = Path.Combine(MainWindow.ProjectPosition, "windows.conf");
+	        WindowConfig = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "windows.conf");
 
 	        WindowModels.CollectionChanged -= WindowModelsOnCollectionChanged;
 

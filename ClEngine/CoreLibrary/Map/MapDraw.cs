@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using ClEngine.CoreLibrary.Editor;
 using ClEngine.Tiled;
 using ClEngine.Tiled.MapEnum;
 using Microsoft.Xna.Framework;
@@ -9,10 +8,12 @@ using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Framework.WpfInterop;
 using MonoGame.Framework.WpfInterop.Input;
+using System;
+using System.IO;
 
 namespace ClEngine.CoreLibrary.Map
 {
-	public class MapDraw : WpfGame
+    public class MapDraw : WpfGame
 	{
 		private IGraphicsDeviceService _graphicsDeviceManagerWpf;
 		private WpfKeyboard _keyboard;
@@ -25,7 +26,7 @@ namespace ClEngine.CoreLibrary.Map
 		private Tiled.Map _map;
 		private Color _color;
 
-		public ViewportAdapter ViewportAdapter { get; private set; }
+        public ViewportAdapter ViewportAdapter { get; private set; }
 
 		public static MapDraw Instance { get; private set; }
 
@@ -143,9 +144,16 @@ namespace ClEngine.CoreLibrary.Map
 			base.Draw(gameTime);
 		}
 
-		public void SetContentRoot()
+	    protected override void UnloadContent()
+	    {
+	        _spriteBatch?.Dispose();
+            
+            base.UnloadContent();
+        }
+
+	    public void SetContentRoot()
 		{
-			Content.RootDirectory = Path.Combine(MainWindow.ProjectPosition, "Content");
+			Content.RootDirectory = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "Content");
 		}
 
 		public void SetCurrentMap(string mapName)

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Xml.Serialization;
+using ClEngine.CoreLibrary.Editor;
 using ClEngine.CoreLibrary.Map;
 
 namespace ClEngine.CoreLibrary.Asset
@@ -23,7 +24,7 @@ namespace ClEngine.CoreLibrary.Asset
 		/// 源文件目录
 		/// 临时放置于Content 让源文件与编译文件处在一起
 		/// </summary>
-		public static readonly string SourceContent = Path.Combine(MainWindow.ProjectPosition, "Content");
+		public static readonly string SourceContent = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "Content");
 
 		/// <summary>
 		/// 编译目录
@@ -31,12 +32,12 @@ namespace ClEngine.CoreLibrary.Asset
 		/// TODO： 编译目录始终与源文件在一起 需要进程结束后 引擎进行源文件复制/移动
 		/// BUG: 只移动会导致下次编译重新进行 因为找不到编译文件
 		/// </summary>
-		public static readonly string Content = Path.Combine(MainWindow.ProjectPosition, "Content");
+		public static readonly string Content = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "Content");
 
 		/// <summary>
 		/// 中间目录
 		/// </summary>
-		public static readonly string Intermediate = Path.Combine(MainWindow.ProjectPosition, "Intermediate");
+		public static readonly string Intermediate = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "Intermediate");
 
 		/// <summary>
 		/// 地图源目录
@@ -47,10 +48,10 @@ namespace ClEngine.CoreLibrary.Asset
 		public static readonly string ImageSourceContent = Path.Combine(SourceContent, "Image");
 
 
-		/// <summary>
-		/// 图片资源标识
-		/// </summary>
-		public const string ImageSign = "Image";
+        /// <summary>
+        /// 图片资源标识
+        /// </summary>
+        public const string ImageSign = "Image";
 		/// <summary>
 		/// 动画资源标识
 		/// </summary>

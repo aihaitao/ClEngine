@@ -63,6 +63,9 @@ namespace ClEngine.ViewModel
 
         public static void Cleanup()
         {
+            SimpleIoc.Default.Unregister<MainViewModel>();
+            SimpleIoc.Default.Unregister<ScriptViewModel>();
+            SimpleIoc.Default.Unregister<DocumentViewModel>();
         }
     }
 }

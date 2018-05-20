@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
+using ClEngine.CoreLibrary.Editor;
 using ClEngine.CoreLibrary.Logger;
 using ClEngine.Model;
 using ClEngine.ViewModel;
@@ -39,7 +40,7 @@ end";
         
         private readonly UiViewModel _uiViewModel;
 
-		public UiEditor()
+        public UiEditor()
         {
 
             InitializeComponent();
@@ -96,7 +97,7 @@ end";
 	    private void AddWindow_OnClick(object sender, RoutedEventArgs e)
 	    {
 	        var title = "新游戏窗口";
-	        var windowDirName = Path.Combine(MainWindow.ProjectPosition, "scripts", "windows");
+	        var windowDirName = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "scripts", "windows");
 	        string scriptName;
 	        string resultTitle;
 	        var num = 1;
@@ -135,7 +136,7 @@ end";
 
         private string GetScriptName(string title)
         {
-            var windowDirName = Path.Combine(MainWindow.ProjectPosition, "scripts", "windows");
+            var windowDirName = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "scripts", "windows");
             return Path.Combine(windowDirName, string.Concat(title, ".lua"));
         }
 
@@ -177,7 +178,7 @@ end";
         private void ScriptEditor_OnClick(object sender, RoutedEventArgs e)
         {
             var item = WindowListBox.SelectedItem;
-            var windowDirName = Path.Combine(MainWindow.ProjectPosition, "scripts", "windows");
+            var windowDirName = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "scripts", "windows");
             if (item != null)
             {
                 var scriptName = Path.Combine(windowDirName, string.Concat((item as WindowModel)?.Title, ".lua"));
@@ -189,7 +190,7 @@ end";
         private void DeleteWindow_OnClick(object sender, RoutedEventArgs e)
         {
             var item = WindowListBox.SelectedItem;
-	        var windowDirName = Path.Combine(MainWindow.ProjectPosition, "scripts", "windows");
+	        var windowDirName = Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "scripts", "windows");
 			if (item != null)
 			{
 				var model = item as WindowModel;

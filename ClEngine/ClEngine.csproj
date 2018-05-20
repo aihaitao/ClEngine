@@ -221,7 +221,6 @@
     </Compile>
     <Compile Include="CoreLibrary\Helper\MathExtensions.cs" />
     <Compile Include="Model\LogModel.cs" />
-    <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\MapEditorModel.cs" />
     <Compile Include="Model\ProjectModel.cs" />
     <Compile Include="Model\ScriptModel.cs" />

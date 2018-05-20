@@ -22,13 +22,13 @@ namespace ClEngine.CoreLibrary.Asset
 		public string StoragePath => Path.Combine(SourceAsset, Name);
 		
 		public string Arguments { get; private set; }
-		
-		private static string Intermediate => MainWindow.ProjectPosition != null
-			? Path.Combine(MainWindow.ProjectPosition, "Intermediate")
+
+        private static string Intermediate => EditorRecord.MainViewModel.ProjectPosition != null
+			? Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "Intermediate")
 			: "Intermediate";
 
 		private static string SourceAsset =>
-			MainWindow.ProjectPosition != null ? Path.Combine(MainWindow.ProjectPosition, Content) : Content;
+		    EditorRecord.MainViewModel.ProjectPosition != null ? Path.Combine(EditorRecord.MainViewModel.ProjectPosition, Content) : Content;
 		
 		private static string Content => "Content";
 		[NonSerialized]
