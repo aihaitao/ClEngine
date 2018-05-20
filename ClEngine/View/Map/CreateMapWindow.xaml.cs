@@ -40,8 +40,7 @@ namespace ClEngine.View.Map
 				map.Tileheight = blockHeight;
 				map.Orientation = orientation;
 				map.Renderorder = renderOrder;
-
-
+                
 				// TODO: Create Map
 			}
 			else if (Equals(MapTabControl.SelectedItem, MapTabItem))
@@ -59,8 +58,6 @@ namespace ClEngine.View.Map
 				MapModel.LogicGridHeight = logicGridHeight;
 				MapModel.Name = MapName.Text;
 				MapModel.ImageName = Path.GetFileNameWithoutExtension(ImagePath.Text);
-
-				ImagePath.Text.Compiler(ResourceType.Map);
 			}
 
 			DialogResult = true;

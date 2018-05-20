@@ -10,6 +10,7 @@ namespace ClEngine.ViewModel
     public class MapEditorViewModel : ViewModelBase
     {
 	    private MapSerializable _serializable;
+        public MapResolver MapResolver { get; set; }
 		public MapSerializable Serializable
 		{
 			get => _serializable;
@@ -24,11 +25,12 @@ namespace ClEngine.ViewModel
 		{
 			_listView = listView;
 			Serializable = new MapSerializable();
-		}
+		    MapResolver = new MapResolver();
+        }
 
 	    public void LoadMapList()
 	    {
-		    var mapSourceManage = Path.Combine(AssetCompilerExtended.MapSourceContent, AssetCompilerExtended.MapSourceManage);
+		    var mapSourceManage = Path.Combine(MapResolver.StoragePath, MapResolver.MapManage);
 
 		    if (!File.Exists(mapSourceManage))
 			    return;

@@ -24,7 +24,7 @@ namespace ClEngine.ViewModel
 
 		    WindowModels.CollectionChanged += WindowModelsOnCollectionChanged;
 
-            Messenger.Default.Register<string>(this, "LoadUiConfig", LoadConfig);
+            Messenger.Default.Register<string>(this, "LoadUiConfig", LoadConfig, true);
         }
 
 	    private void WindowModelsOnCollectionChanged(object sender,

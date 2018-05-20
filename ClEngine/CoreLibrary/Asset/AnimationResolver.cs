@@ -1,9 +1,9 @@
 ﻿namespace ClEngine.CoreLibrary.Asset
 {
-	public class AnimationResolver : AssetResolver
+	public sealed class AnimationResolver : AssetResolver
 	{
 		private string _watcherExtension => "*.ani";
-		private string _extension => "动画资源 (*.ani, *.png)|*.ani;*.png";
+		private string _extension => "动画资源 (*.ani)|*.ani";
 
 		public AnimationResolver() : base("Animation")
 		{

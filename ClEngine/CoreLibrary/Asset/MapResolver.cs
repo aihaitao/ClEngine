@@ -1,13 +1,15 @@
 ﻿namespace ClEngine.CoreLibrary.Asset
 {
-	public class MapResolver : AssetResolver
-	{
-		public MapResolver() : base("Map")
-		{
-			UseBundle = false;
-		}
+    public sealed class MapResolver : AssetResolver
+    {
+        public const string MapManage = "manage.map";
 
-		public override string Extension { get; }
-		public override string WatcherExtension { get; }
-	}
+        public MapResolver() : base("Map")
+        {
+            UseBundle = false;
+        }
+
+        public override string Extension { get; }
+        public override string WatcherExtension { get; }
+    }
 }

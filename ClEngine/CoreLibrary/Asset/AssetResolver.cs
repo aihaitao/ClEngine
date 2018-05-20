@@ -7,7 +7,7 @@ using ClEngine.CoreLibrary.Editor;
 namespace ClEngine.CoreLibrary.Asset
 {
 	[Serializable]
-	public abstract class AssetResolver: ICompiler
+	public abstract class AssetResolver: ICompiler, ISerializable
 	{
 		public string Name { get; set; }
 		
@@ -46,8 +46,9 @@ namespace ClEngine.CoreLibrary.Asset
 		{
 			Name = name;
 			UseBundle = true;
+		    Type = SerializeType.Xml;
 
-			Translator = AssetTranslator.GetTranslator();
+            Translator = AssetTranslator.GetTranslator();
 			Resolvers = new List<AssetResolver>();
 		}
 
@@ -170,5 +171,31 @@ namespace ClEngine.CoreLibrary.Asset
 		protected virtual void SetOtherCompilerArugments()
 		{
 		}
+
+	    public virtual string SerializerName => Path.Combine(StoragePath,
+	        string.Concat(Path.GetFileNameWithoutExtension(new FileInfo(XnaAssetPath).Name), ".asset"));
+
+	    public void Serialize(object type)
+	    {
+	        if (Type == SerializeType.Xml)
+	            SerializeToXml(type);
+
+	    }
+
+	    private void SerializeToXml(object type)
+	    {
+            var xmlSerializer = new XmlSerializer(type.GetType());
+	        using (var fileStream = new FileStream(SerializerName, FileMode.OpenOrCreate))
+	        {
+	            xmlSerializer.Serialize(fileStream, type);
+	        }
+	    }
+
+	    public object DeSerialize()
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    public SerializeType Type { get; set; }
 	}
 }

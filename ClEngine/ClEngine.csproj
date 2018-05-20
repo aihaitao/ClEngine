@@ -77,6 +77,9 @@
     <Reference Include="MonoGame.Extended, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Extended.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Extended.Animations, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MonoGame.Extended.Animations.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.Animations.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Extended.Graphics, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MonoGame.Extended.Graphics.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.Graphics.dll</HintPath>
     </Reference>
@@ -141,8 +144,8 @@
     <Compile Include="Converter\TranslateConverter.cs" />
     <Compile Include="Converter\TypeConverter.cs" />
     <Compile Include="Converter\ValueConvert.cs" />
+    <Compile Include="CoreLibrary\Animate\AnimationDraw.cs" />
     <Compile Include="CoreLibrary\Asset\AnimationResolver.cs" />
-    <Compile Include="CoreLibrary\Asset\AssetCompilerExtended.cs" />
     <Compile Include="CoreLibrary\Asset\AssetHelper.cs" />
     <Compile Include="CoreLibrary\Asset\AssetIntermediate.cs" />
     <Compile Include="CoreLibrary\Asset\AssetResolver.cs" />
@@ -151,6 +154,7 @@
     <Compile Include="CoreLibrary\Asset\FontResolver.cs" />
     <Compile Include="CoreLibrary\Asset\ICompiler.cs" />
     <Compile Include="CoreLibrary\Asset\ImageResolver.cs" />
+    <Compile Include="CoreLibrary\Asset\ISerializable.cs" />
     <Compile Include="CoreLibrary\Asset\MapResolver.cs" />
     <Compile Include="CoreLibrary\Asset\ParticleResolver.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceInfo.cs" />
@@ -177,6 +181,9 @@
     <Compile Include="Themes\TreeViewItemExtensions.cs" />
     <Compile Include="ViewModel\DocumentViewModel.cs" />
     <Compile Include="ViewModel\ResourceViewModel.cs" />
+    <Compile Include="View\Animate\AnimationEditor.xaml.cs">
+      <DependentUpon>AnimationEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Asset\ResourceView.Command.cs" />
     <Compile Include="View\Asset\ResourceView.xaml.cs">
       <DependentUpon>ResourceView.xaml</DependentUpon>
@@ -245,6 +252,10 @@
     <Page Include="Themes\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Animate\AnimationEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Asset\ResourceView.xaml">
       <SubType>Designer</SubType>

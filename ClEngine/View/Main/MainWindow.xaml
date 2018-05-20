@@ -9,6 +9,7 @@
         xmlns:properties="clr-namespace:ClEngine.Properties"
         xmlns:converter="clr-namespace:ClEngine.Converter"
         xmlns:core="clr-namespace:ClEngine.Core;assembly=ClEngine.Core"
+        xmlns:animate="clr-namespace:ClEngine.View.Animate"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="CLEngine" Height="450" Width="800" Style="{StaticResource {x:Type Window}}" WindowState="Maximized">
@@ -86,19 +87,22 @@
         </Grid>
         <TabControl Grid.Row="2" Margin="0 2 0 0" Name="TabControl">
             <TabItem Header="{x:Static properties:Resources.Map}">
-                <local:MapEditor DataContext="{Binding}"></local:MapEditor>
+                <local:MapEditor></local:MapEditor>
             </TabItem>
             <TabItem Header="{x:Static properties:Resources.Interface}">
-                <local:UiEditor DataContext="{Binding}"></local:UiEditor>
+                <local:UiEditor></local:UiEditor>
             </TabItem>
             <TabItem Header="{x:Static properties:Resources.Script}">
                 <local:ScriptWindow x:Name="ScriptWindow"></local:ScriptWindow>
             </TabItem>
             <TabItem Header="{x:Static properties:Resources.Resource}">
-                <asset:ResourceView DataContext="{Binding}"></asset:ResourceView>
+                <asset:ResourceView></asset:ResourceView>
             </TabItem>
             <TabItem Header="{x:Static properties:Resources.Particle}">
-                <particle:ParticleEditor DataContext="{Binding}"></particle:ParticleEditor>
+                <particle:ParticleEditor></particle:ParticleEditor>
+            </TabItem>
+            <TabItem Header="{x:Static properties:Resources.Animation}">
+                <animate:AnimationEditor></animate:AnimationEditor>
             </TabItem>
             <TabItem Header="{x:Static properties:Resources.HelpDocument}">
                 <local:HelpDocument></local:HelpDocument>
