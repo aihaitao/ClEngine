@@ -37,18 +37,13 @@ function(event) -- 整数型 1:打开 2:关闭 3:位置被改变
 	
 	
 end";
-        
-        private readonly UiViewModel _uiViewModel;
 
         public UiEditor()
         {
 
             InitializeComponent();
 
-            _uiViewModel = new UiViewModel();
-	        DataContext = _uiViewModel;
-
-	        WindowListBox.ItemsSource = _uiViewModel.WindowModels;
+            WindowListBox.ItemsSource = ((UiViewModel) DataContext).WindowModels;
 
             WindowListBox.SelectionChanged += WindowListBoxOnSelectionChanged;
         }
@@ -131,7 +126,7 @@ end";
 	                streamWriter.Write(script);
 	            }
             }
-		    _uiViewModel.WindowModels.Add(windowModel);
+		    ((UiViewModel)DataContext).WindowModels.Add(windowModel);
 		}
 
         private string GetScriptName(string title)
@@ -199,7 +194,7 @@ end";
 				if (File.Exists(scriptName))
 					File.Delete(scriptName);
 
-                _uiViewModel.WindowModels.Remove(model);
+			    ((UiViewModel)DataContext).WindowModels.Remove(model);
             }
         }
     }

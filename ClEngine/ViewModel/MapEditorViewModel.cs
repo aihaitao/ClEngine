@@ -1,9 +1,9 @@
-﻿using System.IO;
-using System.Windows.Controls;
-using System.Xml.Serialization;
-using ClEngine.CoreLibrary.Asset;
+﻿using ClEngine.CoreLibrary.Asset;
 using ClEngine.CoreLibrary.Map;
 using GalaSoft.MvvmLight;
+using System.IO;
+using System.Windows.Controls;
+using System.Xml.Serialization;
 
 namespace ClEngine.ViewModel
 {
@@ -30,7 +30,7 @@ namespace ClEngine.ViewModel
 
 	    public void LoadMapList()
 	    {
-		    var mapSourceManage = Path.Combine(MapResolver.StoragePath, MapResolver.MapManage);
+		    var mapSourceManage = Path.Combine(MapResolver.StoragePath, MapManage.ManageFile);
 
 		    if (!File.Exists(mapSourceManage))
 			    return;

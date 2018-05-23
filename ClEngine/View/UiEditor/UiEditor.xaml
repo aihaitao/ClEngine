@@ -7,9 +7,11 @@
              xmlns:model="clr-namespace:ClEngine.Model"
              xmlns:wpfDesign="clr-namespace:ICSharpCode.WpfDesign;assembly=ICSharpCode.WpfDesign"
              xmlns:properties="clr-namespace:ClEngine.Properties"
-             mc:Ignorable="d" 
+             xmlns:outlineView="clr-namespace:ICSharpCode.WpfDesign.Designer.OutlineView;assembly=ICSharpCode.WpfDesign.Designer"
+             mc:Ignorable="d"
+             DataContext="{Binding Ui,Source={StaticResource Locator}}"
              d:DesignHeight="1080" d:DesignWidth="1920">
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -121,7 +123,7 @@
                                 <TextBlock Text="{x:Static properties:Resources.Script}"></TextBlock>
                             </Button>
                         </Grid>
-                        <StackPanel Grid.Column="1" VerticalAlignment="Stretch">
+                        <StackPanel Grid.Column="1" VerticalAlignment="Stretch" Margin="5 0 0 0">
                             <CheckBox IsChecked="{Binding ElementName=WindowListBox,Path=SelectedItem.(model:WindowModel.Visible), Mode=TwoWay}">
                                 <TextBlock Text="{x:Static properties:Resources.DefaultVisible}"></TextBlock>
                             </CheckBox>
@@ -218,133 +220,12 @@
                 </ComboBox>
                 <TabControl Grid.Row="1">
                     <TabItem Header="{x:Static properties:Resources.ControlVisibleState}">
-                        <ListBox ItemsSource="{Binding DesignContext.Services.Selection.SelectedItems, ElementName=DesignSurface}">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate DataType="wpfDesign:DesignItem">
-                                    <CheckBox IsChecked="True">
-                                        <TextBlock Text="{Binding Name}"></TextBlock>
-                                    </CheckBox>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                        <outlineView:Outline></outlineView:Outline>
                     </TabItem>
                     <TabItem Header="{x:Static properties:Resources.Property}">
-                        <Grid Margin="5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="名称" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Column="1" Text="等级标签" Margin="10 0 10 0"></TextBox>
-                            </Grid>
-                            <Grid Row="1" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="坐标X" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Column="1" Text="202" Margin="10 0 10 0"></TextBox>
-                            </Grid>
-                            <Grid Row="2" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="坐标Y" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Column="1" Text="470" Margin="10 0 10 0"></TextBox>
-                            </Grid>
-                            <Grid Row="3" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="文本颜色" VerticalAlignment="Center"></TextBlock>
-                                <sd:ColorPicker Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 0" Height="25">
-                                </sd:ColorPicker>
-                            </Grid>
-                            <Grid Row="4" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="字体文件" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Column="1" Margin="10 0 0 0"></TextBox>
-                                <Button Grid.Column="2" Margin="10 0 0 0" Width="30">
-                                    <TextBlock Text="..."></TextBlock>
-                                </Button>
-                            </Grid>
-                            <Grid Row="5" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="图集文件" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Column="1" Margin="10 0 0 0"></TextBox>
-                                <Button Grid.Column="2" Margin="10 0 0 0" Width="30">
-                                    <TextBlock Text="..."></TextBlock>
-                                </Button>
-                            </Grid>
-                            <Grid Row="6" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="文字描边" VerticalAlignment="Center"></TextBlock>
-                                <CheckBox Grid.Column="1" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"></CheckBox>
-                                <TextBlock Text="文字描边" VerticalAlignment="Center" Grid.Column="2" Margin="10 0 0 0"></TextBlock>
-                                <sd:ColorPicker Grid.Column="3" HorizontalAlignment="Left" Margin="5 0 0 0" Height="25">
-                                </sd:ColorPicker>
-                            </Grid>
-                            <Grid Row="7" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="对齐方式" VerticalAlignment="Center"></TextBlock>
-                                <ComboBox Grid.Column="1" Margin="10 0 0 0" SelectedIndex="0">
-                                    <ComboBoxItem>
-                                        <TextBlock Text="居中"></TextBlock>
-                                    </ComboBoxItem>
-                                </ComboBox>
-                            </Grid>
-                            <Grid Row="8" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="文字行距" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Column="1" Margin="10 0 0 0" Text="0"></TextBox>
-                            </Grid>
-                            <Grid Row="9" Margin="0 5 0 0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="文字间距" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Column="1" Margin="10 0 0 0" Text="0"></TextBox>
-                            </Grid>
-                            <TextBlock Grid.Row="10" Text="内容"></TextBlock>
-                            <TextBox Grid.Row="11" Text="当前等级:"></TextBox>
-                        </Grid>
+                        <sd:PropertyGridView 
+                            SelectedItems="{Binding DesignContext.Services.Selection.SelectedItems, ElementName=DesignSurface, FallbackValue={x:Null}}">
+                        </sd:PropertyGridView>
                     </TabItem>
                 </TabControl>
             </Grid>

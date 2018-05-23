@@ -48,7 +48,6 @@
                                 FontSize="12pt"
                                 ShowLineNumbers="True"
                                 SyntaxHighlighting="Lua"
-                                Foreground="AliceBlue"
                                 x:Name="TextEditor"></avalonedit:TextEditor>
     </Grid>
 </UserControl>

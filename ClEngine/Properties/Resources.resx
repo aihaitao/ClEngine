@@ -597,4 +597,22 @@
   <data name="Attribute" xml:space="preserve">
     <value>Attribute</value>
   </data>
+  <data name="SingleGraphMultiFrame" xml:space="preserve">
+    <value>SingleGraphMultiFrame </value>
+  </data>
+  <data name="MultiGraphMultiFrame" xml:space="preserve">
+    <value>MultiGraphMultiFrame </value>
+  </data>
+  <data name="SpriteTexture" xml:space="preserve">
+    <value>SpriteTexture</value>
+  </data>
+  <data name="Piece" xml:space="preserve">
+    <value>Piece</value>
+  </data>
+  <data name="Pixel" xml:space="preserve">
+    <value>Pixel</value>
+  </data>
+  <data name="MapDraw" xml:space="preserve">
+    <value>MapDraw</value>
+  </data>
 </root>

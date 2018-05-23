@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:properties="clr-namespace:ClEngine.Properties"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        xmlns:mapEnum="clr-namespace:ClEngine.Tiled.MapEnum;assembly=ClEngine.Tiled"
         xmlns:converter="clr-namespace:ClEngine.Converter"
+        xmlns:mapEnum="clr-namespace:ClEngine.Tiled.MapEnum;assembly=ClEngine.Tiled"
         mc:Ignorable="d"
-        Style="{StaticResource {x:Type Window}}"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Map}"
         Title="新建地图" MinHeight="269" MinWidth="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +19,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <TabControl x:Name="MapTabControl">
-            <TabItem Header="自绘创建" x:Name="SelfTabItem">
+            <TabItem Header="自绘创建" x:Name="SelfTabItem" IsSelected="{Binding IsSelected, Mode=TwoWay}">
                 <Grid>
                     <Grid.Resources>
                         <ObjectDataProvider x:Key="MapDirection" MethodName="GetNames" ObjectType="{x:Type system:Enum}">
@@ -107,7 +107,7 @@
                                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="{x:Static properties:Resources.Width}" VerticalAlignment="Center"></TextBlock>
-                                            <TextBox x:Name="FixedX" Grid.Column="1" MinWidth="80" Margin="5 0 0 0" Text="{Binding FixedWidth, Converter={StaticResource FixedConverter}}"></TextBox>
+                                            <TextBox x:Name="FixedX" Grid.Column="1" MinWidth="80" Margin="5 0 0 0" Text="{Binding FixedX, Converter={StaticResource FixedConverter}}"></TextBox>
                                         </Grid>
                                         <Grid Row="2" Margin="0 2 0 0">
                                             <Grid.ColumnDefinitions>
@@ -115,7 +115,7 @@
                                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Text="{x:Static properties:Resources.Height}" VerticalAlignment="Center"></TextBlock>
-                                            <TextBox x:Name="FixedY" Grid.Column="1" MinWidth="80" Margin="5 0 0 0" Text="{Binding FixedHeight, Converter={StaticResource FixedConverter}}"></TextBox>
+                                            <TextBox x:Name="FixedY" Grid.Column="1" MinWidth="80" Margin="5 0 0 0" Text="{Binding FixedY, Converter={StaticResource FixedConverter}}"></TextBox>
                                         </Grid>
                                         <Grid Row="3" Margin="0 2 0 0">
                                             <TextBlock x:Name="FixedResult"></TextBlock>
@@ -233,7 +233,7 @@
         <GridSplitter Grid.Row="3"></GridSplitter>
         <Grid Grid.Row="4" Margin="5">
             <WrapPanel HorizontalAlignment="Right">
-                <Button Width="75" Height="20" Click="CreateMap_OnClick">
+                <Button Width="75" Height="20" Command="{Binding CreateMapCommand}" CommandParameter="{Binding IsSelected}">
                     <TextBlock Text="确定"></TextBlock>
                 </Button>
                 <Button Width="75" Height="20" Margin="5 0 0 0">

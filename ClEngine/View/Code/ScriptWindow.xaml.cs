@@ -27,7 +27,7 @@ namespace ClEngine
         {
             IHighlightingDefinition customHighlightingDefinition;
 
-            using (var s = typeof(MainWindow).Assembly.GetManifestResourceStream("ClEngine.CustomHighlighting.xshd"))
+            using (var s = typeof(MainWindow).Assembly.GetManifestResourceStream("ClEngine.Lua.xshd"))
             {
                 if (s == null)
                     throw new InvalidOperationException("没有找到对应资源");

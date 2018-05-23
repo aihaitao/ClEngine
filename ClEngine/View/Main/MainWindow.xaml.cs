@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using ClEngine.Core;
 using ClEngine.CoreLibrary.Logger;
-using ClEngine.CoreLibrary.Map;
 using ClEngine.Model;
 using ClEngine.View.Messages;
 using ClEngine.ViewModel;
 using Exceptionless;
 using GalaSoft.MvvmLight.Messaging;
+using MahApps.Metro.Controls;
 using Newtonsoft.Json;
 using Application = System.Windows.Application;
 using Size = System.Windows.Size;
@@ -22,7 +21,7 @@ namespace ClEngine
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow
+    public partial class MainWindow : MetroWindow
     {
         private ProjectInfo ProjectInfo { get; set; }
         private readonly MessageProperty _property = new MessageProperty();
@@ -35,10 +34,13 @@ namespace ClEngine
             Messenger.Default.Register<ProjectModel>(this, "LoadProject", LoadProject, true);
 
             LogBlock.ItemsSource = MessageCache.Messages;
+            
+	        MapLayout.IsVisible = false;
+	        UiLayout.IsVisible = false;
+	        ScriptLayout.IsVisible = false;
+	        ParticleLayout.IsVisible = false;
 
-            TabControl.Visibility = Visibility.Hidden;
-
-	        Closed += (sender, args) =>
+            Closed += (sender, args) =>
             {
                 Messenger.Default.Unregister(this);
                 ViewModelLocator.Cleanup();
@@ -156,15 +158,19 @@ namespace ClEngine
                     }
                 }
             }
+            
+            MapLayout.IsVisible = true;
+            UiLayout.IsVisible = true;
+            ScriptLayout.IsVisible = true;
+            ParticleLayout.IsVisible = true;
 
-            TabControl.Visibility = Visibility.Visible;
             ((MainViewModel) DataContext).IsLoadProject = true;
 
             var size = new Size(1920, 1080);
             Messenger.Default.Send(size, "LoadMap");
             Messenger.Default.Send("", "LoadUiConfig");
-			MapDraw.Instance.SetContentRoot();
-			MapEditor.MapEditorViewModel.LoadMapList();
+			//MapDraw.Instance.SetContentRoot();
+			//MapEditor.MapEditorViewModel.LoadMapList();
         }
     }
 }

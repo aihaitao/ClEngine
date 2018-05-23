@@ -6,83 +6,91 @@
              xmlns:map1="clr-namespace:ClEngine.CoreLibrary.Map"
              xmlns:tiled="clr-namespace:ClEngine.Tiled;assembly=ClEngine.Tiled"
              xmlns:properties="clr-namespace:ClEngine.Properties"
+             xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Column="0" MinWidth="245" MaxWidth="260">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <TabControl>
-                <TabItem Header="{x:Static properties:Resources.MapEvent}">
-                    <DataGrid Name="MapEventDataGrid" 
-                              AutoGenerateColumns="False" 
-                              CanUserAddRows="False">
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.EventName}" Width="*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate DataType="tiled:MapObjectGroup">
+    <xcad:DockingManager>
+        <xcad:DockingManager.Theme>
+            <xcad:Vs2013LightTheme></xcad:Vs2013LightTheme>
+        </xcad:DockingManager.Theme>
+        <xcad:LayoutRoot>
+            <xcad:LayoutPanel Orientation="Horizontal">
+                <xcad:LayoutAnchorablePane DockWidth="330">
+                    <xcad:LayoutAnchorable CanClose="False">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="275*"/>
+                                <ColumnDefinition Width="123*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TabControl Grid.ColumnSpan="2">
+                                <TabItem Header="{x:Static properties:Resources.MapEvent}">
+                                    <DataGrid Name="MapEventDataGrid" 
+                                                  AutoGenerateColumns="False" 
+                                                  CanUserAddRows="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTemplateColumn Header="{x:Static properties:Resources.EventName}" Width="*">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                                        <TextBlock Text="{Binding Name}"></TextBlock>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn Header="{x:Static properties:Resources.SignColor}" Width="Auto">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                                        <TextBlock Text="{Binding Color}"></TextBlock>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateX}" Width="Auto">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                                        <TextBlock Text="{Binding X}"></TextBlock>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateY}" Width="Auto">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                                        <TextBlock Text="{Binding Y}"></TextBlock>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                            <DataGridTemplateColumn Header="{x:Static properties:Resources.IsVisble}" Width="Auto">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate DataType="tiled:MapObjectGroup">
+                                                        <CheckBox IsChecked="{Binding Visible}"></CheckBox>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </TabItem>
+                                <TabItem Header="{x:Static properties:Resources.EventTemplate}">
+                                    <TreeView>
+                                    </TreeView>
+                                </TabItem>
+                            </TabControl>
+                            <ListView Grid.Row="1" Name="MapListView" Grid.ColumnSpan="2">
+                                <ListView.ItemTemplate>
+                                    <HierarchicalDataTemplate DataType="map1:MapInfo">
                                         <TextBlock Text="{Binding Name}"></TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.SignColor}" Width="Auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate DataType="tiled:MapObjectGroup">
-                                        <TextBlock Text="{Binding Color}"></TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateX}" Width="Auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate DataType="tiled:MapObjectGroup">
-                                        <TextBlock Text="{Binding X}"></TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.CoordinateY}" Width="Auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate DataType="tiled:MapObjectGroup">
-                                        <TextBlock Text="{Binding Y}"></TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.IsVisble}" Width="Auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate DataType="tiled:MapObjectGroup">
-                                        <CheckBox IsChecked="{Binding Visible}"></CheckBox>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-                <TabItem Header="{x:Static properties:Resources.EventTemplate}">
-                    <TreeView>
-                        <TreeViewItem Header="传奇世界" IsExpanded="True">
-                            <TreeViewItem Header="[Lv.2]传世兔.stpl"></TreeViewItem>
-                            <TreeViewItem Header="[Lv.3]传世猪.stpl"></TreeViewItem>
-                            <TreeViewItem Header="[Lv.4]传世鹿.stpl"></TreeViewItem>
-                            <TreeViewItem Header="[Lv.6]传世稻草人.stpl"></TreeViewItem>
-                        </TreeViewItem>
-                    </TreeView>
-                </TabItem>
-            </TabControl>
-            <ListView Grid.Row="1" Name="MapListView">
-                <ListView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="map1:MapInfo">
-                        <TextBlock Text="{Binding Name}"></TextBlock>
-                    </HierarchicalDataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
-        <Grid Column="1">
-            <map1:MapDraw x:Name="MapDraw"></map1:MapDraw>
-        </Grid>
-    </Grid>
+                                    </HierarchicalDataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </xcad:LayoutAnchorable>
+                </xcad:LayoutAnchorablePane>
+                <xcad:LayoutDocumentPane>
+                    <xcad:LayoutAnchorable CanClose="False" CanHide="False" Title="{x:Static properties:Resources.MapDraw}">
+                        <map1:MapDraw x:Name="MapDraw"></map1:MapDraw>
+                    </xcad:LayoutAnchorable>
+                </xcad:LayoutDocumentPane>
+            </xcad:LayoutPanel>
+        </xcad:LayoutRoot>
+    </xcad:DockingManager>
 </UserControl>

@@ -22,7 +22,7 @@ namespace ClEngine.Particle.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ClEngine.Particle.Properties {
         ///   返回此类使用的缓存的 ResourceManager 实例。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClEngine.Particle.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace ClEngine.Particle.Properties {
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Activated particle 的本地化字符串。
         /// </summary>
-        internal static string ActivatedParticle {
+        public static string ActivatedParticle {
             get {
                 return ResourceManager.GetString("ActivatedParticle", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 AutoTrigger 的本地化字符串。
         /// </summary>
-        internal static string AutoTrigger {
+        public static string AutoTrigger {
             get {
                 return ResourceManager.GetString("AutoTrigger", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 AutoTriggerFrequency 的本地化字符串。
         /// </summary>
-        internal static string AutoTriggerFrequency {
+        public static string AutoTriggerFrequency {
             get {
                 return ResourceManager.GetString("AutoTriggerFrequency", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Capacity 的本地化字符串。
         /// </summary>
-        internal static string Capacity {
+        public static string Capacity {
             get {
                 return ResourceManager.GetString("Capacity", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Emitter group 的本地化字符串。
         /// </summary>
-        internal static string EmitterGroup {
+        public static string EmitterGroup {
             get {
                 return ResourceManager.GetString("EmitterGroup", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 LifeSpan 的本地化字符串。
         /// </summary>
-        internal static string LifeSpan {
+        public static string LifeSpan {
             get {
                 return ResourceManager.GetString("LifeSpan", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 LocalMatrix 的本地化字符串。
         /// </summary>
-        internal static string LocalMatrix {
+        public static string LocalMatrix {
             get {
                 return ResourceManager.GetString("LocalMatrix", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 ModifierExecutionStrategy 的本地化字符串。
         /// </summary>
-        internal static string ModifierExecutionStrategy {
+        public static string ModifierExecutionStrategy {
             get {
                 return ResourceManager.GetString("ModifierExecutionStrategy", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Modifier group 的本地化字符串。
         /// </summary>
-        internal static string ModifierGroup {
+        public static string ModifierGroup {
             get {
                 return ResourceManager.GetString("ModifierGroup", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Name 的本地化字符串。
         /// </summary>
-        internal static string Name {
+        public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Offset 的本地化字符串。
         /// </summary>
-        internal static string Offset {
+        public static string Offset {
             get {
                 return ResourceManager.GetString("Offset", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Parameters 的本地化字符串。
         /// </summary>
-        internal static string Parameters {
+        public static string Parameters {
             get {
                 return ResourceManager.GetString("Parameters", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Parent 的本地化字符串。
         /// </summary>
-        internal static string Parent {
+        public static string Parent {
             get {
                 return ResourceManager.GetString("Parent", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Particle Name 的本地化字符串。
         /// </summary>
-        internal static string ParticleName {
+        public static string ParticleName {
             get {
                 return ResourceManager.GetString("ParticleName", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Position 的本地化字符串。
         /// </summary>
-        internal static string Position {
+        public static string Position {
             get {
                 return ResourceManager.GetString("Position", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Profile 的本地化字符串。
         /// </summary>
-        internal static string Profile {
+        public static string Profile {
             get {
                 return ResourceManager.GetString("Profile", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Rotation 的本地化字符串。
         /// </summary>
-        internal static string Rotation {
+        public static string Rotation {
             get {
                 return ResourceManager.GetString("Rotation", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Scale 的本地化字符串。
         /// </summary>
-        internal static string Scale {
+        public static string Scale {
             get {
                 return ResourceManager.GetString("Scale", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 TextureRegion 的本地化字符串。
         /// </summary>
-        internal static string TextureRegion {
+        public static string TextureRegion {
             get {
                 return ResourceManager.GetString("TextureRegion", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 Transmitter properties 的本地化字符串。
         /// </summary>
-        internal static string TransmitterProperties {
+        public static string TransmitterProperties {
             get {
                 return ResourceManager.GetString("TransmitterProperties", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 WorldMatrix 的本地化字符串。
         /// </summary>
-        internal static string WorldMatrix {
+        public static string WorldMatrix {
             get {
                 return ResourceManager.GetString("WorldMatrix", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 WorldPosition 的本地化字符串。
         /// </summary>
-        internal static string WorldPosition {
+        public static string WorldPosition {
             get {
                 return ResourceManager.GetString("WorldPosition", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 WorldRotation 的本地化字符串。
         /// </summary>
-        internal static string WorldRotation {
+        public static string WorldRotation {
             get {
                 return ResourceManager.GetString("WorldRotation", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace ClEngine.Particle.Properties {
         /// <summary>
         ///   查找类似 WorldScale 的本地化字符串。
         /// </summary>
-        internal static string WorldScale {
+        public static string WorldScale {
             get {
                 return ResourceManager.GetString("WorldScale", resourceCulture);
             }

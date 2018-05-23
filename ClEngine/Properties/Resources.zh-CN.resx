@@ -600,4 +600,22 @@
   <data name="Attribute" xml:space="preserve">
     <value>属性</value>
   </data>
+  <data name="SingleGraphMultiFrame" xml:space="preserve">
+    <value>单图多帧</value>
+  </data>
+  <data name="MultiGraphMultiFrame" xml:space="preserve">
+    <value>多图多帧</value>
+  </data>
+  <data name="SpriteTexture" xml:space="preserve">
+    <value>精灵纹理</value>
+  </data>
+  <data name="Piece" xml:space="preserve">
+    <value>块</value>
+  </data>
+  <data name="Pixel" xml:space="preserve">
+    <value>像素点</value>
+  </data>
+  <data name="MapDraw" xml:space="preserve">
+    <value>地图绘制</value>
+  </data>
 </root>

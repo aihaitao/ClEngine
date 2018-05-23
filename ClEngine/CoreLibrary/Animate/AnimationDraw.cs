@@ -28,8 +28,9 @@ namespace ClEngine.CoreLibrary.Animate
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             _keyboard = new WpfKeyboard(this);
+            
             _mouse = new WpfMouse(this);
-
+            
             base.Initialize();
         }
 

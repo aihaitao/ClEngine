@@ -14,11 +14,11 @@ namespace ClEngine.ViewModel
 {
 	public class UiViewModel : ViewModelBase
 	{
-		public ObservableCollection<WindowModel> WindowModels;
+        public ObservableCollection<WindowModel> WindowModels;
 	    private string WindowConfig { get; set; }
 
 
-        public UiViewModel()
+	    public UiViewModel()
 		{
 		    WindowModels = new ObservableCollection<WindowModel>();
 

@@ -1,7 +1,7 @@
-E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csproj.CoreCompileInputs.cache
 E:\ClEngine\ClEngine.Tiled\bin\Debug\ClEngine.Tiled.dll.config
 E:\ClEngine\ClEngine.Tiled\bin\Debug\ClEngine.Tiled.dll
 E:\ClEngine\ClEngine.Tiled\bin\Debug\ClEngine.Tiled.pdb
+E:\ClEngine\ClEngine.Tiled\bin\Debug\zh-CN\ClEngine.Tiled.resources.dll
 E:\ClEngine\ClEngine.Tiled\bin\Debug\MonoGame.Extended.dll
 E:\ClEngine\ClEngine.Tiled\bin\Debug\MonoGame.Extended.Graphics.dll
 E:\ClEngine\ClEngine.Tiled\bin\Debug\MonoGame.Framework.dll
@@ -10,12 +10,12 @@ E:\ClEngine\ClEngine.Tiled\bin\Debug\MonoGame.Extended.pdb
 E:\ClEngine\ClEngine.Tiled\bin\Debug\MonoGame.Extended.Graphics.pdb
 E:\ClEngine\ClEngine.Tiled\bin\Debug\MonoGame.Framework.xml
 E:\ClEngine\ClEngine.Tiled\bin\Debug\Newtonsoft.Json.xml
+E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.Resources.resources
+E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.Resources.zh-CN.resources
+E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csproj.GenerateResource.cache
+E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csproj.CoreCompileInputs.cache
+E:\ClEngine\ClEngine.Tiled\obj\Debug\zh-CN\ClEngine.Tiled.resources.dll
 E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csproj.CopyComplete
 E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.dll
 E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.pdb
-E:\ClEngine\ClEngine.Tiled\bin\Debug\zh-CN\ClEngine.Tiled.resources.dll
-E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csproj.GenerateResource.cache
-E:\ClEngine\ClEngine.Tiled\obj\Debug\zh-CN\ClEngine.Tiled.resources.dll
-E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.Resources.resources
-E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.Resources.zh-CN.resources
 E:\ClEngine\ClEngine.Tiled\obj\Debug\ClEngine.Tiled.csprojAssemblyReference.cache

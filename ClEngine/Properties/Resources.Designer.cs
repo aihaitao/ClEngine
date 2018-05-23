@@ -790,6 +790,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 MapDraw 的本地化字符串。
+        /// </summary>
+        public static string MapDraw {
+            get {
+                return ResourceManager.GetString("MapDraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 MapEvent 的本地化字符串。
         /// </summary>
         public static string MapEvent {
@@ -880,6 +889,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 MultiGraphMultiFrame  的本地化字符串。
+        /// </summary>
+        public static string MultiGraphMultiFrame {
+            get {
+                return ResourceManager.GetString("MultiGraphMultiFrame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Name 的本地化字符串。
         /// </summary>
         public static string Name {
@@ -966,6 +984,24 @@ namespace ClEngine.Properties {
         public static string PauseGame {
             get {
                 return ResourceManager.GetString("PauseGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Piece 的本地化字符串。
+        /// </summary>
+        public static string Piece {
+            get {
+                return ResourceManager.GetString("Piece", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Pixel 的本地化字符串。
+        /// </summary>
+        public static string Pixel {
+            get {
+                return ResourceManager.GetString("Pixel", resourceCulture);
             }
         }
         
@@ -1195,6 +1231,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 SingleGraphMultiFrame  的本地化字符串。
+        /// </summary>
+        public static string SingleGraphMultiFrame {
+            get {
+                return ResourceManager.GetString("SingleGraphMultiFrame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 SkillBox 的本地化字符串。
         /// </summary>
         public static string SkillBox {
@@ -1227,6 +1272,15 @@ namespace ClEngine.Properties {
         public static string Sound {
             get {
                 return ResourceManager.GetString("Sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SpriteTexture 的本地化字符串。
+        /// </summary>
+        public static string SpriteTexture {
+            get {
+                return ResourceManager.GetString("SpriteTexture", resourceCulture);
             }
         }
         

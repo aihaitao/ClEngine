@@ -26,4 +26,3 @@ E:\ClEngine\ClEngine.Particle\obj\Debug\TypeEditor\ModifierEditor.baml
 E:\ClEngine\ClEngine.Particle\obj\Debug\ClEngine.Particle.Properties.Resources.resources
 E:\ClEngine\ClEngine.Particle\obj\Debug\ClEngine.Particle.Properties.Resources.zh-CN.resources
 E:\ClEngine\ClEngine.Particle\obj\Debug\zh-CN\ClEngine.Particle.resources.dll
-E:\ClEngine\ClEngine.Particle\obj\Debug\ClEngine.Particle.csprojAssemblyReference.cache
