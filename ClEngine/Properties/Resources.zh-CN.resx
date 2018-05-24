@@ -633,4 +633,19 @@
   <data name="UnLoadContent" xml:space="preserve">
     <value>卸载资源</value>
   </data>
+  <data name="AssetManage" xml:space="preserve">
+    <value>资源管理</value>
+  </data>
+  <data name="UnloadedProject" xml:space="preserve">
+    <value>未加载工程</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="NewMap" xml:space="preserve">
+    <value>新建地图</value>
+  </data>
 </root>

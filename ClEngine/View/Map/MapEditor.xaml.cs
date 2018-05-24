@@ -1,5 +1,7 @@
 ﻿using System.IO;
+using System.Windows;
 using System.Windows.Controls;
+using ClEngine.CoreLibrary.Asset;
 using ClEngine.CoreLibrary.Map;
 using ClEngine.Tiled;
 using ClEngine.View.Map;
@@ -40,8 +42,8 @@ namespace ClEngine
 	    private void CreateContextMenu()
 	    {
 			var contextMenu = new ContextMenu();
-			var textBlock = new MenuItem { Header = "新建地图" };
-			textBlock.Click += delegate { CreateMap(); };
+			var textBlock = new MenuItem { Header = "NewMap".GetTranslateName() };
+			textBlock.Click += TextBlockOnClick;
 
 			contextMenu.Items.Add(textBlock);
 			
@@ -49,10 +51,10 @@ namespace ClEngine
 		    MapListView.ContextMenu = contextMenu;
 	    }
 
-	    private void CreateMap()
+        private void TextBlockOnClick(object sender, RoutedEventArgs e)
         {
-			var createMap = new CreateMapWindow();
-			createMap.ShowDialog();
+            var createMap = new CreateMapWindow();
+            createMap.ShowDialog();
         }
     }
 }

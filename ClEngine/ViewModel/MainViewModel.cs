@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Windows.Input;
 using ClEngine.Core;
+using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
@@ -57,6 +58,7 @@ namespace ClEngine.ViewModel
             set
             {
                 _projectPosition = value;
+
                 RaisePropertyChanged(() => ProjectPosition);
             }
         }
@@ -103,6 +105,8 @@ namespace ClEngine.ViewModel
             if (!File.Exists(fileName))
                 return;
 
+            ClearLogExecute();
+            SaveScriptExecute();
             IsGameRun = true;
 
             Environment.CurrentDirectory = ProjectPosition;

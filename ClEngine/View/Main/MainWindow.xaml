@@ -10,6 +10,7 @@
         xmlns:core="clr-namespace:ClEngine.Core;assembly=ClEngine.Core"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:asset="clr-namespace:ClEngine.View.Asset"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="CLEngine" Height="450" Width="800" WindowState="Maximized">

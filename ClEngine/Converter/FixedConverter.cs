@@ -9,12 +9,12 @@ namespace ClEngine.Converter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-		    return value;
+		    return string.Concat(value, " ", "Piece".GetTranslateName());
         }
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-		{
-		    return string.Concat(value, " ", "Piece".GetTranslateName());
+        {
+            return value;
         }
 	}
 }

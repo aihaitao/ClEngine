@@ -7,3 +7,12 @@
 [submodule "MGLayers"]
 	path = MGLayers
 	url = https://github.com/0xFireball/MGLayers.git
+[submodule "FSMsharp"]
+	path = FSMsharp
+	url = https://github.com/xanathar/FSMsharp.git
+[submodule "BabeLua"]
+	path = BabeLua
+	url = https://github.com/BabeStudio/BabeLua.git
+[submodule "AvalonEdit"]
+	path = AvalonEdit
+	url = https://github.com/icsharpcode/AvalonEdit.git

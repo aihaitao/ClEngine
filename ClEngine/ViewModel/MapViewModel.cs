@@ -11,6 +11,9 @@ namespace ClEngine.ViewModel
     {
         public MapModel Model { get; set; }
         public ICommand CreateMapCommand { get; set; }
+        public ICommand CancelCommand {
+            get { return new RelayCommand(() => { DialogResult = true; }); }
+        }
         public bool IsSelected { get; set; }
         public string FixedX { get; set; }
         public string FixedY { get; set; }
@@ -18,10 +21,25 @@ namespace ClEngine.ViewModel
         public string BlockHeight { get; set; } 
         public MapOrientation MapDirection { get; set; }
         public RenderOrder RenderOrder { get; set; }
+        private bool? _dialogResult;
+
+        public bool? DialogResult
+        {
+            get => _dialogResult;
+            set
+            {
+                _dialogResult = value;
+                RaisePropertyChanged(() => DialogResult);
+            }
+        }
 
         public MapViewModel()
         {
             Model = new MapModel();
+            FixedX = "100";
+            FixedY = "100";
+            BlockWidth = "32";
+            BlockHeight = "32";
             CreateMapCommand = new RelayCommand<bool>(CreateMapExecute);
         }
 
@@ -44,6 +62,7 @@ namespace ClEngine.ViewModel
                 map.Renderorder = renderOrder;
 
                 // TODO: Create Map
+                DialogResult = true;
             }
         }
     }

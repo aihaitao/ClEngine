@@ -142,6 +142,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 AssetManage 的本地化字符串。
+        /// </summary>
+        public static string AssetManage {
+            get {
+                return ResourceManager.GetString("AssetManage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Attribute 的本地化字符串。
         /// </summary>
         public static string Attribute {
@@ -205,6 +214,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Cancel 的本地化字符串。
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 CheckBox 的本地化字符串。
         /// </summary>
         public static string CheckBox {
@@ -219,6 +237,15 @@ namespace ClEngine.Properties {
         public static string ClearLog {
             get {
                 return ResourceManager.GetString("ClearLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Confirm 的本地化字符串。
+        /// </summary>
+        public static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
             }
         }
         
@@ -934,6 +961,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 NewMap 的本地化字符串。
+        /// </summary>
+        public static string NewMap {
+            get {
+                return ResourceManager.GetString("NewMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 NewProject 的本地化字符串。
         /// </summary>
         public static string NewProject {
@@ -1506,6 +1542,15 @@ namespace ClEngine.Properties {
         public static string UnLoadContent {
             get {
                 return ResourceManager.GetString("UnLoadContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unloaded Project  的本地化字符串。
+        /// </summary>
+        public static string UnloadedProject {
+            get {
+                return ResourceManager.GetString("UnloadedProject", resourceCulture);
             }
         }
         

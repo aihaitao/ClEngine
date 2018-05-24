@@ -630,4 +630,19 @@
   <data name="UnLoadContent" xml:space="preserve">
     <value>UnLoadContent</value>
   </data>
+  <data name="AssetManage" xml:space="preserve">
+    <value>AssetManage</value>
+  </data>
+  <data name="UnloadedProject" xml:space="preserve">
+    <value>Unloaded Project </value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewMap" xml:space="preserve">
+    <value>NewMap</value>
+  </data>
 </root>
