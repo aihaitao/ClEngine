@@ -4,3 +4,6 @@
 [submodule "MonoGame"]
 	path = MonoGame
 	url = https://github.com/MonoGame/MonoGame.git
+[submodule "MGLayers"]
+	path = MGLayers
+	url = https://github.com/0xFireball/MGLayers.git
