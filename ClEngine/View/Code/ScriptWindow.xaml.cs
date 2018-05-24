@@ -59,37 +59,25 @@ namespace ClEngine
                 {
                     LoadDocument(Path.Combine(scriptPath, "init.lua"));
                 }
-                else if (Equals(textBlock.Text, Properties.Resources.GameStart))
+                else if (Equals(textBlock.Text, Properties.Resources.GameUpdate))
                 {
-                    LoadDocument(Path.Combine(scriptPath, "start.lua"));
+                    LoadDocument(Path.Combine(scriptPath, "gameupdate.lua"));
                 }
-                else if (Equals(textBlock.Text, Properties.Resources.MapSwitch))
+                else if (Equals(textBlock.Text, Properties.Resources.GameDraw))
                 {
-                    LoadDocument(Path.Combine(scriptPath, "map.lua"));
+                    LoadDocument(Path.Combine(scriptPath, "gamedraw.lua"));
                 }
-                else if (Equals(textBlock.Text, Properties.Resources.GameTask))
+                else if (Equals(textBlock.Text, Properties.Resources.LoadContent))
                 {
-                    LoadDocument(Path.Combine(scriptPath, "task.lua"));
+                    LoadDocument(Path.Combine(scriptPath, "loadcontent.lua"));
+                }
+                else if (Equals(textBlock.Text, Properties.Resources.UnLoadContent))
+                {
+                    LoadDocument(Path.Combine(scriptPath, "unloadcontent.lua"));
                 }
                 else if (Equals(textBlock.Text, Properties.Resources.KeyEvent))
                 {
                     LoadDocument(Path.Combine(scriptPath, "input.lua"));
-                }
-                else if (Equals(textBlock.Text, Properties.Resources.ItemDrop))
-                {
-                    LoadDocument(Path.Combine(scriptPath, "itemdrop.lua"));
-                }
-                else if (Equals(textBlock.Text, Properties.Resources.SkillEvent))
-                {
-                    LoadDocument(Path.Combine(scriptPath, "skillgrid.lua"));
-                }
-                else if (Equals(textBlock.Text, Properties.Resources.WindowClose))
-                {
-                    LoadDocument(Path.Combine(scriptPath, "windowclose.lua"));
-                }
-                else if (Equals(textBlock.Text, Properties.Resources.OtherEvent))
-                {
-                    LoadDocument(Path.Combine(scriptPath, "otherevent.lua"));
                 }
             }
         }

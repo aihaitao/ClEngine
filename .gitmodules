@@ -1,0 +1,6 @@
+[submodule "MonoGame.Extended"]
+	path = MonoGame.Extended
+	url = https://github.com/craftworkgames/MonoGame.Extended.git
+[submodule "MonoGame"]
+	path = MonoGame
+	url = https://github.com/MonoGame/MonoGame.git

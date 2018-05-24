@@ -615,4 +615,19 @@
   <data name="MapDraw" xml:space="preserve">
     <value>MapDraw</value>
   </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="GameUpdate" xml:space="preserve">
+    <value>GameUpdate</value>
+  </data>
+  <data name="GameDraw" xml:space="preserve">
+    <value>GameDraw</value>
+  </data>
+  <data name="LoadContent" xml:space="preserve">
+    <value>LoadContent</value>
+  </data>
+  <data name="UnLoadContent" xml:space="preserve">
+    <value>UnLoadContent</value>
+  </data>
 </root>

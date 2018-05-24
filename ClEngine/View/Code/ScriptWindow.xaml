@@ -33,14 +33,11 @@
             <GridSplitter Grid.Row="1"></GridSplitter>
             <ListBox Grid.Row="2" MouseDoubleClick="CodeViewer_OnClick" Name="CodeListBox">
                 <TextBlock Text="{x:Static properties:Resources.Startup}"></TextBlock>
-                <TextBlock Text="{x:Static properties:Resources.GameStart}"></TextBlock>
-                <TextBlock Text="{x:Static properties:Resources.MapSwitch}"></TextBlock>
-                <TextBlock Text="{x:Static properties:Resources.GameTask}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.GameDraw}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.GameUpdate}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.LoadContent}"></TextBlock>
+                <TextBlock Text="{x:Static properties:Resources.UnLoadContent}"></TextBlock>
                 <TextBlock Text="{x:Static properties:Resources.KeyEvent}"></TextBlock>
-                <TextBlock Text="{x:Static properties:Resources.ItemDrop}"></TextBlock>
-                <TextBlock Text="{x:Static properties:Resources.SkillBox}"></TextBlock>
-                <TextBlock Text="{x:Static properties:Resources.WindowClose}"></TextBlock>
-                <TextBlock Text="{x:Static properties:Resources.OtherEvent}"></TextBlock>
             </ListBox>
         </Grid>
         <GridSplitter Grid.Column="1"></GridSplitter>

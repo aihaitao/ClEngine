@@ -73,11 +73,28 @@ namespace ClGame
 
             _lua.DoFile(Path.Combine("scripts", "input.lua"));
             (_lua["Main"] as LuaFunction)?.Call(mouseState, keyboardState);
+            _lua.DoFile(Path.Combine("scripts", "gameupdate.lua"));
+            (_lua["Main"] as LuaFunction)?.Call(time);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            _lua.DoFile(Path.Combine("scripts", "gamedraw.lua"));
+            (_lua["Main"] as LuaFunction)?.Call(gameTime);
+        }
+
+        protected override void LoadContent()
+        {
+            _lua.DoFile(Path.Combine("scripts", "loadcontent.lua"));
+            (_lua["Main"] as LuaFunction)?.Call();
+        }
+
+        protected override void UnloadContent()
+        {
+            _lua.DoFile(Path.Combine("scripts", "unloadcontent.lua"));
+            (_lua["Main"] as LuaFunction)?.Call();
         }
     }
 }

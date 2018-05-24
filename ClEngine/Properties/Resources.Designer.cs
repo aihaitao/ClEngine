@@ -538,6 +538,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 GameDraw 的本地化字符串。
+        /// </summary>
+        public static string GameDraw {
+            get {
+                return ResourceManager.GetString("GameDraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 GameStart 的本地化字符串。
         /// </summary>
         public static string GameStart {
@@ -552,6 +561,15 @@ namespace ClEngine.Properties {
         public static string GameTask {
             get {
                 return ResourceManager.GetString("GameTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 GameUpdate 的本地化字符串。
+        /// </summary>
+        public static string GameUpdate {
+            get {
+                return ResourceManager.GetString("GameUpdate", resourceCulture);
             }
         }
         
@@ -750,6 +768,15 @@ namespace ClEngine.Properties {
         public static string ListBox {
             get {
                 return ResourceManager.GetString("ListBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 LoadContent 的本地化字符串。
+        /// </summary>
+        public static string LoadContent {
+            get {
+                return ResourceManager.GetString("LoadContent", resourceCulture);
             }
         }
         
@@ -1470,6 +1497,24 @@ namespace ClEngine.Properties {
         public static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 UnLoadContent 的本地化字符串。
+        /// </summary>
+        public static string UnLoadContent {
+            get {
+                return ResourceManager.GetString("UnLoadContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Update 的本地化字符串。
+        /// </summary>
+        public static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
             }
         }
         
