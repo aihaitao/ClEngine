@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using ClEngine.CoreLibrary.Logger;
+using ClEngine.ViewModel;
 using Microsoft.Win32;
 
 namespace ClEngine.View.Map
@@ -11,8 +12,8 @@ namespace ClEngine.View.Map
 	{
 		public CreateMapWindow()
 		{
-			InitializeComponent();
-		}
+            InitializeComponent();
+        }
 
 		private bool CheckMapTabItem(ref int logicGridHeight, ref int logicGridWidth, ref int surfaceGridHeight,
 			ref int surfaceGridWidth)

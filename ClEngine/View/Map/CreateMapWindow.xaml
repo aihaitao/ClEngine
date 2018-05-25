@@ -7,9 +7,15 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:converter="clr-namespace:ClEngine.Converter"
         xmlns:mapEnum="clr-namespace:ClEngine.Tiled.MapEnum;assembly=ClEngine.Tiled"
+        xmlns:editor="clr-namespace:ClEngine.CoreLibrary.Editor"
+        xmlns:viewModel="clr-namespace:ClEngine.ViewModel"
         mc:Ignorable="d"
-        DataContext="{Binding Source={StaticResource Locator}, Path=Map}"
+        editor:DialogCloser.DialogResult="{Binding DialogResult, Mode=OneWay}"
         Title="新建地图" MinHeight="269" MinWidth="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Window.DataContext>
+        <viewModel:MapViewModel></viewModel:MapViewModel>
+    </Window.DataContext>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

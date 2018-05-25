@@ -14,7 +14,7 @@
             <xcad:Vs2013LightTheme></xcad:Vs2013LightTheme>
         </xcad:DockingManager.Theme>
         <xcad:LayoutRoot>
-            <xcad:LayoutPanel Orientation="Horizontal">
+            <xcad:LayoutPanel>
                 <xcad:LayoutAnchorablePane DockWidth="330">
                     <xcad:LayoutAnchorable CanClose="False">
                         <Grid>

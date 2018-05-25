@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
-using System.Windows.Input;
 using ClEngine.Model;
 using ClEngine.Properties;
 
@@ -10,25 +8,12 @@ namespace ClEngine.ViewModel
 {
     public class DocumentViewModel : ViewModelBase
     {
-        public ICommand HelpCommand { get; set; }
         public List<DocumentModel> DocumentModels { get; set; }
 
         public DocumentViewModel()
         {
-            HelpCommand = new RelayCommand<string>(Execute);
             DocumentModels = new List<DocumentModel>();
             GetDocument();
-        }
-
-        private void Execute(string obj)
-        {
-            foreach (var documentModel in DocumentModels)
-            {
-                if (string.Equals(documentModel.Name, obj))
-                {
-
-                }
-            }
         }
 
         public void GetDocument()

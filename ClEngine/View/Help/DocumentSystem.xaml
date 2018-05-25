@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:properties="clr-namespace:ClEngine.Properties"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <ScrollViewer>
         <Grid Margin="5">
@@ -39,63 +39,18 @@
                                            Margin="5"
                                            FontSize="12pt"
                                            FontWeight="Bold"></TextBlock>
-            <WrapPanel Grid.Row="3" ItemWidth="135" ItemHeight="35">
-                <Button Width="130" Height="30" Command="{Binding HelpCommand}" Content="{x:Static properties:Resources.ScreenWidth}" CommandParameter="system.width"></Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.ScreenHeight}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.WindowTitle}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.MapInfo}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.MouseProps}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.DropTheNameAll}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.TranslucentShelter}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.ControlPause}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.LensX}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.LensY}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.LensObject}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.LensZoom}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.LensMovesSmoothly}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="dt"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.Environmental_Color}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.DefaultMouseVisibility}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.FullScreen}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.ArchiveInformation}"></TextBlock>
-                </Button>
-                <Button Width="130" Height="30">
-                    <TextBlock Text="{x:Static properties:Resources.AccountInformation}"></TextBlock>
-                </Button>
-            </WrapPanel>
+            <ItemsControl Grid.Row="3" x:Name="AttributeItems" ItemsSource="{Binding }">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel  ItemWidth="135" ItemHeight="35"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="123"></Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
             <TextBlock Text="{x:Static properties:Resources.Method}"
                                            Grid.Row="4" 
                                            Margin="5"
@@ -375,56 +330,6 @@
                     <TextBlock Text="领取充值点数"></TextBlock>
                 </Button>
             </WrapPanel>
-            <GridSplitter Grid.Row="16"></GridSplitter>
-            <Grid Grid.Row="17" Margin="10">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="2"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="屏幕宽度[数据类型:整数型]" Grid.Row="0" FontSize="16pt"></TextBlock>
-                    <TextBlock Text="接口名称: system.screen_width" Grid.Row="1" FontSize="16pt"></TextBlock>
-                    <TextBlock Text="功能: 当前游戏窗口屏幕的宽度。" Grid.Row="2" FontSize="9pt"></TextBlock>
-                    <GridSplitter Grid.Row="3"></GridSplitter>
-                    <TextBlock Text="示例" Grid.Row="4" FontSize="13pt" Margin="0 5 0 0"></TextBlock>
-                    <TextBlock Text="debug(system.screen_width)  -- 获得当前屏幕宽度" Grid.Row="5"></TextBlock>
-                    <TextBlock Text="system.screen_width = 1024  -- 改变当前游戏窗口宽度。" Grid.Row="6"></TextBlock>
-                    <TextBlock Text="注意事项" FontSize="12pt" Grid.Row="7" Margin="0 10 0 0"></TextBlock>
-                    <TextBlock Text="1. 属性值必须为整数型，可设置最小宽度为100;" FontSize="9pt"  Grid.Row="8"></TextBlock>
-                </Grid>
-            </Grid>
-            <GridSplitter Grid.Row="18"></GridSplitter>
-            <Grid Grid.Row="19" Margin="10">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="2"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="屏幕高度[数据类型:整数型]" Grid.Row="0" FontSize="16pt"></TextBlock>
-                    <TextBlock Text="接口名称: system.screen_width" Grid.Row="1" FontSize="16pt"></TextBlock>
-                    <TextBlock Text="功能: 当前游戏窗口屏幕的高度。" Grid.Row="2" FontSize="9pt"></TextBlock>
-                    <GridSplitter Grid.Row="3"></GridSplitter>
-                    <TextBlock Text="示例" Grid.Row="4" FontSize="13pt" Margin="0 5 0 0"></TextBlock>
-                    <TextBlock Text="debug(system.screen_height)  -- 获得当前屏幕宽度" Grid.Row="5"></TextBlock>
-                    <TextBlock Text="system.screen_height = 1024  -- 改变当前游戏窗口宽度。" Grid.Row="6"></TextBlock>
-                    <TextBlock Text="注意事项" FontSize="12pt" Grid.Row="7" Margin="0 10 0 0"></TextBlock>
-                    <TextBlock Text="1. 属性值必须为整数型，可设置最小宽度为100;" FontSize="9pt"  Grid.Row="8"></TextBlock>
-                </Grid>
-            </Grid>
         </Grid>
     </ScrollViewer>
 </UserControl>

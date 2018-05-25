@@ -14,8 +14,8 @@ namespace ClEngine.View.Main
 	    {
 		    ExceptionlessClient.Default.Register();
 			Thread.CurrentThread.CurrentUICulture = new CultureInfo(CultureInfo.InstalledUICulture.Name);
-			//Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
-		}
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+        }
         
     }
 }

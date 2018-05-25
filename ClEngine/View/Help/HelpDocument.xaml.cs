@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls;
-using ClEngine.ViewModel;
 
 namespace ClEngine
 {
@@ -11,9 +10,6 @@ namespace ClEngine
         public HelpDocument()
         {
             InitializeComponent();
-
-            var viewModel = (DocumentViewModel) DataContext;
-            TreeView.ItemsSource = viewModel.GetTrees(0, viewModel.GetDocuments());
         }
     }
 }

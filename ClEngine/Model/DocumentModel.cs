@@ -9,6 +9,8 @@ namespace ClEngine.Model
     {
         [Description("system")]
         System,
+        [Description("content")]
+        Content,
     }
 
     public enum DocumentType
