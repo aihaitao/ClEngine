@@ -151,6 +151,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Attention 的本地化字符串。
+        /// </summary>
+        public static string Attention {
+            get {
+                return ResourceManager.GetString("Attention", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Attribute 的本地化字符串。
         /// </summary>
         public static string Attribute {
@@ -340,6 +349,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 DataType 的本地化字符串。
+        /// </summary>
+        public static string DataType {
+            get {
+                return ResourceManager.GetString("DataType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Default mouse visibility 的本地化字符串。
         /// </summary>
         public static string DefaultMouseVisibility {
@@ -493,6 +511,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Example 的本地化字符串。
+        /// </summary>
+        public static string Example {
+            get {
+                return ResourceManager.GetString("Example", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 ExportProjectTemplate 的本地化字符串。
         /// </summary>
         public static string ExportProjectTemplate {
@@ -516,6 +543,15 @@ namespace ClEngine.Properties {
         public static string ExtendedServices {
             get {
                 return ResourceManager.GetString("ExtendedServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Feature 的本地化字符串。
+        /// </summary>
+        public static string Feature {
+            get {
+                return ResourceManager.GetString("Feature", resourceCulture);
             }
         }
         
@@ -660,6 +696,15 @@ namespace ClEngine.Properties {
         public static string InstantFightingType {
             get {
                 return ResourceManager.GetString("InstantFightingType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Int 的本地化字符串。
+        /// </summary>
+        public static string Int {
+            get {
+                return ResourceManager.GetString("Int", resourceCulture);
             }
         }
         
@@ -1375,11 +1420,29 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 System 的本地化字符串。
+        /// </summary>
+        public static string System {
+            get {
+                return ResourceManager.GetString("System", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 SystemTemplate 的本地化字符串。
         /// </summary>
         public static string SystemTemplate {
             get {
                 return ResourceManager.GetString("SystemTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The width of the current game window screen 的本地化字符串。
+        /// </summary>
+        public static string systemwidthfeature {
+            get {
+                return ResourceManager.GetString("systemwidthfeature", resourceCulture);
             }
         }
         

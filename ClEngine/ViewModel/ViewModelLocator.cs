@@ -43,7 +43,6 @@ namespace ClEngine.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ScriptViewModel>();
-            SimpleIoc.Default.Register<DocumentViewModel>();
             SimpleIoc.Default.Register<UiViewModel>();
         }
 
@@ -51,12 +50,7 @@ namespace ClEngine.ViewModel
         {
             get { return ServiceLocator.Current.GetInstance<MainViewModel>(); }
         }
-
-        public DocumentViewModel Document
-        {
-            get { return ServiceLocator.Current.GetInstance<DocumentViewModel>(); }
-        }
-
+        
         public ScriptViewModel Script
         {
             get { return ServiceLocator.Current.GetInstance<ScriptViewModel>(); }
@@ -71,7 +65,6 @@ namespace ClEngine.ViewModel
         {
             SimpleIoc.Default.Unregister<MainViewModel>();
             SimpleIoc.Default.Unregister<ScriptViewModel>();
-            SimpleIoc.Default.Unregister<DocumentViewModel>();
             SimpleIoc.Default.Unregister<UiViewModel>();
         }
     }

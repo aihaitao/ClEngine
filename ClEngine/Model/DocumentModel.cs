@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using ClEngine.CoreLibrary.Editor;
 using GalaSoft.MvvmLight;
@@ -23,15 +24,20 @@ namespace ClEngine.Model
 
     public class DocumentModel : ObservableObject
     {
+        public ObservableCollection<DocumentChildModel> ChildModels { get; set; }
+        public string Name { get;set; }
+
+        public DocumentModel()
+        {
+            ChildModels = new ObservableCollection<DocumentChildModel>();
+        }
+    }
+
+    public class DocumentChildModel
+    {
         public string Name { get; set; }
         public NameSpaceType NameSpace { get; set; }
         public DocumentType Type { get; set; }
         public string Example { get; set; }
-        public List<DocumentModel> Children { get; set; }
-
-        public DocumentModel()
-        {
-            Children = new List<DocumentModel>();
-        }
     }
 }
