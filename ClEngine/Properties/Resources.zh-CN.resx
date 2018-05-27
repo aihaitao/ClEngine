@@ -669,4 +669,43 @@
   <data name="Attention" xml:space="preserve">
     <value>注意</value>
   </data>
+  <data name="systemheightfeature" xml:space="preserve">
+    <value>当前游戏窗口屏幕的高度</value>
+  </data>
+  <data name="InterfaceName" xml:space="preserve">
+    <value>接口名</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>文本型</value>
+  </data>
+  <data name="systemtitlefeature" xml:space="preserve">
+    <value>当前游戏窗口屏幕的标题</value>
+  </data>
+  <data name="Bool" xml:space="preserve">
+    <value>布尔值</value>
+  </data>
+  <data name="systemfullscreenfeature" xml:space="preserve">
+    <value>当前游戏 全屏显示模式</value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>随机数</value>
+  </data>
+  <data name="systemrandomfeature" xml:space="preserve">
+    <value>返回指定范围内的随机整数</value>
+  </data>
+  <data name="RequestParameters" xml:space="preserve">
+    <value>接口请求参数</value>
+  </data>
+  <data name="ParameterName" xml:space="preserve">
+    <value>参数名称</value>
+  </data>
+  <data name="TypeValue" xml:space="preserve">
+    <value>值的类型</value>
+  </data>
+  <data name="IsNecessary" xml:space="preserve">
+    <value>是否必须</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>说明描述</value>
+  </data>
 </root>

@@ -16,3 +16,6 @@
 [submodule "AvalonEdit"]
 	path = AvalonEdit
 	url = https://github.com/icsharpcode/AvalonEdit.git
+[submodule "MonoGame.Framework.WpfInterop"]
+	path = MonoGame.Framework.WpfInterop
+	url = https://gitlab.com/MarcStan/MonoGame.Framework.WpfInterop.git

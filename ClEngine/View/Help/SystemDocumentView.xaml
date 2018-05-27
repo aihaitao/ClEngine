@@ -6,41 +6,274 @@
              xmlns:properties="clr-namespace:ClEngine.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Expander Header="{x:Static properties:Resources.Attribute}" IsExpanded="True">
-        <WrapPanel>
-            <Expander Header="{x:Static properties:Resources.ScreenWidth}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <TextBlock Margin="0 2 0 0">
-                        <TextBlock.Text>
-                            <MultiBinding StringFormat="{}[{0}: {1}]">
-                                <Binding Source="{x:Static properties:Resources.DataType}"></Binding>
-                                <Binding Source="{x:Static properties:Resources.Int}"></Binding>
-                            </MultiBinding>
-                        </TextBlock.Text>
-                    </TextBlock>
-                    <TextBlock Grid.Row="1" Margin="0 2 0 0">
-                        <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0}: {1}">
-                                <Binding Source="{x:Static properties:Resources.Feature}"></Binding>
-                                <Binding Source="{x:Static properties:Resources.systemwidthfeature}"></Binding>
-                            </MultiBinding>
-                        </TextBlock.Text>
-                    </TextBlock>
-                    <Expander Grid.Row="2" Header="{x:Static properties:Resources.Example}" IsExpanded="True" Margin="0 5 0 0">
+    <StackPanel>
+        <Expander Header="{x:Static properties:Resources.Attribute}" IsExpanded="True">
+            <WrapPanel>
+                <Expander Header="{x:Static properties:Resources.ScreenWidth}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}[{0}: {1}]">
+                                    <Binding Source="{x:Static properties:Resources.DataType}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.Int}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.Feature}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.systemwidthfeature}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.InterfaceName}"></Binding>
+                                    <Binding Source="system.graphics.PreferredBackBufferWidth"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Expander Grid.Row="3" Header="{x:Static properties:Resources.Example}" IsExpanded="True" Margin="0 5 0 0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBox IsReadOnly="True" 
+                                     BorderThickness="0" 
+                                     Text="system.graphics.PreferredBackBufferWidth = 1920"></TextBox>
+                                <TextBox Grid.Row="1" 
+                                     IsReadOnly="True" 
+                                     BorderThickness="0" 
+                                     Text="system.graphics:ApplyChanges()"></TextBox>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </Expander>
+                <Expander Header="{x:Static properties:Resources.ScreenHeight}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}[{0}: {1}]">
+                                    <Binding Source="{x:Static properties:Resources.DataType}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.Int}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.Feature}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.systemheightfeature}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.InterfaceName}"></Binding>
+                                    <Binding Source="system.graphics.PreferredBackBufferHeight"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Expander Grid.Row="3" Header="{x:Static properties:Resources.Example}" IsExpanded="True" Margin="0 5 0 0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBox IsReadOnly="True" 
+                                     BorderThickness="0" 
+                                     Text="system.graphics.PreferredBackBufferHeight = 1080"></TextBox>
+                                <TextBox Grid.Row="1" 
+                                     IsReadOnly="True" 
+                                     BorderThickness="0" 
+                                     Text="system.graphics:ApplyChanges()"></TextBox>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </Expander>
+                <Expander Header="{x:Static properties:Resources.WindowTitle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}[{0}: {1}]">
+                                    <Binding Source="{x:Static properties:Resources.DataType}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.String}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.Feature}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.systemtitlefeature}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.InterfaceName}"></Binding>
+                                    <Binding Source="system.window.Title"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Expander Grid.Row="3" Header="{x:Static properties:Resources.Example}" IsExpanded="True" Margin="0 5 0 0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBox IsReadOnly="True" BorderThickness="0">
+                                    <TextBox.Text>
+                                        print(system.window.Title)
+                                    </TextBox.Text>
+                                </TextBox>
+                                <TextBox Grid.Row="1" IsReadOnly="True" BorderThickness="0">
+                                    <TextBox.Text>
+                                        system.window.Title = "World - 1.0"
+                                    </TextBox.Text>
+                                </TextBox>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </Expander>
+                <Expander Header="{x:Static properties:Resources.FullScreen}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}[{0}: {1}]">
+                                    <Binding Source="{x:Static properties:Resources.DataType}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.Bool}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.Feature}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.systemfullscreenfeature}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.InterfaceName}"></Binding>
+                                    <Binding Source="system.graphics.IsFullScreen"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Expander Grid.Row="3" Header="{x:Static properties:Resources.Example}" IsExpanded="True" Margin="0 5 0 0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBox IsReadOnly="True" BorderThickness="0">
+                                    <TextBox.Text>
+                                        print(system.graphics.IsFullScreen)
+                                    </TextBox.Text>
+                                </TextBox>
+                                <TextBox Grid.Row="1" IsReadOnly="True" BorderThickness="0">
+                                    <TextBox.Text>
+                                        system.graphics.IsFullScreen = false
+                                    </TextBox.Text>
+                                </TextBox>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </Expander>
+            </WrapPanel>
+        </Expander>
+        <Expander Header="{x:Static properties:Resources.Method}" IsExpanded="True">
+            <WrapPanel>
 
-                    </Expander>
-                    <Expander Grid.Row="3" Header="{x:Static properties:Resources.Attention}" IsExpanded="True" Margin="0 5 0 0">
-                        
-                    </Expander>
-                </Grid>
-            </Expander>
-            <Expander Header="{x:Static properties:Resources.ScreenHeight}"></Expander>
-        </WrapPanel>
-    </Expander>
+                <Expander Header="{x:Static properties:Resources.Random}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}[{0}: {1}]">
+                                    <Binding Source="{x:Static properties:Resources.DataType}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.Int}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.Feature}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.systemrandomfeature}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="2" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.InterfaceName}"></Binding>
+                                    <Binding Source="system.random"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Expander Grid.Row="3" Margin="0 2 0 0" Header="{x:Static properties:Resources.RequestParameters}" IsExpanded="True">
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="{x:Static properties:Resources.ParameterName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{x:Static properties:Resources.TypeValue}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{x:Static properties:Resources.IsNecessary}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{x:Static properties:Resources.Description}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Expander>
+                        <Expander Grid.Row="4" Header="{x:Static properties:Resources.Example}" IsExpanded="True" Margin="0 5 0 0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBox IsReadOnly="True" 
+                                     BorderThickness="0"
+                                     Text="print(system.random(100,200))"></TextBox>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </Expander>
+            </WrapPanel>
+        </Expander>
+    </StackPanel>
 </UserControl>

@@ -44,8 +44,9 @@ namespace ClEngine
             {
                 Messenger.Default.Unregister(this);
                 ViewModelLocator.Cleanup();
-	            Application.Current.Shutdown();
-	        };
+                Environment.Exit(0);
+                //Application.Current.Shutdown();   // BUG: 进程退出后会导致 GraphicsDevice.Directx发生_swapChain错误.等待MonoGame.Framework.WpfInterop作者解决
+            };
             LogBlock.MouseDoubleClick += LogBlockOnMouseDoubleClick;
 	    }
 

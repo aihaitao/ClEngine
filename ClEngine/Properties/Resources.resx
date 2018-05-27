@@ -666,4 +666,43 @@
   <data name="Attention" xml:space="preserve">
     <value>Attention</value>
   </data>
+  <data name="systemheightfeature" xml:space="preserve">
+    <value>The height of the current game window screen</value>
+  </data>
+  <data name="InterfaceName" xml:space="preserve">
+    <value>Interface Name</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>String</value>
+  </data>
+  <data name="systemtitlefeature" xml:space="preserve">
+    <value>The title of the current game window screen </value>
+  </data>
+  <data name="Bool" xml:space="preserve">
+    <value>Bool</value>
+  </data>
+  <data name="systemfullscreenfeature" xml:space="preserve">
+    <value>Current game full screen display mode </value>
+  </data>
+  <data name="Random" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="systemrandomfeature" xml:space="preserve">
+    <value>Returns the random integer within the specified range</value>
+  </data>
+  <data name="RequestParameters" xml:space="preserve">
+    <value>Interface request parameters </value>
+  </data>
+  <data name="ParameterName" xml:space="preserve">
+    <value>Parameter Name</value>
+  </data>
+  <data name="TypeValue" xml:space="preserve">
+    <value>Type Value</value>
+  </data>
+  <data name="IsNecessary" xml:space="preserve">
+    <value>IsNecessary </value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
 </root>

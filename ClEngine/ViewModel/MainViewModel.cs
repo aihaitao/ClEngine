@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Windows.Input;
 using ClEngine.Core;
-using CommonServiceLocator;
+using DirectxGame;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
@@ -101,19 +101,21 @@ namespace ClEngine.ViewModel
             if (!IsLoadProject)
                 return;
 
-            var fileName = Path.Combine(ProjectPosition, "ClGame.exe");
-            if (!File.Exists(fileName))
-                return;
-
             ClearLogExecute();
             SaveScriptExecute();
             IsGameRun = true;
 
             Environment.CurrentDirectory = ProjectPosition;
 
-            var mainWindow = new ClGame.MainWindow();
-            mainWindow.Closed += (sender, args) => { IsGameRun = false; };
-            mainWindow.ShowDialog();
+            using (var game = new Game1())
+            {
+                game.Exiting += (sender, args) =>
+                {
+                    IsGameRun = false;
+                    game.IsMouseVisible = true;
+                };
+                game.Run();
+            }
 
             Environment.CurrentDirectory = EditorRecord.EditorEnvironment;
         }

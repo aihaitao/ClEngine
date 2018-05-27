@@ -13,6 +13,8 @@
             <TabItem Header="system">
                 <help:SystemDocumentView></help:SystemDocumentView>
             </TabItem>
+            <TabItem Header="content"></TabItem>
+            <TabItem Header="camera"></TabItem>
         </TabControl>
     </Grid>
 </UserControl>
