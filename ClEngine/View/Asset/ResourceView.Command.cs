@@ -29,7 +29,7 @@ namespace ClEngine.View.Asset
 				if (openFileDialog.ShowDialog() == true)
 				{
 					resolver.Compiler(openFileDialog.FileName);
-				}
+                }
 			}
 		}
 
@@ -37,9 +37,8 @@ namespace ClEngine.View.Asset
 		{
 			if (e.NewValue is AssetResolver resolver)
 			{
-				var watcher = AssetHelper.GetFileSystemWatcher(resolver.StoragePath);
-				watcher.Filter = resolver.Extension;
-			}
-		}
+			    resolver.UpdateResolver();
+            }
+        }
 	}
 }

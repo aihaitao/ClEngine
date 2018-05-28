@@ -151,6 +151,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Asset Path 的本地化字符串。
+        /// </summary>
+        public static string AssetPath {
+            get {
+                return ResourceManager.GetString("AssetPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Attention 的本地化字符串。
         /// </summary>
         public static string Attention {
@@ -232,6 +241,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Create a camera  的本地化字符串。
+        /// </summary>
+        public static string cameracreatefeature {
+            get {
+                return ResourceManager.GetString("cameracreatefeature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Cancel 的本地化字符串。
         /// </summary>
         public static string Cancel {
@@ -259,11 +277,29 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Create Color 的本地化字符串。
+        /// </summary>
+        public static string colorcreatefeature {
+            get {
+                return ResourceManager.GetString("colorcreatefeature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Confirm 的本地化字符串。
         /// </summary>
         public static string Confirm {
             get {
                 return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Resources supported by the load engine  的本地化字符串。
+        /// </summary>
+        public static string contentloadfeature {
+            get {
+                return ResourceManager.GetString("contentloadfeature", resourceCulture);
             }
         }
         
@@ -345,6 +381,15 @@ namespace ClEngine.Properties {
         public static string CopyWindow {
             get {
                 return ResourceManager.GetString("CopyWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Create 的本地化字符串。
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
             }
         }
         
@@ -880,6 +925,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Load 的本地化字符串。
+        /// </summary>
+        public static string Load {
+            get {
+                return ResourceManager.GetString("Load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 LoadContent 的本地化字符串。
         /// </summary>
         public static string LoadContent {
@@ -979,6 +1033,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 MaxValue 的本地化字符串。
+        /// </summary>
+        public static string MaxValue {
+            get {
+                return ResourceManager.GetString("MaxValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 MessageProperty 的本地化字符串。
         /// </summary>
         public static string MessageProperty {
@@ -993,6 +1056,15 @@ namespace ClEngine.Properties {
         public static string Method {
             get {
                 return ResourceManager.GetString("Method", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 MinValue 的本地化字符串。
+        /// </summary>
+        public static string MinValue {
+            get {
+                return ResourceManager.GetString("MinValue", resourceCulture);
             }
         }
         
@@ -1501,6 +1573,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Turn off the current game  的本地化字符串。
+        /// </summary>
+        public static string systemendgamefeature {
+            get {
+                return ResourceManager.GetString("systemendgamefeature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Current game full screen display mode  的本地化字符串。
         /// </summary>
         public static string systemfullscreenfeature {
@@ -1515,6 +1596,15 @@ namespace ClEngine.Properties {
         public static string systemheightfeature {
             get {
                 return ResourceManager.GetString("systemheightfeature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The visual state of the default system mouse pointer in the game  的本地化字符串。
+        /// </summary>
+        public static string systemmousevisiblefeature {
+            get {
+                return ResourceManager.GetString("systemmousevisiblefeature", resourceCulture);
             }
         }
         
@@ -1758,6 +1848,15 @@ namespace ClEngine.Properties {
         public static string Value {
             get {
                 return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Create Vector2  的本地化字符串。
+        /// </summary>
+        public static string vectorcreatefeature {
+            get {
+                return ResourceManager.GetString("vectorcreatefeature", resourceCulture);
             }
         }
         

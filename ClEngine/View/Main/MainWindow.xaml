@@ -105,6 +105,9 @@
                         <xcad:LayoutAnchorable CanClose="False" CanHide="False" Title="{x:Static properties:Resources.Particle}" CanFloat="False" x:Name="ParticleLayout">
                             <particle:ParticleEditor></particle:ParticleEditor>
                         </xcad:LayoutAnchorable>
+                        <xcad:LayoutAnchorable CanClose="False" CanHide="False" Title="{x:Static properties:Resources.Resource}" CanFloat="False" x:Name="ResourceLayout">
+                            <asset:ResourceView></asset:ResourceView>
+                        </xcad:LayoutAnchorable>
                         <xcad:LayoutAnchorable CanClose="False" CanHide="False" Title="{x:Static properties:Resources.HelpDocument}" CanFloat="False" x:Name="HelpLayout">
                             <local:HelpDocument></local:HelpDocument>
                         </xcad:LayoutAnchorable>

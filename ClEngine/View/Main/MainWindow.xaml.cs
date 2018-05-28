@@ -12,7 +12,6 @@ using Exceptionless;
 using GalaSoft.MvvmLight.Messaging;
 using MahApps.Metro.Controls;
 using Newtonsoft.Json;
-using Application = System.Windows.Application;
 using Size = System.Windows.Size;
 
 // ReSharper disable once CheckNamespace
@@ -39,6 +38,7 @@ namespace ClEngine
 	        UiLayout.IsVisible = false;
 	        ScriptLayout.IsVisible = false;
 	        ParticleLayout.IsVisible = false;
+	        ResourceLayout.IsVisible = false;
 
             Closed += (sender, args) =>
             {
@@ -164,6 +164,7 @@ namespace ClEngine
             UiLayout.IsVisible = true;
             ScriptLayout.IsVisible = true;
             ParticleLayout.IsVisible = true;
+            ResourceLayout.IsVisible = true;
 
             ((MainViewModel) DataContext).IsLoadProject = true;
 

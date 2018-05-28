@@ -51,7 +51,7 @@
                       x:Name="ResourceDataGrid">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static properties:Resources.ResourceName}" Binding="{Binding Name}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="{x:Static properties:Resources.ResourcePath}" Binding="{Binding XnaAssetPath}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static properties:Resources.ResourcePath}" Binding="{Binding Path}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

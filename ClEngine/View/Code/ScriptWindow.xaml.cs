@@ -46,10 +46,20 @@ namespace ClEngine
             SearchPanel.Install(TextEditor);
 
             TextEditor.TextArea.TextEntering += TextAreaOnTextEntering;
+            TextEditor.TextArea.TextEntered += TextAreaOnTextEntered;
 
             Messenger.Default.Register<string>(this, "SaveScript", SaveScript, true);
         }
-        
+
+        private CompletionWindow completionWindow;
+        private void TextAreaOnTextEntered(object sender, TextCompositionEventArgs e)
+        {
+            if (e.Text == ".")
+            {
+                completionWindow = new CompletionWindow(TextEditor.TextArea);
+            }
+        }
+
         private void CodeViewer_OnClick(object sender, RoutedEventArgs e)
         {
             if (CodeListBox.SelectedItem != null && CodeListBox.SelectedItem is TextBlock textBlock)

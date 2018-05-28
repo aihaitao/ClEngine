@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using ClEngine.CoreLibrary.Asset;
 using ClEngine.ViewModel;
@@ -44,11 +45,24 @@ namespace ClEngine.View.Asset
 			contextMenu.Items.Add(copyName);
 
 			addResource.Click += AddResourceOnClick;
+		    copyName.Click += CopyNameOnClick;
 
-			ResourceDataGrid.ContextMenu = contextMenu;
+
+            ResourceDataGrid.ContextMenu = contextMenu;
 		}
 
-		private void ResourceDataGridOnSelectionChanged(object sender, SelectionChangedEventArgs e)
+	    private void CopyNameOnClick(object sender, RoutedEventArgs e)
+	    {
+	        if (ResourceDataGrid.SelectedItem is ResourceInfo resourceInfo)
+	        {
+	            var path = Path.GetDirectoryName(resourceInfo.Path)?.Replace(AssetResolver.SourceAsset, "")
+	                .TrimStart('\\');
+
+	            Clipboard.SetText($"{path}//{resourceInfo.Name}");
+	        }
+	    }
+
+	    private void ResourceDataGridOnSelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			if (ResourceDataGrid.SelectedItem is ResourceInfo resourceInfo)
 			{

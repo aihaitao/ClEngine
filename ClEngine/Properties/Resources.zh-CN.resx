@@ -708,4 +708,37 @@
   <data name="Description" xml:space="preserve">
     <value>说明描述</value>
   </data>
+  <data name="MinValue" xml:space="preserve">
+    <value>最小值</value>
+  </data>
+  <data name="MaxValue" xml:space="preserve">
+    <value>最大值</value>
+  </data>
+  <data name="systemendgamefeature" xml:space="preserve">
+    <value>关闭当前进行中的游戏</value>
+  </data>
+  <data name="systemmousevisiblefeature" xml:space="preserve">
+    <value>游戏中默认系统鼠标指针的可视状态</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>加载</value>
+  </data>
+  <data name="contentloadfeature" xml:space="preserve">
+    <value>加载引擎所支持的资源</value>
+  </data>
+  <data name="AssetPath" xml:space="preserve">
+    <value>资源名称</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="cameracreatefeature" xml:space="preserve">
+    <value>创建相机</value>
+  </data>
+  <data name="vectorcreatefeature" xml:space="preserve">
+    <value>创建Vector2</value>
+  </data>
+  <data name="colorcreatefeature" xml:space="preserve">
+    <value>创建Color</value>
+  </data>
 </root>

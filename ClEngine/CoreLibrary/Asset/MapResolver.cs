@@ -12,7 +12,6 @@ namespace ClEngine.CoreLibrary.Asset
         }
 
         public override string Extension { get; }
-        public override string WatcherExtension { get; }
 
         /// <summary>
         /// 编译地图 编译顺序

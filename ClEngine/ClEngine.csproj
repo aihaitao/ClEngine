@@ -218,6 +218,7 @@
     <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="ViewModel\ResourceViewModel.cs" />
     <Compile Include="ViewModel\ScriptViewModel.cs" />
+    <Compile Include="ViewModel\SystemDocumentViewModel.cs" />
     <Compile Include="ViewModel\UiViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\Animate\AnimationEditor.xaml.cs">
@@ -229,6 +230,15 @@
     </Compile>
     <Compile Include="View\Code\ScriptWindow.xaml.cs">
       <DependentUpon>ScriptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Help\CameraDocumentView.xaml.cs">
+      <DependentUpon>CameraDocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Help\CommonDocumentView.xaml.cs">
+      <DependentUpon>CommonDocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Help\ContentDocumentView.xaml.cs">
+      <DependentUpon>ContentDocumentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Help\DocDetailView.xaml.cs">
       <DependentUpon>DocDetailView.xaml</DependentUpon>
@@ -401,6 +411,18 @@
     <Page Include="View\Code\ScriptWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Help\CameraDocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Help\CommonDocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Help\ContentDocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Help\DocDetailView.xaml">
       <Generator>MSBuild:Compile</Generator>

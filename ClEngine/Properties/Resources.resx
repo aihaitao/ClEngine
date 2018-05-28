@@ -705,4 +705,37 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="MinValue" xml:space="preserve">
+    <value>MinValue</value>
+  </data>
+  <data name="MaxValue" xml:space="preserve">
+    <value>MaxValue</value>
+  </data>
+  <data name="systemendgamefeature" xml:space="preserve">
+    <value>Turn off the current game </value>
+  </data>
+  <data name="systemmousevisiblefeature" xml:space="preserve">
+    <value>The visual state of the default system mouse pointer in the game </value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="contentloadfeature" xml:space="preserve">
+    <value>Resources supported by the load engine </value>
+  </data>
+  <data name="AssetPath" xml:space="preserve">
+    <value>Asset Path</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="cameracreatefeature" xml:space="preserve">
+    <value>Create a camera </value>
+  </data>
+  <data name="vectorcreatefeature" xml:space="preserve">
+    <value>Create Vector2 </value>
+  </data>
+  <data name="colorcreatefeature" xml:space="preserve">
+    <value>Create Color</value>
+  </data>
 </root>

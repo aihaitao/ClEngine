@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Windows;
+using System.Windows.Threading;
 using System.Xml.Serialization;
 using ClEngine.CoreLibrary.Editor;
 
 namespace ClEngine.CoreLibrary.Asset
 {
-	[Serializable]
+
+    [Serializable]
 	public abstract class AssetResolver: ICompiler, ISerializable
 	{
 		public string Name { get; set; }
 		
 		public abstract string Extension { get; }
-		public abstract string WatcherExtension { get; }
 
-		public List<AssetResolver> Resolvers { get; private set; }
+		public ObservableCollection<ResourceInfo> Resolvers { get; private set; }
 
 		[NonSerialized]
 		protected readonly AssetTranslator Translator;
@@ -27,7 +29,7 @@ namespace ClEngine.CoreLibrary.Asset
 			? Path.Combine(EditorRecord.MainViewModel.ProjectPosition, "Intermediate")
 			: "Intermediate";
 
-		private static string SourceAsset =>
+		public static string SourceAsset =>
 		    EditorRecord.MainViewModel.ProjectPosition != null ? Path.Combine(EditorRecord.MainViewModel.ProjectPosition, Content) : Content;
 		
 		private static string Content => "Content";
@@ -36,11 +38,11 @@ namespace ClEngine.CoreLibrary.Asset
 
 		public string XnaAssetPath { get; private set; }
 
-		/// <summary>
-		/// 是否使用资源管理
-		/// 默认:<value>true</value>
-		/// </summary>
-		[NonSerialized] public bool UseBundle;
+        /// <summary>
+        /// 是否使用资源管理
+        /// 默认:<value>true</value>
+        /// </summary>
+        [NonSerialized] public bool UseBundle;
 
 		protected AssetResolver(string name)
 		{
@@ -49,8 +51,9 @@ namespace ClEngine.CoreLibrary.Asset
 		    Type = SerializeType.Xml;
 
             Translator = AssetTranslator.GetTranslator();
-			Resolvers = new List<AssetResolver>();
-		}
+		    Translator.Complete = UpdateResolver;
+            Resolvers = new ObservableCollection<ResourceInfo>();
+        }
 
 		/// <summary>
 		/// 开始编译
@@ -69,12 +72,28 @@ namespace ClEngine.CoreLibrary.Asset
 			SetOtherCompilerArugments();
 			CompileAsset();
 
-			Translator.Compiler(Arguments);
+            Translator.Compiler(Arguments);
 
 			XnaAssetPath = _originPath;
+		    UpdateResolver();
 		}
 
-		/// <summary>
+	    public void UpdateResolver()
+	    {
+	        Application.Current.Dispatcher.Invoke(() =>
+	        {
+	            Resolvers.Clear();
+
+	            if (!Directory.Exists(StoragePath))
+	                Directory.CreateDirectory(StoragePath);
+
+	            var files = Directory.GetFiles(StoragePath, "*.xnb", SearchOption.AllDirectories);
+	            foreach (var file in files)
+	                Resolvers.Add(new ResourceInfo {Name = Path.GetFileNameWithoutExtension(file), Path = file});
+	        });
+	    }
+
+	    /// <summary>
 		/// 移动资源
 		/// </summary>
 		/// <param name="orginPath"></param>
@@ -141,31 +160,18 @@ namespace ClEngine.CoreLibrary.Asset
 
 		protected virtual void SetDefaultCompilerArguments()
 		{
-			SetOutputDir();
-			SetIntermediate();
-			SetCompress();
-			SetReference();
-		}
+            if (!Directory.Exists(Intermediate))
+		        Directory.CreateDirectory(Intermediate);
 
-		private void SetOutputDir()
-		{
-			Arguments += string.Concat(" /outputDir:", SourceAsset);
-		}
+		    Arguments = $"/build:{_originPath} /outputDir:{StoragePath} /intermediateDir:{Intermediate} /compress:true";
 
-		private void SetIntermediate()
-		{
-			Arguments += string.Concat(" /intermediateDir:", Intermediate);
-		}
-
-		private void SetCompress()
-		{
-			Arguments += string.Concat(" /compress", "true");
-		}
+		    SetReference();
+        }
 
 		private void SetReference()
 		{
 			var monoGameExtended = Path.Combine(EditorRecord.EditorEnvironment, "MonoGame.Extended.Content.Pipeline.dll");
-			Arguments += string.Concat(" /reference:", monoGameExtended);
+			Arguments += $" /reference:{monoGameExtended}";
 		}
 
 		protected virtual void SetOtherCompilerArugments()

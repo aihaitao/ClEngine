@@ -3,8 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:model="clr-namespace:ClEngine.Model"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:help="clr-namespace:ClEngine.View.Help"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -13,8 +11,15 @@
             <TabItem Header="system">
                 <help:SystemDocumentView></help:SystemDocumentView>
             </TabItem>
-            <TabItem Header="content"></TabItem>
-            <TabItem Header="camera"></TabItem>
+            <TabItem Header="content">
+                <help:ContentDocumentView></help:ContentDocumentView>
+            </TabItem>
+            <TabItem Header="camera">
+                <help:CameraDocumentView></help:CameraDocumentView>
+            </TabItem>
+            <TabItem Header="common">
+                <help:CommonDocumentView></help:CommonDocumentView>
+            </TabItem>
         </TabControl>
     </Grid>
 </UserControl>

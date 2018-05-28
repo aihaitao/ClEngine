@@ -125,12 +125,9 @@ namespace ClEngine.CoreLibrary.Map
 		{
 			_texture2D = null;
 
-			if (type is ImageResolver resolver)
+			if (type is ImageResolver)
 			{
-				if (string.IsNullOrWhiteSpace(resolver.XnaAssetPath))
-					return;
-
-				_texture2D = Content.Load<Texture2D>(resolver.XnaAssetPath);
+				_texture2D = Content.Load<Texture2D>(name);
 			}
 		}
 	}

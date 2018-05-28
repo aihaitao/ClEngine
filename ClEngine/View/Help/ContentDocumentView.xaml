@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="ClEngine.View.Help.ContentDocumentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClEngine.View.Help"
+             xmlns:properties="clr-namespace:ClEngine.Properties"
+             mc:Ignorable="d" 
+             DataContext="{Binding Source={StaticResource Locator}, Path=Document}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <Expander Header="{x:Static properties:Resources.Method}" IsExpanded="True">
+            <WrapPanel>
+                <Expander Header="{x:Static properties:Resources.Load}" IsExpanded="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.Feature}"></Binding>
+                                    <Binding Source="{x:Static properties:Resources.contentloadfeature}"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Grid.Row="1" Margin="0 2 0 0">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}: {1}">
+                                    <Binding Source="{x:Static properties:Resources.InterfaceName}"></Binding>
+                                    <Binding Source="content.load"></Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <ListView Grid.Row="2" ItemsSource="{Binding LoadParameterList}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="{x:Static properties:Resources.ParameterName}" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                                    <GridViewColumn Header="{x:Static properties:Resources.TypeValue}" DisplayMemberBinding="{Binding TypeValue}"></GridViewColumn>
+                                    <GridViewColumn Header="{x:Static properties:Resources.IsNecessary}" DisplayMemberBinding="{Binding IsNecessary}"></GridViewColumn>
+                                    <GridViewColumn Header="{x:Static properties:Resources.Description}" DisplayMemberBinding="{Binding Description}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Expander Grid.Row="3" Header="{x:Static properties:Resources.Example}" IsExpanded="True" Margin="0 5 0 0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBox
+                                     IsReadOnly="True" 
+                                     BorderThickness="0" 
+                                     Text="content.load('image//cl')"></TextBox>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </Expander>
+            </WrapPanel>
+        </Expander>
+    </StackPanel>
+</UserControl>
