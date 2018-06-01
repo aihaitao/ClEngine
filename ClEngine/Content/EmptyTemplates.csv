@@ -1,0 +1,7 @@
+﻿"FriendlyName (System.String, required)",Namespace (System.String),ZipName (System.String),Url (System.String),SupportedInGlue (bool)
+"Desktop GL (Windows, Mac, Linux)",DesktopGlTemplate,DesktopGL.zip,http://clengine-1251683857.file.myqcloud.com/DesktopGlTemplate.zip,TRUE
+"Android (Phone, Tablet, Fire TV)",AndroidTemplate,AndroidTemplate.zip,http://clengine-1251683857.file.myqcloud.com/AndroidTemplate.zip,TRUE
+"iOS (iPhone, iPad, iPod Touch)",iOSTemplate,iOSTemplate.zip,http://clengine-1251683857.file.myqcloud.com/iOSTemplate.zip,TRUE
+Windows RT,Windows8Template,Windows8Template.zip,http://clengine-1251683857.file.myqcloud.com/Windows8Template.zip,TRUE
+"Winows UWP (Windows Desktop, Xbox One, Tablet, Windows Phone)",UwpTemplate,UwpTemplate.zip,http://clengine-1251683857.file.myqcloud.com/UwpTemplate.zip,TRUE
+"Desktop XNA (Windows, requires XNA install)",Xna4Template,Xna4Template.zip,http://clengine-1251683857.file.myqcloud.com/Xna4Template.zip,TRUE

@@ -259,11 +259,38 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Couldn&apos;t find this project online 的本地化字符串。
+        /// </summary>
+        public static string CantFindProjectOnline {
+            get {
+                return ResourceManager.GetString("CantFindProjectOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Could not find the template file 的本地化字符串。
+        /// </summary>
+        public static string CantFindTemplate {
+            get {
+                return ResourceManager.GetString("CantFindTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 CheckBox 的本地化字符串。
         /// </summary>
         public static string CheckBox {
             get {
                 return ResourceManager.GetString("CheckBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Check for new version 的本地化字符串。
+        /// </summary>
+        public static string CheckNewVersion {
+            get {
+                return ResourceManager.GetString("CheckNewVersion", resourceCulture);
             }
         }
         
@@ -394,6 +421,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Create Project Directory 的本地化字符串。
+        /// </summary>
+        public static string CreateProjectDirectory {
+            get {
+                return ResourceManager.GetString("CreateProjectDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 CurrentFps 的本地化字符串。
         /// </summary>
         public static string CurrentFps {
@@ -408,6 +444,15 @@ namespace ClEngine.Properties {
         public static string DataType {
             get {
                 return ResourceManager.GetString("DataType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Look for the file in the default location 的本地化字符串。
+        /// </summary>
+        public static string DefaultFindFile {
+            get {
+                return ResourceManager.GetString("DefaultFindFile", resourceCulture);
             }
         }
         
@@ -475,11 +520,47 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Directory 的本地化字符串。
+        /// </summary>
+        public static string Directory {
+            get {
+                return ResourceManager.GetString("Directory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Display 的本地化字符串。
         /// </summary>
         public static string Display {
             get {
                 return ResourceManager.GetString("Display", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Error downloading the file.  What would you like to do? 的本地化字符串。
+        /// </summary>
+        public static string DownloadError {
+            get {
+                return ResourceManager.GetString("DownloadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 DownloadInformation 的本地化字符串。
+        /// </summary>
+        public static string DownloadInformation {
+            get {
+                return ResourceManager.GetString("DownloadInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Downloading 的本地化字符串。
+        /// </summary>
+        public static string Downloading {
+            get {
+                return ResourceManager.GetString("Downloading", resourceCulture);
             }
         }
         
@@ -507,6 +588,24 @@ namespace ClEngine.Properties {
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Empty Projects 的本地化字符串。
+        /// </summary>
+        public static string EmptyProjects {
+            get {
+                return ResourceManager.GetString("EmptyProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Empty Template 的本地化字符串。
+        /// </summary>
+        public static string EmptyTemplate {
+            get {
+                return ResourceManager.GetString("EmptyTemplate", resourceCulture);
             }
         }
         
@@ -1105,6 +1204,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 You must first select a template 的本地化字符串。
+        /// </summary>
+        public static string MustSelectTemplate {
+            get {
+                return ResourceManager.GetString("MustSelectTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Name 的本地化字符串。
         /// </summary>
         public static string Name {
@@ -1137,6 +1245,96 @@ namespace ClEngine.Properties {
         public static string NinePattern {
             get {
                 return ResourceManager.GetString("NinePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 is not empty 的本地化字符串。
+        /// </summary>
+        public static string NotEmpty {
+            get {
+                return ResourceManager.GetString("NotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You must enter a non-empty namespace if using a different namespace 的本地化字符串。
+        /// </summary>
+        public static string NotEmptyNamespaceTip {
+            get {
+                return ResourceManager.GetString("NotEmptyNamespaceTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Nothing - don&apos;t create a project 的本地化字符串。
+        /// </summary>
+        public static string NothingDontCreateProject {
+            get {
+                return ResourceManager.GetString("NothingDontCreateProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The namespace can&apos;t contain invalid character 的本地化字符串。
+        /// </summary>
+        public static string NotInvalidNamespaceTip {
+            get {
+                return ResourceManager.GetString("NotInvalidNamespaceTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Namespace can&apos;t start with a number 的本地化字符串。
+        /// </summary>
+        public static string NotNumberNamespaceTip {
+            get {
+                return ResourceManager.GetString("NotNumberNamespaceTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 There is no zip file online for this template 的本地化字符串。
+        /// </summary>
+        public static string NotOnlineTemplate {
+            get {
+                return ResourceManager.GetString("NotOnlineTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The program does not have permission to create a directory at 的本地化字符串。
+        /// </summary>
+        public static string NotPermissionCreate {
+            get {
+                return ResourceManager.GetString("NotPermissionCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The namespace can&apos;t have any spaces. 的本地化字符串。
+        /// </summary>
+        public static string NotSpaceNamespaceTip {
+            get {
+                return ResourceManager.GetString("NotSpaceNamespaceTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Project names cannot contain spaces. 的本地化字符串。
+        /// </summary>
+        public static string NotSpaceProjectTip {
+            get {
+                return ResourceManager.GetString("NotSpaceProjectTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 This project type is not supported in Glue.  You must launch the New Project Creator manually 的本地化字符串。
+        /// </summary>
+        public static string NotSuppoertGlueManuallyCreator {
+            get {
+                return ResourceManager.GetString("NotSuppoertGlueManuallyCreator", resourceCulture);
             }
         }
         
@@ -1254,6 +1452,24 @@ namespace ClEngine.Properties {
         public static string Project {
             get {
                 return ResourceManager.GetString("Project", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Project Loaction 的本地化字符串。
+        /// </summary>
+        public static string ProjectLoaction {
+            get {
+                return ResourceManager.GetString("ProjectLoaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Project Name 的本地化字符串。
+        /// </summary>
+        public static string ProjectName {
+            get {
+                return ResourceManager.GetString("ProjectName", resourceCulture);
             }
         }
         
@@ -1384,6 +1600,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Please run as administrator mode 的本地化字符串。
+        /// </summary>
+        public static string RunAdminMode {
+            get {
+                return ResourceManager.GetString("RunAdminMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 RunGame 的本地化字符串。
         /// </summary>
         public static string RunGame {
@@ -1456,6 +1681,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Select a .zip file to use 的本地化字符串。
+        /// </summary>
+        public static string SelectZipUse {
+            get {
+                return ResourceManager.GetString("SelectZipUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 ShopBox 的本地化字符串。
         /// </summary>
         public static string ShopBox {
@@ -1524,6 +1758,15 @@ namespace ClEngine.Properties {
         public static string SpriteTexture {
             get {
                 return ResourceManager.GetString("SpriteTexture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Starter Projects 的本地化字符串。
+        /// </summary>
+        public static string StarterProjects {
+            get {
+                return ResourceManager.GetString("StarterProjects", resourceCulture);
             }
         }
         
@@ -1834,6 +2077,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Use Different Namespace 的本地化字符串。
+        /// </summary>
+        public static string UseDifferentNamespace {
+            get {
+                return ResourceManager.GetString("UseDifferentNamespace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Use items 的本地化字符串。
         /// </summary>
         public static string UseItems {
@@ -1929,6 +2181,24 @@ namespace ClEngine.Properties {
         public static string WindowTitle {
             get {
                 return ResourceManager.GetString("WindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Zipped FRB template 的本地化字符串。
+        /// </summary>
+        public static string ZipFRBTemplate {
+            get {
+                return ResourceManager.GetString("ZipFRBTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The zipToUnpack argument is null - it shouldn&apos;t be 的本地化字符串。
+        /// </summary>
+        public static string ZipToUnpackNotNull {
+            get {
+                return ResourceManager.GetString("ZipToUnpackNotNull", resourceCulture);
             }
         }
     }

@@ -3,11 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:properties="clr-namespace:ClEngine.Properties"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="{x:Static properties:Resources.MessageProperty}" Height="550" Width="350" WindowStartupLocation="CenterScreen" Topmost="True">
-    <WindowsFormsHost>
-        <forms:PropertyGrid x:Name="PropertyGrid"></forms:PropertyGrid>
-    </WindowsFormsHost>
+    <xctk:PropertyGrid x:Name="PropertyGrid"></xctk:PropertyGrid>
 </Window>

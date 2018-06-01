@@ -19,3 +19,12 @@
 [submodule "MonoGame.Framework.WpfInterop"]
 	path = MonoGame.Framework.WpfInterop
 	url = https://gitlab.com/MarcStan/MonoGame.Framework.WpfInterop.git
+[submodule "FlatRedBall"]
+	path = FlatRedBall
+	url = https://github.com/vchelaru/FlatRedBall.git
+[submodule "Gum"]
+	path = Gum
+	url = https://github.com/vchelaru/Gum.git
+[submodule "TiledMap-FlatRedBall-Conversion"]
+	path = TiledMap-FlatRedBall-Conversion
+	url = https://github.com/kainazzzo/TiledMap-FlatRedBall-Conversion.git

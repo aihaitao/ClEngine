@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Specialized;
 using System.Windows.Input;
 using ClEngine.Core;
-using DirectxGame;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
-using GalaSoft.MvvmLight.Messaging;
 
 namespace ClEngine.ViewModel
 {
@@ -34,6 +31,19 @@ namespace ClEngine.ViewModel
                 RaisePropertyChanged(() => IsGameRun);
             }
         }
+
+        public bool _isFormal;
+
+        public bool IsFormal
+        {
+            get => _isFormal;
+            set
+            {
+                _isFormal = value;
+                RaisePropertyChanged(() => IsFormal);
+            }
+        }
+
         public ICommand SaveScriptCommand { get; set; }
         public ICommand RunGameCommand { get; set; }
         public ICommand ClearLogCommand { get; set; }
@@ -81,6 +91,7 @@ namespace ClEngine.ViewModel
         {
             IsLoadProject = false;
             IsGameRun = false;
+            IsFormal = false;
 
             IsClearLog = MessageCache.Messages.Count > 0;
             MessageCache.Messages.CollectionChanged += MessagesOnCollectionChanged;
@@ -97,26 +108,6 @@ namespace ClEngine.ViewModel
 
         private void RunGameExecute()
         {
-            if (!IsLoadProject)
-                return;
-
-            ClearLogExecute();
-            SaveScriptExecute();
-            IsGameRun = true;
-
-            Environment.CurrentDirectory = ProjectPosition;
-
-            using (var game = new Game1())
-            {
-                game.Exiting += (sender, args) =>
-                {
-                    IsGameRun = false;
-                    game.IsMouseVisible = true;
-                };
-                game.Run();
-            }
-
-            Environment.CurrentDirectory = EditorRecord.EditorEnvironment;
         }
 
         private void MessagesOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -126,7 +117,7 @@ namespace ClEngine.ViewModel
 
         private void SaveScriptExecute()
         {
-            Messenger.Default.Send(string.Empty, "SaveScript");
+            ScriptWindow.SaveScript();
         }
     }
 }

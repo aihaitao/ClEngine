@@ -4,9 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:properties="clr-namespace:ClEngine.Properties"
+        xmlns:viewModel="clr-namespace:ClEngine.ViewModel"
         mc:Ignorable="d"
-        Style="{StaticResource {x:Type Window}}"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Project}"
         Title="{x:Static properties:Resources.NewProject}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <DataTemplate x:Key="CategoryTemplate">
+            <Grid>
+                <TextBlock Text="{Binding Name}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TemplateDataTemplate">
+            <Grid>
+                <TextBlock Text="{Binding Name}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -22,18 +37,13 @@
                             <ColumnDefinition Width="2"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TreeView Grid.Column="0">
-                            <TreeViewItem Header="即时战斗类型" IsExpanded="True" Selected="TreeViewItem_OnSelected">
-                                <TabItem Header="开始模板  [1]"></TabItem>
-                                <TabItem Header="接口使用  [0]"></TabItem>
-                                <TabItem Header="UI相关    [0]"></TabItem>
-                                <TabItem Header="智能AI    [0]"></TabItem>
-                                <TabItem Header="技能相关  [0]"></TabItem>
-                                <TabItem Header="插件例程序[0]"></TabItem>
-                            </TreeViewItem>
-                        </TreeView>
-                        <GridSplitter Grid.Column="1"/>
-                        <ListBox Grid.Column="2" Name="ListBox">
+                        <ListBox Grid.Column="0" ItemTemplate="{DynamicResource CategoryTemplate}" ItemsSource="{Binding Categories}"
+                                 SelectedItem="{Binding SelectedCategory}">
+                        </ListBox>
+                        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+                        <ListBox Grid.Column="2" ItemTemplate="{DynamicResource TemplateDataTemplate}"
+                                 ItemsSource="{Binding AvailableTemplates}"
+                                 SelectedItem="{Binding SelectedTemplate}">
                         </ListBox>
                     </Grid>
                 </Grid>
@@ -41,30 +51,46 @@
             <TabItem Header="{x:Static properties:Resources.OtherTemplate}"></TabItem>
         </TabControl>
         <GridSplitter Grid.Row="1"/>
-        <Grid Grid.Row="2" Margin="2 0 2 2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="30"></ColumnDefinition>
-                <ColumnDefinition Width="100"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="工程名称:" 
-                       Grid.Column="0" 
-                       VerticalAlignment="Center"></TextBlock>
-            <TextBox Grid.Column="1" Margin="2 0 0 0" Name="ProjectName"></TextBox>
-            <TextBlock Text="工程位置:" 
-                       Grid.Column="2" 
-                       VerticalAlignment="Center"
-                       Margin="2 0 0 0"></TextBlock>
-            <TextBox Grid.Column="3" Margin="2 0 0 0" Name="ProjectPosition"></TextBox>
-            <Button Grid.Column="4" Margin="2 0 0 0" Click="Browser_OnClick">
-                <TextBlock Text="..."></TextBlock>
-            </Button>
-            <Button Grid.Column="5" Margin="2 0 0 0" Click="CreateProject_OnClick">
-                <TextBlock Text="确定"></TextBlock>
-            </Button>
-        </Grid>
+        <StackPanel Grid.Row="2">
+            <Grid Margin="2 0 2 2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Static properties:Resources.ProjectName}" 
+                           Grid.Column="0"
+                           VerticalAlignment="Center"></TextBlock>
+                <TextBox Grid.Column="1" Margin="2 0 0 0" x:Name="ProjectNameTextBox" Text="{Binding ProjectName}"></TextBox>
+                <TextBlock Text="{x:Static properties:Resources.ProjectLoaction}" 
+                           Grid.Column="2" 
+                           VerticalAlignment="Center"
+                           Margin="2 0 0 0"></TextBlock>
+                <TextBox Grid.Column="3" Margin="2 0 0 0" x:Name="ProjectLocationTextBox" Text="{Binding ProjectLocation}"></TextBox>
+                <Button Grid.Column="4" Margin="2 0 0 0" Click="Browser_OnClick">
+                    <TextBlock Text="..."></TextBlock>
+                </Button>
+                <Button Grid.Column="5" Margin="2 0 0 0" Command="{Binding MakeNewProjectCommand}">
+                    <TextBlock Text="{x:Static properties:Resources.Confirm}"></TextBlock>
+                </Button>
+            </Grid>
+            <Grid Margin="2 0 2 2">
+                <WrapPanel>
+                    <CheckBox x:Name="DifferentNamespaceCheckbox" IsChecked="{Binding UseDifferentNamespace}">
+                        <TextBlock Text="{x:Static properties:Resources.UseDifferentNamespace}"></TextBlock>
+                    </CheckBox>
+                    <TextBox Margin="5 0 0 0" MinWidth="200" Text="{Binding DifferentNamespace}" x:Name="DifferentNamespaceTextbox"></TextBox>
+                    <CheckBox Margin="5 0 0 0" IsChecked="{Binding CreateProjectDirectory}" x:Name="CreateProjectDirectoryCheckBox">
+                        <TextBlock Text="{x:Static properties:Resources.CreateProjectDirectory}"></TextBlock>
+                    </CheckBox>
+                    <CheckBox Margin="5 0 0 0" IsChecked="{Binding CheckForNewVersions}" x:Name="CheckForNewVersionCheckBox">
+                        <TextBlock Text="{x:Static properties:Resources.CheckNewVersion}"></TextBlock>
+                    </CheckBox>
+                </WrapPanel>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>

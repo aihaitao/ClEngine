@@ -30,21 +30,10 @@ namespace ClEngine.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
-
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ScriptViewModel>();
-            SimpleIoc.Default.Register<UiViewModel>();
             SimpleIoc.Default.Register<SystemDocumentViewModel>();
+            SimpleIoc.Default.Register<ProjectViewModel>();
         }
 
         public MainViewModel Main
@@ -56,23 +45,23 @@ namespace ClEngine.ViewModel
         {
             get { return ServiceLocator.Current.GetInstance<ScriptViewModel>(); }
         }
-
-        public UiViewModel Ui
-        {
-            get { return ServiceLocator.Current.GetInstance<UiViewModel>(); }
-        }
-
+        
         public SystemDocumentViewModel Document
         {
             get { return ServiceLocator.Current.GetInstance<SystemDocumentViewModel>(); }
+        }
+
+        public ProjectViewModel Project
+        {
+            get { return ServiceLocator.Current.GetInstance<ProjectViewModel>(); }
         }
 
         public static void Cleanup()
         {
             SimpleIoc.Default.Unregister<MainViewModel>();
             SimpleIoc.Default.Unregister<ScriptViewModel>();
-            SimpleIoc.Default.Unregister<UiViewModel>();
             SimpleIoc.Default.Unregister<SystemDocumentViewModel>();
+            SimpleIoc.Default.Unregister<ProjectViewModel>();
         }
     }
 }

@@ -15,7 +15,19 @@ namespace ClEngine.ViewModel
                 RaisePropertyChanged(()=> Script);
             }
         }
-        
+
+        private string _name;
+
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                RaisePropertyChanged(() => Name);
+            }
+        }
+
         public ScriptViewModel()
         {
             _script = new ScriptModel();

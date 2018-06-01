@@ -741,4 +741,94 @@
   <data name="colorcreatefeature" xml:space="preserve">
     <value>创建Color</value>
   </data>
+  <data name="EmptyTemplate" xml:space="preserve">
+    <value>空白模板</value>
+  </data>
+  <data name="StarterProjects" xml:space="preserve">
+    <value>开始工程</value>
+  </data>
+  <data name="EmptyProjects" xml:space="preserve">
+    <value>空白工程</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>工程名称</value>
+  </data>
+  <data name="ProjectLoaction" xml:space="preserve">
+    <value>工程位置</value>
+  </data>
+  <data name="UseDifferentNamespace" xml:space="preserve">
+    <value>使用不同的命名空间</value>
+  </data>
+  <data name="CreateProjectDirectory" xml:space="preserve">
+    <value>创建工程目录</value>
+  </data>
+  <data name="NotEmptyNamespaceTip" xml:space="preserve">
+    <value>如果使用不同的命名空间，则必须输入非空命名空间。</value>
+  </data>
+  <data name="NotNumberNamespaceTip" xml:space="preserve">
+    <value>命名空间不能用数字开头</value>
+  </data>
+  <data name="NotSpaceNamespaceTip" xml:space="preserve">
+    <value>命名空间不能有任何空格。</value>
+  </data>
+  <data name="NotInvalidNamespaceTip" xml:space="preserve">
+    <value>命名空间不能包含无效字符。</value>
+  </data>
+  <data name="MustSelectTemplate" xml:space="preserve">
+    <value>必须首先选择模板</value>
+  </data>
+  <data name="NotSuppoertGlueManuallyCreator" xml:space="preserve">
+    <value>在Glue中不支持此项目类型。您必须手动启动新项目创建者</value>
+  </data>
+  <data name="NotSpaceProjectTip" xml:space="preserve">
+    <value>项目名称不能包含空格。</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>文件夹</value>
+  </data>
+  <data name="NotEmpty" xml:space="preserve">
+    <value>不为空</value>
+  </data>
+  <data name="CheckNewVersion" xml:space="preserve">
+    <value>检查新版本</value>
+  </data>
+  <data name="NotOnlineTemplate" xml:space="preserve">
+    <value>此模板没有在线zip文件</value>
+  </data>
+  <data name="DefaultFindFile" xml:space="preserve">
+    <value>在默认位置查找文件</value>
+  </data>
+  <data name="SelectZipUse" xml:space="preserve">
+    <value>选择一个要使用的.zip文件</value>
+  </data>
+  <data name="NothingDontCreateProject" xml:space="preserve">
+    <value>不要创建一个项目</value>
+  </data>
+  <data name="ZipFRBTemplate" xml:space="preserve">
+    <value>压缩的FRB模板</value>
+  </data>
+  <data name="CantFindProjectOnline" xml:space="preserve">
+    <value>无法在线找到此项目</value>
+  </data>
+  <data name="Downloading" xml:space="preserve">
+    <value>下载</value>
+  </data>
+  <data name="ZipToUnpackNotNull" xml:space="preserve">
+    <value>ZIPTUnPACK参数为NULL——它不应该是NULL</value>
+  </data>
+  <data name="DownloadInformation" xml:space="preserve">
+    <value>下载信息</value>
+  </data>
+  <data name="DownloadError" xml:space="preserve">
+    <value>下载文件时出错</value>
+  </data>
+  <data name="NotPermissionCreate" xml:space="preserve">
+    <value>该程序无权创建目录</value>
+  </data>
+  <data name="RunAdminMode" xml:space="preserve">
+    <value>请以管理员模式运行</value>
+  </data>
+  <data name="CantFindTemplate" xml:space="preserve">
+    <value>找不到模板文件</value>
+  </data>
 </root>

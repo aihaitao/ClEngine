@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
-using System.Windows.Forms;
 using System.Xml;
 using ClEngine.CoreLibrary.Logger;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 using ICSharpCode.AvalonEdit.Search;
-using MessageBox = System.Windows.Forms.MessageBox;
+using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
 namespace ClEngine
 {
@@ -49,14 +48,12 @@ namespace ClEngine
         {
             if (TextEditor.IsModified)
             {
-                var result = MessageBox.Show(@"监测到文本发生更改,是否保存？", @"脚本未保存",
-                    MessageBoxButtons.YesNoCancel,
-                    MessageBoxIcon.Warning);
-                if (result == System.Windows.Forms.DialogResult.Yes)
+                var result = MessageBox.Show(@"监测到文本发生更改,是否保存？", @"脚本未保存");
+                if (result == MessageBoxResult.Yes)
                 {
                     TextEditor.Save(FileName);
                 }
-                else if (result == System.Windows.Forms.DialogResult.Cancel)
+                else if (result == MessageBoxResult.Cancel)
                 {
                     return;
                 }

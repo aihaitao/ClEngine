@@ -1,4 +1,0 @@
-﻿Main =
-function(drawtime)
-
-end

@@ -2,11 +2,11 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Xml;
 using ClEngine.CoreLibrary.Editor;
-using GalaSoft.MvvmLight.Messaging;
+using ClEngine.ViewModel;
+using CommonServiceLocator;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Highlighting;
@@ -21,7 +21,7 @@ namespace ClEngine
     /// </summary>
     public partial class ScriptWindow
     {
-        public TextEditor ScriptEditor => TextEditor;
+        public static TextEditor ScriptEditor { get; internal set; }
 
         public ScriptWindow()
         {
@@ -48,7 +48,7 @@ namespace ClEngine
             TextEditor.TextArea.TextEntering += TextAreaOnTextEntering;
             TextEditor.TextArea.TextEntered += TextAreaOnTextEntered;
 
-            Messenger.Default.Register<string>(this, "SaveScript", SaveScript, true);
+            ScriptEditor = TextEditor;
         }
 
         private CompletionWindow completionWindow;
@@ -104,34 +104,28 @@ namespace ClEngine
             }
         }
 
-        private string FileName { get; set; }
-
         private void LoadDocument(string filenamme)
         {
             if (TextEditor.IsModified)
             {
-                var result = System.Windows.Forms.MessageBox.Show(@"监测到文本发生更改,是否保存？", @"脚本未保存",
-                    MessageBoxButtons.YesNoCancel,
-                    MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    TextEditor.Save(FileName);
-                }
-                else if (result == DialogResult.Cancel)
-                {
+                var result = MessageBox.Show(@"监测到文本发生更改,是否保存？", @"脚本未保存");
+
+                if (result == MessageBoxResult.Yes)
+                    TextEditor.Save(((ScriptViewModel)DataContext).Name);
+                else
                     return;
-                }
             }
 
             TextEditor.Load(filenamme);
-            FileName = filenamme;
+            ((ScriptViewModel)DataContext).Name = filenamme;
         }
 
-        public void SaveScript(string emptyArg)
+        public static void SaveScript()
         {
-            if (TextEditor.IsModified && File.Exists(FileName))
+            var name = ServiceLocator.Current.GetInstance<ScriptViewModel>().Name;
+            if (ScriptEditor.IsModified && File.Exists(name))
             {
-                TextEditor.Save(FileName);
+                ScriptEditor.Save(name);
             }
         }
 
