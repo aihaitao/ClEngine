@@ -58,7 +58,7 @@ namespace ClEngine.Core.ProjectCreator
         {
             var projectContents = FileManager.FromFileText(projectLocation);
             var startIndex = projectContents.IndexOf("<ProjectGuid>{", StringComparison.Ordinal) + "<ProjectGuid>{".Length;
-            var endIndex = projectContents.IndexOf("</ProjectGuid>", StringComparison.Ordinal);
+            var endIndex = projectContents.IndexOf("}</ProjectGuid>", StringComparison.Ordinal);
             projectContents = projectContents.Substring(startIndex, endIndex - startIndex);
             return projectContents;
         }

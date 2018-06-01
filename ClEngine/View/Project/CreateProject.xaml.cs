@@ -19,7 +19,7 @@ namespace ClEngine
 
         public static CreateProject GetInstance()
         {
-            return Instance ?? new CreateProject();
+            return Instance ?? (Instance = new CreateProject());
         }
 
         /// <summary>

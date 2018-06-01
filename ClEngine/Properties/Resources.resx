@@ -828,4 +828,22 @@
   <data name="CantFindTemplate" xml:space="preserve">
     <value>Could not find the template file</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="CantFindProject" xml:space="preserve">
+    <value>Could not find the project</value>
+  </data>
+  <data name="OpenWithoutProject" xml:space="preserve">
+    <value>Opening without a project</value>
+  </data>
+  <data name="ErrorLoadProject" xml:space="preserve">
+    <value>Error Loading Project</value>
+  </data>
+  <data name="CantCheckNameRelative" xml:space="preserve">
+    <value>Cannot check if a null file name is relative</value>
+  </data>
+  <data name="DisabledTask" xml:space="preserve">
+    <value>Task processing disabled, next task when re-enabled</value>
+  </data>
 </root>

@@ -259,6 +259,24 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Cannot check if a null file name is relative 的本地化字符串。
+        /// </summary>
+        public static string CantCheckNameRelative {
+            get {
+                return ResourceManager.GetString("CantCheckNameRelative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Could not find the project 的本地化字符串。
+        /// </summary>
+        public static string CantFindProject {
+            get {
+                return ResourceManager.GetString("CantFindProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Couldn&apos;t find this project online 的本地化字符串。
         /// </summary>
         public static string CantFindProjectOnline {
@@ -520,11 +538,29 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Details 的本地化字符串。
+        /// </summary>
+        public static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Directory 的本地化字符串。
         /// </summary>
         public static string Directory {
             get {
                 return ResourceManager.GetString("Directory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Task processing disabled, next task when re-enabled 的本地化字符串。
+        /// </summary>
+        public static string DisabledTask {
+            get {
+                return ResourceManager.GetString("DisabledTask", resourceCulture);
             }
         }
         
@@ -633,6 +669,15 @@ namespace ClEngine.Properties {
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Error Loading Project 的本地化字符串。
+        /// </summary>
+        public static string ErrorLoadProject {
+            get {
+                return ResourceManager.GetString("ErrorLoadProject", resourceCulture);
             }
         }
         
@@ -1353,6 +1398,15 @@ namespace ClEngine.Properties {
         public static string OpenProjectDirectory {
             get {
                 return ResourceManager.GetString("OpenProjectDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Opening without a project 的本地化字符串。
+        /// </summary>
+        public static string OpenWithoutProject {
+            get {
+                return ResourceManager.GetString("OpenWithoutProject", resourceCulture);
             }
         }
         

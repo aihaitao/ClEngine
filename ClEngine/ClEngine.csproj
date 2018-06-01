@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GLUE, XNA4, DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -84,6 +84,10 @@
       <HintPath>packages\MahApps.Metro.1.6.4\lib\net46\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MonoGame.Framework.Portable.3.6.0.1625\lib\portable-net45+win8+wpa81\MonoGame.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -154,15 +158,25 @@
     <Compile Include="CoreLibrary\Editor\EditorRecord.cs" />
     <Compile Include="CoreLibrary\Editor\MyCompletionData.cs" />
     <Compile Include="CoreLibrary\Editor\ProjectInfo.cs" />
+    <Compile Include="CoreLibrary\FileWatchManager.cs" />
+    <Compile Include="CoreLibrary\Gui.cs" />
     <Compile Include="CoreLibrary\Helper\JsonHelper.cs" />
     <Compile Include="CoreLibrary\Helper\LinkedListExtensions.cs" />
     <Compile Include="CoreLibrary\Helper\MathExtensions.cs" />
     <Compile Include="CoreLibrary\Helper\RectExtensions.cs" />
+    <Compile Include="CoreLibrary\IO\ChangedFileGroup.cs" />
     <Compile Include="CoreLibrary\Layout\VirtualPanel.cs" />
     <Compile Include="CoreLibrary\Layout\ZoomableCanvas.cs" />
     <Compile Include="CoreLibrary\Logger\Logger.cs" />
+    <Compile Include="CoreLibrary\Manager\TaskManager.cs" />
+    <Compile Include="CoreLibrary\Manager\UnreferencedFilesManager.cs" />
     <Compile Include="CoreLibrary\Priority\PriorityQuadTree.cs" />
     <Compile Include="CoreLibrary\Priority\PriorityQueue.cs" />
+    <Compile Include="CoreLibrary\ProjectLoader.cs" />
+    <Compile Include="CoreLibrary\ProjectManager.cs" />
+    <Compile Include="CoreLibrary\SaveClasses\ProjectSpecificFile.cs" />
+    <Compile Include="CoreLibrary\SaveClasses\PropertySave.cs" />
+    <Compile Include="CoreLibrary\Task\GlueTask.cs" />
     <Compile Include="Model\DocumentModel.cs" />
     <Compile Include="Model\DocumentTreeModel.cs" />
     <Compile Include="Model\LogModel.cs" />
@@ -233,6 +247,9 @@
     </Compile>
     <Compile Include="View\Project\CreateProject.xaml.cs">
       <DependentUpon>CreateProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Project\InitializationWindow.xaml.cs">
+      <DependentUpon>InitializationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Project\MultiButtonMessageBox.xaml.cs">
       <DependentUpon>MultiButtonMessageBox.xaml</DependentUpon>
@@ -332,6 +349,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Project\InitializationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Project\MultiButtonMessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -351,9 +372,17 @@
       <Project>{b1e937e2-fc62-43d9-b44e-32798af19552}</Project>
       <Name>ClEngine.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBall.Tools.csproj">
-      <Project>{571d3e67-e81f-4d73-a5a1-7e92d4093298}</Project>
-      <Name>FlatRedBall.Tools</Name>
+    <ProjectReference Include="..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallXna4.csproj">
+      <Project>{E1CB7D7B-E2EC-4DEB-92E2-6EF0B76F40F0}</Project>
+      <Name>FlatRedBallXna4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlatRedBall\FRBDK\Glue\GluePropertyGridClasses\GluePropertyGridClasses.csproj">
+      <Project>{852a7438-7afe-490e-a0c7-0a35355d6179}</Project>
+      <Name>GluePropertyGridClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gum\Gum\Gum.csproj">
+      <Project>{121AC5A5-8F6A-42B2-8863-DEBC45B052BC}</Project>
+      <Name>Gum</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

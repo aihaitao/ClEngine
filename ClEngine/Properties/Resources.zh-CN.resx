@@ -831,4 +831,22 @@
   <data name="CantFindTemplate" xml:space="preserve">
     <value>找不到模板文件</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>详细</value>
+  </data>
+  <data name="CantFindProject" xml:space="preserve">
+    <value>找不到该项目</value>
+  </data>
+  <data name="OpenWithoutProject" xml:space="preserve">
+    <value>没有项目打开</value>
+  </data>
+  <data name="ErrorLoadProject" xml:space="preserve">
+    <value>加载项目时出错</value>
+  </data>
+  <data name="CantCheckNameRelative" xml:space="preserve">
+    <value>无法检查空文件名是否相对</value>
+  </data>
+  <data name="DisabledTask" xml:space="preserve">
+    <value>禁用任务处理，重新启用后的下一个任务</value>
+  </data>
 </root>

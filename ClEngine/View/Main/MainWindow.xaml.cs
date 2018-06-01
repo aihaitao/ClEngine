@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Input;
 using ClEngine.Core;
-using ClEngine.Core.ProjectCreator;
 using ClEngine.CoreLibrary.Logger;
 using ClEngine.Model;
 using ClEngine.View.Messages;
@@ -11,7 +9,6 @@ using ClEngine.ViewModel;
 using Exceptionless;
 using GalaSoft.MvvmLight.Messaging;
 using MahApps.Metro.Controls;
-using Microsoft.Win32;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 // ReSharper disable once CheckNamespace
@@ -24,10 +21,14 @@ namespace ClEngine
     {
         private ProjectInfo ProjectInfo { get; set; }
         private readonly MessageProperty _property = new MessageProperty();
+        private static MainWindow mSelf;
+        public static MainWindow Self => mSelf;
 
 
         public MainWindow()
-	    {
+        {
+            mSelf = this;
+
             InitializeComponent();
             Messenger.Default.Register<LogModel>(this, "Log", Log, true);
 
@@ -112,5 +113,11 @@ namespace ClEngine
             };
             var result = openFileDialog.ShowDialog();
         }
+
+        public void Invoke(Action action)
+        {
+            Dispatcher.Invoke(action);
+        }
+
     }
 }
