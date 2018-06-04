@@ -124,7 +124,7 @@
     <value>Display</value>
   </data>
   <data name="Project" xml:space="preserve">
-    <value>Project</value>
+    <value>mProject</value>
   </data>
   <data name="Tool" xml:space="preserve">
     <value>Tool</value>
@@ -331,25 +331,25 @@
     <value>ResourcePath</value>
   </data>
   <data name="NewProject" xml:space="preserve">
-    <value>NewProject</value>
+    <value>NewmProject</value>
   </data>
   <data name="OpenProject" xml:space="preserve">
-    <value>OpenProject</value>
+    <value>OpenmProject</value>
   </data>
   <data name="SaveProject" xml:space="preserve">
-    <value>SaveProject</value>
+    <value>SavemProject</value>
   </data>
   <data name="ExportProjectTemplate" xml:space="preserve">
-    <value>ExportProjectTemplate</value>
+    <value>ExportmProjectTemplate</value>
   </data>
   <data name="OpenProjectDirectory" xml:space="preserve">
-    <value>OpenProjectDirectory</value>
+    <value>OpenmProjectDirectory</value>
   </data>
   <data name="BindProjectID" xml:space="preserve">
-    <value>BindProjectID</value>
+    <value>BindmProjectID</value>
   </data>
   <data name="ReNameProject" xml:space="preserve">
-    <value>ReNameProject</value>
+    <value>ReNamemProject</value>
   </data>
   <data name="SystemTemplate" xml:space="preserve">
     <value>SystemTemplate</value>
@@ -634,7 +634,7 @@
     <value>AssetManage</value>
   </data>
   <data name="UnloadedProject" xml:space="preserve">
-    <value>Unloaded Project </value>
+    <value>Unloaded mProject </value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
@@ -742,22 +742,22 @@
     <value>Empty Template</value>
   </data>
   <data name="StarterProjects" xml:space="preserve">
-    <value>Starter Projects</value>
+    <value>Starter mProjects</value>
   </data>
   <data name="EmptyProjects" xml:space="preserve">
-    <value>Empty Projects</value>
+    <value>Empty mProjects</value>
   </data>
   <data name="ProjectName" xml:space="preserve">
-    <value>Project Name</value>
+    <value>mProject Name</value>
   </data>
   <data name="ProjectLoaction" xml:space="preserve">
-    <value>Project Loaction</value>
+    <value>mProject Loaction</value>
   </data>
   <data name="UseDifferentNamespace" xml:space="preserve">
     <value>Use Different Namespace</value>
   </data>
   <data name="CreateProjectDirectory" xml:space="preserve">
-    <value>Create Project Directory</value>
+    <value>Create mProject Directory</value>
   </data>
   <data name="NotEmptyNamespaceTip" xml:space="preserve">
     <value>You must enter a non-empty namespace if using a different namespace</value>
@@ -775,10 +775,10 @@
     <value>You must first select a template</value>
   </data>
   <data name="NotSuppoertGlueManuallyCreator" xml:space="preserve">
-    <value>This project type is not supported in Glue.  You must launch the New Project Creator manually</value>
+    <value>This mProject type is not supported in Glue.  You must launch the New mProject Creator manually</value>
   </data>
   <data name="NotSpaceProjectTip" xml:space="preserve">
-    <value>Project names cannot contain spaces.</value>
+    <value>mProject names cannot contain spaces.</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Directory</value>
@@ -799,13 +799,13 @@
     <value>Select a .zip file to use</value>
   </data>
   <data name="NothingDontCreateProject" xml:space="preserve">
-    <value>Nothing - don't create a project</value>
+    <value>Nothing - don't create a mProject</value>
   </data>
   <data name="ZipFRBTemplate" xml:space="preserve">
     <value>Zipped FRB template</value>
   </data>
   <data name="CantFindProjectOnline" xml:space="preserve">
-    <value>Couldn't find this project online</value>
+    <value>Couldn't find this mProject online</value>
   </data>
   <data name="Downloading" xml:space="preserve">
     <value>Downloading</value>
@@ -832,13 +832,13 @@
     <value>Details</value>
   </data>
   <data name="CantFindProject" xml:space="preserve">
-    <value>Could not find the project</value>
+    <value>Could not find the mProject</value>
   </data>
   <data name="OpenWithoutProject" xml:space="preserve">
-    <value>Opening without a project</value>
+    <value>Opening without a mProject</value>
   </data>
   <data name="ErrorLoadProject" xml:space="preserve">
-    <value>Error Loading Project</value>
+    <value>Error Loading mProject</value>
   </data>
   <data name="CantCheckNameRelative" xml:space="preserve">
     <value>Cannot check if a null file name is relative</value>
@@ -877,16 +877,16 @@
     <value>Add Object</value>
   </data>
   <data name="NeedHasProjectFirst" xml:space="preserve">
-    <value>You need to create or load a project first</value>
+    <value>You need to create or load a mProject first</value>
   </data>
   <data name="CantLoadProject" xml:space="preserve">
-    <value>Could not load the project</value>
+    <value>Could not load the mProject</value>
   </data>
   <data name="MissingMonoGameReOpenProject" xml:space="preserve">
-    <value>because MonoGame files are missing. Try installing MonoGame, then try opening the project again.</value>
+    <value>because MonoGame files are missing. Try installing MonoGame, then try opening the mProject again.</value>
   </data>
   <data name="CantDetermineProject" xml:space="preserve">
-    <value>Could not determine project type from preprocessor directives. The preprocessor directive string is</value>
+    <value>Could not determine mProject type from preprocessor directives. The preprocessor directive string is</value>
   </data>
   <data name="CantCheckNameIsRelative" xml:space="preserve">
     <value>Cannot check if a null file name is relative</value>
@@ -898,16 +898,16 @@
     <value>The path is already absolute</value>
   </data>
   <data name="LoadProjectTip1" xml:space="preserve">
-    <value>The New Project Creator is missing a critical file called EmptyTemplates.csv.  Full path is \n\n</value>
+    <value>The New mProject Creator is missing a critical file called EmptyTemplates.csv.  Full path is \n\n</value>
   </data>
   <data name="LoadProjectTip2" xml:space="preserve">
-    <value>\n\nThis file is needed to get the list of available projects that the New Project Creator can create</value>
+    <value>\n\nThis file is needed to get the list of available mProjects that the New mProject Creator can create</value>
   </data>
   <data name="LoadProjectTip3" xml:space="preserve">
-    <value>The New Project Creator is missing a critical file called StarterProjects.csv.  Full path is\n\n</value>
+    <value>The New mProject Creator is missing a critical file called StartermProjects.csv.  Full path is\n\n</value>
   </data>
   <data name="LoadProjectTip4" xml:space="preserve">
-    <value>\n\nThis file is needed to get the list of available projects that the New Project Creator can create</value>
+    <value>\n\nThis file is needed to get the list of available mProjects that the New mProject Creator can create</value>
   </data>
   <data name="NotInitialized" xml:space="preserve">
     <value>CLEngine is not initialized yet</value>
@@ -1049,5 +1049,32 @@
   </data>
   <data name="Position" xml:space="preserve">
     <value>Position</value>
+  </data>
+  <data name="ProjectFiles" xml:space="preserve">
+    <value>mProject/Solution files</value>
+  </data>
+  <data name="CantSaveFileInUse" xml:space="preserve">
+    <value>Could not save the file because the file is in use</value>
+  </data>
+  <data name="MustBeUpdate" xml:space="preserve">
+    <value>must be updated</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>required</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>installed</value>
+  </data>
+  <data name="RequireFollowPlugin" xml:space="preserve">
+    <value>requires the following plugins</value>
+  </data>
+  <data name="WantLoadProjectMayNotRunUtilUpdate" xml:space="preserve">
+    <value>Would you like to load the project anyway? It may not run, or may run incorrectly until all plugins are installed/updated.</value>
+  </data>
+  <data name="MissPlugin" xml:space="preserve">
+    <value>Missing Plugins</value>
+  </data>
+  <data name="CantLoadFile" xml:space="preserve">
+    <value>Could not load file</value>
   </data>
 </root>

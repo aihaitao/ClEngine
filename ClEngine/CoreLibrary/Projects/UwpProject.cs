@@ -4,7 +4,7 @@ namespace ClEngine.CoreLibrary.Projects
 {
     public class UwpProject : CombinedEmbeddedContentProject
     {
-        public UwpProject(Project project) : base(project)
+        public UwpProject(Project mProject) : base(mProject)
         {
         }
     }

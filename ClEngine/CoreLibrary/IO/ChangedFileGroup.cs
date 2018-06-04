@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using FlatRedBall.IO;
 
 namespace ClEngine.CoreLibrary.IO
 {
@@ -151,7 +152,7 @@ namespace ClEngine.CoreLibrary.IO
         private void HandleRename(object sender, RenamedEventArgs e)
         {
 
-            var shouldProcess = FileManager.GetExtension(e.Name) != "glux";
+            var shouldProcess = FileManager.GetExtension(e.Name) != "cl";
 
             if (shouldProcess)
             {
@@ -207,7 +208,7 @@ namespace ClEngine.CoreLibrary.IO
         private bool GetIfShouldIgnoreDelete(string fileName)
         {
             var extension = FileManager.GetExtension(fileName);
-            return extension == "glux";
+            return extension == "cl";
         }
 
         void HandleFileSystemChange(object sender, FileSystemEventArgs e)
@@ -219,7 +220,7 @@ namespace ClEngine.CoreLibrary.IO
             if (e.ChangeType == WatcherChangeTypes.Renamed)
             {
                 // don't process the .glux file, that gets renamed all the time
-                shouldProcess = FileManager.GetExtension(fileName) != "glux";
+                shouldProcess = FileManager.GetExtension(fileName) != "cl";
             }
 
             if (shouldProcess)

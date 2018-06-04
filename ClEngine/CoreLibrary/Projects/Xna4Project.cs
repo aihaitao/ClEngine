@@ -5,7 +5,7 @@ namespace ClEngine.CoreLibrary.Projects
 {
     public class Xna4Project : VisualStudioProject
     {
-        public Xna4Project(Project project) : base(project)
+        public Xna4Project(Project mProject) : base(mProject)
         {
         }
     }

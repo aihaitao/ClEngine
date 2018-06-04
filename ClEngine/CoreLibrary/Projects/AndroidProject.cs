@@ -4,7 +4,7 @@ namespace ClEngine.CoreLibrary.Projects
 {
     public class AndroidProject : CombinedEmbeddedContentProject
     {
-        public AndroidProject(Project project) : base(project)
+        public AndroidProject(Project mProject) : base(mProject)
         {
         }
     }

@@ -3,6 +3,7 @@ using System.IO;
 using ClEngine.Core.ProjectCreator;
 using ClEngine.CoreLibrary.IO;
 using ClEngine.Properties;
+using FlatRedBall.IO;
 using Xceed.Wpf.Toolkit;
 
 namespace ClEngine.CoreLibrary.ProjectCreator

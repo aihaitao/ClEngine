@@ -907,7 +907,7 @@
     <value>\n\n此文件需要获取新项目创建者可以创建的可用项目的列表。 </value>
   </data>
   <data name="LoadProjectTip3" xml:space="preserve">
-    <value>新项目创建者缺少一个名为 StarterProjects.csv 的关键文件。全路径是 \n\n</value>
+    <value>新项目创建者缺少一个名为 StartermProjects.csv 的关键文件。全路径是 \n\n</value>
   </data>
   <data name="LoadProjectTip4" xml:space="preserve">
     <value>\n\n此文件需要获取新项目创建者可以创建的可用项目的列表。</value>
@@ -1052,5 +1052,32 @@
   </data>
   <data name="Position" xml:space="preserve">
     <value>位置</value>
+  </data>
+  <data name="ProjectFiles" xml:space="preserve">
+    <value>项目/解决方案文件</value>
+  </data>
+  <data name="CantSaveFileInUse" xml:space="preserve">
+    <value>无法保存文件，因为该文件正在使用中</value>
+  </data>
+  <data name="MustBeUpdate" xml:space="preserve">
+    <value>必须被更新</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>必须</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="RequireFollowPlugin" xml:space="preserve">
+    <value>需要以下插件</value>
+  </data>
+  <data name="WantLoadProjectMayNotRunUtilUpdate" xml:space="preserve">
+    <value>您想要加载项目吗？它可能不运行，或可能运行不正确，直到所有插件安装/更新。</value>
+  </data>
+  <data name="MissPlugin" xml:space="preserve">
+    <value>丢失插件</value>
+  </data>
+  <data name="CantLoadFile" xml:space="preserve">
+    <value>无法加载文件</value>
   </data>
 </root>

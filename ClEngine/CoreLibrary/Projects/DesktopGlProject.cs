@@ -5,7 +5,7 @@ namespace ClEngine.CoreLibrary.Projects
 {
     public class DesktopGlProject : VisualStudioProject
     {
-        public DesktopGlProject(Project project) : base(project)
+        public DesktopGlProject(Project mProject) : base(mProject)
         {
         }
     }

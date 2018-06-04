@@ -9,5 +9,7 @@
             mChangedProjectFiles.IgnoreNextChangeOn(file);
 #endif
         }
+
+        public static bool PerformFlushing = true;
     }
 }

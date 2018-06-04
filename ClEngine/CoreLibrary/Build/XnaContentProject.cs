@@ -4,8 +4,8 @@ namespace ClEngine.CoreLibrary.Build
 {
     public class XnaContentProject : VisualStudioProject
     {
-        public XnaContentProject(Project project)
-            : base(project)
+        public XnaContentProject(Project mProject)
+            : base(mProject)
         {
 
         }

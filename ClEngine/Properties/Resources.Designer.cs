@@ -241,7 +241,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 BindProjectID 的本地化字符串。
+        ///   查找类似 BindmProjectID 的本地化字符串。
         /// </summary>
         public static string BindProjectID {
             get {
@@ -376,7 +376,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Could not determine project type from preprocessor directives. The preprocessor directive string is 的本地化字符串。
+        ///   查找类似 Could not determine mProject type from preprocessor directives. The preprocessor directive string is 的本地化字符串。
         /// </summary>
         public static string CantDetermineProject {
             get {
@@ -394,7 +394,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Could not find the project 的本地化字符串。
+        ///   查找类似 Could not find the mProject 的本地化字符串。
         /// </summary>
         public static string CantFindProject {
             get {
@@ -403,7 +403,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Couldn&apos;t find this project online 的本地化字符串。
+        ///   查找类似 Couldn&apos;t find this mProject online 的本地化字符串。
         /// </summary>
         public static string CantFindProjectOnline {
             get {
@@ -430,7 +430,16 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Could not load the project 的本地化字符串。
+        ///   查找类似 Could not load file 的本地化字符串。
+        /// </summary>
+        public static string CantLoadFile {
+            get {
+                return ResourceManager.GetString("CantLoadFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Could not load the mProject 的本地化字符串。
         /// </summary>
         public static string CantLoadProject {
             get {
@@ -444,6 +453,15 @@ namespace ClEngine.Properties {
         public static string CantReadRecord {
             get {
                 return ResourceManager.GetString("CantReadRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Could not save the file because the file is in use 的本地化字符串。
+        /// </summary>
+        public static string CantSaveFileInUse {
+            get {
+                return ResourceManager.GetString("CantSaveFileInUse", resourceCulture);
             }
         }
         
@@ -601,7 +619,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Create Project Directory 的本地化字符串。
+        ///   查找类似 Create mProject Directory 的本地化字符串。
         /// </summary>
         public static string CreateProjectDirectory {
             get {
@@ -808,7 +826,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Empty Projects 的本地化字符串。
+        ///   查找类似 Empty mProjects 的本地化字符串。
         /// </summary>
         public static string EmptyProjects {
             get {
@@ -871,7 +889,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Error Loading Project 的本地化字符串。
+        ///   查找类似 Error Loading mProject 的本地化字符串。
         /// </summary>
         public static string ErrorLoadProject {
             get {
@@ -952,7 +970,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 ExportProjectTemplate 的本地化字符串。
+        ///   查找类似 ExportmProjectTemplate 的本地化字符串。
         /// </summary>
         public static string ExportProjectTemplate {
             get {
@@ -1155,6 +1173,15 @@ namespace ClEngine.Properties {
         public static string InputBox {
             get {
                 return ResourceManager.GetString("InputBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 installed 的本地化字符串。
+        /// </summary>
+        public static string Installed {
+            get {
+                return ResourceManager.GetString("Installed", resourceCulture);
             }
         }
         
@@ -1375,7 +1402,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The New Project Creator is missing a critical file called EmptyTemplates.csv.  Full path is \n\n 的本地化字符串。
+        ///   查找类似 The New mProject Creator is missing a critical file called EmptyTemplates.csv.  Full path is \n\n 的本地化字符串。
         /// </summary>
         public static string LoadProjectTip1 {
             get {
@@ -1384,7 +1411,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 \n\nThis file is needed to get the list of available projects that the New Project Creator can create 的本地化字符串。
+        ///   查找类似 \n\nThis file is needed to get the list of available mProjects that the New mProject Creator can create 的本地化字符串。
         /// </summary>
         public static string LoadProjectTip2 {
             get {
@@ -1393,7 +1420,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The New Project Creator is missing a critical file called StarterProjects.csv.  Full path is\n\n 的本地化字符串。
+        ///   查找类似 The New mProject Creator is missing a critical file called StartermProjects.csv.  Full path is\n\n 的本地化字符串。
         /// </summary>
         public static string LoadProjectTip3 {
             get {
@@ -1402,7 +1429,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 \n\nThis file is needed to get the list of available projects that the New Project Creator can create 的本地化字符串。
+        ///   查找类似 \n\nThis file is needed to get the list of available mProjects that the New mProject Creator can create 的本地化字符串。
         /// </summary>
         public static string LoadProjectTip4 {
             get {
@@ -1546,11 +1573,20 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 because MonoGame files are missing. Try installing MonoGame, then try opening the project again. 的本地化字符串。
+        ///   查找类似 because MonoGame files are missing. Try installing MonoGame, then try opening the mProject again. 的本地化字符串。
         /// </summary>
         public static string MissingMonoGameReOpenProject {
             get {
                 return ResourceManager.GetString("MissingMonoGameReOpenProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Missing Plugins 的本地化字符串。
+        /// </summary>
+        public static string MissPlugin {
+            get {
+                return ResourceManager.GetString("MissPlugin", resourceCulture);
             }
         }
         
@@ -1591,6 +1627,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 must be updated 的本地化字符串。
+        /// </summary>
+        public static string MustBeUpdate {
+            get {
+                return ResourceManager.GetString("MustBeUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 You must first select a template 的本地化字符串。
         /// </summary>
         public static string MustSelectTemplate {
@@ -1609,7 +1654,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 You need to create or load a project first 的本地化字符串。
+        ///   查找类似 You need to create or load a mProject first 的本地化字符串。
         /// </summary>
         public static string NeedHasProjectFirst {
             get {
@@ -1636,7 +1681,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 NewProject 的本地化字符串。
+        ///   查找类似 NewmProject 的本地化字符串。
         /// </summary>
         public static string NewProject {
             get {
@@ -1699,7 +1744,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Nothing - don&apos;t create a project 的本地化字符串。
+        ///   查找类似 Nothing - don&apos;t create a mProject 的本地化字符串。
         /// </summary>
         public static string NothingDontCreateProject {
             get {
@@ -1762,7 +1807,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Project names cannot contain spaces. 的本地化字符串。
+        ///   查找类似 mProject names cannot contain spaces. 的本地化字符串。
         /// </summary>
         public static string NotSpaceProjectTip {
             get {
@@ -1771,7 +1816,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 This project type is not supported in Glue.  You must launch the New Project Creator manually 的本地化字符串。
+        ///   查找类似 This mProject type is not supported in Glue.  You must launch the New mProject Creator manually 的本地化字符串。
         /// </summary>
         public static string NotSuppoertGlueManuallyCreator {
             get {
@@ -1789,7 +1834,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 OpenProject 的本地化字符串。
+        ///   查找类似 OpenmProject 的本地化字符串。
         /// </summary>
         public static string OpenProject {
             get {
@@ -1798,7 +1843,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 OpenProjectDirectory 的本地化字符串。
+        ///   查找类似 OpenmProjectDirectory 的本地化字符串。
         /// </summary>
         public static string OpenProjectDirectory {
             get {
@@ -1807,7 +1852,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Opening without a project 的本地化字符串。
+        ///   查找类似 Opening without a mProject 的本地化字符串。
         /// </summary>
         public static string OpenWithoutProject {
             get {
@@ -1951,7 +1996,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Project 的本地化字符串。
+        ///   查找类似 mProject 的本地化字符串。
         /// </summary>
         public static string Project {
             get {
@@ -1960,7 +2005,16 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Project Loaction 的本地化字符串。
+        ///   查找类似 mProject/Solution files 的本地化字符串。
+        /// </summary>
+        public static string ProjectFiles {
+            get {
+                return ResourceManager.GetString("ProjectFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 mProject Loaction 的本地化字符串。
         /// </summary>
         public static string ProjectLoaction {
             get {
@@ -1969,7 +2023,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Project Name 的本地化字符串。
+        ///   查找类似 mProject Name 的本地化字符串。
         /// </summary>
         public static string ProjectName {
             get {
@@ -2068,7 +2122,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 ReNameProject 的本地化字符串。
+        ///   查找类似 ReNamemProject 的本地化字符串。
         /// </summary>
         public static string ReNameProject {
             get {
@@ -2082,6 +2136,24 @@ namespace ClEngine.Properties {
         public static string RequestParameters {
             get {
                 return ResourceManager.GetString("RequestParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 required 的本地化字符串。
+        /// </summary>
+        public static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 requires the following plugins 的本地化字符串。
+        /// </summary>
+        public static string RequireFollowPlugin {
+            get {
+                return ResourceManager.GetString("RequireFollowPlugin", resourceCulture);
             }
         }
         
@@ -2140,7 +2212,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 SaveProject 的本地化字符串。
+        ///   查找类似 SavemProject 的本地化字符串。
         /// </summary>
         public static string SaveProject {
             get {
@@ -2311,7 +2383,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Starter Projects 的本地化字符串。
+        ///   查找类似 Starter mProjects 的本地化字符串。
         /// </summary>
         public static string StarterProjects {
             get {
@@ -2716,7 +2788,7 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Unloaded Project  的本地化字符串。
+        ///   查找类似 Unloaded mProject  的本地化字符串。
         /// </summary>
         public static string UnloadedProject {
             get {
@@ -2766,6 +2838,15 @@ namespace ClEngine.Properties {
         public static string vectorcreatefeature {
             get {
                 return ResourceManager.GetString("vectorcreatefeature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Would you like to load the project anyway? It may not run, or may run incorrectly until all plugins are installed/updated. 的本地化字符串。
+        /// </summary>
+        public static string WantLoadProjectMayNotRunUtilUpdate {
+            get {
+                return ResourceManager.GetString("WantLoadProjectMayNotRunUtilUpdate", resourceCulture);
             }
         }
         

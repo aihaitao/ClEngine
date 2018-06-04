@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ClEngine.CoreLibrary.IO;
+using FlatRedBall.IO;
 
 namespace ClEngine.CoreLibrary
 {
@@ -55,7 +56,7 @@ namespace ClEngine.CoreLibrary
             {
                 return 2;
             }
-            else if (extension == "glux")
+            else if (extension == "cl")
             {
                 return 1;
             }

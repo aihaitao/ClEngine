@@ -1,6 +1,15 @@
 using System.Collections.Specialized;
+using System.Linq;
+using System.Windows.Forms;
 using System.Windows.Input;
 using ClEngine.Core;
+using ClEngine.CoreLibrary;
+using ClEngine.CoreLibrary.IO;
+using ClEngine.CoreLibrary.SaveClasses;
+using ClEngine.Properties;
+using CommonServiceLocator;
+using FlatRedBall.Glue.VSHelpers;
+using FlatRedBall.IO;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 
@@ -47,6 +56,7 @@ namespace ClEngine.ViewModel
         public ICommand SaveScriptCommand { get; set; }
         public ICommand RunGameCommand { get; set; }
         public ICommand ClearLogCommand { get; set; }
+        public ICommand OpenProjectCommand { get; set; }
 
         private bool _isClearLog;
         public bool IsClearLog
@@ -99,6 +109,76 @@ namespace ClEngine.ViewModel
             SaveScriptCommand = new RelayCommand(SaveScriptExecute);
             RunGameCommand = new RelayCommand(RunGameExecute);
             ClearLogCommand = new RelayCommand(ClearLogExecute);
+            OpenProjectCommand = new RelayCommand(OpenProject);
+        }
+
+        private void OpenProject()
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = "C:\\",
+                Filter = $"{Resources.ProjectFiles} (*.vcproj;*.csproj;*.sln)|*.vcproj;*.csproj;*.sln;",
+                FilterIndex = 2,
+                RestoreDirectory = true
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var projectFileName = openFileDialog.FileName;
+
+                if (FileManager.GetExtension(projectFileName) == "sln")
+                {
+                    var solution = VSSolution.FromFile(projectFileName);
+
+                    var solutionName = projectFileName;
+
+                    projectFileName = solution.ReferencedProjects.FirstOrDefault(item =>
+                    {
+                        var isRegularProject = FileManager.GetExtension(item) == "csproj" ||
+                                               FileManager.GetExtension(item) == "vsproj";
+
+                        var hasSameName =
+                            FileManager.RemovePath(FileManager.RemoveExtension(solutionName)).ToLowerInvariant() ==
+                            FileManager.RemovePath(FileManager.RemoveExtension(item)).ToLowerInvariant();
+
+                        return isRegularProject && hasSameName;
+                    });
+
+                    projectFileName = FileManager.GetDirectory(solutionName) + projectFileName;
+                }
+
+                ServiceLocator.Current.GetInstance<ProjectViewModel>().LoadProject(projectFileName);
+
+                SaveSettings();
+            }
+        }
+
+        private void SaveSettings()
+        {
+            var save = ProjectManager.SettingsSave;
+
+            string lastFileName = null;
+
+            if (ProjectManager.ProjectBase != null)
+                lastFileName = ProjectManager.ProjectBase.FullFileName;
+
+            save.LastProjectFile = lastFileName;
+
+            var exeFileName = ProjectLoader.GetExeLocation();
+            var foundItem = save.LocationSpecificLastProjectFiles.FirstOrDefault(item => item.FileName == exeFileName);
+
+            var alreadyIsListed = foundItem != null;
+
+            if (!alreadyIsListed)
+            {
+                foundItem = new ProjectFileFilePair();
+                save.LocationSpecificLastProjectFiles.Add(foundItem);
+            }
+
+            foundItem.FileName = exeFileName;
+            foundItem.GameProjectFileName = lastFileName;
+
+            save.Save();
         }
 
         private void ClearLogExecute()

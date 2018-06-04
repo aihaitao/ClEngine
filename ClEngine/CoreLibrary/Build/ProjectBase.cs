@@ -17,6 +17,18 @@ namespace ClEngine.CoreLibrary.Build
 
         public virtual string RootNamespace => Name;
 
+        public abstract void Save(string fileName);
+
+        public abstract string FullFileName
+        {
+            get;
+        }
+
+        protected void RaiseSaving(string fileName)
+        {
+            Saving?.Invoke(fileName);
+        }
+
         public IEnumerator<ProjectItem> GetEnumerator()
         {
             return BuildItemDictionaries.Values.ToList().GetEnumerator();

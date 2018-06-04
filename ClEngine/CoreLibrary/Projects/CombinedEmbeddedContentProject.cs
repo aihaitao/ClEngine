@@ -5,7 +5,7 @@ namespace ClEngine.CoreLibrary.Projects
 {
     public abstract class CombinedEmbeddedContentProject : VisualStudioProject
     {
-        protected CombinedEmbeddedContentProject(Project project) : base(project)
+        protected CombinedEmbeddedContentProject(Project mProject) : base(mProject)
         {
         }
         

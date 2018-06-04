@@ -1,5 +1,6 @@
 ﻿using ClEngine.CoreLibrary.GuiDisplay.Facades;
 using ClEngine.CoreLibrary.SaveClasses;
+using FlatRedBall.Glue.SaveClasses;
 
 namespace ClEngine.CoreLibrary.Elements
 {
@@ -7,6 +8,6 @@ namespace ClEngine.CoreLibrary.Elements
     {
         public static ObjectFinder Self { get; } = new ObjectFinder();
 
-        public ProjectSave Project { get; set; }
+        public GlueProjectSave Project { get; set; }
     }
 }

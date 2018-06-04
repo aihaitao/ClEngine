@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CL, XNA4, DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;XNA4, DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -175,15 +175,16 @@
     <Compile Include="CoreLibrary\IO\Csv\MissingFieldAction.cs" />
     <Compile Include="CoreLibrary\IO\Csv\ParseErrorAction.cs" />
     <Compile Include="CoreLibrary\IO\Csv\ParseErrorEventArgs.cs" />
-    <Compile Include="CoreLibrary\IO\FileManager.cs" />
     <Compile Include="CoreLibrary\IO\FileWatchManager.cs" />
     <Compile Include="CoreLibrary\IO\FtpManager.cs" />
+    <Compile Include="CoreLibrary\IO\ProjectLoader.cs" />
     <Compile Include="CoreLibrary\IO\RuntimeCsvRepresentation.cs" />
     <Compile Include="CoreLibrary\Layout\VirtualPanel.cs" />
     <Compile Include="CoreLibrary\Layout\ZoomableCanvas.cs" />
     <Compile Include="CoreLibrary\Logger\Logger.cs" />
     <Compile Include="CoreLibrary\Manager\TaskManager.cs" />
     <Compile Include="CoreLibrary\Manager\UnreferencedFilesManager.cs" />
+    <Compile Include="CoreLibrary\Plugins\PluginManager.cs" />
     <Compile Include="CoreLibrary\PositionedObject.cs" />
     <Compile Include="CoreLibrary\Priority\PriorityQuadTree.cs" />
     <Compile Include="CoreLibrary\Priority\PriorityQueue.cs" />
@@ -201,12 +202,8 @@
     <Compile Include="CoreLibrary\Projects\IosMonogameProject.cs" />
     <Compile Include="CoreLibrary\Projects\UwpProject.cs" />
     <Compile Include="CoreLibrary\Projects\Xna4Project.cs" />
-    <Compile Include="CoreLibrary\SaveClasses\IElement.cs" />
-    <Compile Include="CoreLibrary\SaveClasses\IFileReferencer.cs" />
-    <Compile Include="CoreLibrary\SaveClasses\INamedObjectContainer.cs" />
-    <Compile Include="CoreLibrary\SaveClasses\ProjectSave.cs" />
-    <Compile Include="CoreLibrary\SaveClasses\ProjectSpecificFile.cs" />
-    <Compile Include="CoreLibrary\SaveClasses\PropertySave.cs" />
+    <Compile Include="CoreLibrary\SaveClasses\ProjectFileGlueFilePair.cs" />
+    <Compile Include="CoreLibrary\SaveClasses\SettingsSave.cs" />
     <Compile Include="CoreLibrary\Task\GlueTask.cs" />
     <Compile Include="CoreLibrary\Editor\EditorCategory.cs" />
     <Compile Include="CoreLibrary\Utilities\INameable.cs" />
@@ -429,6 +426,22 @@
       <Project>{e1cb7d7b-e2ec-4deb-92e2-6ef0b76f40f0}</Project>
       <Name>FlatRedBallXna4</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlatRedBall\FRBDK\FlatRedBall.SpecializedXnaControls\FlatRedBall.SpecializedXnaControls.csproj">
+      <Project>{8c80ba7b-1cba-4579-9382-d9dc6c365070}</Project>
+      <Name>FlatRedBall.SpecializedXnaControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlatRedBall\FRBDK\FRBDK Supporting Projects\EditorObjects\EditorObjectsXna4.csproj">
+      <Project>{e1d670b6-ad42-4b84-aff8-d568097be03d}</Project>
+      <Name>EditorObjectsXna4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlatRedBall\FRBDK\Glue\FlatRedBall.Plugin\FlatRedBall.Plugin.csproj">
+      <Project>{2c289a72-d6bd-4358-afbc-b71f9d31b01e}</Project>
+      <Name>FlatRedBall.Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FlatRedBall\FRBDK\Glue\GlueSaveClasses\GlueSaveClasses.csproj">
+      <Project>{545ff183-4d9d-4121-9a04-1d354b0b0dba}</Project>
+      <Name>GlueSaveClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlatRedBall\FRBDK\NewProjectCreator\NewProjectCreator\NewProjectCreator.csproj">
       <Project>{287538d1-2dda-48c9-8bea-891ab0c76c7d}</Project>
       <Name>NewProjectCreator</Name>
@@ -436,6 +449,22 @@
     <ProjectReference Include="..\Gum\Gum\Gum.csproj">
       <Project>{121ac5a5-8f6a-42b2-8863-debc45b052bc}</Project>
       <Name>Gum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gum\InputLibrary\InputLibrary.csproj">
+      <Project>{938d9a00-8529-4ce8-9077-e0a3994a73ea}</Project>
+      <Name>InputLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gum\RenderingLibrary\RenderingLibrary.csproj">
+      <Project>{a86ee399-7c93-42e1-80ed-ca4cbf4ca573}</Project>
+      <Name>RenderingLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gum\ToolsUtilities\ToolsUtilities.csproj">
+      <Project>{b941a93f-6093-4dc6-ad11-91a058b6c2cc}</Project>
+      <Name>ToolsUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gum\XnaAndWinforms\XnaAndWinforms.csproj">
+      <Project>{c39a973c-66d6-4a6c-82b5-ae0042f210f8}</Project>
+      <Name>XnaAndWinforms</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

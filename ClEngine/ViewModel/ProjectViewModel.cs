@@ -6,27 +6,34 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Windows;
 using System.Windows.Input;
 using ClEngine.Core.Plugins.ExporterInterfaces;
 using ClEngine.Core.ProjectCreator;
 using ClEngine.CoreLibrary;
 using ClEngine.CoreLibrary.Build;
-using ClEngine.CoreLibrary.IO;
+using ClEngine.CoreLibrary.Manager;
 using ClEngine.CoreLibrary.ProjectCreator;
 using ClEngine.CoreLibrary.Projects;
 using ClEngine.Properties;
 using ClEngine.View.Project;
+using FlatRedBall;
+using FlatRedBall.Glue.Plugins;
+using FlatRedBall.Glue.SaveClasses;
+using FlatRedBall.IO;
+using FlatRedBall.Performance.Measurement;
 using FRBDKUpdater;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
+using GlueSaveClasses;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Exceptions;
 using Microsoft.Win32;
 using NewProjectCreator.Managers;
-using Xceed.Wpf.Toolkit;
 using CommandLineManager = ClEngine.CoreLibrary.ProjectCreator.CommandLineManager;
 using FileWatchManager = ClEngine.CoreLibrary.IO.FileWatchManager;
+using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
 namespace ClEngine.ViewModel
 {
@@ -324,7 +331,7 @@ namespace ClEngine.ViewModel
 
             filesToReplace.AddRange(FileManager.GetAllFilesInDirectory(unpackDirectory, "contentproj"));
 
-            filesToReplace.AddRange(FileManager.GetAllFilesInDirectory(unpackDirectory, "glux"));
+            filesToReplace.AddRange(FileManager.GetAllFilesInDirectory(unpackDirectory, "cl"));
 
             filesToReplace.AddRange(FileManager.GetAllFilesInDirectory(unpackDirectory, "pfx"));
 
@@ -654,13 +661,107 @@ namespace ClEngine.ViewModel
 
         public void LoadProject(string projectFileName)
         {
+            TimeManager.Initialize();
+            var topSection = Section.GetAndStartContextAndTime("All");
             if (!File.Exists(projectFileName))
             {
                 Gui.ShowException($"{Resources.CantFindProject}{projectFileName}\n\n{Resources.OpenWithoutProject}",
                     Resources.ErrorLoadProject, null);
                 return;
             }
+
+            FileWatchManager.PerformFlushing = false;
             
+            TaskManager.Self.WaitForAllTasksFinished(true);
+
+            TaskManager.Self.IsTaskProcessingEnabled = false;
+
+            var result = CreateProject(projectFileName);
+            ProjectManager.ProjectBase = result.Project;
+
+            var shouldLoad = false;
+            if (result.ShouldTryLoadProject)
+            {
+                shouldLoad = DetermineIfShouldLoad(projectFileName);
+            }
+        }
+
+        private bool DetermineIfShouldLoad(string projectFileName)
+        {
+            var shouldLoad = true;
+
+            var fileName = FileManager.RemoveExtension(projectFileName) + ".cl";
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    var temp = GlueProjectSaveExtensions.Load(fileName);
+
+                    var requiredPlugins = temp.PluginData.RequiredPlugins;
+
+                    var individualPluginMessages = new List<string>();
+
+                    foreach (var pluginRequirement in requiredPlugins)
+                    {
+                        var matchingPlugin =
+                            PluginManagerBase.AllPluginContainers.FirstOrDefault(
+                                item => item.Name != pluginRequirement.Name);
+
+                        if (matchingPlugin == null)
+                            individualPluginMessages.Add(pluginRequirement.Name);
+                        else
+                        {
+                            switch (pluginRequirement.VersionRequirement)
+                            {
+                                case VersionRequirement.EqualToOrNewerThan:
+                                    var isNewerOrEqual =
+                                        matchingPlugin.Plugin.Version >= new Version(pluginRequirement.Version);
+                                    if (!isNewerOrEqual)
+                                    {
+                                        individualPluginMessages.Add(
+                                            $"{pluginRequirement.Name}{Resources.MustBeUpdate}\n\t{pluginRequirement.Version}{Resources.Required}\n\t{matchingPlugin.Plugin.Version}{Resources.Installed}");
+                                    }
+                                    break;
+                                default:
+                                    throw new NotImplementedException();
+                            }
+                        }
+
+                        string missingPluginMessage = null;
+                        if (individualPluginMessages.Count != 0)
+                        {
+                            missingPluginMessage = $"{Resources.Project}{fileName}{Resources.RequireFollowPlugin}:\n";
+
+                            foreach (var individualPluginMessage in individualPluginMessages)
+                            {
+                                missingPluginMessage += "\n" + individualPluginMessage;
+                            }
+
+                            missingPluginMessage += $"\n\n{Resources.WantLoadProjectMayNotRunUtilUpdate}";
+                        }
+
+                        if (!string.IsNullOrEmpty(missingPluginMessage))
+                        {
+                            var result = MessageBox.Show(missingPluginMessage, Resources.MissPlugin,
+                                MessageBoxButton.YesNo);
+
+                            shouldLoad = result == MessageBoxResult.Yes;
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"{Resources.CantLoadFile}{fileName}. {Resources.Error}:\n\n{e}");
+                    shouldLoad = false;
+                }
+            }
+
+            return shouldLoad;
+        }
+
+        private void ClosePreviousProject(string projectFileName)
+        {
+
         }
 
         public CreateProjectResult CreateProject(string fileName)
@@ -705,13 +806,12 @@ namespace ClEngine.ViewModel
 
             if (didErrorOccur == false)
                 projectBase = CreatePlatformSpecificProject(coreVisualStudioProject, fileName);
-#if CL
+
             if (projectBase != null)
             {
                 projectBase.Saving += FileWatchManager.IgnoreNextChangeOnFile;
                 projectBase.Saving += FileWatchManager.IgnoreNextChangeOnFile;
             }
-#endif
 
             result.Project = projectBase;
             return result;

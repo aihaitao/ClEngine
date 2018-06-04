@@ -35,7 +35,7 @@
         <Menu Grid.Row="0">
             <MenuItem Header="{x:Static properties:Resources.File}">
                 <MenuItem Header="{x:Static properties:Resources.NewProject}" Click="MenuItem_OnClick"></MenuItem>
-                <MenuItem Header="{x:Static properties:Resources.OpenProject}" Click="OpenProject_OnClick"></MenuItem>
+                <MenuItem Header="{x:Static properties:Resources.OpenProject}" Command="{Binding OpenProjectCommand}"></MenuItem>
                 <MenuItem Header="{x:Static properties:Resources.SaveProject}"></MenuItem>
                 <MenuItem Header="{x:Static properties:Resources.ExportProjectTemplate}"></MenuItem>
                 <MenuItem Header="{x:Static properties:Resources.OpenProjectDirectory}"></MenuItem>

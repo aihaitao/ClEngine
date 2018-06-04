@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ClEngine.CoreLibrary.SaveClasses;
+using FlatRedBall.Glue.SaveClasses;
 
 namespace ClEngine.CoreLibrary.Manager
 {

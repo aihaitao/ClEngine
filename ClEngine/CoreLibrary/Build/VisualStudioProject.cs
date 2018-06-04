@@ -1,11 +1,13 @@
-﻿using ClEngine.CoreLibrary.IO;
+﻿using System.IO;
+using System.Text;
+using FlatRedBall.IO;
 using Microsoft.Build.Evaluation;
 
 namespace ClEngine.CoreLibrary.Build
 {
     public abstract class VisualStudioProject : ProjectBase
     {
-        internal Project Project;
+        internal Project mProject;
         internal new string RootNamespace;
         private string _name;
 
@@ -14,15 +16,17 @@ namespace ClEngine.CoreLibrary.Build
             get
             {
                 if (string.IsNullOrEmpty(_name))
-                    _name = FileManager.RemoveExtension(FileManager.RemovePath(Project.ProjectFileLocation.File));
+                    _name = FileManager.RemoveExtension(FileManager.RemovePath(mProject.ProjectFileLocation.File));
 
                 return _name;
             }
         }
 
-        protected VisualStudioProject(Project project)
+        public override string FullFileName => mProject.ProjectFileLocation.File;
+
+        protected VisualStudioProject(Project mProject)
         {
-            Project = project;
+            this.mProject = mProject;
 
             FindRootNamespace();
         }
@@ -30,9 +34,9 @@ namespace ClEngine.CoreLibrary.Build
         private void FindRootNamespace()
         {
             RootNamespace = base.RootNamespace;
-            if (Project != null)
+            if (mProject != null)
             {
-                foreach (var projectProperty in Project.Properties)
+                foreach (var projectProperty in mProject.Properties)
                 {
                     if (projectProperty.Name == "RootNamespace")
                     {
@@ -42,5 +46,32 @@ namespace ClEngine.CoreLibrary.Build
                 }
             }
         }
+
+        public override void Save(string fileName)
+        {
+            var shouldSave = false;
+
+            using (var stringWriter = new Utf8StringWriter())
+            {
+                mProject.ReevaluateIfNecessary();
+
+                mProject.Save(stringWriter);
+
+                var newText = stringWriter.ToString();
+                var oldText = File.ReadAllText(fileName);
+
+                if (oldText != newText)
+                {
+                    RaiseSaving(FullFileName);
+
+                    File.WriteAllText(FullFileName, newText, stringWriter.Encoding);
+                }
+            }
+        }
+    }
+
+    public sealed class Utf8StringWriter : StringWriter
+    {
+        public override Encoding Encoding => Encoding.UTF8;
     }
 }
