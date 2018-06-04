@@ -849,4 +849,208 @@
   <data name="DisabledTask" xml:space="preserve">
     <value>禁用任务处理，重新启用后的下一个任务</value>
   </data>
+  <data name="Entities" xml:space="preserve">
+    <value>实体</value>
+  </data>
+  <data name="Screens" xml:space="preserve">
+    <value>场景</value>
+  </data>
+  <data name="GlobalContentFile" xml:space="preserve">
+    <value>全局内容文件</value>
+  </data>
+  <data name="Explorer" xml:space="preserve">
+    <value>浏览</value>
+  </data>
+  <data name="AddScreen" xml:space="preserve">
+    <value>添加场景</value>
+  </data>
+  <data name="AddFile" xml:space="preserve">
+    <value>添加文件</value>
+  </data>
+  <data name="NewFile" xml:space="preserve">
+    <value>新增文件</value>
+  </data>
+  <data name="ExistFile" xml:space="preserve">
+    <value>现有文件</value>
+  </data>
+  <data name="SetStartupScreen" xml:space="preserve">
+    <value>设置启动界面</value>
+  </data>
+  <data name="AddObject" xml:space="preserve">
+    <value>新增对象</value>
+  </data>
+  <data name="NeedHasProjectFirst" xml:space="preserve">
+    <value>您需要先创建或加载项目</value>
+  </data>
+  <data name="CantLoadProject" xml:space="preserve">
+    <value>无法加载项目</value>
+  </data>
+  <data name="MissingMonoGameReOpenProject" xml:space="preserve">
+    <value>因为缺少MonoGame文件。 尝试安装MonoGame，然后再次尝试打开该项目。</value>
+  </data>
+  <data name="CantDetermineProject" xml:space="preserve">
+    <value>无法从预处理器指令中确定项目类型。 预处理器指令字符串是</value>
+  </data>
+  <data name="CantCheckNameIsRelative" xml:space="preserve">
+    <value>无法检查空文件名是否相对</value>
+  </data>
+  <data name="RelativeMustAbsolute" xml:space="preserve">
+    <value>相对目录必须是绝对路径</value>
+  </data>
+  <data name="PathIsAbsolute" xml:space="preserve">
+    <value>路径已经是绝对的了</value>
+  </data>
+  <data name="LoadProjectTip1" xml:space="preserve">
+    <value>新项目创建者缺少一个名为EmptyTemplates.csv的关键文件。全路径是 \n\n</value>
+  </data>
+  <data name="LoadProjectTip2" xml:space="preserve">
+    <value>\n\n此文件需要获取新项目创建者可以创建的可用项目的列表。 </value>
+  </data>
+  <data name="LoadProjectTip3" xml:space="preserve">
+    <value>新项目创建者缺少一个名为 StarterProjects.csv 的关键文件。全路径是 \n\n</value>
+  </data>
+  <data name="LoadProjectTip4" xml:space="preserve">
+    <value>\n\n此文件需要获取新项目创建者可以创建的可用项目的列表。</value>
+  </data>
+  <data name="NotInitialized" xml:space="preserve">
+    <value>CLEngine尚未初始化</value>
+  </data>
+  <data name="AlreadyLoadGlobalContentManager" xml:space="preserve">
+    <value>已经加载到全局内容管理器中</value>
+  </data>
+  <data name="TryLoadInContentManager" xml:space="preserve">
+    <value>游戏正尝试在以下ContentManager中加载它</value>
+  </data>
+  <data name="StringToMatrixNeed16" xml:space="preserve">
+    <value>字符串到矩阵转换需要16个值</value>
+  </data>
+  <data name="SupportStringContain" xml:space="preserve">
+    <value>提供的字符串包含</value>
+  </data>
+  <data name="StringToVector2Need2" xml:space="preserve">
+    <value>字符串到Vector2转换需要2个值</value>
+  </data>
+  <data name="StringToVector3Need3" xml:space="preserve">
+    <value>字符串到Vector3的转换需要3个值</value>
+  </data>
+  <data name="StringToVector4Need4" xml:space="preserve">
+    <value>字符串到Vector4的转换需要4个值</value>
+  </data>
+  <data name="TryCreateeEnumError" xml:space="preserve">
+    <value>尝试为空字符串创建枚举值时出错。 枚举类型</value>
+  </data>
+  <data name="CantConvertValue" xml:space="preserve">
+    <value>无法转换该值</value>
+  </data>
+  <data name="ToType" xml:space="preserve">
+    <value>到类型</value>
+  </data>
+  <data name="TypeNotMatchParenthesis" xml:space="preserve">
+    <value>类型定义没有一对匹配的开始和结束括号</value>
+  </data>
+  <data name="TypeHasInCorrentParernthesis" xml:space="preserve">
+    <value>类型定义具有不正确顺序的括号</value>
+  </data>
+  <data name="CantFindTypeInAssembly" xml:space="preserve">
+    <value>在组件中找不到类型</value>
+  </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>无效值</value>
+  </data>
+  <data name="In" xml:space="preserve">
+    <value>在</value>
+  </data>
+  <data name="ExpectedVarAssignLike" xml:space="preserve">
+    <value>预计像一个变量分配</value>
+  </data>
+  <data name="WhenCreateInstance" xml:space="preserve">
+    <value>当创建一个实例</value>
+  </data>
+  <data name="NotFindField" xml:space="preserve">
+    <value>找不到字段/属性</value>
+  </data>
+  <data name="InType" xml:space="preserve">
+    <value>在类型中</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>来源</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>目的地</value>
+  </data>
+  <data name="CantFindFile" xml:space="preserve">
+    <value>找不到文件</value>
+  </data>
+  <data name="ButFindXnbFile" xml:space="preserve">
+    <value>但是找到了XNB文件</value>
+  </data>
+  <data name="IsLoadFromPipelineIfTryLoadExtension" xml:space="preserve">
+    <value>文件是通过内容管道加载的吗？如果是，请尝试在没有扩展的情况下加载文件</value>
+  </data>
+  <data name="ButFindDirectory" xml:space="preserve">
+    <value>但是找到了目录</value>
+  </data>
+  <data name="TypeNameWrong" xml:space="preserve">
+    <value>是否键入文件的名称错误</value>
+  </data>
+  <data name="OrDirectory" xml:space="preserve">
+    <value>或目录</value>
+  </data>
+  <data name="TryRemoveAllButEnd" xml:space="preserve">
+    <value>试图移除所有的……但最后结束了</value>
+  </data>
+  <data name="MemoryAndPerformance" xml:space="preserve">
+    <value>内存和性能</value>
+  </data>
+  <data name="ObejctCreatedWillBeManuaUpdate" xml:space="preserve">
+    <value>该文件创建的对象是手动更新的对象。 例如，可以手动更新不移动的场景以提高运行时性能</value>
+  </data>
+  <data name="Access" xml:space="preserve">
+    <value>访问</value>
+  </data>
+  <data name="Destroy" xml:space="preserve">
+    <value>销毁</value>
+  </data>
+  <data name="Build" xml:space="preserve">
+    <value>构建</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="ParseErrorActionInvalid" xml:space="preserve">
+    <value>解析错误事件中的解析错误操作无效</value>
+  </data>
+  <data name="ParseErrorActionNotSupport" xml:space="preserve">
+    <value>不支持分析错误操作</value>
+  </data>
+  <data name="NotEnoughSpaceInArray" xml:space="preserve">
+    <value>阵列中没有足够的空间</value>
+  </data>
+  <data name="NoCurrentRecord" xml:space="preserve">
+    <value>没有当前记录</value>
+  </data>
+  <data name="IndexIsInCorrect" xml:space="preserve">
+    <value>索引不正确</value>
+  </data>
+  <data name="RecordIsBad" xml:space="preserve">
+    <value>记录不好</value>
+  </data>
+  <data name="CannotMovePreviousRecord" xml:space="preserve">
+    <value>只能向前移动前一条记录</value>
+  </data>
+  <data name="CantReadRecord" xml:space="preserve">
+    <value>无法在索引处读取记录</value>
+  </data>
+  <data name="EnumVersionCheckFail" xml:space="preserve">
+    <value>枚举版本检查失败</value>
+  </data>
+  <data name="BufferSizeSmall" xml:space="preserve">
+    <value>bufferSize太小</value>
+  </data>
+  <data name="FiledHeaderMustNull" xml:space="preserve">
+    <value>字段标头必须是非空的</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>位置</value>
+  </data>
 </root>

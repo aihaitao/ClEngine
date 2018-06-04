@@ -1,6 +1,7 @@
 ﻿using System;
+using ClEngine.Core.ProjectCreator;
 
-namespace ClEngine.Core.ProjectCreator
+namespace ClEngine.CoreLibrary.ProjectCreator
 {
     public class CommandLineManager : Singleton<CommandLineManager>
     {

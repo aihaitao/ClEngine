@@ -846,4 +846,208 @@
   <data name="DisabledTask" xml:space="preserve">
     <value>Task processing disabled, next task when re-enabled</value>
   </data>
+  <data name="Entities" xml:space="preserve">
+    <value>Entities</value>
+  </data>
+  <data name="Screens" xml:space="preserve">
+    <value>Screens</value>
+  </data>
+  <data name="GlobalContentFile" xml:space="preserve">
+    <value>Global Content Files</value>
+  </data>
+  <data name="Explorer" xml:space="preserve">
+    <value>Explorer</value>
+  </data>
+  <data name="AddScreen" xml:space="preserve">
+    <value>Add Screen</value>
+  </data>
+  <data name="AddFile" xml:space="preserve">
+    <value>Add File</value>
+  </data>
+  <data name="NewFile" xml:space="preserve">
+    <value>New File</value>
+  </data>
+  <data name="ExistFile" xml:space="preserve">
+    <value>Existing File</value>
+  </data>
+  <data name="SetStartupScreen" xml:space="preserve">
+    <value>Set as StartUp Screen</value>
+  </data>
+  <data name="AddObject" xml:space="preserve">
+    <value>Add Object</value>
+  </data>
+  <data name="NeedHasProjectFirst" xml:space="preserve">
+    <value>You need to create or load a project first</value>
+  </data>
+  <data name="CantLoadProject" xml:space="preserve">
+    <value>Could not load the project</value>
+  </data>
+  <data name="MissingMonoGameReOpenProject" xml:space="preserve">
+    <value>because MonoGame files are missing. Try installing MonoGame, then try opening the project again.</value>
+  </data>
+  <data name="CantDetermineProject" xml:space="preserve">
+    <value>Could not determine project type from preprocessor directives. The preprocessor directive string is</value>
+  </data>
+  <data name="CantCheckNameIsRelative" xml:space="preserve">
+    <value>Cannot check if a null file name is relative</value>
+  </data>
+  <data name="RelativeMustAbsolute" xml:space="preserve">
+    <value>Relative Directory must be an absolute path</value>
+  </data>
+  <data name="PathIsAbsolute" xml:space="preserve">
+    <value>The path is already absolute</value>
+  </data>
+  <data name="LoadProjectTip1" xml:space="preserve">
+    <value>The New Project Creator is missing a critical file called EmptyTemplates.csv.  Full path is \n\n</value>
+  </data>
+  <data name="LoadProjectTip2" xml:space="preserve">
+    <value>\n\nThis file is needed to get the list of available projects that the New Project Creator can create</value>
+  </data>
+  <data name="LoadProjectTip3" xml:space="preserve">
+    <value>The New Project Creator is missing a critical file called StarterProjects.csv.  Full path is\n\n</value>
+  </data>
+  <data name="LoadProjectTip4" xml:space="preserve">
+    <value>\n\nThis file is needed to get the list of available projects that the New Project Creator can create</value>
+  </data>
+  <data name="NotInitialized" xml:space="preserve">
+    <value>CLEngine is not initialized yet</value>
+  </data>
+  <data name="AlreadyLoadGlobalContentManager" xml:space="preserve">
+    <value>is already loaded in the Global ContentManager</value>
+  </data>
+  <data name="TryLoadInContentManager" xml:space="preserve">
+    <value>The game is attempting to load it in the following ContentManager</value>
+  </data>
+  <data name="StringToMatrixNeed16" xml:space="preserve">
+    <value>String to Matrix conversion requires 16 values</value>
+  </data>
+  <data name="SupportStringContain" xml:space="preserve">
+    <value>supplied string contains</value>
+  </data>
+  <data name="StringToVector2Need2" xml:space="preserve">
+    <value>String to Vector2 conversion requires 2 values</value>
+  </data>
+  <data name="StringToVector3Need3" xml:space="preserve">
+    <value>String to Vector3 conversion requires 3 values</value>
+  </data>
+  <data name="StringToVector4Need4" xml:space="preserve">
+    <value>String to Vector4 conversion requires 4 values</value>
+  </data>
+  <data name="TryCreateeEnumError" xml:space="preserve">
+    <value>Error trying to create enum value for empty string.  Enum type</value>
+  </data>
+  <data name="CantConvertValue" xml:space="preserve">
+    <value>Cannot convert the value</value>
+  </data>
+  <data name="ToType" xml:space="preserve">
+    <value>to the type</value>
+  </data>
+  <data name="TypeNotMatchParenthesis" xml:space="preserve">
+    <value>Type definition did not have a matching pair of opening and closing parenthesis</value>
+  </data>
+  <data name="TypeHasInCorrentParernthesis" xml:space="preserve">
+    <value>Type definition has parenthesis in the incorrect order</value>
+  </data>
+  <data name="CantFindTypeInAssembly" xml:space="preserve">
+    <value>Could not find a type in the assemblies for</value>
+  </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="In" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="ExpectedVarAssignLike" xml:space="preserve">
+    <value>Expected a variable assignment like</value>
+  </data>
+  <data name="WhenCreateInstance" xml:space="preserve">
+    <value>when creating an instance of</value>
+  </data>
+  <data name="NotFindField" xml:space="preserve">
+    <value>Could not find the field/property</value>
+  </data>
+  <data name="InType" xml:space="preserve">
+    <value>in the type</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>Destination</value>
+  </data>
+  <data name="CantFindFile" xml:space="preserve">
+    <value>Could not find the file</value>
+  </data>
+  <data name="ButFindXnbFile" xml:space="preserve">
+    <value>but found the XNB file</value>
+  </data>
+  <data name="IsLoadFromPipelineIfTryLoadExtension" xml:space="preserve">
+    <value>Is the file loaded through the content pipeline?  If so， try loading the file without an extension</value>
+  </data>
+  <data name="ButFindDirectory" xml:space="preserve">
+    <value>but found the directory</value>
+  </data>
+  <data name="TypeNameWrong" xml:space="preserve">
+    <value>Did you type in the name of the file wrong</value>
+  </data>
+  <data name="OrDirectory" xml:space="preserve">
+    <value>or the directory</value>
+  </data>
+  <data name="TryRemoveAllButEnd" xml:space="preserve">
+    <value>Tried to remove all ../ but ended up with this</value>
+  </data>
+  <data name="MemoryAndPerformance" xml:space="preserve">
+    <value>Memory and Performance</value>
+  </data>
+  <data name="ObejctCreatedWillBeManuaUpdate" xml:space="preserve">
+    <value>Whether the object created by this file will be a manually-updated object.  For example, Scenes which do not move can be made manually updated to improve runtime performance</value>
+  </data>
+  <data name="Access" xml:space="preserve">
+    <value>Access</value>
+  </data>
+  <data name="Destroy" xml:space="preserve">
+    <value>Destroy</value>
+  </data>
+  <data name="Build" xml:space="preserve">
+    <value>Build</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="ParseErrorActionInvalid" xml:space="preserve">
+    <value>Parse error action invalid inside parse error event</value>
+  </data>
+  <data name="ParseErrorActionNotSupport" xml:space="preserve">
+    <value>Parse error action not supported</value>
+  </data>
+  <data name="NotEnoughSpaceInArray" xml:space="preserve">
+    <value>Not enough space in array</value>
+  </data>
+  <data name="NoCurrentRecord" xml:space="preserve">
+    <value>No current record</value>
+  </data>
+  <data name="IndexIsInCorrect" xml:space="preserve">
+    <value>index is incorrect</value>
+  </data>
+  <data name="RecordIsBad" xml:space="preserve">
+    <value>record is bad</value>
+  </data>
+  <data name="CannotMovePreviousRecord" xml:space="preserve">
+    <value>Cannot move previous record in forward only</value>
+  </data>
+  <data name="CantReadRecord" xml:space="preserve">
+    <value>Cannot read record at index</value>
+  </data>
+  <data name="EnumVersionCheckFail" xml:space="preserve">
+    <value>Enumeration version check failed</value>
+  </data>
+  <data name="BufferSizeSmall" xml:space="preserve">
+    <value>bufferSize is too small</value>
+  </data>
+  <data name="FiledHeaderMustNull" xml:space="preserve">
+    <value>Field headers must be non null</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
 </root>

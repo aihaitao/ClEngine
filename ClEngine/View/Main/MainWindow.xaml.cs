@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using ClEngine.Core;
 using ClEngine.CoreLibrary.Logger;
 using ClEngine.Model;
 using ClEngine.View.Messages;
@@ -9,6 +8,7 @@ using ClEngine.ViewModel;
 using Exceptionless;
 using GalaSoft.MvvmLight.Messaging;
 using MahApps.Metro.Controls;
+using Application = System.Windows.Application;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 // ReSharper disable once CheckNamespace
@@ -19,31 +19,26 @@ namespace ClEngine
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private ProjectInfo ProjectInfo { get; set; }
         private readonly MessageProperty _property = new MessageProperty();
-        private static MainWindow mSelf;
-        public static MainWindow Self => mSelf;
 
 
         public MainWindow()
         {
-            mSelf = this;
-
             InitializeComponent();
             Messenger.Default.Register<LogModel>(this, "Log", Log, true);
 
-            LogBlock.ItemsSource = MessageCache.Messages;
-            
-	        ScriptLayout.IsVisible = false;
+            //LogBlock.ItemsSource = MessageCache.Messages;
+
+            //ScriptLayout.IsVisible = false;
 
             Closed += (sender, args) =>
             {
                 Messenger.Default.Unregister(this);
                 ViewModelLocator.Cleanup();
-                Environment.Exit(0);
-                //Application.Current.Shutdown();   // BUG: 进程退出后会导致 GraphicsDevice.Directx发生_swapChain错误.等待MonoGame.Framework.WpfInterop作者解决
+                //Environment.Exit(0);
+                Application.Current.Shutdown();
             };
-            LogBlock.MouseDoubleClick += LogBlockOnMouseDoubleClick;
+            //LogBlock.MouseDoubleClick += LogBlockOnMouseDoubleClick;
         }
 
         private void LogBlockOnMouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -58,7 +53,7 @@ namespace ClEngine
                 _property.Activate();
             }
             
-            _property.PropertyGrid.SelectedObject = LogBlock.SelectedItem;
+            //_property.PropertyGrid.SelectedObject = LogBlock.SelectedItem;
             _property.PropertyGrid.ExpandAllProperties();
         }
         
@@ -67,7 +62,7 @@ namespace ClEngine
         /// </summary>
         private void MenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            var createProject = CreateProject.GetInstance();
+            var createProject = CreateProjectWindow.GetInstance();
             createProject.ShowDialog();
         }
 
@@ -118,6 +113,5 @@ namespace ClEngine
         {
             Dispatcher.Invoke(action);
         }
-
     }
 }

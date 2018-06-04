@@ -22,7 +22,7 @@ namespace ClEngine.Core.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ClEngine.Core.Properties {
         ///   返回此类使用的缓存的 ResourceManager 实例。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClEngine.Core.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace ClEngine.Core.Properties {
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 Could not find any 的本地化字符串。
         /// </summary>
-        internal static string CantFindAny {
+        public static string CantFindAny {
             get {
                 return ResourceManager.GetString("CantFindAny", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 Files 的本地化字符串。
         /// </summary>
-        internal static string Files {
+        public static string Files {
             get {
                 return ResourceManager.GetString("Files", resourceCulture);
             }
@@ -81,52 +81,16 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 files, so GUIDs cannot be replaced 的本地化字符串。
         /// </summary>
-        internal static string GuidCantReplace {
+        public static string GuidCantReplace {
             get {
                 return ResourceManager.GetString("GuidCantReplace", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 The New Project Creator is missing a critical file called EmptyTemplates.csv.  Full path is \n\n 的本地化字符串。
-        /// </summary>
-        internal static string LoadProjectTip1 {
-            get {
-                return ResourceManager.GetString("LoadProjectTip1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 \n\nThis file is needed to get the list of available projects that the New Project Creator can create 的本地化字符串。
-        /// </summary>
-        internal static string LoadProjectTip2 {
-            get {
-                return ResourceManager.GetString("LoadProjectTip2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 The New Project Creator is missing a critical file called StarterProjects.csv.  Full path is\n\n 的本地化字符串。
-        /// </summary>
-        internal static string LoadProjectTip3 {
-            get {
-                return ResourceManager.GetString("LoadProjectTip3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 \n\nThis file is needed to get the list of available projects that the New Project Creator can create 的本地化字符串。
-        /// </summary>
-        internal static string LoadProjectTip4 {
-            get {
-                return ResourceManager.GetString("LoadProjectTip4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 This location has multiple  的本地化字符串。
         /// </summary>
-        internal static string MultiLocation {
+        public static string MultiLocation {
             get {
                 return ResourceManager.GetString("MultiLocation", resourceCulture);
             }
@@ -135,7 +99,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 Name 的本地化字符串。
         /// </summary>
-        internal static string Name {
+        public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
             }
@@ -144,7 +108,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 The file wasn&apos;t extracted correctly 的本地化字符串。
         /// </summary>
-        internal static string NotExtractedCorrectly {
+        public static string NotExtractedCorrectly {
             get {
                 return ResourceManager.GetString("NotExtractedCorrectly", resourceCulture);
             }
@@ -153,7 +117,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 The local .zip file could not be unzipped.  Deleting this file.  Attempt to create the project again to re-download it 的本地化字符串。
         /// </summary>
-        internal static string NotUnzippedDeleteFileAndReDownload {
+        public static string NotUnzippedDeleteFileAndReDownload {
             get {
                 return ResourceManager.GetString("NotUnzippedDeleteFileAndReDownload", resourceCulture);
             }
@@ -162,7 +126,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 Project name can&apos;t be blank 的本地化字符串。
         /// </summary>
-        internal static string ProjectNotBlank {
+        public static string ProjectNotBlank {
             get {
                 return ResourceManager.GetString("ProjectNotBlank", resourceCulture);
             }
@@ -171,7 +135,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 Project name can&apos;t contain the character 的本地化字符串。
         /// </summary>
-        internal static string ProjectNotChar {
+        public static string ProjectNotChar {
             get {
                 return ResourceManager.GetString("ProjectNotChar", resourceCulture);
             }
@@ -180,7 +144,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 Project names can&apos;t start with numbers 的本地化字符串。
         /// </summary>
-        internal static string ProjectNotNumber {
+        public static string ProjectNotNumber {
             get {
                 return ResourceManager.GetString("ProjectNotNumber", resourceCulture);
             }
@@ -189,7 +153,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 Project name can&apos;t contain spaces. 的本地化字符串。
         /// </summary>
-        internal static string ProjectNotSpace {
+        public static string ProjectNotSpace {
             get {
                 return ResourceManager.GetString("ProjectNotSpace", resourceCulture);
             }
@@ -198,7 +162,7 @@ namespace ClEngine.Core.Properties {
         /// <summary>
         ///   查找类似 is reserved.  Please pick another name 的本地化字符串。
         /// </summary>
-        internal static string ReserverdPickAnother {
+        public static string ReserverdPickAnother {
             get {
                 return ResourceManager.GetString("ReserverdPickAnother", resourceCulture);
             }

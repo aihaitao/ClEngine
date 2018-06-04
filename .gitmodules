@@ -1,30 +1,6 @@
-[submodule "MonoGame.Extended"]
-	path = MonoGame.Extended
-	url = https://github.com/craftworkgames/MonoGame.Extended.git
-[submodule "MonoGame"]
-	path = MonoGame
-	url = https://github.com/MonoGame/MonoGame.git
-[submodule "MGLayers"]
-	path = MGLayers
-	url = https://github.com/0xFireball/MGLayers.git
-[submodule "FSMsharp"]
-	path = FSMsharp
-	url = https://github.com/xanathar/FSMsharp.git
-[submodule "BabeLua"]
-	path = BabeLua
-	url = https://github.com/BabeStudio/BabeLua.git
-[submodule "AvalonEdit"]
-	path = AvalonEdit
-	url = https://github.com/icsharpcode/AvalonEdit.git
-[submodule "MonoGame.Framework.WpfInterop"]
-	path = MonoGame.Framework.WpfInterop
-	url = https://gitlab.com/MarcStan/MonoGame.Framework.WpfInterop.git
-[submodule "FlatRedBall"]
-	path = FlatRedBall
-	url = https://github.com/vchelaru/FlatRedBall.git
 [submodule "Gum"]
 	path = Gum
 	url = https://github.com/vchelaru/Gum.git
-[submodule "TiledMap-FlatRedBall-Conversion"]
-	path = TiledMap-FlatRedBall-Conversion
-	url = https://github.com/kainazzzo/TiledMap-FlatRedBall-Conversion.git
+[submodule "FlatRedBall"]
+	path = FlatRedBall
+	url = https://github.com/vchelaru/FlatRedBall.git

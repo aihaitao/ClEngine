@@ -1,0 +1,16 @@
+﻿<Window x:Class="ClEngine.View.TextInputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Height="100" Width="310" SizeToContent="WidthAndHeight">
+    <StackPanel>
+        <TextBlock x:Name="mDisplayText"></TextBlock>
+        <TextBox Margin="0 2 0 0" Width="280"></TextBox>
+        <WrapPanel HorizontalAlignment="Right" Margin="0 2 0 0">
+            <Button x:Name="mOkWindow" MinWidth="70"></Button>
+            <Button x:Name="mCancelButton" Width="70" Margin="5 0 0 0"></Button>
+        </WrapPanel>
+    </StackPanel>
+</Window>

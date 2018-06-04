@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using ClEngine.Core.Properties;
-using FlatRedBall.IO;
-using FlatRedBall.IO.Csv;
+using ClEngine.Core.ProjectCreator;
+using ClEngine.CoreLibrary.IO;
+using ClEngine.Properties;
 using Xceed.Wpf.Toolkit;
 
-namespace ClEngine.Core.ProjectCreator
+namespace ClEngine.CoreLibrary.ProjectCreator
 {
     public class DataLoader
     {

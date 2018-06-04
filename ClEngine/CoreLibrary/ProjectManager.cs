@@ -1,11 +1,20 @@
-﻿using FlatRedBall.Glue.VSHelpers.Projects;
-using GluePropertyGridClasses.Interfaces;
+﻿using ClEngine.CoreLibrary.Build;
+using ClEngine.CoreLibrary.Elements;
+using ClEngine.CoreLibrary.Interfaces;
+using ClEngine.CoreLibrary.SaveClasses;
+// ReSharper disable UnusedMember.Global
 
 namespace ClEngine.CoreLibrary
 {
     public class ProjectManager : IVsProjectState
     {
-        internal static ProjectBase mProjectBase;
+        public enum CheckResult
+        {
+            Passed,
+            Failed
+        }
+
+        internal static ProjectBase MProjectBase;
 
         public string DefaultNamespace => ProjectNamespace;
 
@@ -16,11 +25,27 @@ namespace ClEngine.CoreLibrary
 #if TEST
                 return "TestProjectNamespace";
 #else
-                return mProjectBase?.RootNamespace;
+                return MProjectBase?.RootNamespace;
 #endif
             }
         }
 
-        public static ProjectBase ContentProject => mProjectBase?.ContentProject;
+        internal static ProjectSave MProjectSave;
+        public static ProjectSave ProjectSave
+        {
+            get => MProjectSave;
+            internal set
+            {
+                MProjectSave = value;
+                ObjectFinder.Self.Project = MProjectSave;
+            }
+        }
+
+        public static CheckResult StatusCheck()
+        {
+            return CheckResult.Passed;
+        }
+
+        public static ProjectBase ContentProject => MProjectBase?.ContentProject;
     }
 }

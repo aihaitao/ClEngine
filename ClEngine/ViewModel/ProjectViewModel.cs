@@ -7,15 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Input;
+using ClEngine.Core.Plugins.ExporterInterfaces;
 using ClEngine.Core.ProjectCreator;
+using ClEngine.CoreLibrary;
+using ClEngine.CoreLibrary.Build;
+using ClEngine.CoreLibrary.IO;
+using ClEngine.CoreLibrary.ProjectCreator;
+using ClEngine.CoreLibrary.Projects;
 using ClEngine.Properties;
 using ClEngine.View.Project;
-using FlatRedBall.IO;
 using FRBDKUpdater;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Ioc;
+using Microsoft.Build.Evaluation;
+using Microsoft.Build.Exceptions;
 using Microsoft.Win32;
+using NewProjectCreator.Managers;
 using Xceed.Wpf.Toolkit;
+using CommandLineManager = ClEngine.CoreLibrary.ProjectCreator.CommandLineManager;
+using FileWatchManager = ClEngine.CoreLibrary.IO.FileWatchManager;
 
 namespace ClEngine.ViewModel
 {
@@ -578,7 +589,7 @@ namespace ClEngine.ViewModel
                 }
 
                 if (succeeded)
-                    CreateProject.GetInstance().Close();
+                    CreateProjectWindow.GetInstance().Close();
             }
         }
 
@@ -639,6 +650,125 @@ namespace ClEngine.ViewModel
 
             if (AvailableTemplates.Count != 0)
                 SelectedTemplate = AvailableTemplates[0];
+        }
+
+        public void LoadProject(string projectFileName)
+        {
+            if (!File.Exists(projectFileName))
+            {
+                Gui.ShowException($"{Resources.CantFindProject}{projectFileName}\n\n{Resources.OpenWithoutProject}",
+                    Resources.ErrorLoadProject, null);
+                return;
+            }
+            
+        }
+
+        public CreateProjectResult CreateProject(string fileName)
+        {
+            Project coreVisualStudioProject = null;
+            var result = new CreateProjectResult();
+
+            var didErrorOccur = false;
+            try
+            {
+                try
+                {
+                    coreVisualStudioProject = new Project(fileName, null, null, new ProjectCollection());
+                }
+                catch (InvalidProjectFileException exception)
+                {
+                    var message = exception.Message;
+                    if (message.Contains("\"15.0\"") && message.Contains("\"14.0\""))
+                        coreVisualStudioProject = new Project(fileName, null, "14.0", new ProjectCollection());
+                    else
+                        throw;
+                }
+            }
+            catch (InvalidProjectFileException exception)
+            {
+                didErrorOccur = true;
+                var exceptionMessage = exception.Message;
+                var isMissingMonoGame = exceptionMessage.Contains("MonoGame.Content.Builder.targets\"");
+                var isMissingNovell = exceptionMessage.Contains("Novell.MonoDroid.CSharp.targets");
+
+                if (isMissingMonoGame)
+                {
+                    result.ShouldTryLoadProject = false;
+                }
+                else if (isMissingNovell)
+                {
+                    result.ShouldTryLoadProject = false;
+                }
+            }
+
+            ProjectBase projectBase = null;
+
+            if (didErrorOccur == false)
+                projectBase = CreatePlatformSpecificProject(coreVisualStudioProject, fileName);
+#if CL
+            if (projectBase != null)
+            {
+                projectBase.Saving += FileWatchManager.IgnoreNextChangeOnFile;
+                projectBase.Saving += FileWatchManager.IgnoreNextChangeOnFile;
+            }
+#endif
+
+            result.Project = projectBase;
+            return result;
+        }
+
+        public ProjectBase CreatePlatformSpecificProject(Project coreVisualStudioProject, string fileName)
+        {
+            ProjectBase toReturn = null;
+            if (FileManager.GetExtension(fileName) == "contentproj")
+                toReturn = new XnaContentProject(coreVisualStudioProject);
+
+            string errorMessage = null;
+
+            if (toReturn == null)
+                toReturn = TryGetProjectTypeFromDefineConstants(coreVisualStudioProject, out errorMessage);
+
+            if (toReturn == null)
+                SimpleIoc.Default.GetInstance<ICommands>().DialogCommands.ShowMessageBox(errorMessage);
+
+            return toReturn;
+        }
+
+        private ProjectBase TryGetProjectTypeFromDefineConstants(Project coreVisualStudioProject, out string message)
+        {
+            var preProcessorConstans = GetPreProcessorConstantsFromProject(coreVisualStudioProject);
+
+            ProjectBase toReturn = null;
+
+            if (preProcessorConstans.Contains("ANDROID"))
+                toReturn = new AndroidProject(coreVisualStudioProject);
+            else if (preProcessorConstans.Contains("IOS"))
+                toReturn = new IosMonogameProject(coreVisualStudioProject);
+            else if (preProcessorConstans.Contains("UWP"))
+                toReturn = new UwpProject(coreVisualStudioProject);
+            else if(preProcessorConstans.Contains("DESKTOP_GL"))
+                toReturn = new DesktopGlProject(coreVisualStudioProject);
+            else if(preProcessorConstans.Contains("XNA4"))
+                toReturn = new Xna4Project(coreVisualStudioProject);
+
+            message = null;
+            if (toReturn == null)
+                message = $"{Resources.CantDetermineProject} \" {preProcessorConstans}\"";
+
+            return toReturn;
+        }
+
+        public string GetPreProcessorConstantsFromProject(Project coreVisualStudioProject)
+        {
+            var preProcessorConstants = "";
+
+            foreach (var projectProperty in coreVisualStudioProject.Properties)
+            {
+                if (projectProperty.Name == "DefineConstants")
+                    preProcessorConstants += ":" + projectProperty.EvaluatedValue;
+            }
+
+            return preProcessorConstants;
         }
     }
 }

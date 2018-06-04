@@ -1,25 +1,25 @@
 ﻿using System.Windows;
 using System.Windows.Forms;
-using ClEngine.Core.ProjectCreator;
+using ClEngine.CoreLibrary.ProjectCreator;
 
 namespace ClEngine
 {
     /// <summary>
     /// CreateProject.xaml 的交互逻辑
     /// </summary>
-    public partial class CreateProject : Window
+    public partial class CreateProjectWindow : Window
     {
-        private static CreateProject Instance { get; set; }
-        private CreateProject()
+        private static CreateProjectWindow Instance { get; set; }
+        private CreateProjectWindow()
         {
             InitializeComponent();
 
             DataLoader.LoadAvaliableProjectFromCsv();
         }
 
-        public static CreateProject GetInstance()
+        public static CreateProjectWindow GetInstance()
         {
-            return Instance ?? (Instance = new CreateProject());
+            return Instance ?? (Instance = new CreateProjectWindow());
         }
 
         /// <summary>

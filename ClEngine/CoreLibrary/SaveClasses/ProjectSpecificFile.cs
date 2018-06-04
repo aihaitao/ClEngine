@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
-using FlatRedBall.Content;
-using FlatRedBall.IO;
+using ClEngine.CoreLibrary.Content;
+using ClEngine.CoreLibrary.Editor;
+using ClEngine.CoreLibrary.IO;
 using Microsoft.Xna.Framework.Content.Pipeline.Processors;
+// ReSharper disable UnusedMember.Global
 
 namespace ClEngine.CoreLibrary.SaveClasses
 {
@@ -22,7 +24,7 @@ namespace ClEngine.CoreLibrary.SaveClasses
             List.Remove(projectSpecificFile);
         }
 
-        public int Count => List.Count;
+        public new int Count => List.Count;
 
         public ProjectSpecificFile this[int index] => (ProjectSpecificFile)List[index];
     }
@@ -38,9 +40,8 @@ namespace ClEngine.CoreLibrary.SaveClasses
             System.Globalization.CultureInfo culture,
             object value, Type destType)
         {
-            if (destType == typeof(string) && value is ProjectSpecificFile)
+            if (destType == typeof(string) && value is ProjectSpecificFile emp)
             {
-                var emp = (ProjectSpecificFile)value;
                 return emp.FilePath;
             }
             return base.ConvertTo(context, culture, value, destType);
@@ -51,11 +52,11 @@ namespace ClEngine.CoreLibrary.SaveClasses
     [TypeConverter(typeof(ProjectSpecificFileConverter))]
     public class ProjectSpecificFile
     {
-        [Obsolete("This was sometimes used to mean the ID like Android, and sometimes name. ID can be misleading because multiple projects can have the same ID, so we shouldn't use this. Use ProjectName instead")]
+        [Obsolete("这有时候被用来表示像Android这样的ID，有时也用于名称。 ID可能会引起误解，因为多个项目可能具有相同的ID，所以我们不应该使用它。 改用ProjectName")]
         public string ProjectId
         {
-            get { return ProjectName; }
-            set { ProjectName = value; }
+            get => ProjectName;
+            set => ProjectName = value;
         }
 
         public string ProjectName
@@ -65,13 +66,7 @@ namespace ClEngine.CoreLibrary.SaveClasses
 
         public string FilePath { get; set; }
 
-        public string Display
-        {
-            get
-            {
-                return FilePath + " (" + ProjectName + ")";
-            }
-        }
+        public string Display => FilePath + " (" + ProjectName + ")";
 
         public override string ToString()
         {
@@ -131,12 +126,7 @@ namespace ClEngine.CoreLibrary.SaveClasses
 
 
 
-        string mName;
-        private ProjectSpecificFileCollection _projectSpecificFiles = new ProjectSpecificFileCollection();
-
-        // Vic says: Eventually we'll want to add this:
-        //private string mLayerOn;
-
+        internal string MName;
 
         #endregion
 
@@ -158,20 +148,20 @@ namespace ClEngine.CoreLibrary.SaveClasses
         /// </summary>
         public string Name
         {
-            get { return mName; }
+            get => MName;
             set
             {
                 if (!String.IsNullOrEmpty(value) && value.ToLower().Replace("\\", "/").StartsWith("content/"))
                     value = value.Substring("content/".Length);
 
-                mName = value;
+                MName = value;
 
 
             }
         }
 
-        [Category("Memory and Performance"),
-        Description("Whether the object created by this file will be a manually-updated object.  For example, Scenes which do not move can be made manually updated to improve runtime performance."),
+        [EditorCategory("MemoryAndPerformance"),
+        EditorDescription("ObejctCreatedWillBeManuaUpdate"),
         DefaultValue(false)]
         public bool IsManuallyUpdated
         {
@@ -179,28 +169,28 @@ namespace ClEngine.CoreLibrary.SaveClasses
             set;
         }
 
-        [Category("Memory and Performance")]
+        [EditorCategory("MemoryAndPerformance")]
         public bool IsSharedStatic
         {
             get;
             set;
         }
 
-        [CategoryAttribute("Access"), DefaultValue(false)]
+        [EditorCategory("Access"), DefaultValue(false)]
         public bool IncludeDirectoryRelativeToContainer
         {
             get;
             set;
         }
 
-        [Category("Memory and Performance"), DefaultValue(false)]
+        [EditorCategory("MemoryAndPerformance"), DefaultValue(false)]
         public bool LoadedOnlyWhenReferenced
         {
             get;
             set;
         }
 
-        [Category("Destroy"), DefaultValue(true)]
+        [EditorCategory("Destroy"), DefaultValue(true)]
         public bool DestroyOnUnload
         {
             get;
@@ -213,17 +203,7 @@ namespace ClEngine.CoreLibrary.SaveClasses
             set;
         }
 
-        // December 21, 2011
-        // Why do we need this property?
-        // I don't think it's used anywhere.
-        //[Browsable(false)]
-        //public string ContentProjectParent
-        //{
-        //    get;
-        //    set;
-        //}
-
-        [CategoryAttribute("Access"), DefaultValue(false)]
+        [EditorCategory("Access"), DefaultValue(false)]
         public bool HasPublicProperty
         {
             get;
@@ -246,21 +226,21 @@ namespace ClEngine.CoreLibrary.SaveClasses
             set;
         }
 
-        [CategoryAttribute("CSV"), DefaultValue(false)]
+        [EditorCategory("CSV"), DefaultValue(false)]
         public bool CreatesDictionary
         {
             get;
             set;
         }
 
-        [CategoryAttribute("CSV"), DefaultValue(AvailableDelimiters.Comma)]
+        [EditorCategory("CSV"), DefaultValue(AvailableDelimiters.Comma)]
         public AvailableDelimiters CsvDelimiter
         {
             get;
             set;
         }
 
-        [CategoryAttribute("CSV"), DefaultValue(false)]
+        [EditorCategory("CSV"), DefaultValue(false)]
         public bool TreatAsCsv
         {
             get;
@@ -272,11 +252,10 @@ namespace ClEngine.CoreLibrary.SaveClasses
         public List<SourceReferencingFile> SourceFileCache
         {
             get;
-            // Setter is made public so extension methods can access it
             set;
         }
 
-        [Category("Build")]
+        [EditorCategory("Build")]
         public string SourceFile
         {
             get;
@@ -288,7 +267,7 @@ namespace ClEngine.CoreLibrary.SaveClasses
         }
 
 
-        [Category("Build")]
+        [EditorCategory("Build")]
         public string BuildTool
         {
             get;
@@ -299,7 +278,7 @@ namespace ClEngine.CoreLibrary.SaveClasses
             return !string.IsNullOrEmpty(BuildTool);
         }
 
-        [Category("Build")]
+        [EditorCategory("Build")]
         public string AdditionalArguments
         {
             get;
@@ -310,37 +289,18 @@ namespace ClEngine.CoreLibrary.SaveClasses
             return !string.IsNullOrEmpty(AdditionalArguments);
         }
 
-        //[Category("Build")]
-        //public string BuildTool
-        //{
-        //    get;
-        //    set;
-        //}
-
         [XmlIgnore]
         public bool IsDatabaseForLocalizing
         {
-            get
-            {
-                return Properties.ContainsValue("IsDatabaseForLocalizing") && ((bool)Properties.GetValue("IsDatabaseForLocalizing"));
-            }
-            set
-            {
-                Properties.SetValue("IsDatabaseForLocalizing", value);
-            }
+            get => Properties.ContainsValue("IsDatabaseForLocalizing") && ((bool)Properties.GetValue("IsDatabaseForLocalizing"));
+            set => Properties.SetValue("IsDatabaseForLocalizing", value);
         }
 
         [XmlIgnore]
         public bool UseContentPipeline
         {
-            get
-            {
-                return Properties.ContainsValue("UseContentPipeline") && ((bool)Properties.GetValue("UseContentPipeline"));
-            }
-            set
-            {
-                Properties.SetValue("UseContentPipeline", value);
-            }
+            get => Properties.ContainsValue("UseContentPipeline") && ((bool)Properties.GetValue("UseContentPipeline"));
+            set => Properties.SetValue("UseContentPipeline", value);
         }
 
         [XmlIgnore]
@@ -350,11 +310,8 @@ namespace ClEngine.CoreLibrary.SaveClasses
             set => Properties.SetValue("TextureFormat", value);
         }
 
-        //[XmlIgnore]
-        //public bool GenerateMipmaps
-
         [XmlIgnore]
-        [CategoryAttribute("CSV")]
+        [EditorCategory("CSV")]
         public string UniformRowType
         {
             get
@@ -384,17 +341,14 @@ namespace ClEngine.CoreLibrary.SaveClasses
         [Browsable(false)]
         public bool IsCsvOrTreatedAsCsv => TreatAsCsv || FileManager.GetExtension(Name) == "csv";
 
-        public ProjectSpecificFileCollection ProjectSpecificFiles
-        {
-            get => _projectSpecificFiles;
-            set => _projectSpecificFiles = value;
-        }
+        public ProjectSpecificFileCollection ProjectSpecificFiles { get; set; } = new ProjectSpecificFileCollection();
+
         public bool ShouldSerializeProjectSpecificFiles()
         {
             return ProjectSpecificFiles != null && ProjectSpecificFiles.Count != 0;
         }
 
-        [CategoryAttribute("Build")]
+        [EditorCategory("Build")]
         public string ConditionalCompilationSymbols
         {
             get;
@@ -405,14 +359,14 @@ namespace ClEngine.CoreLibrary.SaveClasses
             return !string.IsNullOrEmpty(ConditionalCompilationSymbols);
         }
 
-        [CategoryAttribute("Code")]
+        [EditorCategory("Code")]
         public string RuntimeType
         {
             get;
             set;
         }
 
-        [CategoryAttribute("Code"), DefaultValue(true)]
+        [EditorCategory("Code"), DefaultValue(true)]
         public bool AddToManagers
         {
             get;
@@ -441,20 +395,6 @@ namespace ClEngine.CoreLibrary.SaveClasses
             SourceFileCache = new List<SourceReferencingFile>();
             LoadedAtRuntime = true;
             OpensWith = "<DEFAULT>";
-
-            // September 12, 2012
-            // IsSharedStatic used 
-            // to default to false.
-            // It would be set to true
-            // on Entities and false on
-            // Screen, but I think it was
-            // set to false on Screens just
-            // as a holdover from the very early
-            // days.  Files need to be static for
-            // Entities and GlobalContent.  They could
-            // go either way on Screens, but we're going
-            // to default them to static for consistency and
-            // for the generated GetFile method.
             IsSharedStatic = true;
         }
 
@@ -474,19 +414,12 @@ namespace ClEngine.CoreLibrary.SaveClasses
 
         public void SetNameNoCall(string newName)
         {
-            mName = newName;
+            MName = newName;
         }
 
         public override string ToString()
         {
-            if (ToStringDelegate != null)
-            {
-                return ToStringDelegate(this);
-            }
-            else
-            {
-                return mName;
-            }
+            return ToStringDelegate != null ? ToStringDelegate(this) : MName;
         }
 
         #endregion

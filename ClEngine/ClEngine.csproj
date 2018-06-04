@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;GLUE, XNA4, DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CL, XNA4, DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -53,10 +53,6 @@
     <Reference Include="Exceptionless.Wpf, Version=4.3.2004.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Exceptionless.Wpf.4.3.2004\lib\net45\Exceptionless.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="FRBDKUpdater, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\FRBDKUpdater.exe</HintPath>
-    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
@@ -73,16 +69,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\Ionic.Zip.dll</HintPath>
     </Reference>
-    <Reference Include="Ionic.Zlib, Version=1.7.2.26, Culture=neutral, PublicKeyToken=c551e179877da246, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Ionic.Zlib.dll</HintPath>
-    </Reference>
     <Reference Include="KeraLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=04d04586786c6f34, processorArchitecture=MSIL">
       <HintPath>packages\NLua.1.3.2.1\lib\net45\KeraLua.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MahApps.Metro.1.6.4\lib\net46\MahApps.Metro.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
@@ -153,32 +146,74 @@
     <Compile Include="CoreLibrary\Asset\ISerializable.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceInfo.cs" />
     <Compile Include="CoreLibrary\Asset\ResourceType.cs" />
+    <Compile Include="CoreLibrary\Build\ProjectBase.cs" />
+    <Compile Include="CoreLibrary\Build\VisualStudioProject.cs" />
+    <Compile Include="CoreLibrary\Build\XnaContentProject.cs" />
+    <Compile Include="CoreLibrary\Content\ContentManager.cs" />
+    <Compile Include="CoreLibrary\Content\SourceReferencingFile.cs" />
+    <Compile Include="CoreLibrary\CreateProjectResult.cs" />
     <Compile Include="CoreLibrary\Editor\DialogCloser.cs" />
     <Compile Include="CoreLibrary\Editor\EditorDescription.cs" />
     <Compile Include="CoreLibrary\Editor\EditorRecord.cs" />
     <Compile Include="CoreLibrary\Editor\MyCompletionData.cs" />
     <Compile Include="CoreLibrary\Editor\ProjectInfo.cs" />
+    <Compile Include="CoreLibrary\Elements\ObjectFinder.cs" />
+    <Compile Include="CoreLibrary\Events\IEventContainer.cs" />
     <Compile Include="CoreLibrary\FileWatchManager.cs" />
     <Compile Include="CoreLibrary\Gui.cs" />
+    <Compile Include="CoreLibrary\GuiDisplay\Facades\IObjectFinder.cs" />
     <Compile Include="CoreLibrary\Helper\JsonHelper.cs" />
     <Compile Include="CoreLibrary\Helper\LinkedListExtensions.cs" />
     <Compile Include="CoreLibrary\Helper\MathExtensions.cs" />
     <Compile Include="CoreLibrary\Helper\RectExtensions.cs" />
+    <Compile Include="CoreLibrary\Instructions\Reflection\PropertyValuePair.cs" />
+    <Compile Include="CoreLibrary\Interfaces\IVsProjectState.cs" />
     <Compile Include="CoreLibrary\IO\ChangedFileGroup.cs" />
+    <Compile Include="CoreLibrary\IO\CsvFileManager.cs" />
+    <Compile Include="CoreLibrary\IO\Csv\CsvReader.cs" />
+    <Compile Include="CoreLibrary\IO\Csv\MemberTypeIndexPair.cs" />
+    <Compile Include="CoreLibrary\IO\Csv\MissingFieldAction.cs" />
+    <Compile Include="CoreLibrary\IO\Csv\ParseErrorAction.cs" />
+    <Compile Include="CoreLibrary\IO\Csv\ParseErrorEventArgs.cs" />
+    <Compile Include="CoreLibrary\IO\FileManager.cs" />
+    <Compile Include="CoreLibrary\IO\FileWatchManager.cs" />
+    <Compile Include="CoreLibrary\IO\FtpManager.cs" />
+    <Compile Include="CoreLibrary\IO\RuntimeCsvRepresentation.cs" />
     <Compile Include="CoreLibrary\Layout\VirtualPanel.cs" />
     <Compile Include="CoreLibrary\Layout\ZoomableCanvas.cs" />
     <Compile Include="CoreLibrary\Logger\Logger.cs" />
     <Compile Include="CoreLibrary\Manager\TaskManager.cs" />
     <Compile Include="CoreLibrary\Manager\UnreferencedFilesManager.cs" />
+    <Compile Include="CoreLibrary\PositionedObject.cs" />
     <Compile Include="CoreLibrary\Priority\PriorityQuadTree.cs" />
     <Compile Include="CoreLibrary\Priority\PriorityQueue.cs" />
-    <Compile Include="CoreLibrary\ProjectLoader.cs" />
+    <Compile Include="CoreLibrary\ProjectCreator\CommandLineManager.cs" />
+    <Compile Include="CoreLibrary\ProjectCreator\DataLoader.cs" />
+    <Compile Include="CoreLibrary\ProjectCreator\EmbeddedExecutableExtractor.cs" />
+    <Compile Include="CoreLibrary\ProjectCreator\GuidLogic.cs" />
+    <Compile Include="CoreLibrary\ProjectCreator\PlatformProjectInfo.cs" />
+    <Compile Include="CoreLibrary\ProjectCreator\ProjectCreationHelper.cs" />
+    <Compile Include="CoreLibrary\ProjectCreator\Singleton.cs" />
     <Compile Include="CoreLibrary\ProjectManager.cs" />
+    <Compile Include="CoreLibrary\Projects\AndroidProject.cs" />
+    <Compile Include="CoreLibrary\Projects\CombinedEmbeddedContentProject.cs" />
+    <Compile Include="CoreLibrary\Projects\DesktopGlProject.cs" />
+    <Compile Include="CoreLibrary\Projects\IosMonogameProject.cs" />
+    <Compile Include="CoreLibrary\Projects\UwpProject.cs" />
+    <Compile Include="CoreLibrary\Projects\Xna4Project.cs" />
+    <Compile Include="CoreLibrary\SaveClasses\IElement.cs" />
+    <Compile Include="CoreLibrary\SaveClasses\IFileReferencer.cs" />
+    <Compile Include="CoreLibrary\SaveClasses\INamedObjectContainer.cs" />
+    <Compile Include="CoreLibrary\SaveClasses\ProjectSave.cs" />
     <Compile Include="CoreLibrary\SaveClasses\ProjectSpecificFile.cs" />
     <Compile Include="CoreLibrary\SaveClasses\PropertySave.cs" />
     <Compile Include="CoreLibrary\Task\GlueTask.cs" />
+    <Compile Include="CoreLibrary\Editor\EditorCategory.cs" />
+    <Compile Include="CoreLibrary\Utilities\INameable.cs" />
+    <Compile Include="CoreLibrary\Utilities\StringFunctions.cs" />
     <Compile Include="Model\DocumentModel.cs" />
     <Compile Include="Model\DocumentTreeModel.cs" />
+    <Compile Include="Model\ElementModel.cs" />
     <Compile Include="Model\LogModel.cs" />
     <Compile Include="Model\ScriptModel.cs" />
     <Compile Include="Model\WindowModel.cs" />
@@ -195,6 +230,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModel\ElementViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProjectViewModel.cs" />
     <Compile Include="ViewModel\ScriptViewModel.cs" />
@@ -202,6 +238,9 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\Code\ScriptWindow.xaml.cs">
       <DependentUpon>ScriptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ElementViewWindow.xaml.cs">
+      <DependentUpon>ElementViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Help\CameraDocumentView.xaml.cs">
       <DependentUpon>CameraDocumentView.xaml</DependentUpon>
@@ -245,8 +284,8 @@
     <Compile Include="View\Messages\MessageProperty.xaml.cs">
       <DependentUpon>MessageProperty.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Project\CreateProject.xaml.cs">
-      <DependentUpon>CreateProject.xaml</DependentUpon>
+    <Compile Include="View\Project\CreateProjectWindow.xaml.cs">
+      <DependentUpon>CreateProjectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Project\InitializationWindow.xaml.cs">
       <DependentUpon>InitializationWindow.xaml</DependentUpon>
@@ -256,6 +295,9 @@
     </Compile>
     <Compile Include="View\ScriptEditor\FloatScriptEditor.xaml.cs">
       <DependentUpon>FloatScriptEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TextInputWindow.xaml.cs">
+      <DependentUpon>TextInputWindow.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -276,6 +318,9 @@
     <None Include="Content\StarterProjects.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Icons\IncreaseArea.Agif" />
+    <Resource Include="Icons\StretchArea.agif" />
+    <Compile Include="CoreLibrary\IO\Csv\CsvReader.RecordEnumerator.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -288,6 +333,10 @@
     <Page Include="View\Code\ScriptWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ElementViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Help\CameraDocumentView.xaml">
       <SubType>Designer</SubType>
@@ -345,7 +394,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Project\CreateProject.xaml">
+    <Page Include="View\Project\CreateProjectWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -361,6 +410,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\TextInputWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.png" />
@@ -373,17 +426,43 @@
       <Name>ClEngine.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\FlatRedBall\Engines\FlatRedBallXNA\FlatRedBall\FlatRedBallXna4.csproj">
-      <Project>{E1CB7D7B-E2EC-4DEB-92E2-6EF0B76F40F0}</Project>
+      <Project>{e1cb7d7b-e2ec-4deb-92e2-6ef0b76f40f0}</Project>
       <Name>FlatRedBallXna4</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FlatRedBall\FRBDK\Glue\GluePropertyGridClasses\GluePropertyGridClasses.csproj">
-      <Project>{852a7438-7afe-490e-a0c7-0a35355d6179}</Project>
-      <Name>GluePropertyGridClasses</Name>
+    <ProjectReference Include="..\FlatRedBall\FRBDK\NewProjectCreator\NewProjectCreator\NewProjectCreator.csproj">
+      <Project>{287538d1-2dda-48c9-8bea-891ab0c76c7d}</Project>
+      <Name>NewProjectCreator</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gum\Gum\Gum.csproj">
-      <Project>{121AC5A5-8F6A-42B2-8863-DEBC45B052BC}</Project>
+      <Project>{121ac5a5-8f6a-42b2-8863-debc45b052bc}</Project>
       <Name>Gum</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\CanInterpolate.bmp" />
+    <Resource Include="Icons\CantInterpolate.bmp" />
+    <Resource Include="Icons\code.png" />
+    <Resource Include="Icons\copyIcon.png" />
+    <Resource Include="Icons\edit_code.png" />
+    <Resource Include="Icons\entity.png" />
+    <Resource Include="Icons\file.png" />
+    <Resource Include="Icons\folder.png" />
+    <Resource Include="Icons\GlueIcon.png" />
+    <Resource Include="Icons\IncreaseArea.gif" />
+    <Resource Include="Icons\master_code.png" />
+    <Resource Include="Icons\master_entity.png" />
+    <Resource Include="Icons\master_file.png" />
+    <Resource Include="Icons\master_object.png" />
+    <Resource Include="Icons\master_screen.png" />
+    <Resource Include="Icons\master_states.png" />
+    <Resource Include="Icons\master_variables.png" />
+    <Resource Include="Icons\NeedsInterpolateVariable.bmp" />
+    <Resource Include="Icons\object.png" />
+    <Resource Include="Icons\screen.png" />
+    <Resource Include="Icons\states.png" />
+    <Resource Include="Icons\StretchArea.gif" />
+    <Resource Include="Icons\transparent.png" />
+    <Resource Include="Icons\variable.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

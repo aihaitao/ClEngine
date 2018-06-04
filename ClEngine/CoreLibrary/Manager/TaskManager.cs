@@ -288,15 +288,6 @@ namespace ClEngine.CoreLibrary.Manager
             }
         }
 
-        public void OnUiThread(Action action)
-        {
-#if GLUE
-            MainWindow.Self.Invoke(action);
-#else
-            action();
-#endif
-        }
-
         #endregion
     }
 }

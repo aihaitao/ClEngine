@@ -61,11 +61,29 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Access 的本地化字符串。
+        /// </summary>
+        public static string Access {
+            get {
+                return ResourceManager.GetString("Access", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Account information 的本地化字符串。
         /// </summary>
         public static string AccountInformation {
             get {
                 return ResourceManager.GetString("AccountInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Add File 的本地化字符串。
+        /// </summary>
+        public static string AddFile {
+            get {
+                return ResourceManager.GetString("AddFile", resourceCulture);
             }
         }
         
@@ -79,11 +97,29 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Add Object 的本地化字符串。
+        /// </summary>
+        public static string AddObject {
+            get {
+                return ResourceManager.GetString("AddObject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 AddResource 的本地化字符串。
         /// </summary>
         public static string AddResource {
             get {
                 return ResourceManager.GetString("AddResource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Add Screen 的本地化字符串。
+        /// </summary>
+        public static string AddScreen {
+            get {
+                return ResourceManager.GetString("AddScreen", resourceCulture);
             }
         }
         
@@ -102,6 +138,15 @@ namespace ClEngine.Properties {
         public static string AllowDrag {
             get {
                 return ResourceManager.GetString("AllowDrag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 is already loaded in the Global ContentManager 的本地化字符串。
+        /// </summary>
+        public static string AlreadyLoadGlobalContentManager {
+            get {
+                return ResourceManager.GetString("AlreadyLoadGlobalContentManager", resourceCulture);
             }
         }
         
@@ -232,6 +277,42 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 bufferSize is too small 的本地化字符串。
+        /// </summary>
+        public static string BufferSizeSmall {
+            get {
+                return ResourceManager.GetString("BufferSizeSmall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Build 的本地化字符串。
+        /// </summary>
+        public static string Build {
+            get {
+                return ResourceManager.GetString("Build", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 but found the directory 的本地化字符串。
+        /// </summary>
+        public static string ButFindDirectory {
+            get {
+                return ResourceManager.GetString("ButFindDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 but found the XNB file 的本地化字符串。
+        /// </summary>
+        public static string ButFindXnbFile {
+            get {
+                return ResourceManager.GetString("ButFindXnbFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Button 的本地化字符串。
         /// </summary>
         public static string Button {
@@ -259,11 +340,56 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Cannot move previous record in forward only 的本地化字符串。
+        /// </summary>
+        public static string CannotMovePreviousRecord {
+            get {
+                return ResourceManager.GetString("CannotMovePreviousRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Cannot check if a null file name is relative 的本地化字符串。
+        /// </summary>
+        public static string CantCheckNameIsRelative {
+            get {
+                return ResourceManager.GetString("CantCheckNameIsRelative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Cannot check if a null file name is relative 的本地化字符串。
         /// </summary>
         public static string CantCheckNameRelative {
             get {
                 return ResourceManager.GetString("CantCheckNameRelative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Cannot convert the value 的本地化字符串。
+        /// </summary>
+        public static string CantConvertValue {
+            get {
+                return ResourceManager.GetString("CantConvertValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Could not determine project type from preprocessor directives. The preprocessor directive string is 的本地化字符串。
+        /// </summary>
+        public static string CantDetermineProject {
+            get {
+                return ResourceManager.GetString("CantDetermineProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Could not find the file 的本地化字符串。
+        /// </summary>
+        public static string CantFindFile {
+            get {
+                return ResourceManager.GetString("CantFindFile", resourceCulture);
             }
         }
         
@@ -295,6 +421,33 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Could not find a type in the assemblies for 的本地化字符串。
+        /// </summary>
+        public static string CantFindTypeInAssembly {
+            get {
+                return ResourceManager.GetString("CantFindTypeInAssembly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Could not load the project 的本地化字符串。
+        /// </summary>
+        public static string CantLoadProject {
+            get {
+                return ResourceManager.GetString("CantLoadProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Cannot read record at index 的本地化字符串。
+        /// </summary>
+        public static string CantReadRecord {
+            get {
+                return ResourceManager.GetString("CantReadRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 CheckBox 的本地化字符串。
         /// </summary>
         public static string CheckBox {
@@ -318,6 +471,15 @@ namespace ClEngine.Properties {
         public static string ClearLog {
             get {
                 return ResourceManager.GetString("ClearLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Code 的本地化字符串。
+        /// </summary>
+        public static string Code {
+            get {
+                return ResourceManager.GetString("Code", resourceCulture);
             }
         }
         
@@ -529,6 +691,24 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Destination 的本地化字符串。
+        /// </summary>
+        public static string Destination {
+            get {
+                return ResourceManager.GetString("Destination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Destroy 的本地化字符串。
+        /// </summary>
+        public static string Destroy {
+            get {
+                return ResourceManager.GetString("Destroy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Destroy The Event 的本地化字符串。
         /// </summary>
         public static string DestroyTheEvent {
@@ -655,6 +835,24 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Entities 的本地化字符串。
+        /// </summary>
+        public static string Entities {
+            get {
+                return ResourceManager.GetString("Entities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Enumeration version check failed 的本地化字符串。
+        /// </summary>
+        public static string EnumVersionCheckFail {
+            get {
+                return ResourceManager.GetString("EnumVersionCheckFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Environmental color 的本地化字符串。
         /// </summary>
         public static string Environmental_Color {
@@ -727,6 +925,33 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Existing File 的本地化字符串。
+        /// </summary>
+        public static string ExistFile {
+            get {
+                return ResourceManager.GetString("ExistFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Expected a variable assignment like 的本地化字符串。
+        /// </summary>
+        public static string ExpectedVarAssignLike {
+            get {
+                return ResourceManager.GetString("ExpectedVarAssignLike", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Explorer 的本地化字符串。
+        /// </summary>
+        public static string Explorer {
+            get {
+                return ResourceManager.GetString("Explorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 ExportProjectTemplate 的本地化字符串。
         /// </summary>
         public static string ExportProjectTemplate {
@@ -768,6 +993,15 @@ namespace ClEngine.Properties {
         public static string File {
             get {
                 return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Field headers must be non null 的本地化字符串。
+        /// </summary>
+        public static string FiledHeaderMustNull {
+            get {
+                return ResourceManager.GetString("FiledHeaderMustNull", resourceCulture);
             }
         }
         
@@ -844,6 +1078,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Global Content Files 的本地化字符串。
+        /// </summary>
+        public static string GlobalContentFile {
+            get {
+                return ResourceManager.GetString("GlobalContentFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 GlobalEvent 的本地化字符串。
         /// </summary>
         public static string GlobalEvent {
@@ -885,6 +1128,24 @@ namespace ClEngine.Properties {
         public static string ImportWindow {
             get {
                 return ResourceManager.GetString("ImportWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 in 的本地化字符串。
+        /// </summary>
+        public static string In {
+            get {
+                return ResourceManager.GetString("In", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 index is incorrect 的本地化字符串。
+        /// </summary>
+        public static string IndexIsInCorrect {
+            get {
+                return ResourceManager.GetString("IndexIsInCorrect", resourceCulture);
             }
         }
         
@@ -957,6 +1218,33 @@ namespace ClEngine.Properties {
         public static string InterfaceUsage {
             get {
                 return ResourceManager.GetString("InterfaceUsage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 in the type 的本地化字符串。
+        /// </summary>
+        public static string InType {
+            get {
+                return ResourceManager.GetString("InType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Invalid value 的本地化字符串。
+        /// </summary>
+        public static string InvalidValue {
+            get {
+                return ResourceManager.GetString("InvalidValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Is the file loaded through the content pipeline?  If so， try loading the file without an extension 的本地化字符串。
+        /// </summary>
+        public static string IsLoadFromPipelineIfTryLoadExtension {
+            get {
+                return ResourceManager.GetString("IsLoadFromPipelineIfTryLoadExtension", resourceCulture);
             }
         }
         
@@ -1087,6 +1375,42 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 The New Project Creator is missing a critical file called EmptyTemplates.csv.  Full path is \n\n 的本地化字符串。
+        /// </summary>
+        public static string LoadProjectTip1 {
+            get {
+                return ResourceManager.GetString("LoadProjectTip1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 \n\nThis file is needed to get the list of available projects that the New Project Creator can create 的本地化字符串。
+        /// </summary>
+        public static string LoadProjectTip2 {
+            get {
+                return ResourceManager.GetString("LoadProjectTip2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The New Project Creator is missing a critical file called StarterProjects.csv.  Full path is\n\n 的本地化字符串。
+        /// </summary>
+        public static string LoadProjectTip3 {
+            get {
+                return ResourceManager.GetString("LoadProjectTip3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 \n\nThis file is needed to get the list of available projects that the New Project Creator can create 的本地化字符串。
+        /// </summary>
+        public static string LoadProjectTip4 {
+            get {
+                return ResourceManager.GetString("LoadProjectTip4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Log 的本地化字符串。
         /// </summary>
         public static string Log {
@@ -1186,6 +1510,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Memory and Performance 的本地化字符串。
+        /// </summary>
+        public static string MemoryAndPerformance {
+            get {
+                return ResourceManager.GetString("MemoryAndPerformance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 MessageProperty 的本地化字符串。
         /// </summary>
         public static string MessageProperty {
@@ -1209,6 +1542,15 @@ namespace ClEngine.Properties {
         public static string MinValue {
             get {
                 return ResourceManager.GetString("MinValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 because MonoGame files are missing. Try installing MonoGame, then try opening the project again. 的本地化字符串。
+        /// </summary>
+        public static string MissingMonoGameReOpenProject {
+            get {
+                return ResourceManager.GetString("MissingMonoGameReOpenProject", resourceCulture);
             }
         }
         
@@ -1267,6 +1609,24 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 You need to create or load a project first 的本地化字符串。
+        /// </summary>
+        public static string NeedHasProjectFirst {
+            get {
+                return ResourceManager.GetString("NeedHasProjectFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 New File 的本地化字符串。
+        /// </summary>
+        public static string NewFile {
+            get {
+                return ResourceManager.GetString("NewFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 NewMap 的本地化字符串。
         /// </summary>
         public static string NewMap {
@@ -1294,6 +1654,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 No current record 的本地化字符串。
+        /// </summary>
+        public static string NoCurrentRecord {
+            get {
+                return ResourceManager.GetString("NoCurrentRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 is not empty 的本地化字符串。
         /// </summary>
         public static string NotEmpty {
@@ -1312,11 +1681,38 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Not enough space in array 的本地化字符串。
+        /// </summary>
+        public static string NotEnoughSpaceInArray {
+            get {
+                return ResourceManager.GetString("NotEnoughSpaceInArray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Could not find the field/property 的本地化字符串。
+        /// </summary>
+        public static string NotFindField {
+            get {
+                return ResourceManager.GetString("NotFindField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Nothing - don&apos;t create a project 的本地化字符串。
         /// </summary>
         public static string NothingDontCreateProject {
             get {
                 return ResourceManager.GetString("NothingDontCreateProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 CLEngine is not initialized yet 的本地化字符串。
+        /// </summary>
+        public static string NotInitialized {
+            get {
+                return ResourceManager.GetString("NotInitialized", resourceCulture);
             }
         }
         
@@ -1384,6 +1780,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Whether the object created by this file will be a manually-updated object.  For example, Scenes which do not move can be made manually updated to improve runtime performance 的本地化字符串。
+        /// </summary>
+        public static string ObejctCreatedWillBeManuaUpdate {
+            get {
+                return ResourceManager.GetString("ObejctCreatedWillBeManuaUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 OpenProject 的本地化字符串。
         /// </summary>
         public static string OpenProject {
@@ -1407,6 +1812,15 @@ namespace ClEngine.Properties {
         public static string OpenWithoutProject {
             get {
                 return ResourceManager.GetString("OpenWithoutProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 or the directory 的本地化字符串。
+        /// </summary>
+        public static string OrDirectory {
+            get {
+                return ResourceManager.GetString("OrDirectory", resourceCulture);
             }
         }
         
@@ -1447,11 +1861,38 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Parse error action invalid inside parse error event 的本地化字符串。
+        /// </summary>
+        public static string ParseErrorActionInvalid {
+            get {
+                return ResourceManager.GetString("ParseErrorActionInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Parse error action not supported 的本地化字符串。
+        /// </summary>
+        public static string ParseErrorActionNotSupport {
+            get {
+                return ResourceManager.GetString("ParseErrorActionNotSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Particle 的本地化字符串。
         /// </summary>
         public static string Particle {
             get {
                 return ResourceManager.GetString("Particle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The path is already absolute 的本地化字符串。
+        /// </summary>
+        public static string PathIsAbsolute {
+            get {
+                return ResourceManager.GetString("PathIsAbsolute", resourceCulture);
             }
         }
         
@@ -1479,6 +1920,15 @@ namespace ClEngine.Properties {
         public static string Pixel {
             get {
                 return ResourceManager.GetString("Pixel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Position 的本地化字符串。
+        /// </summary>
+        public static string Position {
+            get {
+                return ResourceManager.GetString("Position", resourceCulture);
             }
         }
         
@@ -1573,11 +2023,29 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 record is bad 的本地化字符串。
+        /// </summary>
+        public static string RecordIsBad {
+            get {
+                return ResourceManager.GetString("RecordIsBad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Reduce items 的本地化字符串。
         /// </summary>
         public static string ReduceItems {
             get {
                 return ResourceManager.GetString("ReduceItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Relative Directory must be an absolute path 的本地化字符串。
+        /// </summary>
+        public static string RelativeMustAbsolute {
+            get {
+                return ResourceManager.GetString("RelativeMustAbsolute", resourceCulture);
             }
         }
         
@@ -1699,6 +2167,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Screens 的本地化字符串。
+        /// </summary>
+        public static string Screens {
+            get {
+                return ResourceManager.GetString("Screens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Screen Shake 的本地化字符串。
         /// </summary>
         public static string ScreenShake {
@@ -1740,6 +2217,15 @@ namespace ClEngine.Properties {
         public static string SelectZipUse {
             get {
                 return ResourceManager.GetString("SelectZipUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Set as StartUp Screen 的本地化字符串。
+        /// </summary>
+        public static string SetStartupScreen {
+            get {
+                return ResourceManager.GetString("SetStartupScreen", resourceCulture);
             }
         }
         
@@ -1807,6 +2293,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Source 的本地化字符串。
+        /// </summary>
+        public static string Source {
+            get {
+                return ResourceManager.GetString("Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 SpriteTexture 的本地化字符串。
         /// </summary>
         public static string SpriteTexture {
@@ -1857,6 +2352,51 @@ namespace ClEngine.Properties {
         public static string String {
             get {
                 return ResourceManager.GetString("String", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 String to Matrix conversion requires 16 values 的本地化字符串。
+        /// </summary>
+        public static string StringToMatrixNeed16 {
+            get {
+                return ResourceManager.GetString("StringToMatrixNeed16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 String to Vector2 conversion requires 2 values 的本地化字符串。
+        /// </summary>
+        public static string StringToVector2Need2 {
+            get {
+                return ResourceManager.GetString("StringToVector2Need2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 String to Vector3 conversion requires 3 values 的本地化字符串。
+        /// </summary>
+        public static string StringToVector3Need3 {
+            get {
+                return ResourceManager.GetString("StringToVector3Need3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 String to Vector4 conversion requires 4 values 的本地化字符串。
+        /// </summary>
+        public static string StringToVector4Need4 {
+            get {
+                return ResourceManager.GetString("StringToVector4Need4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 supplied string contains 的本地化字符串。
+        /// </summary>
+        public static string SupportStringContain {
+            get {
+                return ResourceManager.GetString("SupportStringContain", resourceCulture);
             }
         }
         
@@ -2059,6 +2599,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 to the type 的本地化字符串。
+        /// </summary>
+        public static string ToType {
+            get {
+                return ResourceManager.GetString("ToType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Transition Effects 的本地化字符串。
         /// </summary>
         public static string TransitionEffects {
@@ -2086,11 +2635,65 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Error trying to create enum value for empty string.  Enum type 的本地化字符串。
+        /// </summary>
+        public static string TryCreateeEnumError {
+            get {
+                return ResourceManager.GetString("TryCreateeEnumError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The game is attempting to load it in the following ContentManager 的本地化字符串。
+        /// </summary>
+        public static string TryLoadInContentManager {
+            get {
+                return ResourceManager.GetString("TryLoadInContentManager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tried to remove all ../ but ended up with this 的本地化字符串。
+        /// </summary>
+        public static string TryRemoveAllButEnd {
+            get {
+                return ResourceManager.GetString("TryRemoveAllButEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Type 的本地化字符串。
         /// </summary>
         public static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Type definition has parenthesis in the incorrect order 的本地化字符串。
+        /// </summary>
+        public static string TypeHasInCorrentParernthesis {
+            get {
+                return ResourceManager.GetString("TypeHasInCorrentParernthesis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Did you type in the name of the file wrong 的本地化字符串。
+        /// </summary>
+        public static string TypeNameWrong {
+            get {
+                return ResourceManager.GetString("TypeNameWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Type definition did not have a matching pair of opening and closing parenthesis 的本地化字符串。
+        /// </summary>
+        public static string TypeNotMatchParenthesis {
+            get {
+                return ResourceManager.GetString("TypeNotMatchParenthesis", resourceCulture);
             }
         }
         
@@ -2172,6 +2775,15 @@ namespace ClEngine.Properties {
         public static string Warn {
             get {
                 return ResourceManager.GetString("Warn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 when creating an instance of 的本地化字符串。
+        /// </summary>
+        public static string WhenCreateInstance {
+            get {
+                return ResourceManager.GetString("WhenCreateInstance", resourceCulture);
             }
         }
         

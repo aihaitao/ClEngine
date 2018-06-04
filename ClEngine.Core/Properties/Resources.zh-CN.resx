@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LoadProjectTip1" xml:space="preserve">
-    <value>新项目创建者缺少一个名为EmptyTemplates.csv的关键文件。全路径是 \n\n</value>
-  </data>
-  <data name="LoadProjectTip2" xml:space="preserve">
-    <value>\n\n此文件需要获取新项目创建者可以创建的可用项目的列表。 </value>
-  </data>
-  <data name="LoadProjectTip3" xml:space="preserve">
-    <value>新项目创建者缺少一个名为 StarterProjects.csv 的关键文件。全路径是 \n\n</value>
-  </data>
-  <data name="LoadProjectTip4" xml:space="preserve">
-    <value>\n\n此文件需要获取新项目创建者可以创建的可用项目的列表。</value>
-  </data>
   <data name="ProjectNotBlank" xml:space="preserve">
     <value>项目名称不能为空</value>
   </data>

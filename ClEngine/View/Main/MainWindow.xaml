@@ -9,6 +9,7 @@
         xmlns:core="clr-namespace:ClEngine.Core;assembly=ClEngine.Core"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:view="clr-namespace:ClEngine.View"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="CLEngine" Height="450" Width="800" WindowState="Maximized">
@@ -84,25 +85,40 @@
                 <TextBlock Text="{x:Static properties:Resources.RunGame}"></TextBlock>
             </Button>
         </Grid>
-        <xcad:DockingManager Grid.Row="2" Margin="0 5 0 0">
+        <xcad:DockingManager Grid.Row="2" 
+                             Margin="0 5 0 0">
             <xcad:DockingManager.Theme>
                 <xcad:Vs2013LightTheme></xcad:Vs2013LightTheme>
             </xcad:DockingManager.Theme>
             <xcad:LayoutRoot>
                 <xcad:LayoutPanel Orientation="Vertical">
-                    <xcad:LayoutDocumentPane>
-                        <xcad:LayoutAnchorable CanClose="False" CanHide="False" Title="{x:Static properties:Resources.Script}" CanFloat="False" x:Name="ScriptLayout">
-                            <local:ScriptWindow x:Name="ScriptWindow"></local:ScriptWindow>
-                        </xcad:LayoutAnchorable>
+                    <xcad:LayoutAnchorablePaneGroup Orientation="Horizontal"
+                                                    DockHeight="*">
+                        <xcad:LayoutAnchorablePane DockWidth="*">
+                            <xcad:LayoutAnchorable Title="{x:Static properties:Resources.Script}"
+                                                   CanClose="False"
+                                                   x:Name="ScriptLayout">
+                                <local:ScriptWindow x:Name="ScriptWindow"></local:ScriptWindow>
+                            </xcad:LayoutAnchorable>
+                            <xcad:LayoutAnchorable Title="{x:Static properties:Resources.HelpDocument}"
+                                                   CanClose="False"
+                                                   x:Name="HelpLayout">
+                                <local:HelpDocument></local:HelpDocument>
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorablePane>
 
-                        <xcad:LayoutAnchorable CanClose="False" CanHide="False" Title="{x:Static properties:Resources.HelpDocument}" CanFloat="False" x:Name="HelpLayout">
-                            <local:HelpDocument></local:HelpDocument>
-                        </xcad:LayoutAnchorable>
-                    </xcad:LayoutDocumentPane>
+                        <xcad:LayoutAnchorablePane DockWidth="300">
+                            <xcad:LayoutAnchorable CanClose="False"
+                                                   Title="{x:Static properties:Resources.Explorer}">
+                                <view:ElementViewWindow></view:ElementViewWindow>
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorablePane>
+                    </xcad:LayoutAnchorablePaneGroup>
 
-                    <xcad:LayoutAnchorablePaneGroup DockHeight="120">
+                    <xcad:LayoutAnchorablePaneGroup DockHeight="200">
                         <xcad:LayoutAnchorablePane>
-                            <xcad:LayoutAnchorable CanClose="False" CanFloat="True" Title="{x:Static properties:Resources.LogSystem}">
+                            <xcad:LayoutAnchorable Title="{x:Static properties:Resources.LogSystem}"
+                                                   CanClose="False">
                                 <ScrollViewer>
                                     <DataGrid  x:Name="LogBlock" 
                                                AutoGenerateColumns="False"
@@ -141,67 +157,6 @@
                 </xcad:LayoutPanel>
             </xcad:LayoutRoot>
         </xcad:DockingManager>
-
-        <!--<TabControl Grid.Row="2" Margin="0 2 0 0" Name="TabControl">
-            <TabItem Header="{x:Static properties:Resources.Map}">
-                <map:CommonMapEditor></map:CommonMapEditor>
-            </TabItem>
-            <TabItem Header="{x:Static properties:Resources.Interface}">
-                <local:UiEditor></local:UiEditor>
-            </TabItem>
-            <TabItem Header="{x:Static properties:Resources.Script}">
-                <local:ScriptWindow x:Name="ScriptWindow"></local:ScriptWindow>
-            </TabItem>
-            <TabItem Header="{x:Static properties:Resources.Resource}">
-                <asset:ResourceView></asset:ResourceView>
-            </TabItem>
-            <TabItem Header="{x:Static properties:Resources.Particle}">
-                <particle:ParticleEditor></particle:ParticleEditor>
-            </TabItem>
-            <TabItem Header="{x:Static properties:Resources.Animation}">
-                <animate:AnimationEditor></animate:AnimationEditor>
-            </TabItem>
-            <TabItem Header="{x:Static properties:Resources.HelpDocument}">
-                <local:HelpDocument></local:HelpDocument>
-            </TabItem>
-        </TabControl>-->
-
-        <!--<TabControl Grid.Row="3" MaxHeight="120">
-            <TabItem Header="{x:Static properties:Resources.LogSystem}">
-                <ScrollViewer>
-                    <DataGrid  x:Name="LogBlock" 
-                               AutoGenerateColumns="False"
-                               CanUserAddRows="False"
-                               ScrollViewer.CanContentScroll="True"
-                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                               ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.Name}" Width="*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate DataType="core:MessageModel">
-                                        <TextBlock Text="{Binding Message, Converter={StaticResource NameConverter}}"></TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.Value}" Width="*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate DataType="core:MessageModel">
-                                        <TextBlock Text="{Binding Message, Converter={StaticResource ValueConvert}}"></TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="{x:Static properties:Resources.Type}" Width="*">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate DataType="core:MessageModel">
-                                        <TextBlock Text="{Binding Message, Converter={StaticResource TypeConverter}}"></TextBlock>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </ScrollViewer>
-            </TabItem>
-        </TabControl>-->
     </Grid>
 </mah:MetroWindow>
 
