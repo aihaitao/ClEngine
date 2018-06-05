@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:properties="clr-namespace:ClEngine.Properties"
-        xmlns:viewModel="clr-namespace:ClEngine.ViewModel"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Project}"
         Title="{x:Static properties:Resources.NewProject}" Height="450" Width="800" WindowStartupLocation="CenterScreen">

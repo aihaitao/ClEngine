@@ -1080,4 +1080,7 @@
   <data name="CantLoadFile" xml:space="preserve">
     <value>无法加载文件</value>
   </data>
+  <data name="CantLoadMayBeNotInstallXna" xml:space="preserve">
+    <value>无法加载编辑器，可能是因为没有安装XNA 4。单击“确定”转到XNA运行时页面以安装XNA运行时，然后再次运行编辑器</value>
+  </data>
 </root>

@@ -439,6 +439,15 @@ namespace ClEngine.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Could not load Editor, probably because XNA 4 is not installed. Click OK to go to the XNA runtime page to install the XNA runtime, then run Editor again 的本地化字符串。
+        /// </summary>
+        public static string CantLoadMayBeNotInstallXna {
+            get {
+                return ResourceManager.GetString("CantLoadMayBeNotInstallXna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Could not load the mProject 的本地化字符串。
         /// </summary>
         public static string CantLoadProject {

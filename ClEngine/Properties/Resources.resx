@@ -1077,4 +1077,7 @@
   <data name="CantLoadFile" xml:space="preserve">
     <value>Could not load file</value>
   </data>
+  <data name="CantLoadMayBeNotInstallXna" xml:space="preserve">
+    <value>Could not load Editor, probably because XNA 4 is not installed. Click OK to go to the XNA runtime page to install the XNA runtime, then run Editor again</value>
+  </data>
 </root>

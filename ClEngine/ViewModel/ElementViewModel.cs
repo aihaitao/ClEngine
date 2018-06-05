@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using ClEngine.Model;
+using ClEngine.Properties;
 using GalaSoft.MvvmLight;
 
 namespace ClEngine.ViewModel
@@ -9,6 +10,11 @@ namespace ClEngine.ViewModel
     public class ElementViewModel : ViewModelBase
     {
         internal static List<string> DirectoriesToIgnore = new List<string>();
+        internal static TreeViewItem mEntityNode;
+        internal static TreeViewItem mScreenNode;
+        internal static TreeViewItem mGlobalContentNode;
+
+        public static TreeViewItem GlobalContentFileNode => mGlobalContentNode;
 
         private ObservableCollection<ElementModel> _children;
         public ObservableCollection<ElementModel> Children
@@ -25,20 +31,20 @@ namespace ClEngine.ViewModel
         {
             Children = new ObservableCollection<ElementModel>();
 
-            var entityItem = new TreeViewItem
+            mEntityNode = new TreeViewItem
             {
-                Header = Properties.Resources.Entities,
+                Header = Resources.Entities,
             };
-            var sceneItem = new TreeViewItem
+            mScreenNode = new TreeViewItem
             {
-                Header = Properties.Resources.Screens,
+                Header = Resources.Screens,
             };
-            var globalItem = new TreeViewItem
+            mGlobalContentNode = new TreeViewItem
             {
-                Header = Properties.Resources.GlobalContentFile
+                Header = Resources.GlobalContentFile
             };
 
-            Initialize(entityItem, sceneItem, globalItem);
+            Initialize(mEntityNode, mScreenNode, mGlobalContentNode);
         }
 
 

@@ -1,16 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
+using NewProjectCreator.Views;
 
 namespace ClEngine.View.Project
 {
     public delegate void RefAction<T>(ref T value);
-
-    public enum DialogResult
-    {
-        Yes,
-        Ok,
-        Cancel,
-    }
 
     /// <summary>
     /// MultiButtonMessageBox.xaml 的交互逻辑

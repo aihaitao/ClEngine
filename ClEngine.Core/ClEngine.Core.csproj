@@ -96,18 +96,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Libraries\FlatRedBall.Tools.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Libraries\FRBDKUpdater.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Libraries\Ionic.Zip.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Libraries\Ionic.Zlib.dll" />
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

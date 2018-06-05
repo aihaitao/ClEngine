@@ -88,6 +88,7 @@
       <HintPath>packages\NLua.1.3.2.1\lib\net45\NLua.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -151,15 +152,21 @@
     <Compile Include="CoreLibrary\Build\XnaContentProject.cs" />
     <Compile Include="CoreLibrary\Content\ContentManager.cs" />
     <Compile Include="CoreLibrary\Content\SourceReferencingFile.cs" />
+    <Compile Include="CoreLibrary\Controls\BaseElementTreeNode.cs" />
+    <Compile Include="CoreLibrary\Controls\EntityTreeNode.cs" />
+    <Compile Include="CoreLibrary\Controls\ScreenTreeNode.cs" />
     <Compile Include="CoreLibrary\CreateProjectResult.cs" />
     <Compile Include="CoreLibrary\Editor\DialogCloser.cs" />
     <Compile Include="CoreLibrary\Editor\EditorDescription.cs" />
     <Compile Include="CoreLibrary\Editor\EditorRecord.cs" />
     <Compile Include="CoreLibrary\Editor\MyCompletionData.cs" />
     <Compile Include="CoreLibrary\Editor\ProjectInfo.cs" />
+    <Compile Include="CoreLibrary\Elements\AssetTypeInfo.cs" />
+    <Compile Include="CoreLibrary\Elements\AvailableAssetTypes.cs" />
     <Compile Include="CoreLibrary\Elements\ObjectFinder.cs" />
     <Compile Include="CoreLibrary\Events\IEventContainer.cs" />
     <Compile Include="CoreLibrary\FileWatchManager.cs" />
+    <Compile Include="CoreLibrary\FormHelpers\TreeItemHelpers.cs" />
     <Compile Include="CoreLibrary\Gui.cs" />
     <Compile Include="CoreLibrary\GuiDisplay\Facades\IObjectFinder.cs" />
     <Compile Include="CoreLibrary\Helper\JsonHelper.cs" />
@@ -182,8 +189,14 @@
     <Compile Include="CoreLibrary\Layout\VirtualPanel.cs" />
     <Compile Include="CoreLibrary\Layout\ZoomableCanvas.cs" />
     <Compile Include="CoreLibrary\Logger\Logger.cs" />
+    <Compile Include="CoreLibrary\Manager\IFindManager.cs" />
     <Compile Include="CoreLibrary\Manager\TaskManager.cs" />
     <Compile Include="CoreLibrary\Manager\UnreferencedFilesManager.cs" />
+    <Compile Include="CoreLibrary\PluginDelegates.cs" />
+    <Compile Include="CoreLibrary\Plugins\ExportedImplementations\GlueState.cs" />
+    <Compile Include="CoreLibrary\Plugins\ExportedImplementations\IGlueState.cs" />
+    <Compile Include="CoreLibrary\Plugins\Interfaces\IOutputReceiver.cs" />
+    <Compile Include="CoreLibrary\Plugins\PluginBase.cs" />
     <Compile Include="CoreLibrary\Plugins\PluginManager.cs" />
     <Compile Include="CoreLibrary\PositionedObject.cs" />
     <Compile Include="CoreLibrary\Priority\PriorityQuadTree.cs" />
@@ -492,6 +505,18 @@
     <Resource Include="Icons\StretchArea.gif" />
     <Resource Include="Icons\transparent.png" />
     <Resource Include="Icons\variable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Libraries\FlatRedBall.Tools.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Libraries\FRBDKUpdater.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Libraries\Ionic.Zip.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Libraries\Ionic.Zlib.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System.Diagnostics;
+using System.IO;
+using System.Threading;
 using System.Windows;
 using ClEngine.CoreLibrary;
 using ClEngine.CoreLibrary.Manager;
@@ -50,6 +52,28 @@ namespace ClEngine
                     !string.IsNullOrEmpty(ProjectManager.ProjectBase.FullFileName))
                 {
 
+                }
+            }
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (FileNotFoundException fileNotFoundException)
+            {
+                if (fileNotFoundException.ToString().Contains("Microsoft.Xna.Framework.dll"))
+                {
+                    var message = Properties.Resources.CantLoadMayBeNotInstallXna;
+                    MessageBox.Show(message);
+                    Process.Start("https://www.microsoft.com/en-us/download/details.aspx?id=20914");
+                    Close();
+                }
+                else
+                {
+                    throw;
                 }
             }
         }

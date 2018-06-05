@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Forms;
 using ClEngine.CoreLibrary.ProjectCreator;
 
@@ -41,6 +42,11 @@ namespace ClEngine
         private void UserDifferentNamespaceCheckBoxChanged()
         {
             DifferentNamespaceTextbox.Visibility = DifferentNamespaceCheckbox.IsChecked == true ? Visibility.Hidden : Visibility.Visible;
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            Hide();
         }
     }
 }

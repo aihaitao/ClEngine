@@ -16,6 +16,7 @@ using ClEngine.CoreLibrary.Manager;
 using ClEngine.CoreLibrary.ProjectCreator;
 using ClEngine.CoreLibrary.Projects;
 using ClEngine.Properties;
+using ClEngine.View;
 using ClEngine.View.Project;
 using FlatRedBall;
 using FlatRedBall.Glue.Plugins;
@@ -31,6 +32,7 @@ using Microsoft.Build.Evaluation;
 using Microsoft.Build.Exceptions;
 using Microsoft.Win32;
 using NewProjectCreator.Managers;
+using NewProjectCreator.Views;
 using CommandLineManager = ClEngine.CoreLibrary.ProjectCreator.CommandLineManager;
 using FileWatchManager = ClEngine.CoreLibrary.IO.FileWatchManager;
 using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
@@ -159,7 +161,7 @@ namespace ClEngine.ViewModel
 
             var succeeded = true;
 
-            if (CommandLineManager.Self.OpenedBy != null && CommandLineManager.Self.OpenedBy.ToLower() == "glue")
+            if (CommandLineManager.Self.OpenedBy != null && CommandLineManager.Self.OpenedBy.ToLower() == "cl")
             {
                 var ppi = ProjectType;
 
@@ -491,7 +493,7 @@ namespace ClEngine.ViewModel
         {
             var mbmb = new MultiButtonMessageBox { MessageText = message };
             mbmb.AddButton(Resources.DefaultFindFile, DialogResult.Yes);
-            mbmb.AddButton(Resources.SelectZipUse,  DialogResult.Ok);
+            mbmb.AddButton(Resources.SelectZipUse,  DialogResult.OK);
             mbmb.AddButton(Resources.NothingDontCreateProject, DialogResult.Cancel);
             var dialogResult = mbmb.ShowMessageBox();
 
@@ -499,7 +501,7 @@ namespace ClEngine.ViewModel
             {
                 // do nothing, it'll just look in the default location....
             }
-            else if (dialogResult == DialogResult.Ok)
+            else if (dialogResult == DialogResult.OK)
             {
                 var fileDialog = new OpenFileDialog
                 {
@@ -683,6 +685,18 @@ namespace ClEngine.ViewModel
             if (result.ShouldTryLoadProject)
             {
                 shouldLoad = DetermineIfShouldLoad(projectFileName);
+            }
+
+            if (shouldLoad)
+            {
+                ProjectManager.ProjectBase.Load(projectFileName);
+
+                FileWatchManager.UpdateToProjectDirectory();
+                FileManager.RelativeDirectory = FileManager.GetDirectory(projectFileName);
+
+                FileManager.DefaultRelativeDirectory = FileManager.RelativeDirectory;
+
+                ElementViewWindow.AddDirectoryNodes();
             }
         }
 

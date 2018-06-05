@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ClEngine.CoreLibrary.Build;
 using ClEngine.CoreLibrary.Elements;
 using ClEngine.CoreLibrary.Interfaces;
+using ClEngine.CoreLibrary.Plugins;
 using ClEngine.CoreLibrary.SaveClasses;
 using ClEngine.Properties;
 using FlatRedBall.Glue.SaveClasses;
+using FlatRedBall.IO;
 using Xceed.Wpf.Toolkit;
 
 // ReSharper disable UnusedMember.Global
@@ -21,6 +24,8 @@ namespace ClEngine.CoreLibrary
             Failed
         }
 
+        public static string ContentDirectory => ProjectBase?.GetAbsoluteContentFolder();
+
         public static bool WantsToClose { get; set; }
 
         public static SettingsSave SettingsSave { get; set; } = new SettingsSave();
@@ -32,6 +37,8 @@ namespace ClEngine.CoreLibrary
             get => mProjectBase;
             set => mProjectBase = value;
         }
+
+        public static string ContentDirectoryRelative => ContentProject == null ? "" : ContentProject.ContentDirectory;
 
         public string DefaultNamespace => ProjectNamespace;
 
@@ -58,12 +65,67 @@ namespace ClEngine.CoreLibrary
             }
         }
 
+        public static string MakeRelativeContent(string relativePath)
+        {
+            if (!FileManager.IsRelative(relativePath))
+            {
+                return ContentProject != null
+                    ? FileManager.MakeRelative(relativePath, ContentDirectory)
+                    : FileManager.MakeRelative(relativePath);
+            }
+
+            return FileManager.MakeRelative(relativePath);
+
+        }
+
         public static CheckResult StatusCheck()
         {
             return CheckResult.Passed;
         }
 
         public static ProjectBase ContentProject => mProjectBase?.ContentProject;
+
+        public static string MakeAbsolute(string relativePath, bool forceAsContent)
+        {
+            if (!FileManager.IsRelative(relativePath)) return relativePath;
+
+            if (forceAsContent || IsContent(relativePath))
+            {
+                return !relativePath.StartsWith(ContentDirectoryRelative)
+                    ? ContentProject.MakeAbsolute(ContentDirectoryRelative + relativePath)
+                    : ContentProject.MakeAbsolute(relativePath);
+            }
+
+            return ProjectBase.MakeAbsolute(relativePath);
+
+        }
+
+        public static bool IsContent(string file)
+        {
+            var extension = FileManager.GetExtension(file);
+
+            if (extension == "")
+            {
+                return false;
+            }
+
+            if (AvailableAssetTypes.Self.AllAssetTypes.Any(ati => ati.Extension == extension))
+            {
+                return true;
+            }
+
+            if (AvailableAssetTypes.Self.AdditionalExtensionsToTreatAsAssets.Contains(extension))
+            {
+                return true;
+            }
+
+            if (PluginManager.CanFileReferenceContent(file))
+            {
+                return true;
+            }
+
+            return extension == "csv" || extension == "xml";
+        }
 
         public static void SaveProjects()
         {
